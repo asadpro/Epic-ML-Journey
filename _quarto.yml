@@ -2,21 +2,32 @@ project:
   type: book
   output-dir: docs
 
+
+
 book:
-  title: "Machine Learning Foundations A Comprehensive Guide from Python to Mathematics"
-  author: "Saeed Ullah"
+  title: "Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics"
+  author: "Mr. Saeed Ullah"
   date: "20/01/2024"
+  favicon: images/icon.png
+
   chapters:
     - index.qmd
-    - intro.qmd
+    - setup.qmd
+    - python part 1.qmd
     - summary.qmd
     - references.qmd
+
+
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
+      
+    
   pdf:
     documentclass: scrreprt
 

@@ -1,5 +1,25 @@
+
 # Preface {.unnumbered}
 
-This is a Quarto book.
+![](cover.png 'A book cover image ')
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+This book is for those who are fully beginner and want to learn how can they become master in machine learning from no-coding experience to become proficient ML Engineer of the future. This is not just a book but a journey of a machine learning engineer and what he learn and explore throughout his journey from going python to advanced topic like deep learning algorithm and the mathematics behind it. So be patience and read it step-by-step and you will be rewarded with the knowledge that will make you from ordinary to extra-ordinary person Inshallah!.
+
+## Attention to Details
+Key that differ a bad program from a good one is to attention to the detail of the problem. In fact, its applies to every proficient. Those who aren't paying attention may end up with a lot of buggy code and will not be able to solve it proficiently and will always do dwelling on internet to solve only a simple problem.
+
+## Do Not Copy-Paste
+Do not copy-paste any of the coding example. Practice it by yourself and play around with it a little bit, Tweak it so that you understand how it works.
+
+## A Note for Smarties
+If any of the reader think that i am insulting him then don't read this book because its for those who is beginner and want to start their career in machine learning or Artificial Inteligence. 
+If you know everything then perhaps you should learn Lisp, which stands for (List Processing) programming language.
+I hear people who know everything really like Lisp.
+
+::: {.callout-note appearance="default" collapse="false"}
+Engaging in real-world problem-solving and delving into research requires a significant time commitment.
+:::
+
+<div style="text-align: right;">
+  Let's start from here...
+</div>

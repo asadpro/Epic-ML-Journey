@@ -1,0 +1,323 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Progress Bar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #progress-container {
+      width: 100%;
+      height: 5px;
+      background-color: #ddd;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-container">
+  <div id="progress-bar"></div>
+</div>
+
+<!-- Your website content goes here -->
+
+<script>
+  document.addEventListener('scroll', function () {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercentage = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+  });
+</script>
+
+</body>
+</html>
+
+
+# Introduction to Python
+Hello Readers, here’s a quick, simple and *kid-friendly* introduction to Python:
+
+Python is like a magic language that computers understand. It’s not as tricky as some other languages, making it perfect for beginners, including kids!
+<hr>
+
+**What Python Can Do:**
+
+1. **Talking to Computers:** Imagine Python as a way to talk to computers in a language they understand. You can tell them what to do, and they’ll do it!
+
+2. **Making Games:** Have you ever wanted to create your own video game? Python can help you do that. You can tell the computer how the game should work, and soon you’ll have your very own creation.
+
+3. **Drawing and Art:** Python isn’t just for words; it can draw too! You can create beautiful pictures and designs with Python. It’s like having a digital paintbrush.
+
+4. **Solving Puzzles:** Python is like a superhero when it comes to solving problems. You can use it to figure out puzzles and challenges. It’s your own coding superhero!
+
+5. **Talking to Robots:** Robots are cool, right? With Python, you can tell robots what to do. It’s like being a commander for your own robot army!
+<hr>
+
+**Real-World Examples:**
+
+1. **Weather Helper:** Python can help you check the weather. You can create a program that tells you if it’s going to be sunny or rainy. No more surprises when you step outside!
+
+2. **Homework Assistant:** Python can be your homework helper. You can make a program that solves math problems or checks your spelling. It’s like having a smart friend by your side.
+
+::: {.callout-caution}
+Don’t take its literal meaning to solve your homework problem Instead take it as your mentor to ask for explanation of your problem and ask it to give the working of the underlying solutions.
+:::
+
+3. **Virtual Pet:** Ever wanted a pet dragon or a virtual friend? Python can help you create a virtual pet that you can feed, play with, and take care of. It’s like having a magical pet on your computer!
+
+4. **Treasure Hunt Game:** Python can turn your computer into a treasure map. Create a game where you search for hidden treasures by giving commands to your Python friend. X marks the spot!
+
+Remember, Python is like your secret code to make cool things happen on your computer. Have fun coding!
+
+::: {.callout-important}
+Finally the purpose of the above setup was to do four things reliably while you work on the exercises:
+
+1. Write exercise in your favourite text editor (mine VScode).
+2. Run the exercise.
+3. Fix the error when arise.
+4. Repeat
+:::
+
+<q>Anything else will only confuse you so stick to the plan.</q>
+
+## Python Basics: 
+Open search bar and open one of the following: 
+
+* Command Prompt (cmd) for short. 
+* PowerShell 
+* IDLE Python shell 
+* Open your favourite Editor and write the following code into it and then save it as hello.py (python programs can be run only if its in **.py** extension)
+
+Run your python script in directory where you have store your .py python file just open cmd there and run the `command: python filename.py`
+
+```python
+
+print("Yay! i am writing my first program") # <1>
+print('i am printing') # <2>
+('' , "") # <3>
+```
+
+
+1. `print` is called a function which will be explain in the letter chapters. so don’t stuck on these programming lingo for now.
+2. As you can see between those yellow brackets, text can be enclosed in both single and double quote.
+3. These quotes tells the python that we are writing string and strings are like plain text to python, its that simple.
+
+::: {.callout-tip }
+Also run your code in python Visual Compiler which explain and run your code step by step to show you what happens under the hood. Here’s the link: [Python Visual Compiler](https://pythontutor.com/render.html#mode=display)
+
+:::
+
+### Comments in python
+Comments are used to tell what the specific part of your program do and its like an instruction box for your line of code. It can also be used to disable your code. so this it won’t run.
+
+```python
+
+print('printing nothing') #single line comment # <1>
+
+'''Multiline comments''' # <2>
+```
+
+1. This is single line of comment. Here with pound character i can write anything just to explain this piece of code not to execute it
+2. You can also use multiline comments with the help of 3 single quotes which is used to write multiple line without specifying any # hash or pound character everytime you start new line of text.
+
+### Numbers & Math in python
+
+| Symbols | Names              |
+|---------|--------------------|
+| `+`     | Plus               |
+| `-`     | Minus              |
+| `/`     | Slash              |
+| `*`     | Asterisk           |
+| `%`     | Percent            |
+| `<`     | Less-than          |
+| `>`     | Greater-than       |
+| `<=`    | Less-than-equal    |
+| `>=`    | Greater-than-equal |
+
+: Most Commonly use Mathematics symbols {.striped .hover}
+
+
+### Variable & Names
+First let’s understand **Variable** in simple terms:
+
+Imagine you have a box, and you give it a name, like `number_box` Now, you can put a number in it, let’s say 5. So, `number_box` holds the value 5.
+
+`number_box` = 5
+
+Here `number_box` is the variable and that number 5 is the value in it. You can also change it like below
+
+```python
+number_box = 10 # <1>
+print(number_box) # Output: 10 # <2> 
+
+```
+Now it contain 10 instead of 5. Variables are useful and it lets you store and keep tracks of your numbers text and number of other things you will see in the advanced sections.
+
+**Quiz time:**
+
+> Question 1: Write a Python code snippet to print the phrase “Hello, Python!”
+
+> Question 2: How can you print the result of multiplying two numbers, let’s say 4 and 7, in Python?
+
+> Question 3: Explain what the end parameter in the print function is used for.
+
+> Question 4: Write a Python code snippet to print your name on one line and your age on the next line.
+
+> Question 5: If you want to print the following text on separate lines:
+
+```python
+Programming
+is
+fun!
+```
+How would you achieve this using the print function?
+
+::: {.callout title="Click to see answers..." collapse="true"}
+1. `print("Hello, Python!")`
+2. `print(4 * 7)`
+3. The end parameter in the print function is used to specify the character that separates multiple printed items. By default, it is set to ‘\n’, which means a newline character. Newline is like when we reach the end of a line we press enter that’s exactly what do, just to press enter at the end of a line.
+4. `print("Your Name")`
+5. `print("Your Age")`
+6. `print("Programming")`
+7. `print("is")`
+8. `print("fun!")`
+:::
+
+[**String formating**]{#string-formating}
+
+We can also format our string output in different ways, First i will write code and then from the following you can see its explanation below:
+
+```python 
+
+my_name = 'Asad Pro Beta' # My digital persona 
+address = 'Peshawar, Pakistan'
+my_age = 35 # Just kidding
+my_height = 74 # inches
+
+print(my_name+' ',address) # <1> 
+print(my_name+3*'.') # <2> 
+print('Your name is: {} my age: {}'.format(my_name,my_age)) # <3> 
+print('Your age is: {1} my name: {0}'.format(my_name, my_age)) # <4> 
+print(f'Your name is: {my_name} my age: {my_age}') # <5> 
+print(r'Your name is: {my_name} my age: {my_age}') # <6> 
+
+```
+
+
+1. This + sign merges (concatenate) two strings together and that white space is separate them
+2. First multiply dot with 3 which become (…) & then concatenate (merge) it with that string (my_name)
+3. The format function in Python is like a template for creating sentences where you want to replace certain parts with specific values. Let me explain with an analogy: Imagine you have a fill-in-the-blank storybook. The storybook has sentences with blanks, and you have stickers with words on them. Each sticker has a different word that fits into one of the blanks.
+4. We can also use index number, Index are like address of every variable where it stored on computer memory.
+5. Putting f in the beginning act as a format function with which it identify variables.
+6. Putting r in the beginning means that this string is raw which means nothing in other words, print everything as it is.
+
+```python
+
+A,B,C,D,E = [i for i in range(ord('A'),ord('E')+1)] # <1> 
+a,b,c,d,e = [i for i in range(ord('a'),ord('e')+1)]
+
+
+print(A,B,C,D,E,     # <2>
+      a,b,c,d,e)
+
+A,B,C,D,E = [65, 66, 67, 68, 69] # <3>
+
+days = "Mon Tue Wed Thu Fri Sat Sun"
+months = "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug" # <4>
+
+print(days)
+print(months) 
+```
+
+1. This is another way to assign list of values to multiple variable at once. (Don’t bother we will cover **Lists** in later chapters)
+2. Remove that comma after ‘E’ and see what happens
+3. Its the same as the first one above, I have just created the list dynamically in the first place.
+4. Here you will see that `\n` character will act as an enter and printing will start from the new line. Copy and paste it in your editor and see its result on your own.
+
+::: {.callout title="Click to explore print function throughly"}
+More on [**print**](https://realpython.com/python-print/)
+:::
+
+### Escape Sequences
+Imagine you’re writing a story on the computer, and you want to do some special things with your words. Escape sequences in Python are like magic codes you can use to make your words look different or do special tricks!
+
+Look at the following table and try them out on your own:
+
+| Escape      | What it does                                        |
+|-------------|-----------------------------------------------------|
+| `\\`        | Backslash (\)                                       |
+| `\'`        | Single-quote (')                                    |
+| `\"`        | Double-quote (")                                    |
+| `\a`        | ASCII bell (BEL)                                    |
+| `\b`        | ASCII backspace (BS)                                |
+| `\f`        | ASCII formfeed (FF)                                 |
+| `\n`        | ASCII linefeed (LF)                                 |
+| `\N{name}`  | Character named `name` in the Unicode database        |
+| `\r`        | ASCII carriage return (CR)                          |
+| `\t`        | ASCII horizontal tab (TAB)                          |
+| `\uxxxx`    | Character with 16-bit hex value `xxxx` (Unicode only) |
+| `\Uxxxxxxxx`| Character with 32-bit hex value `xxxxxxxx` (Unicode only)|
+| `\v`        | ASCII vertical tab (VT)                             |
+| `\ooo`      | Character with octal value `oo`                       |
+| `\xhh`      | Character with hex value `hh`                         |
+
+
+**Prompting People or Asking for Input**
+
+```python
+print('How old are you?') 
+age =  input() # <1>
+print(f'Your age : {age}') # <2>
+```
+
+`input()` is a method which shows you an empty placeholder for you to insert any value & when you insert then press enter so that value can be store in `age` variable.
+
+> `Input()` function is like an empty page; someone gives you and you write anything what comes to your mind.
+
+2. Here, we have used the same [string formating](#string-formating) as we use earlier.
+
+### Python modules
+Let’s see the code first…
+
+```python
+import os # <1>
+current_path = os.getcwd() # <2>
+print(current_path)
+```
+
+1. os is a built-in module of python which is used to do local operating system level operation like directory change, path of the folder and navigating through directories etc.
+2. This code just copy your path where you are running your file. Don’t confuse yourself with that `os.getcwd()` for now you will soon understand this.
+
+::: {.callout title="Module in simple terms"}
+Think of these module `OS` this way. If python is an electrician then modules are its tool sets with every tool has their specific purpose like (pliers, voltage tester, wire stripper, multimeter etc) or you can say these modules are the features of python.
+:::
+
+**Asking Prompt and Passing Argument**
+
+```python
+from sys import argv
+script_name, username = argv
+print(f'Script name: {script_name}')
+print(f'Username: {username}')
+
+'''
+Input:   python delete.py asad
+Output:  Script name: delete.py
+         Username: asad
+'''
+```
+1. This is the other way to import module(feature) which says import from the module `sys` the `argv` method (which is a small part of that module)
+2. First open the terminal and navigate two your file where it is stored then run `python delete.py` asad here `delete.py` is my python file name write what’s yours and `asad` is the argument like an extra input to catch it inside our program.
