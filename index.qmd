@@ -1,7 +1,4 @@
-
 # Preface {.unnumbered}
-
-![](cover.png 'A book cover image ')
 
 This book is for those who are fully beginner and want to learn how can they become master in machine learning from no-coding experience to become proficient ML Engineer of the future. This is not just a book but a journey of a machine learning engineer and what he learn and explore throughout his journey from going python to advanced topic like deep learning algorithm and the mathematics behind it. So be patience and read it step-by-step and you will be rewarded with the knowledge that will make you from ordinary to extra-ordinary person Inshallah!.
 
