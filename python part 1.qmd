@@ -188,7 +188,7 @@ How would you achieve this using the print function?
 ::: {.callout title="Click to see answers..." collapse="true"}
 1. `print("Hello, Python!")`
 2. `print(4 * 7)`
-3. The end parameter in the print function is used to specify the character that separates multiple printed items. By default, it is set to ‘\n’, which means a newline character. Newline is like when we reach the end of a line we press enter that’s exactly what do, just to press enter at the end of a line.
+3. The end parameter in the print function is used to specify the character that separates multiple printed items. By default, it is set to `\n`, which means a newline character. Newline is like when we reach the end of a line we press enter that’s exactly what do, just to press enter at the end of a line.
 4. `print("Your Name")`
 5. `print("Your Age")`
 6. `print("Programming")`
