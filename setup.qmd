@@ -1,4 +1,4 @@
-# 1  Windows OS Setup
+# Windows OS Setup
 Install python from the following link or watch any youtube video on it to install it as it requires only vscode (editor) and python language installation:
 Certainly, Asad_Pro_3.1. Here’s a paraphrased version of the instructions:
 

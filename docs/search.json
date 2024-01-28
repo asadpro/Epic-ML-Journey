@@ -42,11 +42,11 @@
   {
     "objectID": "setup.html",
     "href": "setup.html",
-    "title": "1  1 Windows OS Setup",
+    "title": "1  Windows OS Setup",
     "section": "",
     "text": "Install python from the following link or watch any youtube video on it to install it as it requires only vscode (editor) and python language installation: Certainly, Asad_Pro_3.1. Here’s a paraphrased version of the instructions:\n\nVisit Notepad++, download the Notepad++ text editor, and install it without requiring administrator privileges.\nEnsure easy access to Notepad++ by placing shortcuts on your desktop and/or in Quick Launch during the installation.\nLaunch PowerShell from the Start menu by searching for it and pressing Enter.\nCreate shortcuts for PowerShell on your desktop and/or Quick Launch for convenience.\nOpen your Terminal program, and if Python is not recognized, install it from Python.\nConsider using ActiveState Python if administrative rights are an issue. If Python isn’t recognized after installation, set the environment variable in PowerShell and restart it.\n\n\n\nIf you run python and it’s not there (python is not recognized.), install it from http://python.org/download.\nMake sure you install Python 2, not Python 3.\nYou may be better off with ActiveState Python, especially if you do not have administrative rights.\nIf after you install it python still isn’t recognized, then in PowerShell enter this: [Environment]::SetEnvironmentVariable(“Path”, “$env:Path;C:”, “User”)\nClose PowerShell and then start it again to make sure Python now runs. If it doesn’t, restart may be required.\n\n\n\nType quit() in Python to exit.\nReturn to the previous prompt in the Terminal and troubleshoot if necessary.\nLearn how to create a directory in the Terminal.\nFamiliarize yourself with changing directories in the Terminal.\nUtilize your text editor to create a file in the directory, then save it.\nSwitch back to the Terminal using keyboard shortcuts.\nIn the Terminal, check if you can list the directory to confirm the creation of your new file.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>1  Windows OS Setup</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Windows OS Setup</span>"
     ]
   },
   {
