@@ -1,0 +1,22 @@
+# About the Author {.unnumbered}
+
+::: columns
+::: {.column width="30%"}
+
+![](images/saeed.png){fig-alt="Photo of the Author of this book." fig-align="left" .lightbox}
+:::
+
+::: {.column width="70%"}
+
+
+**Saeed Ullah** is a dynamic individual with a passion for technology, science, and the intricate dance between code and creativity. Hailing from Pakistan, **Saeed Ullah** is a dedicated computer science student, avid gardener, and aspiring robotic engineer. His insatiable curiosity extends beyond the realms of his formal studies, as he continuously seeks to broaden his knowledge across various disciplines.
+
+With a background in electrical engineering and a focus on mastering machine learning, mathematics, and computer programming, **Saeed Ullah** is on an epic journey through the landscapes of emerging technologies. He finds joy in the fusion of theoretical concepts and hands-on application, always eager to contribute to the cutting edge of science and technology.
+:::
+:::
+
+
+
+Beyond the world of algorithms and circuits, **Saeed Ullah** is a green-thumbed enthusiast, nurturing a garden that reflects both patience and growth—a metaphor that echoes his approach to life and learning.
+
+In this book, **Saeed Ullah** shares not only technical insights but also the spirit of exploration and the pursuit of excellence. Through the lens of his experiences and expertise, readers are invited to join him on a journey where technology meets creativity, and the possibilities are as vast as the ever-expanding universe of knowledge.

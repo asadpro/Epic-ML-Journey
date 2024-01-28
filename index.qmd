@@ -1,5 +1,5 @@
 
-![](images/cover.svg){.lightbox}
+![](images/cover.png){.lightbox}
 
 # Preface {.unnumbered}
 
@@ -19,6 +19,7 @@ I hear people who know everything really like Lisp.
 ::: {.callout-note appearance="default" collapse="false"}
 Engaging in real-world problem-solving and delving into research requires a significant time commitment.
 :::
+
 
 <div style="text-align: right;">
   Let's start from here...
