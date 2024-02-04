@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics - 4&nbsp; Lists</title>
+<title>Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics - 10&nbsp; Intro to ChatGPT</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./dictionaries.html" rel="next">
-<link href="./functions.html" rel="prev">
-<link href="./images/icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../1. python basics/Reading and writing files.html" rel="prev">
+<link href="../images/icon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,11 +70,68 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
+</head><body class="nav-sidebar floating">
+    <button onclick="scrollToBottom()" style="position: fixed; bottom: 20px; right: 20px; border-radius: 100%; background-color: rgba(131, 230, 132, 0.7); padding: 10px; border: none; cursor: pointer;">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" width="24" height="24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <script>
+      function scrollToBottom() {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  
+  
+  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      #progress-container {
+        width: 100%;
+        height: 5px;
+        background-color: #ddd;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        overflow: hidden;
+      }
+      #progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: #4CAF50;
+      }
+    </style>
+  
+  
+  
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  
+  <script>
+    document.addEventListener('scroll', function () {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = (scrollTop / scrollHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+    });
+  </script>
+  
+  
+  
+  
 
 
-</head>
 
-<body class="nav-sidebar floating">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -84,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python basics.html">Python Programming Basics</a></li><li class="breadcrumb-item"><a href="./lists.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html">Mastering Prompt Engineering (ChatGPT)</a></li><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -99,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics</a> 
+      <a href="../">Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -114,13 +170,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../1. python basics/about author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About the Author</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Windows OS Setup</span></a>
   </div>
 </li>
@@ -135,37 +197,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./python basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../1. python basics/python basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./flow control.html" class="sidebar-item-text sidebar-link">
+  <a href="../1. python basics/flow control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flow Control</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../1. python basics/functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lists.html" class="sidebar-item-text sidebar-link active">
+  <a href="../1. python basics/lists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dictionaries.html" class="sidebar-item-text sidebar-link">
+  <a href="../1. python basics/dictionaries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dictionaries</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./string manipulation.html" class="sidebar-item-text sidebar-link">
+  <a href="../1. python basics/string manipulation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">String Manipulations</span></span></a>
   </div>
 </li>
@@ -182,20 +244,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pattern matching with regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pattern Matching</span></a>
+  <a href="../2. Regular Expressions/pattern matching with regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pattern Matching</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./input validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Input Validation</span></span></a>
+  <a href="../1. python basics/input validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Input Validation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Reading and writing files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></span></a>
+  <a href="../1. python basics/Reading and writing files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Mastering Prompt Engineering (ChatGPT)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ChatGPT Guide/prompt engineering basics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></span></a>
   </div>
 </li>
       </ul>
@@ -211,9 +290,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python basics.html">Python Programming Basics</a></li><li class="breadcrumb-item"><a href="./lists.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html">Mastering Prompt Engineering (ChatGPT)</a></li><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></h1>
 </div>
 
 
@@ -230,6 +309,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>ChatGPT is an AI language model that is trained on massive amount of text data that generate natural language responses in conversation style.</p>
+<p><strong>Simple Explanation💨</strong> ChatGPT is like a super smart talking robot that can answer questions, tell stories, and chat with you. It learns from lots of words and sentences to understand and talk like a friend. It’s here to help and have fun conversations!</p>
+<p><strong>5 main benefits of ChatGPT:↴</strong></p>
+<ol type="1">
+<li><strong>Smart Helper:</strong> Helps you learn and find answers really fast!</li>
+<li><strong>Talks Like a Friend:</strong> Makes writing and talking better and more fun.</li>
+<li><strong>Idea Buddy:</strong> Helps you think of cool and creative stuff.</li>
+<li><strong>Time Saver:</strong> Saves time by helping you quickly.</li>
+<li><strong>Gets Smarter with You:</strong> Learns and becomes an even better friend over time!</li>
+</ol>
+<p><strong>Main outputs it can generate</strong></p>
+<ol type="1">
+<li><strong>Text Answers:</strong> Provides detailed written answers to questions.</li>
+<li><strong>Creative Writing:</strong> Generates stories, poems, or creative conte</li>
+<li><strong>Code Assistance:</strong> Helps with coding and programming-related qu</li>
+<li><strong>Language Translation:</strong> Translates text from one language to an</li>
+<li><strong>Conversation:</strong> Engages in natural language conversations on va</li>
+<li><strong>Synthesize Info:</strong> Summarize large amound of content into a con</li>
+</ol>
+<p>List of Modifiers for ChatGPT to give you better output:</p>
+<table class="table-hover table-striped table">
+<caption>List of Modifiers</caption>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Names</th>
+<th>Modifiers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Qualifiers</td>
+<td>Words like “some,” “few,” “many,” “most,” “all” modifying nouns or adjectives they precedes.</td>
+</tr>
+<tr class="even">
+<td>Adjectives</td>
+<td>Words that describe or modifying nouns/pronouns, e.g., “red,” “happy,” “large.”</td>
+</tr>
+<tr class="odd">
+<td>Adverbs</td>
+<td>Words that modifying verbs, adjectives, or other adverbs, e.g., “quickly,” “well,” “loudly.”</td>
+</tr>
+<tr class="even">
+<td>Intensifiers</td>
+<td>Words strengthening the meaning of an adjective or adverb, e.g., “very,” “extremely,” “totally.”</td>
+</tr>
+<tr class="odd">
+<td>Negatives</td>
+<td>Words negating or reversing the meaning of a sentence, e.g., “not,” “never,” “no.”</td>
+</tr>
+<tr class="even">
+<td>Number words</td>
+<td>Words indicating quantity, e.g., “one,” “two,” “few,” “many,” “several.”</td>
+</tr>
+<tr class="odd">
+<td>Time words</td>
+<td>Words indicating when something happened or will happen, e.g., “now,” “yet,” “soon.”</td>
+</tr>
+<tr class="even">
+<td>Place words</td>
+<td>Words indicating where something is or happened, e.g., “here,” “there,” “everywhere.”</td>
+</tr>
+<tr class="odd">
+<td>Degree words</td>
+<td>Words indicating the extent or degree to which something is true, e.g., “totally,” “completely,” “slightly.”</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -457,6 +607,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -767,14 +932,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./functions.html" class="pagination-link  aria-label=" &lt;span="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></span>
+      <a href="../1. python basics/Reading and writing files.html" class="pagination-link  aria-label=" &lt;span="" and="" writing="" files&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./dictionaries.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Dictionaries</span>">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dictionaries</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -782,4 +944,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

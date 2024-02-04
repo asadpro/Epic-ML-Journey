@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.545">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics - 4&nbsp; Lists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../1. python basics/5-dictionaries.html" rel="next">
+<link href="../1. python basics/3-functions.html" rel="prev">
+<link href="../images/icon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+</head><body class="nav-sidebar floating">
+    <button onclick="scrollToBottom()" style="position: fixed; bottom: 20px; right: 20px; border-radius: 100%; background-color: rgba(131, 230, 132, 0.7); padding: 10px; border: none; cursor: pointer;">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" width="24" height="24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <script>
+      function scrollToBottom() {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  
+  
+  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      #progress-container {
+        width: 100%;
+        height: 5px;
+        background-color: #ddd;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        overflow: hidden;
+      }
+      #progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: #4CAF50;
+      }
+    </style>
+  
+  
+  
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  
+  <script>
+    document.addEventListener('scroll', function () {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = (scrollTop / scrollHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+    });
+  </script>
+  
+  
+  
+  
+
+
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1. python basics/1-python basics.html">Python Programming Basics</a></li><li class="breadcrumb-item"><a href="../1. python basics/4-lists.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/about author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About the Author</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Windows OS Setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Python Programming Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/1-python basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/2-flow control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flow Control</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/3-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/4-lists.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/5-dictionaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dictionaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1. python basics/6-string manipulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">String Manipulations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Automation with Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2. Regular Expressions/pattern matching with regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pattern Matching</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2. Regular Expressions/input validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Input Validation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2. Regular Expressions/Reading and writing files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Mastering Prompt Engineering (ChatGPT)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ChatGPT Guide/prompt engineering basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#getting-values-in-a-list-with-indexes" id="toc-getting-values-in-a-list-with-indexes" class="nav-link active" data-scroll-target="#getting-values-in-a-list-with-indexes"><span class="header-section-number">4.1</span> Getting Values in a List with Indexes</a></li>
+  <li><a href="#nested-list" id="toc-nested-list" class="nav-link" data-scroll-target="#nested-list"><span class="header-section-number">4.2</span> Nested List</a></li>
+  <li><a href="#changing-values-of-a-list-by-indexes" id="toc-changing-values-of-a-list-by-indexes" class="nav-link" data-scroll-target="#changing-values-of-a-list-by-indexes"><span class="header-section-number">4.3</span> Changing Values of a List by Indexes</a></li>
+  <li><a href="#list-concatenation-replication" id="toc-list-concatenation-replication" class="nav-link" data-scroll-target="#list-concatenation-replication"><span class="header-section-number">4.4</span> List Concatenation &amp; Replication</a></li>
+  <li><a href="#removing-values-from-lists" id="toc-removing-values-from-lists" class="nav-link" data-scroll-target="#removing-values-from-lists"><span class="header-section-number">4.5</span> Removing Values from Lists</a></li>
+  <li><a href="#working-with-lists" id="toc-working-with-lists" class="nav-link" data-scroll-target="#working-with-lists"><span class="header-section-number">4.6</span> Working with Lists</a></li>
+  <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration"><span class="header-section-number">4.7</span> Iterate through Lists</a></li>
+  <li><a href="#in-and-not-in-operators" id="toc-in-and-not-in-operators" class="nav-link" data-scroll-target="#in-and-not-in-operators"><span class="header-section-number">4.8</span> <strong><code>in</code></strong> and <strong><code>not in</code></strong> Operators</a></li>
+  <li><a href="#multiple-assignment-using-lists" id="toc-multiple-assignment-using-lists" class="nav-link" data-scroll-target="#multiple-assignment-using-lists"><span class="header-section-number">4.9</span> Multiple Assignment using Lists</a></li>
+  <li><a href="#using-enumerate-function-with-lists" id="toc-using-enumerate-function-with-lists" class="nav-link" data-scroll-target="#using-enumerate-function-with-lists"><span class="header-section-number">4.10</span> Using <strong><em>enumerate()</em></strong> function with Lists</a></li>
+  <li><a href="#in-place-operators-or-compound-assignment-operators" id="toc-in-place-operators-or-compound-assignment-operators" class="nav-link" data-scroll-target="#in-place-operators-or-compound-assignment-operators"><span class="header-section-number">4.11</span> In-Place Operators or Compound Assignment Operators:</a></li>
+  <li><a href="#insert-append-methods-of-list" id="toc-insert-append-methods-of-list" class="nav-link" data-scroll-target="#insert-append-methods-of-list"><span class="header-section-number">4.12</span> <code>insert()</code> &amp; <code>append()</code> methods of List</a></li>
+  <li><a href="#sorting-value-of-list-using-sort-method" id="toc-sorting-value-of-list-using-sort-method" class="nav-link" data-scroll-target="#sorting-value-of-list-using-sort-method"><span class="header-section-number">4.13</span> Sorting value of list using <code>sort()</code> Method:</a></li>
+  <li><a href="#reversing-the-values-of-list" id="toc-reversing-the-values-of-list" class="nav-link" data-scroll-target="#reversing-the-values-of-list"><span class="header-section-number">4.14</span> Reversing the Values of List</a></li>
+  <li><a href="#string-lists-similarities" id="toc-string-lists-similarities" class="nav-link" data-scroll-target="#string-lists-similarities"><span class="header-section-number">4.15</span> String &amp; Lists Similarities</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">4.16</span> <em>Tuple</em> cousin of Lists</a></li>
+  <li><a href="#converting-types-with-list-tuple-functions" id="toc-converting-types-with-list-tuple-functions" class="nav-link" data-scroll-target="#converting-types-with-list-tuple-functions"><span class="header-section-number">4.17</span> Converting Types with <em>list()</em> &amp; <em>tuple()</em> functions</a>
+  <ul class="collapse">
+  <li><a href="#list-functions" id="toc-list-functions" class="nav-link" data-scroll-target="#list-functions"><span class="header-section-number">4.17.1</span> <code>list()</code> functions:</a></li>
+  <li><a href="#tuple-functions" id="toc-tuple-functions" class="nav-link" data-scroll-target="#tuple-functions"><span class="header-section-number">4.17.2</span> <code>tuple()</code> functions:</a></li>
+  </ul></li>
+  <li><a href="#reference-to-variables" id="toc-reference-to-variables" class="nav-link" data-scroll-target="#reference-to-variables"><span class="header-section-number">4.18</span> Reference to Variables</a></li>
+  <li><a href="#copy-and-deepcopy-functions" id="toc-copy-and-deepcopy-functions" class="nav-link" data-scroll-target="#copy-and-deepcopy-functions"><span class="header-section-number">4.19</span> <em>copy()</em> and <em>deepcopy()</em> functions</a></li>
+  <li><a href="#practice-questions" id="toc-practice-questions" class="nav-link" data-scroll-target="#practice-questions"><span class="header-section-number">4.20</span> <strong>Practice Questions</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1. python basics/1-python basics.html">Python Programming Basics</a></li><li class="breadcrumb-item"><a href="../1. python basics/4-lists.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="lists" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Before you begin to write a program we have a data type called <em>lists</em> and its cousin <em>tuple</em>. ## List Data Type a <em>list</em> is a value that contains multiple values in an ordered sequence. Values inside that list are also considered as items. Imagine you have a magic box called a “list” In this box, you can put many things, like toys, books, or candies. A list in programming is like that magic box, but it holds different pieces of information, not just toys.</p>
+<p>In a list, you can store numbers, words, or a mix of both. For example, you can have a list of your favorite colors: <code>['red', 'blue', 'green']</code>. Each color is like a special item in the box.</p>
+<p>You can also tell the list to do things, like showing you all the colors or adding a new color. It helps you keep things organized, just like your magic box keeps your toys in order.</p>
+<p>Here’s a simple example in Python:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>favorite_colors <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My favorite colors are:"</span>, favorite_colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this case, the list is <code>['red', 'blue', 'green']</code>, and the program tells the computer to print those colors. Lists are like magical containers that make it easy to work with different pieces of information in a program.</p>
+<section id="getting-values-in-a-list-with-indexes" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="getting-values-in-a-list-with-indexes"><span class="header-section-number">4.1</span> Getting Values in a List with Indexes</h2>
+<p>Say you have a list <code>['red', 'blue', 'green', 45, True]</code> stored in a variable named <code>colors</code>. If we want to access elements from this list we have to access it by its index (index is like the address of that item on the memory). e.g.&nbsp;<code>colors[0]</code> would return <code>red</code> and so on. Since list indexing starts with 0 that’s why to access the 5th element of the list you have to give it 4 or <code>len(list)-1</code> less than one of the total length of the list.</p>
+<p>We can also use negative indexing to display the list in reverse order or to iterate on the list from backward.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.programiz.com/sites/tutorial2program/files/python-list-index.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Source: https://www.dataquest.io"><img src="https://www.programiz.com/sites/tutorial2program/files/python-list-index.png" class="img-fluid figure-img" alt="Source: https://www.dataquest.io"></a></p>
+<figcaption>Source: https://www.dataquest.io</figcaption>
+</figure>
+</div>
+<p>For example, try the following in the interactive shell.</p>
+<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'blue'</span>,<span class="st">'green'</span>,<span class="st">'red'</span>,<span class="st">'brown'</span>,<span class="st">'white'</span>, <span class="dv">9124</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="fl">9.33</span>]</span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'blue'</span>,<span class="st">'green'</span>,<span class="st">'red'</span>,<span class="st">'brown'</span>,<span class="st">'white'</span>, <span class="dv">9124</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="fl">9.33</span>]</span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>colors[<span class="dv">0</span>]</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="co">'blue'</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>colors[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="fl">9.33</span></span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>colors[<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a><span class="va">False</span></span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>colors[<span class="op">-</span><span class="dv">3</span>]</span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span>
+<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>colors[<span class="op">-</span><span class="dv">4</span>]</span>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a><span class="dv">9124</span></span>
+<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a>colors[<span class="dv">2</span>]</span>
+<span id="annotated-cell-2-15"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a><span class="co">'red'</span></span>
+<span id="annotated-cell-2-16"><a href="#annotated-cell-2-16" aria-hidden="true" tabindex="-1"></a>colors[<span class="dv">3</span>]</span>
+<span id="annotated-cell-2-17"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a><span class="co">'brown'</span> </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-18" class="code-annotation-target"><a href="#annotated-cell-2-18" aria-hidden="true" tabindex="-1"></a>colors[<span class="dv">1</span>:<span class="dv">4</span>]</span>
+<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19" aria-hidden="true" tabindex="-1"></a>[<span class="st">'green'</span>, <span class="st">'red'</span>, <span class="st">'brown'</span>]</span>
+<span id="annotated-cell-2-20"><a href="#annotated-cell-2-20" aria-hidden="true" tabindex="-1"></a>colors[<span class="dv">0</span>:<span class="dv">4</span>]</span>
+<span id="annotated-cell-2-21"><a href="#annotated-cell-2-21" aria-hidden="true" tabindex="-1"></a>[<span class="st">'blue'</span>, <span class="st">'green'</span>, <span class="st">'red'</span>, <span class="st">'brown'</span>]</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="6" data-code-annotation="1">Here, we are using the negative indexing to iterate from the back of the list and <code>colors[-1]</code> will return the last element/item of the list.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="18,20" data-code-annotation="2">We can also use the slicing (a range of values in a list) in a list to specify the range to tell it where to start and where to stop. <code>colors[0:4]</code> Here, you can see we tell Python to start from the index 0 and goes upto 4 (but 4 is not included because indexing starts from 0 that’s why it will stop on 3. if you start from 0 like (0, 1, 2, 3) == 4 elements.)</span>
+</dd>
+</dl>
+</section>
+<section id="nested-list" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="nested-list"><span class="header-section-number">4.2</span> Nested List</h2>
+<p>Let’s create a Nested list in Python:</p>
+<div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>cars <span class="op">=</span> [<span class="st">'toyota'</span>, <span class="st">'mercedes'</span>, <span class="st">'benz'</span>, [<span class="st">'tesla x'</span>, <span class="st">'tesla y'</span>, <span class="st">'tesla z'</span>]]</span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cars[<span class="dv">0</span>:<span class="dv">2</span>]) <span class="co"># Output: ['toyota', 'mercedes', 'benz']</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cars[<span class="dv">3</span>])  <span class="co"># Output: ['tesla x', 'tesla y', 'tesla z']</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cars[<span class="dv">3</span>][<span class="dv">0</span>]) <span class="co"># Output: 'tesla x'</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-5" class="code-annotation-target"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cars[<span class="dv">3</span>][<span class="dv">0</span>:<span class="dv">2</span>]) <span class="co"># Output: ['tesla x', 'tesla y']</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="3" data-code-annotation="1"><code>cars[3]</code> will give the value on index 3 which is the nested list inside the <code>cars</code> list.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="2">This <code>cars[3][0]</code> expression tells Python to go on the third item on the list <code>cars</code> then on the third element fetch element on index <code>0</code> and return it.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="5" data-code-annotation="3"><code>cars[3][0:2]</code> expression tells Python to extract elements ranging from 0 up to 2 from the nested list within <code>cars</code>.</span>
+</dd>
+</dl>
+</section>
+<section id="changing-values-of-a-list-by-indexes" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="changing-values-of-a-list-by-indexes"><span class="header-section-number">4.3</span> Changing Values of a List by Indexes</h2>
+<p>Normally, when we change the value of a variable we use the variable name and the corresponding value, But in the case of <code>lists</code> we use the index to change the value of a particular item. e.g.&nbsp;Let’s look at the following coding example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cars <span class="op">=</span> [<span class="st">'toyota'</span>, <span class="st">'mercedes'</span>, <span class="st">'benz'</span>, [<span class="st">'tesla x'</span>, <span class="st">'tesla y'</span>, <span class="st">'tesla z'</span>]]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cars[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'Toyota Phoenix'</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cars[<span class="dv">0</span>]) <span class="co"># value changed from 'toyota' to 'Toyota Phoenix'</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Changing the value using Negative indexing</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>cars[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>] <span class="co"># This replaces the list of Tesla car names</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cars[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the whole list</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="list-concatenation-replication" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="list-concatenation-replication"><span class="header-section-number">4.4</span> List Concatenation &amp; Replication</h2>
+<p>To concatenate the list we can use the <code>+</code> operator and to make multiple copies we use the <code>*</code> operator just like the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The multiplication operator will create 3 copies of the same list and will merge them</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>] <span class="op">*</span> <span class="dv">3</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Addition operator concatenates or chains together multiple lists into a single list.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>] <span class="op">+</span> [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>] <span class="op">+</span> [<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="removing-values-from-lists" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="removing-values-from-lists"><span class="header-section-number">4.5</span> Removing Values from Lists</h2>
+<p>The <code>remove()</code>, <code>pop()</code>, and <code>del</code> are three different methods in Python used for removing elements from a list, but they have distinct functionalities:</p>
+<ol type="1">
+<li><strong><code>remove(value)</code> Method:</strong>
+<ul>
+<li><p><strong>Usage:</strong> <code>list.remove(value)</code></p></li>
+<li><p><strong>Functionality:</strong> Removes the first occurrence of the specified value from the list.</p></li>
+<li><p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">40</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_list.remove(<span class="dv">20</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)  <span class="co"># Output: [10, 30, 20, 40]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong><code>pop(index)</code> Method:</strong>
+<ul>
+<li><p><strong>Usage:</strong> <code>element = list.pop(index)</code></p></li>
+<li><p><strong>Functionality:</strong> Removes and returns the element at the specified index. If no index is provided, it removes and returns the last element.</p></li>
+<li><p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>removed_element <span class="op">=</span> my_list.pop(<span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(removed_element)  <span class="co"># Output: 20</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)  <span class="co"># Output: [10, 30, 40]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong><code>del</code> Statement:</strong>
+<ul>
+<li><strong>Usage:</strong> <code>del list[index]</code> or <code>del list[start:end]</code> or <code>del list</code></li>
+<li><strong>Functionality:</strong> Deletes the specified element(s) or the entire list.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li><p>Delete a specific element by index:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> my_list[<span class="dv">1</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)  <span class="co"># Output: [10, 30, 40]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Delete a slice of the list:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> my_list[<span class="dv">1</span>:<span class="dv">3</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)  <span class="co"># Output: [10, 40]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Delete the entire list:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> my_list</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Raises an error if you try to access my_list after deletion</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ul></li>
+</ol>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><p><code>remove()</code> is used when you know the value you want to remove.</p></li>
+<li><p><code>pop()</code> is used when you want to remove an element by its index and optionally retrieve its value.</p></li>
+<li><p><code>del</code> is a more general statement that can delete elements by index or slices, or even delete entire lists.</p></li>
+</ul>
+<p>Choose the method that best fits your specific use case based on whether you need to remove by value, by index, or delete specific elements or slices.</p>
+</section>
+<section id="working-with-lists" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="working-with-lists"><span class="header-section-number">4.6</span> Working with Lists</h2>
+<p>When you first begin writing programs it’s tedious to create many variables of the same type. For example to store my car collection:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Long way to store multiple values in different variable names</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Certainly<span class="op">!</span> Here are nine different car model names:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>car1 <span class="op">=</span> <span class="st">"Toyota Camry"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>car2 <span class="op">=</span> <span class="st">"Ford Mustang"</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>car3 <span class="op">=</span> <span class="st">"Honda Civic"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>car4 <span class="op">=</span> <span class="st">"BMW 3 Series"</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>car5 <span class="op">=</span> <span class="st">"Chevrolet Corvette"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>car6 <span class="op">=</span> <span class="st">"Mercedes-Benz E-Class"</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>car7 <span class="op">=</span> <span class="st">"Volkswagen Golf"</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>car8 <span class="op">=</span> <span class="st">"Tesla Model S"</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>car9 <span class="op">=</span> <span class="st">"Nissan Rogue"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This turns out that this is a bad way to write code. (I also don’t own these cars, I swear, I just copied these names from the Internet)</p>
+<p>Instead of using multiple repetitive variables, you can use a single variable that has list of values. For example, here’s a new and improved version of the above source code.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cars_collection <span class="op">=</span> []</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Enter the name of Car or Leave it empty to Quit:'</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> name <span class="op">==</span> <span class="st">""</span>:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># list Concatenation </span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        cars_collection <span class="op">=</span> cars_collection <span class="op">+</span> [name] </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Collection: '</span>,cars_collection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="iteration" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="iteration"><span class="header-section-number">4.7</span> Iterate through Lists</h2>
+<p>In the previous lessons we have seen <a href="../1. python basics/2-flow control.html#loops">loops</a> execute a block of code a certain number of times. For loop execute the code in the loop body for each item in the range. e.g.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">""" Output: 0</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">            1</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">            2</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">            3</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This is because Python looks at this range function as [0, 1, 2, 3] and retrieves an item at a time from the list.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We will use the range function to iterate through the following list and will access values by its index:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cars_collection <span class="op">=</span> [<span class="st">"Toyota Camry"</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Ford Mustang"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Honda Civic"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"BMW 3 Series"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Chevrolet Corvette"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Mercedes-Benz E-Class"</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Volkswagen Golf"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Tesla Model S"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Nissan Rogue"</span>]</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the first value of the list to the 'car_name' variable and print it.</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> car_name <span class="kw">in</span> cars_collection:</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(car_name)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Accessing value by index, range() &amp; len() function</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cars_collection)):</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(cars_collection[index])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="in-and-not-in-operators" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="in-and-not-in-operators"><span class="header-section-number">4.8</span> <strong><code>in</code></strong> and <strong><code>not in</code></strong> Operators</h2>
+<p>We can determine whether a value is present in a list or not by using <code>in</code> &amp; <code>not in</code> operators. e.g. Enter the following into the interactive shell:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: True</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">'salih'</span> <span class="kw">in</span> [<span class="st">'sadiq'</span>,<span class="st">'safi'</span>,<span class="st">'salih'</span>,<span class="st">'qaisar'</span>,<span class="st">'ikram'</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> [<span class="st">'cat'</span>, <span class="st">'dog'</span>, <span class="st">'bird'</span>, <span class="st">'cow'</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">'cat'</span> <span class="kw">in</span> animals <span class="co"># Output: True</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">'elephant'</span> <span class="kw">in</span> animals <span class="co"># Output: False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="multiple-assignment-using-lists" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="multiple-assignment-using-lists"><span class="header-section-number">4.9</span> Multiple Assignment using Lists</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Toyota <span class="op">=</span> [<span class="st">'20 miles'</span>, <span class="st">'2016'</span>, <span class="st">'2024'</span>, <span class="st">'Red'</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mileage, model, year, color <span class="op">=</span> toyota[<span class="dv">0</span>], toyota[<span class="dv">1</span>], toyota[<span class="dv">2</span>], toyota[<span class="dv">3</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mileage)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(year)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also assign values to variables like below:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Toyota <span class="op">=</span> [<span class="st">'20 miles'</span>, <span class="st">'2016'</span>, <span class="st">'2024'</span>, <span class="st">'Red'</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mileage, model, year, color <span class="op">=</span> Toyota</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mileage)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(year)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="using-enumerate-function-with-lists" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="using-enumerate-function-with-lists"><span class="header-section-number">4.10</span> Using <strong><em>enumerate()</em></strong> function with Lists</h2>
+<p>The <code>enumerate()</code> function is useful if you want both index &amp; value. Instead of using <strong><a href="#iteration">range(len(list name))</a></strong> let’s do the same with enumerate().</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cars_collection <span class="op">=</span> [<span class="st">"Toyota Camry"</span>,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Ford Mustang"</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Honda Civic"</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"BMW 3 Series"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Chevrolet Corvette"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Mercedes-Benz E-Class"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Volkswagen Golf"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Tesla Model S"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Nissan Rogue"</span>]</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, value <span class="kw">in</span> <span class="bu">enumerate</span>(cars_collection):</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Index is: </span><span class="sc">{</span>index<span class="sc">}</span><span class="ch">\n</span><span class="ss">Value is: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Starting Index from a Specific Value:</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, value <span class="kw">in</span> <span class="bu">enumerate</span>(my_list, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Index: </span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">, Value: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Using Random module with Lists</strong></p>
+<p>The <code>random</code> module in Python can be used to perform various operations with lists. Here are a few examples:</p>
+<ol type="1">
+<li><p><strong>Shuffling a List:</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>random.shuffle(my_list)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shuffled List:"</span>, my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Selecting a Random Element from a List:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'grape'</span>, <span class="st">'kiwi'</span>]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>random_fruit <span class="op">=</span> random.choice(fruits)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Random Fruit:"</span>, random_fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Random Sampling from a List:</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>random_sample <span class="op">=</span> random.sample(numbers, k<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Random Sample:"</span>, random_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Generating Random Numbers within a Range:</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>random_number <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">100</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Random Number between 1 and 100:"</span>, random_number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Randomizing List Order for a Specific Task:</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>tasks <span class="op">=</span> [<span class="st">'Task A'</span>, <span class="st">'Task B'</span>, <span class="st">'Task C'</span>, <span class="st">'Task D'</span>]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>random.shuffle(tasks)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Randomized Order for Task Execution:"</span>, tasks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p>These are just a few examples, and the <code>random</code> module provides more functions for working with randomness in Python. Depending on your specific use case, you can choose the appropriate function from the <code>random</code> module to achieve the desired behavior with lists.</p>
+</section>
+<section id="in-place-operators-or-compound-assignment-operators" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="in-place-operators-or-compound-assignment-operators"><span class="header-section-number">4.11</span> In-Place Operators or Compound Assignment Operators:</h2>
+<p>In Python, augmented assignment operators are shorthand syntax for performing an operation and assigning the result to the same variable. They combine an operation (like addition or multiplication) with the assignment. Here are some examples:</p>
+<ol type="1">
+<li><p><strong>Addition: <code>+=</code></strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">+=</span> <span class="dv">3</span>  <span class="co"># Equivalent to x = x + 3</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)  <span class="co"># Output: 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Subtraction: <code>-=</code></strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">-=</span> <span class="dv">4</span>  <span class="co"># Equivalent to y = y - 4</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)  <span class="co"># Output: 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Multiplication: <code>*=</code></strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>z <span class="op">*=</span> <span class="dv">2</span>  <span class="co"># Equivalent to z = z * 2</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)  <span class="co"># Output: 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Division: <code>/=</code></strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">/=</span> <span class="dv">3</span>  <span class="co"># Equivalent to a = a / 3</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)  <span class="co"># Output: 5.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Modulus: <code>%=</code></strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">%=</span> <span class="dv">5</span>  <span class="co"># Equivalent to b = b % 5</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)  <span class="co"># Output: 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Exponentiation: <code>**=</code></strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">**=</span> <span class="dv">3</span>  <span class="co"># Equivalent to c = c ** 3</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)  <span class="co"># Output: 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Floor Division: <code>//=</code></strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">//=</span> <span class="dv">4</span>  <span class="co"># Equivalent to d = d // 4</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)  <span class="co"># Output: 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p>These operators are concise ways to update the value of a variable based on its current value and the result of an operation. They can be useful for making code more readable and efficient.</p>
+</section>
+<section id="insert-append-methods-of-list" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="insert-append-methods-of-list"><span class="header-section-number">4.12</span> <code>insert()</code> &amp; <code>append()</code> methods of List</h2>
+<p>Let’s keep it simple:</p>
+<ul>
+<li><strong><code>append()</code> method:</strong>
+<ul>
+<li><strong>What it does:</strong> Adds something to the end of a list.</li>
+<li><strong>Example:</strong> If you have a list of fruits and you want to add a new fruit to the end, you use <code>append()</code>.</li>
+</ul></li>
+<li><strong><code>insert()</code> method:</strong>
+<ul>
+<li><strong>What it does:</strong> Adds something to a specific position in a list.</li>
+<li><strong>Example:</strong> If you have a list of friends and you want to add a new friend at a particular spot, you use <code>insert()</code>.</li>
+</ul></li>
+</ul>
+<p>So, <code>append()</code> adds to the end, and <code>insert()</code> adds at a specific place. Easy, right?</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using append() to add to the end of a list</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>fruits.append(<span class="st">'grape'</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Now, fruits is ['apple', 'banana', 'orange', 'grape']</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Using insert() to add at a specific position in a list</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>friends <span class="op">=</span> [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>]</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>friends.insert(<span class="dv">1</span>, <span class="st">'David'</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Now, friends is ['Alice', 'David', 'Bob', 'Charlie']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sorting-value-of-list-using-sort-method" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="sorting-value-of-list-using-sort-method"><span class="header-section-number">4.13</span> Sorting value of list using <code>sort()</code> Method:</h2>
+<p>Values inside the list can be sorted with <code>sort()</code> method:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">3</span>]</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort it in ascending order</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>number.sort()</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Descending order: '</span>,number)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort it in descending order by passing `reverse` parameter</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>number.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Ascending order: '</span>,number)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also sort list contain strings in alphabetical order</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co"># You cannot sort list contain both string &amp; number</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co"># sort() uses 'ASCIIbetical order' rather than actual alphabetical order for sorting strings which means uppercase letters comes before lowercase letters.</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">'apple'</span>,<span class="st">'Apple'</span>, <span class="st">'banana'</span>, <span class="st">'Banana'</span>, <span class="st">'orange'</span>, </span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="st">'grape'</span>, <span class="st">'kiwi'</span>, <span class="st">'melon'</span>, <span class="st">'peach'</span>, <span class="st">'pear'</span>, <span class="st">'strawberry'</span>, <span class="st">'blueberry'</span>]</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>my_list.sort()</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="reversing-the-values-of-list" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="reversing-the-values-of-list"><span class="header-section-number">4.14</span> Reversing the Values of List</h2>
+<p>To reverse the order of a list you can call <code>reverse()</code> method on the list. e.g.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>count.reverse()</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Line Continuation Character">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Line Continuation Character
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some time we want to organize our long line of code and to make it look pretty and readable. So, we use &nbsp;<em>line continuation character</em> at the end. This tells python that line is continues and it don’t end here. For example, look at the following code:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>long_text <span class="op">=</span> <span class="st">"This is a very long text that </span><span class="ch">\</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="st">continues on the next line using the continuation character."</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(long_text)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Continuation on lists</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'blue'</span>, <span class="op">\</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>          <span class="st">'yellow'</span>, <span class="st">'orange'</span>, <span class="st">'purple'</span>]</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(colors)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Continuation on numbers</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> <span class="dv">3</span> <span class="op">+</span>  <span class="op">\</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>           <span class="dv">5</span> <span class="op">*</span>  <span class="op">\</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>           <span class="dv">2</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(equation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="string-lists-similarities" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="string-lists-similarities"><span class="header-section-number">4.15</span> String &amp; Lists Similarities</h2>
+<p>In Python, strings and lists share some similarities:</p>
+<ol type="1">
+<li><strong>Ordered Sequence:</strong>
+<ul>
+<li>Both strings and lists are ordered sequences, meaning the order in which elements appear is maintained.</li>
+</ul></li>
+<li><strong>Indexing:</strong>
+<ul>
+<li>You can access individual elements in both strings and lists using indexing. For example, <code>my_string[0]</code> or <code>my_list[0]</code> refers to the first element.</li>
+</ul></li>
+<li><strong>Slicing:</strong>
+<ul>
+<li>Both support slicing to extract a portion of the sequence. For instance, <code>my_string[1:4]</code> or <code>my_list[1:4]</code> extracts elements from index 1 to 3.</li>
+</ul></li>
+<li><strong>Iterability:</strong>
+<ul>
+<li>Both can be iterated using loops. You can use a <code>for</code> loop to go through each character in a string or each element in a list.</li>
+</ul></li>
+<li><strong>Concatenation:</strong>
+<ul>
+<li>You can concatenate strings using the <code>+</code> operator, and you can concatenate lists using the <code>+</code> operator as well.</li>
+</ul></li>
+<li><strong>Inclusion:</strong>
+<ul>
+<li>Both can use the <code>in</code> operator to check if a specific element is present in the sequence.</li>
+</ul></li>
+</ol>
+<p>Here’s a quick example showcasing these similarities:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strings</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_string[<span class="dv">0</span>])        <span class="co"># Output: H</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_string[<span class="dv">7</span>:<span class="dv">12</span>])     <span class="co"># Output: World</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'W'</span> <span class="kw">in</span> my_string)    <span class="co"># Output: True</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Lists</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list[<span class="dv">2</span>])          <span class="co"># Output: 3</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list[<span class="dv">1</span>:<span class="dv">4</span>])        <span class="co"># Output: [2, 3, 4]</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span> <span class="kw">in</span> my_list)        <span class="co"># Output: True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Despite these similarities, it’s crucial to note that strings are immutable (you can’t change individual characters once the string is created), while lists are mutable (you can modify, add, or remove elements).</p>
+</section>
+<section id="lists" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="lists"><span class="header-section-number">4.16</span> <em>Tuple</em> cousin of Lists</h2>
+<p>Tuples are identical to lists except it create with parenthesis <code>()</code> rather than curly braces <code>[]</code> like lists. Another distinction between list &amp; tuple is that tuple is immutable (can’t change its values) like strings. If you want to create a tuple with a single value then type a single comma after the value. This comma is what lets Python know this is a tuple value. If you don’t place trailing comma after the value Python will think of it as a regular string:</p>
+<p>Type the following into editor &amp; see its types:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>not_tup <span class="op">=</span> (<span class="st">'hours'</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(tup))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>tup <span class="op">=</span> (<span class="st">'hours'</span>,)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(tup))</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">'hours'</span>]</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(my_list))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, let’s create some tuples and try to tweak it a little bit and apply some of the list operations on it:</p>
+<div class="sourceCode" id="annotated-cell-20"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-20-1"><a href="#annotated-cell-20-1" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="st">'apple'</span>, <span class="dv">5</span>, <span class="fl">3.14</span>, <span class="st">'banana'</span>, <span class="dv">7</span>, <span class="fl">2.718</span>)</span>
+<span id="annotated-cell-20-2"><a href="#annotated-cell-20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-20-3"><a href="#annotated-cell-20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># looping through tuple using slicing</span></span>
+<span id="annotated-cell-20-4"><a href="#annotated-cell-20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_tuple[<span class="dv">1</span>:<span class="dv">3</span>])</span>
+<span id="annotated-cell-20-5"><a href="#annotated-cell-20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-20-6"><a href="#annotated-cell-20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Accessing value the way we access of list</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-20-7" class="code-annotation-target"><a href="#annotated-cell-20-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_tuple[<span class="dv">0</span>])</span>
+<span id="annotated-cell-20-8"><a href="#annotated-cell-20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-20-9"><a href="#annotated-cell-20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Changing the value of tuple (Remember tuple are Immutable)</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-20-10" class="code-annotation-target"><a href="#annotated-cell-20-10" aria-hidden="true" tabindex="-1"></a>my_tuple[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'Apple'</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-20" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-20" data-code-lines="7" data-code-annotation="1">We can access tuple value like the way we access of lists.</span>
+</dd>
+<dt data-target-cell="annotated-cell-20" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-20" data-code-lines="10" data-code-annotation="2">This will cause error <code>TypeError: 'tuple' object does not support item assignment</code> because tuple values can’t be changed</span>
+</dd>
+</dl>
+</section>
+<section id="converting-types-with-list-tuple-functions" class="level2" data-number="4.17">
+<h2 data-number="4.17" class="anchored" data-anchor-id="converting-types-with-list-tuple-functions"><span class="header-section-number">4.17</span> Converting Types with <em>list()</em> &amp; <em>tuple()</em> functions</h2>
+<p>The <code>list()</code> and <code>tuple()</code> functions in Python are used for converting between different sequence types. Here are some common use cases for these functions:</p>
+<section id="list-functions" class="level3" data-number="4.17.1">
+<h3 data-number="4.17.1" class="anchored" data-anchor-id="list-functions"><span class="header-section-number">4.17.1</span> <code>list()</code> functions:</h3>
+<ol type="1">
+<li><p><strong>Convert String to List of Words:</strong></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, how are you?"</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>word_list <span class="op">=</span> <span class="bu">list</span>(my_string.split())</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(word_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Convert Range to List:</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>number_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>number_list <span class="op">=</span> <span class="bu">list</span>(number_range)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(number_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Clone Another List:</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>original_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>new_list <span class="op">=</span> <span class="bu">list</span>(original_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Convert Tuple to List:</strong></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting tuple to list</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> <span class="bu">list</span>(my_tuple)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="tuple-functions" class="level3" data-number="4.17.2">
+<h3 data-number="4.17.2" class="anchored" data-anchor-id="tuple-functions"><span class="header-section-number">4.17.2</span> <code>tuple()</code> functions:</h3>
+<ol type="1">
+<li><p><strong>Convert List to Tuple:</strong></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> <span class="bu">tuple</span>(my_list)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_tuple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Convert String to Tuple of Characters:</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">"Python"</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>char_tuple <span class="op">=</span> <span class="bu">tuple</span>(my_string)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(char_tuple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Create a Tuple from Values:</strong></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>values_tuple <span class="op">=</span> <span class="bu">tuple</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(values_tuple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These functions are versatile and can be used in various scenarios where you need to convert one sequence type to another.</p></li>
+</ol>
+</section>
+</section>
+<section id="reference-to-variables" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="reference-to-variables"><span class="header-section-number">4.18</span> Reference to Variables</h2>
+<p>Variables in Python act as references to objects (values) in memory. For example, when you do <code>x = 10</code>, <code>x</code> is a reference to the memory location where the value <code>10</code> is stored. Let’s look at the following code block:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating references</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span>  <span class="co"># 'a' is a reference to the value 5</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]  <span class="co"># 'b' is a reference to a list [1, 2, 3]</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Modifying through references</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span>  <span class="co"># Creates a new object (6) and updates 'a' to reference it</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>b.append(<span class="dv">4</span>)  <span class="co"># Modifies the list object directly</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Passing references to a function</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> modify_list(lst):</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>    lst.append(<span class="dv">5</span>)</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>modify_list(b)  <span class="co"># 'b' is passed by reference, and the list is modified</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Changing reference</span></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> b  <span class="co"># 'c' now references the same list as 'b'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In simple words, reference means when you create variable <code>var1 = data</code> variable (<code>var1</code>) point to the address of value <code>data</code> on computer memory. For example in the following code you can find the address of a variable using <code>id()</code> function.</p>
+<div class="sourceCode" id="annotated-cell-22"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-22-1"><a href="#annotated-cell-22-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-22-2"><a href="#annotated-cell-22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating different names variable with same value</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-22-3" class="code-annotation-target"><a href="#annotated-cell-22-3" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> <span class="st">'data'</span></span>
+<span id="annotated-cell-22-4"><a href="#annotated-cell-22-4" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> <span class="st">'data'</span></span>
+<span id="annotated-cell-22-5"><a href="#annotated-cell-22-5" aria-hidden="true" tabindex="-1"></a>var3 <span class="op">=</span> <span class="st">'data'</span></span>
+<span id="annotated-cell-22-6"><a href="#annotated-cell-22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-22-7"><a href="#annotated-cell-22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Find memory address using id() method</span></span>
+<span id="annotated-cell-22-8"><a href="#annotated-cell-22-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(var1))</span>
+<span id="annotated-cell-22-9"><a href="#annotated-cell-22-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(var2))</span>
+<span id="annotated-cell-22-10"><a href="#annotated-cell-22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(var3))</span>
+<span id="annotated-cell-22-11"><a href="#annotated-cell-22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-22-12"><a href="#annotated-cell-22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create variable with different value </span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-22-13" class="code-annotation-target"><a href="#annotated-cell-22-13" aria-hidden="true" tabindex="-1"></a>var4 <span class="op">=</span> <span class="st">'data1'</span></span>
+<span id="annotated-cell-22-14"><a href="#annotated-cell-22-14" aria-hidden="true" tabindex="-1"></a>var5 <span class="op">=</span> <span class="st">'data2'</span></span>
+<span id="annotated-cell-22-15"><a href="#annotated-cell-22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-22-16"><a href="#annotated-cell-22-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(var4))</span>
+<span id="annotated-cell-22-17"><a href="#annotated-cell-22-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(var5))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-22" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-lines="3,4,5" data-code-annotation="1">As you can see these three variable have same value so their value won’t create separate memory address rather all of them will point to the same memory address.</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-lines="13,14" data-code-annotation="2"><code>var4</code> &amp; <code>var5</code> have different values so each variable will create their own memory address.</span>
+</dd>
+</dl>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://postimg.cc/QBQNYwdZ.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Variable Reference"><img src="https://postimg.cc/QBQNYwdZ.png" class="img-fluid figure-img" alt="Variable Reference"></a></p>
+<figcaption>Variable Reference</figcaption>
+</figure>
+</div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>computers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>laptop <span class="op">=</span> computers</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>mobile <span class="op">=</span> computers</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Below all will return the same memory address because all of the variable have same value. So, all of them would point to the memory address of [1, 2, 3, 4, 5, 6] instead of creating identical copy of it.</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Address 1: </span><span class="sc">{</span><span class="bu">id</span>(computers)<span class="sc">}</span><span class="ch">\n</span><span class="ss">Address 2: </span><span class="sc">{</span><span class="bu">id</span>(laptop)<span class="sc">}</span><span class="ch">\n</span><span class="ss">Address 3: </span><span class="sc">{</span><span class="bu">id</span>(mobile)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Different Variable of Same Value</strong> You can create two lists with the same values using different variables. Here’s an example:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating two lists with the same values</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>list2 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking if they have the same values</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Are the lists equal?"</span>, list1 <span class="op">==</span> list2)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking if they are different objects (different variables)</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Are the variables different?"</span>, list1 <span class="kw">is</span> <span class="kw">not</span> list2)</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking memory address of both</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(list1),<span class="bu">id</span>(list2))</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(list1) <span class="op">==</span> <span class="bu">id</span>(list2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, <code>list1</code> and <code>list2</code> have the same values, but they are different objects with different memory addresses. The <code>==</code> operator checks for equality of values, and the <code>is</code> operator checks if they refer to the same object in memory.</p>
+</section>
+<section id="copy-and-deepcopy-functions" class="level2" data-number="4.19">
+<h2 data-number="4.19" class="anchored" data-anchor-id="copy-and-deepcopy-functions"><span class="header-section-number">4.19</span> <em>copy()</em> and <em>deepcopy()</em> functions</h2>
+<p>The <code>copy()</code> and <code>deepcopy()</code> functions are used to create copies of objects in Python, but they behave differently when dealing with nested or complex objects like lists within lists or dictionaries within dictionaries.</p>
+<p>Here’s an example using both functions:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Original list with nested lists</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>original_list <span class="op">=</span> [<span class="dv">1</span>, [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="dv">5</span>]</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Using copy() to create a shallow copy</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>shallow_copy <span class="op">=</span> copy.copy(original_list)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Using deepcopy() to create a deep copy</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>deep_copy <span class="op">=</span> copy.deepcopy(original_list)</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Modifying the original list</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>original_list[<span class="dv">1</span>][<span class="dv">0</span>] <span class="op">=</span> <span class="st">'X'</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying the original and copied lists</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original List:"</span>, original_list)</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Shallow Copy:"</span>, shallow_copy)</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Deep Copy:"</span>, deep_copy)</span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Output :</span></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Original List: [1, ['X', 3, 4], 5]</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Shallow Copy: [1, ['X', 3, 4], 5]</span></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Deep Copy: [1, [2, 3, 4], 5]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, <code>copy.copy()</code> creates a shallow copy, and <code>copy.deepcopy()</code> creates a deep copy. The difference becomes apparent when the original list is modified. The shallow copy retains references to the nested lists, so changes inside the nested lists are reflected in both the original and shallow copy. The deep copy, on the other hand, creates entirely new objects for the nested lists, making it independent of changes in the original.</p>
+</section>
+<section id="practice-questions" class="level2" data-number="4.20">
+<h2 data-number="4.20" class="anchored" data-anchor-id="practice-questions"><span class="header-section-number">4.20</span> <strong>Practice Questions</strong></h2>
+
+<style>
+      details {
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      padding: 0.5em 0.5em 0;
+      }
+
+      summary {
+      font-weight: bold;
+      margin: -0.5em -0.5em 0;
+      padding: 0.5em;
+      }
+
+      details[open] {
+      padding: 0.5em;
+      }
+
+      details[open] summary {
+      border-bottom: 1px solid #aaa;
+      margin-bottom: 0.5em;
+      }
+
+</style>
+
+<details>
+<summary>
+How would you assign the value ‘world’ as the third element in a list stored in a variable named eggs? (Assume eggs contains [1, 3, 5, 7, 9]).
+</summary>
+<p><code> eggs = [1, 3, 5, 7, 9] <br> eggs.insert(2, ‘world’)<br> print(eggs) </code></p>
+</details>
+<details>
+<summary>
+my_list = [10, 20, 30, 40, 50] <br>How would you remove the element 30 from the list without using the remove() method?
+</summary>
+<code> my_list = [10, 20, 30, 40, 50]<br> new_list = [i for i in my_list if i != 30]<br> print(new_list) </code>
+</details>
+<details>
+<summary>
+numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]<br>How can you remove all occurrences of the number 5 from the list without using the remove() method?
+</summary>
+<p><code> numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]<br> new_numbers = [num for num in numbers if num != 5]<br> print(new_numbers)</code></p><code>
+</code>
+</details>
+
+
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Source: https://www.dataquest.io</span>
+<span class="glightbox-desc lightbox-desc-2">Variable Reference</span>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../1. python basics/3-functions.html" class="pagination-link  aria-label=" &lt;span="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../1. python basics/5-dictionaries.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Dictionaries</span>">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dictionaries</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

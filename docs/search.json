@@ -40,48 +40,28 @@
     ]
   },
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
+    "objectID": "1. python basics/about author.html",
+    "href": "1. python basics/about author.html",
+    "title": "About the Author",
+    "section": "",
+    "text": "Photo Of Author\n\n\n\nSaeed Ullah is a dynamic individual with a passion for technology, science, and the intricate dance between code and creativity. Hailing from Pakistan, Saeed Ullah is a dedicated computer science student, avid gardener, and aspiring robotic engineer. His insatiable curiosity extends beyond the realms of his formal studies, as he continuously seeks to broaden his knowledge across various disciplines.\nWith a background in electrical engineering and a focus on mastering machine learning, mathematics, and computer programming, Saeed Ullah is on an epic journey through the landscapes of emerging technologies. He finds joy in the fusion of theoretical concepts and hands-on application, always eager to contribute to the cutting edge of science and technology.\n\n\nBeyond the world of algorithms and circuits, Saeed Ullah is a green-thumbed enthusiast, nurturing a garden that reflects both patience and growth—a metaphor that echoes his approach to life and learning.\nIn this book, Saeed Ullah shares not only technical insights but also the spirit of exploration and the pursuit of excellence. Through the lens of his experiences and expertise, readers are invited to join him on a journey where technology meets creativity, and the possibilities are as vast as the ever-expanding universe of knowledge.\n\n\n\nPhoto Of Author",
+    "crumbs": [
+      "About the Author"
+    ]
+  },
+  {
+    "objectID": "1. python basics/setup.html",
+    "href": "1. python basics/setup.html",
     "title": "Windows OS Setup",
     "section": "",
-    "text": "Install python from the following link or watch any youtube video on it to install it as it requires only vscode (editor) and python language installation: Certainly, Asad_Pro_3.1. Here’s a paraphrased version of the instructions:\n\nVisit Notepad++, download the Notepad++ text editor, and install it without requiring administrator privileges.\nEnsure easy access to Notepad++ by placing shortcuts on your desktop and/or in Quick Launch during the installation.\nLaunch PowerShell from the Start menu by searching for it and pressing Enter.\nCreate shortcuts for PowerShell on your desktop and/or Quick Launch for convenience.\nOpen your Terminal program, and if Python is not recognized, install it from Python.\nConsider using ActiveState Python if administrative rights are an issue. If Python isn’t recognized after installation, set the environment variable in PowerShell and restart it.\n\n\n\nIf you run python and it’s not there (python is not recognized.), install it from http://python.org/download.\nMake sure you install Python 2, not Python 3.\nYou may be better off with ActiveState Python, especially if you do not have administrative rights.\nIf after you install it python still isn’t recognized, then in PowerShell enter this: [Environment]::SetEnvironmentVariable(“Path”, “$env:Path;C:”, “User”)\nClose PowerShell and then start it again to make sure Python now runs. If it doesn’t, restart may be required.\n\n\n\nType quit() in Python to exit.\nReturn to the previous prompt in the Terminal and troubleshoot if necessary.\nLearn how to create a directory in the Terminal.\nFamiliarize yourself with changing directories in the Terminal.\nUtilize your text editor to create a file in the directory, then save it.\nSwitch back to the Terminal using keyboard shortcuts.\nIn the Terminal, check if you can list the directory to confirm the creation of your new file.",
+    "text": "Install Python from the following link or watch any YouTube video on it to install it as it requires only vs code (editor) and Python language installation: Certainly, Asad_Pro_3.1. Here’s a paraphrased version of the instructions:\n\nVisit Notepad++, download the Notepad++ text editor and install it without requiring administrator privileges.\nEnsure easy access to Notepad++ by placing shortcuts on your desktop and/or in Quick Launch during the installation.\nLaunch PowerShell from the Start menu by searching for it and pressing Enter.\nCreate shortcuts for PowerShell on your desktop and/or Quick Launch for convenience.\nOpen your Terminal program, and if Python is not recognized, install it from Python.\nConsider using ActiveState Python if administrative rights are an issue. If Python isn’t recognized after installation, set the environment variable in PowerShell and restart it.\n\n\n\nIf you run Python and it’s not there (python is not recognized.), install it from http://python.org/download.\nMake sure you install Python 2, not Python 3.\nYou may be better off with ActiveState Python, especially if you do not have administrative rights.\nIf after you install it python still isn’t recognized, then in PowerShell enter this: [Environment]::SetEnvironmentVariable(“Path”, “$env:Path;C:”, “User”)\nClose PowerShell and then start it again to make sure Python now runs. If it doesn’t, restart may be required.\n\n\n\nType quit() in Python to exit.\nReturn to the previous prompt in the Terminal and troubleshoot if necessary.\nLearn how to create a directory in the Terminal.\nFamiliarize yourself with changing directories in the Terminal.\nUtilize your text editor to create a file in the directory, then save it.\nSwitch back to the Terminal using keyboard shortcuts.\nIn the Terminal, check if you can list the directory to confirm the creation of your new file.",
     "crumbs": [
       "Windows OS Setup"
     ]
   },
   {
-    "objectID": "python part 1.html",
-    "href": "python part 1.html",
-    "title": "2  Introduction to Python",
-    "section": "",
-    "text": "2.1 Python Basics:\nOpen search bar and open one of the following:\nRun your python script in directory where you have store your .py python file just open cmd there and run the command: python filename.py",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to Python</span>"
-    ]
-  },
-  {
-    "objectID": "python part 1.html#python-basics",
-    "href": "python part 1.html#python-basics",
-    "title": "2  Introduction to Python",
-    "section": "",
-    "text": "Command Prompt (cmd) for short.\nPowerShell\nIDLE Python shell\nOpen your favourite Editor and write the following code into it and then save it as hello.py (python programs can be run only if its in .py extension)\n\n\n\n1print(\"Yay! i am writing my first program\")\n2print('i am printing')\n3('' , \"\")\n\n1\n\nprint is called a function which will be explain in the letter chapters. so don’t stuck on these programming lingo for now.\n\n2\n\nAs you can see between those yellow brackets, text can be enclosed in both single and double quote.\n\n3\n\nThese quotes tells the python that we are writing string and strings are like plain text to python, its that simple.\n\n\n\n\n\n\n\n\nTip\n\n\n\nAlso run your code in python Visual Compiler which explain and run your code step by step to show you what happens under the hood. Here’s the link: Python Visual Compiler\n\n\n\n2.1.1 Comments in python\nComments are used to tell what the specific part of your program do and its like an instruction box for your line of code. It can also be used to disable your code. so this it won’t run.\n\n1print('printing nothing') #single line comment\n\n2'''Multiline comments'''\n\n1\n\nThis is single line of comment. Here with pound character i can write anything just to explain this piece of code not to execute it\n\n2\n\nYou can also use multiline comments with the help of 3 single quotes which is used to write multiple line without specifying any # hash or pound character everytime you start new line of text.\n\n\n\n\n2.1.2 Numbers & Math in python\n\nMost Commonly use Mathematics symbols\n\n\nSymbols\nNames\n\n\n\n\n+\nPlus\n\n\n-\nMinus\n\n\n/\nSlash\n\n\n*\nAsterisk\n\n\n%\nPercent\n\n\n&lt;\nLess-than\n\n\n&gt;\nGreater-than\n\n\n&lt;=\nLess-than-equal\n\n\n&gt;=\nGreater-than-equal\n\n\n\n\n\n2.1.3 Variable & Names\nFirst let’s understand Variable in simple terms:\nImagine you have a box, and you give it a name, like number_box Now, you can put a number in it, let’s say 5. So, number_box holds the value 5.\nnumber_box = 5\nHere number_box is the variable and that number 5 is the value in it. You can also change it like below\nnumber_box = 10\nprint(number_box) # Output: 10\nNow it contain 10 instead of 5. Variables are useful and it lets you store and keep tracks of your numbers text and number of other things you will see in the advanced sections.\nQuiz time:\n\nQuestion 1: Write a Python code snippet to print the phrase “Hello, Python!”\n\n\nQuestion 2: How can you print the result of multiplying two numbers, let’s say 4 and 7, in Python?\n\n\nQuestion 3: Explain what the end parameter in the print function is used for.\n\n\nQuestion 4: Write a Python code snippet to print your name on one line and your age on the next line.\n\n\nQuestion 5: If you want to print the following text on separate lines:\n\nProgramming\nis\nfun!\nHow would you achieve this using the print function?\n\n\n\n\n\n\nClick to see answers…\n\n\n\n\n\n\nprint(\"Hello, Python!\")\nprint(4 * 7)\nThe end parameter in the print function is used to specify the character that separates multiple printed items. By default, it is set to \\n, which means a newline character. Newline is like when we reach the end of a line we press enter that’s exactly what do, just to press enter at the end of a line.\nprint(\"Your Name\")\nprint(\"Your Age\")\nprint(\"Programming\")\nprint(\"is\")\nprint(\"fun!\")\n\n\n\n\nString formating\nWe can also format our string output in different ways, First i will write code and then from the following you can see its explanation below:\n\nmy_name = 'Asad Pro Beta' # My digital persona \naddress = 'Peshawar, Pakistan'\nmy_age = 35 # Just kidding\nmy_height = 74 # inches\n\n1print(my_name+' ',address)\n2print(my_name+3*'.')\n3print('Your name is: {} my age: {}'.format(my_name,my_age))\n4print('Your age is: {1} my name: {0}'.format(my_name, my_age))\n5print(f'Your name is: {my_name} my age: {my_age}')\n6print(r'Your name is: {my_name} my age: {my_age}')\n\n1\n\nThis + sign merges (concatenate) two strings together and that white space is separate them\n\n2\n\nFirst multiply dot with 3 which become (…) & then concatenate (merge) it with that string (my_name)\n\n3\n\nThe format function in Python is like a template for creating sentences where you want to replace certain parts with specific values. Let me explain with an analogy: Imagine you have a fill-in-the-blank storybook. The storybook has sentences with blanks, and you have stickers with words on them. Each sticker has a different word that fits into one of the blanks.\n\n4\n\nWe can also use index number, Index are like address of every variable where it stored on computer memory.\n\n5\n\nPutting f in the beginning act as a format function with which it identify variables.\n\n6\n\nPutting r in the beginning means that this string is raw which means nothing in other words, print everything as it is.\n\n\n\n1A,B,C,D,E = [i for i in range(ord('A'),ord('E')+1)]\na,b,c,d,e = [i for i in range(ord('a'),ord('e')+1)]\n\n\n2print(A,B,C,D,E,\n      a,b,c,d,e)\n\n3A,B,C,D,E = [65, 66, 67, 68, 69]\n\ndays = \"Mon Tue Wed Thu Fri Sat Sun\"\n4months = \"Jan\\nFeb\\nMar\\nApr\\nMay\\nJun\\nJul\\nAug\"\n\nprint(days)\nprint(months) \n\n1\n\nThis is another way to assign list of values to multiple variable at once. (Don’t bother we will cover Lists in later chapters)\n\n2\n\nRemove that comma after ‘E’ and see what happens\n\n3\n\nIts the same as the first one above, I have just created the list dynamically in the first place.\n\n4\n\nHere you will see that \\n character will act as an enter and printing will start from the new line. Copy and paste it in your editor and see its result on your own.\n\n\n\n\n\n\n\n\nClick to explore print function throughly\n\n\n\nMore on print\n\n\n\n\n2.1.4 Escape Sequences\nImagine you’re writing a story on the computer, and you want to do some special things with your words. Escape sequences in Python are like magic codes you can use to make your words look different or do special tricks!\nLook at the following table and try them out on your own:\n\n\n\n\n\n\n\nEscape\nWhat it does\n\n\n\n\n\\\\\nBackslash ()\n\n\n\\'\nSingle-quote (’)\n\n\n\\\"\nDouble-quote (“)\n\n\n\\a\nASCII bell (BEL)\n\n\n\\b\nASCII backspace (BS)\n\n\n\\f\nASCII formfeed (FF)\n\n\n\\n\nASCII linefeed (LF)\n\n\n\\N{name}\nCharacter named name in the Unicode database\n\n\n\\r\nASCII carriage return (CR)\n\n\n\\t\nASCII horizontal tab (TAB)\n\n\n\\uxxxx\nCharacter with 16-bit hex value xxxx (Unicode only)\n\n\n\\Uxxxxxxxx\nCharacter with 32-bit hex value xxxxxxxx (Unicode only)\n\n\n\\v\nASCII vertical tab (VT)\n\n\n\\ooo\nCharacter with octal value oo\n\n\n\\xhh\nCharacter with hex value hh\n\n\n\nPrompting People or Asking for Input\nprint('How old are you?') \nage =  input()\nprint(f'Your age : {age}')\ninput() is a method which shows you an empty placeholder for you to insert any value & when you insert then press enter so that value can be store in age variable.\n\nInput() function is like an empty page; someone gives you and you write anything what comes to your mind.\n\n\nHere, we have used the same string formating as we use earlier.\n\n\n\n2.1.5 Python modules\nLet’s see the code first…\n1import os\n2current_path = os.getcwd()\nprint(current_path)\n\n1\n\nos is a built-in module of python which is used to do local operating system level operation like directory change, path of the folder and navigating through directories etc.\n\n2\n\nThis code just copy your path where you are running your file. Don’t confuse yourself with that os.getcwd() for now you will soon understand this.\n\n\n\n\n\n\n\n\nModule in simple terms\n\n\n\nThink of these module OS this way. If python is an electrician then modules are its tool sets with every tool has their specific purpose like (pliers, voltage tester, wire stripper, multimeter etc) or you can say these modules are the features of python.\n\n\nAsking Prompt and Passing Argument\nfrom sys import argv\nscript_name, username = argv\nprint(f'Script name: {script_name}')\nprint(f'Username: {username}')\n\n'''\nInput:   python delete.py asad\nOutput:  Script name: delete.py\n         Username: asad\n'''\n\nThis is the other way to import module(feature) which says import from the module sys the argv method (which is a small part of that module)\nFirst open the terminal and navigate two your file where it is stored then run python delete.py asad here delete.py is my python file name write what’s yours and asad is the argument like an extra input to catch it inside our program.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to Python</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#about-the-author",
-    "href": "index.html#about-the-author",
-    "title": "Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics",
-    "section": "About the Author",
-    "text": "About the Author\nSaeed Ullah is a dynamic individual with a passion for technology, science, and the intricate dance between code and creativity. Hailing from Pakistan, Saeed Ullah is a dedicated computer science student, avid gardener, and aspiring robotic engineer. His insatiable curiosity extends beyond the realms of his formal studies, as he continuously seeks to broaden his knowledge across various disciplines.\nWith a background in electrical engineering and a focus on mastering machine learning, mathematics, and computer programming, Saeed Ullah is on an epic journey through the landscapes of emerging technologies. He finds joy in the fusion of theoretical concepts and hands-on application, always eager to contribute to the cutting edge of science and technology.\nBeyond the world of algorithms and circuits, Saeed Ullah is a green-thumbed enthusiast, nurturing a garden that reflects both patience and growth—a metaphor that echoes his approach to life and learning.\nIn this book, Saeed Ullah shares not only technical insights but also the spirit of exploration and the pursuit of excellence. Through the lens of his experiences and expertise, readers are invited to join him on a journey where technology meets creativity, and the possibilities are as vast as the ever-expanding universe of knowledge.\n\nLet’s start from here…",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "python basics.html",
-    "href": "python basics.html",
+    "objectID": "1. python basics/python basics.html",
+    "href": "1. python basics/python basics.html",
     "title": "1  Introduction to Python",
     "section": "",
     "text": "1.1 Python Basics:\nOpen search bar and open one of the following:\nRun your python script in directory where you have store your .py python file just open cmd there and run the command: python filename.py",
@@ -91,45 +71,652 @@
     ]
   },
   {
-    "objectID": "python basics.html#python-basics",
-    "href": "python basics.html#python-basics",
+    "objectID": "1. python basics/python basics.html#python-basics",
+    "href": "1. python basics/python basics.html#python-basics",
     "title": "1  Introduction to Python",
     "section": "",
-    "text": "Command Prompt (cmd) for short.\nPowerShell\nIDLE Python shell\nOpen your favourite Editor and write the following code into it and then save it as hello.py (python programs can be run only if its in .py extension)\n\n\n\n1print(\"Yay! i am writing my first program\")\n2print('i am printing')\n3('' , \"\")\n\n1\n\nprint is called a function which will be explain in the letter chapters. so don’t stuck on these programming lingo for now.\n\n2\n\nAs you can see between those yellow brackets, text can be enclosed in both single and double quote.\n\n3\n\nThese quotes tells the python that we are writing string and strings are like plain text to python, its that simple.\n\n\n\n\n\n\n\n\nTip\n\n\n\nAlso run your code in python Visual Compiler which explain and run your code step by step to show you what happens under the hood. Here’s the link: Python Visual Compiler\n\n\n\n1.1.1 Comments in python\nComments are used to tell what the specific part of your program do and its like an instruction box for your line of code. It can also be used to disable your code. so this it won’t run.\n\n1print('printing nothing') #single line comment\n\n2'''Multiline comments'''\n\n1\n\nThis is single line of comment. Here with pound character i can write anything just to explain this piece of code not to execute it\n\n2\n\nYou can also use multiline comments with the help of 3 single quotes which is used to write multiple line without specifying any # hash or pound character everytime you start new line of text.\n\n\n\n\n1.1.2 Numbers & Math in python\n\nMost Commonly use Mathematics symbols\n\n\nSymbols\nNames\n\n\n\n\n+\nPlus\n\n\n-\nMinus\n\n\n/\nSlash\n\n\n*\nAsterisk\n\n\n%\nPercent\n\n\n&lt;\nLess-than\n\n\n&gt;\nGreater-than\n\n\n&lt;=\nLess-than-equal\n\n\n&gt;=\nGreater-than-equal\n\n\n\n\n\n1.1.3 Variable & Names\nFirst let’s understand Variable in simple terms:\nImagine you have a box, and you give it a name, like number_box Now, you can put a number in it, let’s say 5. So, number_box holds the value 5.\nnumber_box = 5\nHere number_box is the variable and that number 5 is the value in it. You can also change it like below\nnumber_box = 10\nprint(number_box) # Output: 10\nNow it contain 10 instead of 5. Variables are useful and it lets you store and keep tracks of your numbers text and number of other things you will see in the advanced sections.\nQuiz time:\n\nQuestion 1: Write a Python code snippet to print the phrase “Hello, Python!”\n\n\nQuestion 2: How can you print the result of multiplying two numbers, let’s say 4 and 7, in Python?\n\n\nQuestion 3: Explain what the end parameter in the print function is used for.\n\n\nQuestion 4: Write a Python code snippet to print your name on one line and your age on the next line.\n\n\nQuestion 5: If you want to print the following text on separate lines:\n\nProgramming\nis\nfun!\nHow would you achieve this using the print function?\n\n\n\n\n\n\nClick to see answers…\n\n\n\n\n\n\nprint(\"Hello, Python!\")\nprint(4 * 7)\nThe end parameter in the print function is used to specify the character that separates multiple printed items. By default, it is set to \\n, which means a newline character. Newline is like when we reach the end of a line we press enter that’s exactly what do, just to press enter at the end of a line.\nprint(\"Your Name\")\nprint(\"Your Age\")\nprint(\"Programming\")\nprint(\"is\")\nprint(\"fun!\")\n\n\n\n\nString formating\nWe can also format our string output in different ways, First i will write code and then from the following you can see its explanation below:\n\nmy_name = 'Asad Pro Beta' # My digital persona \naddress = 'Peshawar, Pakistan'\nmy_age = 35 # Just kidding\nmy_height = 74 # inches\n\n1print(my_name+' ',address)\n2print(my_name+3*'.')\n3print('Your name is: {} my age: {}'.format(my_name,my_age))\n4print('Your age is: {1} my name: {0}'.format(my_name, my_age))\n5print(f'Your name is: {my_name} my age: {my_age}')\n6print(r'Your name is: {my_name} my age: {my_age}')\n\n1\n\nThis + sign merges (concatenate) two strings together and that white space is separate them\n\n2\n\nFirst multiply dot with 3 which become (…) & then concatenate (merge) it with that string (my_name)\n\n3\n\nThe format function in Python is like a template for creating sentences where you want to replace certain parts with specific values. Let me explain with an analogy: Imagine you have a fill-in-the-blank storybook. The storybook has sentences with blanks, and you have stickers with words on them. Each sticker has a different word that fits into one of the blanks.\n\n4\n\nWe can also use index number, Index are like address of every variable where it stored on computer memory.\n\n5\n\nPutting f in the beginning act as a format function with which it identify variables.\n\n6\n\nPutting r in the beginning means that this string is raw which means nothing in other words, print everything as it is.\n\n\n\n1A,B,C,D,E = [i for i in range(ord('A'),ord('E')+1)]\na,b,c,d,e = [i for i in range(ord('a'),ord('e')+1)]\n\n\n2print(A,B,C,D,E,\n      a,b,c,d,e)\n\n3A,B,C,D,E = [65, 66, 67, 68, 69]\n\ndays = \"Mon Tue Wed Thu Fri Sat Sun\"\n4months = \"Jan\\nFeb\\nMar\\nApr\\nMay\\nJun\\nJul\\nAug\"\n\nprint(days)\nprint(months) \n\n1\n\nThis is another way to assign list of values to multiple variable at once. (Don’t bother we will cover Lists in later chapters)\n\n2\n\nRemove that comma after ‘E’ and see what happens\n\n3\n\nIts the same as the first one above, I have just created the list dynamically in the first place.\n\n4\n\nHere you will see that \\n character will act as an enter and printing will start from the new line. Copy and paste it in your editor and see its result on your own.\n\n\n\n\n\n\n\n\nClick to explore print function throughly\n\n\n\nMore on print\n\n\n\n\n1.1.4 Escape Sequences\nImagine you’re writing a story on the computer, and you want to do some special things with your words. Escape sequences in Python are like magic codes you can use to make your words look different or do special tricks!\nLook at the following table and try them out on your own:\n\n\n\n\n\n\n\nEscape\nWhat it does\n\n\n\n\n\\\\\nBackslash ()\n\n\n\\'\nSingle-quote (’)\n\n\n\\\"\nDouble-quote (“)\n\n\n\\a\nASCII bell (BEL)\n\n\n\\b\nASCII backspace (BS)\n\n\n\\f\nASCII formfeed (FF)\n\n\n\\n\nASCII linefeed (LF)\n\n\n\\N{name}\nCharacter named name in the Unicode database\n\n\n\\r\nASCII carriage return (CR)\n\n\n\\t\nASCII horizontal tab (TAB)\n\n\n\\uxxxx\nCharacter with 16-bit hex value xxxx (Unicode only)\n\n\n\\Uxxxxxxxx\nCharacter with 32-bit hex value xxxxxxxx (Unicode only)\n\n\n\\v\nASCII vertical tab (VT)\n\n\n\\ooo\nCharacter with octal value oo\n\n\n\\xhh\nCharacter with hex value hh\n\n\n\nPrompting People or Asking for Input\nprint('How old are you?') \nage =  input()\nprint(f'Your age : {age}')\ninput() is a method which shows you an empty placeholder for you to insert any value & when you insert then press enter so that value can be store in age variable.\n\nInput() function is like an empty page; someone gives you and you write anything what comes to your mind.\n\n\nHere, we have used the same string formating as we use earlier.\n\n\n\n1.1.5 Python modules\nLet’s see the code first…\n1import os\n2current_path = os.getcwd()\nprint(current_path)\n\n1\n\nos is a built-in module of python which is used to do local operating system level operation like directory change, path of the folder and navigating through directories etc.\n\n2\n\nThis code just copy your path where you are running your file. Don’t confuse yourself with that os.getcwd() for now you will soon understand this.\n\n\n\n\n\n\n\n\nModule in simple terms\n\n\n\nThink of these module OS this way. If python is an electrician then modules are its tool sets with every tool has their specific purpose like (pliers, voltage tester, wire stripper, multimeter etc) or you can say these modules are the features of python.\n\n\nAsking Prompt and Passing Argument\nfrom sys import argv\nscript_name, username = argv\nprint(f'Script name: {script_name}')\nprint(f'Username: {username}')\n\n'''\nInput:   python delete.py asad\nOutput:  Script name: delete.py\n         Username: asad\n'''\n\nThis is the other way to import module(feature) which says import from the module sys the argv method (which is a small part of that module)\nFirst open the terminal and navigate two your file where it is stored then run python delete.py asad here delete.py is my python file name write what’s yours and asad is the argument like an extra input to catch it inside our program.",
+    "text": "Command Prompt (cmd) for short.\nPowerShell\nIDLE Python shell\nOpen your favourite Editor and write the following code into it and then save it as hello.py (python programs can be run only if its in .py extension)\n\n\n\n1print(\"Yay! i am writing my first program\")\n2print('i am printing')\n3('' , \"\")\n\n1\n\nprint is called a function which will be explain in the letter chapters. so don’t stuck on these programming lingo for now.\n\n2\n\nAs you can see between those yellow brackets, text can be enclosed in both single and double quote.\n\n3\n\nThese quotes tells the python that we are writing string and strings are like plain text to python, its that simple.\n\n\n\n\n\n\n\n\nTip\n\n\n\nAlso run your code in python Visual Compiler which explain and run your code step by step to show you what happens under the hood. Here’s the link: Python Visual Compiler\n\n\n\n1.1.1 Comments in python\nComments are used to tell what the specific part of your program do and its like an instruction box for your line of code. It can also be used to disable your code. so this it won’t run.\n\n1print('printing nothing') #single line comment\n\n2'''Multiline comments'''\n\n1\n\nThis is single line of comment. Here with pound character i can write anything just to explain this piece of code not to execute it\n\n2\n\nYou can also use multiline comments with the help of 3 single quotes which is used to write multiple line without specifying any # hash or pound character everytime you start new line of text.\n\n\n\n\n1.1.2 Numbers & Math in python\n\nMost Commonly use Mathematics symbols\n\n\nSymbols\nNames\n\n\n\n\n+\nPlus\n\n\n-\nMinus\n\n\n/\nSlash\n\n\n*\nAsterisk\n\n\n%\nPercent\n\n\n&lt;\nLess-than\n\n\n&gt;\nGreater-than\n\n\n&lt;=\nLess-than-equal\n\n\n&gt;=\nGreater-than-equal\n\n\n\n\n\n1.1.3 Variable & Names\nFirst let’s understand Variable in simple terms:\nImagine you have a box, and you give it a name, like number_box Now, you can put a number in it, let’s say 5. So, number_box holds the value 5.\nnumber_box = 5\nHere number_box is the variable and that number 5 is the value in it. You can also change it like below\nnumber_box = 10\nprint(number_box) # Output: 10\nNow it contain 10 instead of 5. Variables are useful and it lets you store and keep tracks of your numbers text and number of other things you will see in the advanced sections.\nQuiz time:\n\nQuestion 1: Write a Python code snippet to print the phrase “Hello, Python!”\n\n\nQuestion 2: How can you print the result of multiplying two numbers, let’s say 4 and 7, in Python?\n\n\nQuestion 3: Explain what the end parameter in the print function is used for.\n\n\nQuestion 4: Write a Python code snippet to print your name on one line and your age on the next line.\n\n\nQuestion 5: If you want to print the following text on separate lines:\n\nProgramming\nis\nfun!\nHow would you achieve this using the print function?\n\n\n\n\n\n\nClick to see answers…\n\n\n\n\n\n\nprint(\"Hello, Python!\")\nprint(4 * 7)\nThe end parameter in the print function is used to specify the character that separates multiple printed items. By default, it is set to \\n, which means a newline character. Newline is like when we reach the end of a line we press enter that’s exactly what do, just to press enter at the end of a line.\nprint(\"Your Name\")\nprint(\"Your Age\")\nprint(\"Programming\")\nprint(\"is\")\nprint(\"fun!\")\n\n\n\n\nString formating\nWe can also format our string output in different ways, First i will write code and then from the following you can see its explanation below:\n\nmy_name = 'Asad Pro Beta' # My digital persona \naddress = 'Peshawar, Pakistan'\nmy_age = 35 # Just kidding\nmy_height = 74 # inches\n\n1print(my_name+' ',address)\n2print(my_name+3*'.')\n3print('Your name is: {} my age: {}'.format(my_name,my_age))\n4print('Your age is: {1} my name: {0}'.format(my_name, my_age))\n5print(f'Your name is: {my_name} my age: {my_age}')\n6print(r'Your name is: {my_name} my age: {my_age}')\n\n1\n\nThis + sign merges (concatenate) two strings together and that white space is separate them\n\n2\n\nFirst multiply dot with 3 which become (…) & then concatenate (merge) it with that string (my_name)\n\n3\n\nThe format function in Python is like a template for creating sentences where you want to replace certain parts with specific values. Let me explain with an analogy: Imagine you have a fill-in-the-blank storybook. The storybook has sentences with blanks, and you have stickers with words on them. Each sticker has a different word that fits into one of the blanks.\n\n4\n\nWe can also use index number, Index are like address of every variable where it stored on computer memory.\n\n5\n\nPutting f in the beginning act as a format function with which it identify variables.\n\n6\n\nPutting r in the beginning means that this string is raw which means nothing in other words, print everything as it is.\n\n\n\n1A,B,C,D,E = [i for i in range(ord('A'),ord('E')+1)]\na,b,c,d,e = [i for i in range(ord('a'),ord('e')+1)]\n\n\n2print(A,B,C,D,E,\n      a,b,c,d,e)\n\n3A,B,C,D,E = [65, 66, 67, 68, 69]\n\ndays = \"Mon Tue Wed Thu Fri Sat Sun\"\n4months = \"Jan\\nFeb\\nMar\\nApr\\nMay\\nJun\\nJul\\nAug\"\n\nprint(days)\nprint(months) \n\n1\n\nThis is another way to assign list of values to multiple variable at once. (Don’t bother we will cover Lists in later chapters)\n\n2\n\nRemove that comma after ‘E’ and see what happens\n\n3\n\nIts the same as the first one above, I have just created the list dynamically in the first place.\n\n4\n\nHere you will see that \\n character will act as an enter and printing will start from the new line. Copy and paste it in your editor and see its result on your own.\n\n\n\n\n\n\n\n\nClick to explore print function throughly\n\n\n\nMore on print\n\n\n\n\n1.1.4 Escape Sequences\nImagine you’re writing a story on the computer, and you want to do some special things with your words. Escape sequences in Python are like magic codes you can use to make your words look different or do special tricks!\nLook at the following table and try them out on your own:\n\n\n\n\n\n\n\nEscape\nWhat it does\n\n\n\n\n\\\\\nBackslash ()\n\n\n\\'\nSingle-quote (’)\n\n\n\\\"\nDouble-quote (“)\n\n\n\\a\nASCII bell (BEL)\n\n\n\\b\nASCII backspace (BS)\n\n\n\\f\nASCII formfeed (FF)\n\n\n\\n\nASCII linefeed (LF)\n\n\n\\N{name}\nCharacter named name in the Unicode database\n\n\n\\r\nASCII carriage return (CR)\n\n\n\\t\nASCII horizontal tab (TAB)\n\n\n\\uxxxx\nCharacter with 16-bit hex value xxxx (Unicode only)\n\n\n\\Uxxxxxxxx\nCharacter with 32-bit hex value xxxxxxxx (Unicode only)\n\n\n\\v\nASCII vertical tab (VT)\n\n\n\\ooo\nCharacter with octal value oo\n\n\n\\xhh\nCharacter with hex value hh\n\n\n\nPrompting People or Asking for Input\nprint('How old are you?') \nage =  input()\nprint(f'Your age : {age}')\ninput() is a method which shows you an empty placeholder for you to insert any value & when you insert then press enter so that value can be store in age variable.\n\nInput() function is like an empty page; someone gives you and you write anything what comes to your mind.\n\n\nHere, we have used the same string formating as we use earlier.\n\n\n\n1.1.5 Python modules\nLet’s see the code first…\n1import os\n2current_path = os.getcwd()\nprint(current_path)\n\n1\n\nos is a built-in module of python which is used to do local operating system level operation like directory change, path of the folder and navigating through directories etc.\n\n2\n\nThis code just copy your path where you are running your file. Don’t confuse yourself with that os.getcwd() for now you will soon understand this.\n\n\n\n\n\n\n\n\nModule in simple terms\n\n\n\nThink of these module OS this way. If python is an electrician then modules are its tool sets with every tool has their specific purpose like (pliers, voltage tester, wire stripper, multimeter etc) or you can say these modules are the features of python.\n\n\nAsking Prompt and Passing Argument\nfrom sys import argv\nscript_name, username = argv\nprint(f'Script name: {script_name}')\nprint(f'Username: {username}')\n\n'''\nInput:   python delete.py asad\nOutput:  Script name: delete.py\n         Username: asad\n'''\n\nThis is the other way to import module(feature) which says import from the module sys the argv method (which is a small part of that module)\nFirst open the terminal and navigate to your file where it is stored then run python delete.py asad here delete.py is my python file name write what’s yours and asad is the argument like an extra input to catch it inside our program.",
     "crumbs": [
       "Python Programming Basics",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python</span>"
     ]
   },
   {
-    "objectID": "lists.html",
-    "href": "lists.html",
-    "title": "Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics",
+    "objectID": "1. python basics/flow control.html",
+    "href": "1. python basics/flow control.html",
+    "title": "2  Flow Control",
     "section": "",
-    "text": "hello this is list",
+    "text": "2.1 Boolean Values\nWhile string, integer & floating numbers can have infinite number of possible values, they Boolean data type has only 2 values True or False. They would always be start with capital T or F with the rest of the words in lowercase. Practice the following code into shell:",
     "crumbs": [
-      "Introduction to Python",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>lists.html</span>"
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
     ]
   },
   {
-    "objectID": "about author.html",
-    "href": "about author.html",
-    "title": "About the Author",
+    "objectID": "1. python basics/flow control.html#boolean-values",
+    "href": "1. python basics/flow control.html#boolean-values",
+    "title": "2  Flow Control",
     "section": "",
-    "text": "Saeed Ullah is a dynamic individual with a passion for technology, science, and the intricate dance between code and creativity. Hailing from Pakistan, Saeed Ullah is a dedicated computer science student, avid gardener, and aspiring robotic engineer. His insatiable curiosity extends beyond the realms of his formal studies, as he continuously seeks to broaden his knowledge across various disciplines.\nWith a background in electrical engineering and a focus on mastering machine learning, mathematics, and computer programming, Saeed Ullah is on an epic journey through the landscapes of emerging technologies. He finds joy in the fusion of theoretical concepts and hands-on application, always eager to contribute to the cutting edge of science and technology.\n\n\nBeyond the world of algorithms and circuits, Saeed Ullah is a green-thumbed enthusiast, nurturing a garden that reflects both patience and growth—a metaphor that echoes his approach to life and learning.\nIn this book, Saeed Ullah shares not only technical insights but also the spirit of exploration and the pursuit of excellence. Through the lens of his experiences and expertise, readers are invited to join him on a journey where technology meets creativity, and the possibilities are as vast as the ever-expanding universe of knowledge.",
+    "text": "defect = True\ndefect # Output: True\n\ndefect = False\ndefect # Output: False\n\n2+2 == 4 # Output: True\n\n1True = 4+5 # will give you SyntaxError: can't assign to keyword\n\n1\n\nYou can’t use keyword as a variable check on keyword more",
     "crumbs": [
-      "About the Author"
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
     ]
   },
   {
-    "objectID": "about author.html#a-title",
-    "href": "about author.html#a-title",
-    "title": "About the Author",
-    "section": "",
-    "text": "Some text that is very long and that should take most of the column space.\n\nSome other text that should be below the first paragraph.",
+    "objectID": "1. python basics/flow control.html#comparison-operators",
+    "href": "1. python basics/flow control.html#comparison-operators",
+    "title": "2  Flow Control",
+    "section": "2.2 Comparison Operators",
+    "text": "2.2 Comparison Operators\nComparison operator aka relational operators. These are used to compare two expressions and evaluate it to a single Boolean value.\n\nList of most commonly used comparison operators\n\n\nOperator\nMeaning\n\n\n\n\n==\nEqual to\n\n\n!=\nNot equal to\n\n\n&lt;\nLess than\n\n\n&gt;\nGreater than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to\n\n\n\nOpen Python Shell by pressing Win+RWin+R & write python press EnterEnter:\n23 == 32\n23 != 43\n43 &lt; 234\n43 &gt; 23\n54 &lt;= 54\n66 &gt;= 77\n\n'hi' == 'hi'\n1'Hello' == 'hello'\nTrue == True\n242 == 42.0\n39124 == '9124'\n49124 == int('9124')\n\n1\n\nThis will return False because first character of both is different in context of programming and both have separate representation in binary on memory.\n\n2\n\nBoth are the same but if you write 42.0 as 42.1 then it will return False and will it bigger than only 42.\n\n3\n\nOne is integer and other is string so both have different data types and different meanings.\n\n4\n\nint() function will take 9124 as string and will convert it into integer and then it would be compare with 9124, which will return True.\n\n\n\n\n\n\n\n\nDifference Between == & = Operators\n\n\n\nThe == operator is used to compare two things whether they are the same or not.  The = operator is used to assign a value to the variable.\n You will learn more on this later once you understand about flow control statements.",
     "crumbs": [
-      "About the Author"
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#boolean-operators",
+    "href": "1. python basics/flow control.html#boolean-operators",
+    "title": "2  Flow Control",
+    "section": "2.3 Boolean Operators",
+    "text": "2.3 Boolean Operators\nThree Boolean operators (and, or, & not) are used to compare boolean values. Let’s see its truth tables\n\n\n\n\n\n\n\nAND Truth Table\n\n\nExpression\nOutput\n\n\n\n\nTrue and True\nTrue\n\n\nTrue and False\nFalse\n\n\nFalse and True\nFalse\n\n\nFalse and False\nFalse\n\n\n\n\n\n\nOR Truth Table\n\n\nExpression\nOutput\n\n\n\n\nTrue or True\nTrue\n\n\nTrue or False\nTrue\n\n\nFalse or True\nTrue\n\n\nFalse or False\nFalse\n\n\n\n\n\n\nNOT Truth Table\n\n\nExpression\nOutput\n\n\n\n\nnot True\nFalse\n\n\nnot False\nTrue",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#mixed-up-boolean-and-comparison-operatos",
+    "href": "1. python basics/flow control.html#mixed-up-boolean-and-comparison-operatos",
+    "title": "2  Flow Control",
+    "section": "2.4 Mixed up Boolean and Comparison Operatos",
+    "text": "2.4 Mixed up Boolean and Comparison Operatos\nNow let’s see it in practicing it in interactive shell of python:\n1&gt;&gt;&gt; (5 &gt; 4) and (7 &lt; 9)\nTrue\n2&gt;&gt;&gt; (23 &lt; 22) or (32 &gt; 23)\nTrue\n3&gt;&gt;&gt; not (5 &gt; 1)\nFalse\n\n1\n\nThe interpreter will start from the most left and goes to the right such as (5 &gt; 4) return True and then the second expression will return True then if you see the truth table of AND above you will see its outcome.\n\n2\n\nThe same goes for or gate where first expression False and the second expression return True which is also True\n\n3\n\nnot negate the boolean value so (5 &gt; 1) is True but then not operator will make it False\n\n\n\n\n\n\n\n\nNote\n\n\n\nFlow control statetments have 2 part called the condition and are always followed by a block of code called clause.\n\nif police == True: # Condition \n   print('Police is coming to catch the thief.') # Clause or Body\n   print('Help police in catching thief.')\n\n\nAll flow control statements ends with colon and followed by new block of code or clause.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#if-and-else-statements",
+    "href": "1. python basics/flow control.html#if-and-else-statements",
+    "title": "2  Flow Control",
+    "section": "2.5 if and else Statements",
+    "text": "2.5 if and else Statements\nAn if condition will execute on if it’s true following by its body block of code. If its false then optionally there is else clause to execute (else block is optional you can omit it as well.)\nIn simple words you can say that “If you work hard you will be succeded else you will become looser”\nLet’s practice:\n&gt;&gt;&gt; if work == 'hard':\n...     print('Made him succeed')\n... else:\n...     print('Made him looser')\n...\nMade him succeed # Output",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#elif-statements",
+    "href": "1. python basics/flow control.html#elif-statements",
+    "title": "2  Flow Control",
+    "section": "2.6 elif statements",
+    "text": "2.6 elif statements\nWe also have else if statement in short elif it allows you to include multiple conditions. Check it below in practice:\nage = 25\nif age == 5:\n    print('You are not old enough to watch movies')\nelif age == 18:\n    print('You can watch 16+ movies')\nelif age == 23:\n    print('You are old enough to watch extreme horror movies')\nelse:\n    print('You mature enough to care after your family')\n\nYou mature enough to care after your family # Output",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#while-loop",
+    "href": "1. python basics/flow control.html#while-loop",
+    "title": "2  Flow Control",
+    "section": "2.7 While Loop",
+    "text": "2.7 While Loop\nA while loop is a control flow structure in programming that repeats a block of code while a certain condition is true. It continues executing the code as long as the specified condition remains true.\nHere’s a simple explanation and example in Python:\nExplanation:\nA while loop checks a condition before each iteration. If the condition is true, the code inside the loop is executed. After each iteration, the condition is checked again. The loop continues until the condition becomes false.\n# Initialize a variable\ncounter = 1\n\n# Define the condition\nwhile counter &lt;= 5:\n    # Code inside the loop\n    print(counter) # \n    \n    # Update the counter for the next iteration\n    counter += 1\nExplanation of the Example:\n\nWe start with counter set to 1.\nThe condition counter &lt;= 5 is true, so we enter the loop and print the value of counter.\nWe increment counter by 1 (using counter += 1) to move to the next number.\n\n\n\n\n\n\n\nWarning\n\n\n\nWhile loop may also crash your program while giving it such a condition which never meant to end like the one below:\nwhile True:\n   print('This loop will never end')\n\n\n\n\n\n\n\n\nTrapped in an infinite loop\n\n\n\n\n\nIf you ever find yourself trapped in infinite loop then simply press CTRL+CCTRL+C. This will send a KeyboardInterrupt error to your program and will halt the execution of your program.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#break-statement",
+    "href": "1. python basics/flow control.html#break-statement",
+    "title": "2  Flow Control",
+    "section": "2.8 Break Statement",
+    "text": "2.8 Break Statement\nNow if you fear not to stuck in infinite loop then there is solution to this which is break statement. Place it in a place where you want to exit the execution of a program e.g. Run the following code in interactive shell.\nwhile True:\n   print('This loop will break')\n1   break\n\n1\n\nThis break statement will terminate the flow of while loop.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#continue-statement",
+    "href": "1. python basics/flow control.html#continue-statement",
+    "title": "2  Flow Control",
+    "section": "2.9 Continue statement",
+    "text": "2.9 Continue statement\nSimilar to the break statement, we also have continue statement which let’s you jump back to the start of the loop. Let’s try it in interactive shell:\nwhile True:\n   print('who are you?')\n   name = input()\n   if name != 'asad':\n            continue\n   print(f'your name is {name}')\n   break",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/flow control.html#for-loop",
+    "href": "1. python basics/flow control.html#for-loop",
+    "title": "2  Flow Control",
+    "section": "2.10 For loop",
+    "text": "2.10 For loop\nSo far, We have seen the while loop but if want the loop to execute a certain number of times, for that we have for loops. imagine you have a backpack full of books, and you want to know what’s inside each book. A for loop is like flipping through each book one by one and checking the pages. You keep doing this until you’ve looked through all the books in your backpack.\n# Imagine your backpack is like a list of books\nbackpack = [\"Adventure Book\", \"Science Book\", \"Mystery Book\", \"Comic Book\"]\n\n# Using a for loop to check each book\nfor book in backpack:\n    # Code inside the loop\n    print(\"Checking the pages of\", book)\n\n# After the loop, you've checked every book in your backpack!\nIn this example:\n\nbackpack is like your list of books.\nThe for loop is like going through each book (Adventure Book, Science Book, etc.) in your backpack, one after the other.\nThe code inside the loop (printing “Checking the pages of [book]”) is like looking through the pages of each book.\nAfter the loop, you’ve checked every book in your backpack.\n\n\n2.10.1 Range() function\nRange function is used to specify the number of iteration dynmaically to the loop so it won’t go beyond that limit like e.g. Let’s stick to the previous example:\nbackpack = [\"Adventure Book\", \"Science Book\", \"Mystery Book\", \"Comic Book\"]\n\n1for i in range(len(backpack))\n2   print(backpack[i])\n\n1\n\nlen() function return the number of elements in the list which is 5, so it would start from 0 go till length of that list (5).\n\n2\n\nHere, in the first iteration i would be 0 so it will fetch first element of the list.\n\n\nDon’t worry, We will see lists in detail later.\n\n\n2.10.2 Start, Stop & Step Arguments to range()\nWe can also pass arguments to the functions & arguments is like giving super power to that function. Look it in practice:\n1for i in range(1, 10, 2): # (start, stop, step)\n   print(i)\n   Ouput: 1, 3, 5, 7, 9\n\n1\n\nThis says, Start from 1 and go till 10 but skip 2 digit between and print the third digit.\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou can also use negative number in the step argument to make the for go from up to down.\nfor i in range(0, -10, -1): \n   print(i)\n\n\n\n\n2.10.3 Importing modules",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "ChatGPT Guide/prompt engineering basics.html",
+    "href": "ChatGPT Guide/prompt engineering basics.html",
+    "title": "10  Intro to ChatGPT",
+    "section": "",
+    "text": "ChatGPT is an AI language model that is trained on massive amount of text data that generate natural language responses in conversation style.\nSimple Explanation💨 ChatGPT is like a super smart talking robot that can answer questions, tell stories, and chat with you. It learns from lots of words and sentences to understand and talk like a friend. It’s here to help and have fun conversations!\n5 main benefits of ChatGPT:↴\n\nSmart Helper: Helps you learn and find answers really fast!\nTalks Like a Friend: Makes writing and talking better and more fun.\nIdea Buddy: Helps you think of cool and creative stuff.\nTime Saver: Saves time by helping you quickly.\nGets Smarter with You: Learns and becomes an even better friend over time!\n\nMain outputs it can generate\n\nText Answers: Provides detailed written answers to questions.\nCreative Writing: Generates stories, poems, or creative conte\nCode Assistance: Helps with coding and programming-related qu\nLanguage Translation: Translates text from one language to an\nConversation: Engages in natural language conversations on va\nSynthesize Info: Summarize large amound of content into a con\n\nList of Modifiers for ChatGPT to give you better output:\n\nList of Modifiers\n\n\n\n\n\n\nNames\nModifiers\n\n\n\n\nQualifiers\nWords like “some,” “few,” “many,” “most,” “all” modifying nouns or adjectives they precedes.\n\n\nAdjectives\nWords that describe or modifying nouns/pronouns, e.g., “red,” “happy,” “large.”\n\n\nAdverbs\nWords that modifying verbs, adjectives, or other adverbs, e.g., “quickly,” “well,” “loudly.”\n\n\nIntensifiers\nWords strengthening the meaning of an adjective or adverb, e.g., “very,” “extremely,” “totally.”\n\n\nNegatives\nWords negating or reversing the meaning of a sentence, e.g., “not,” “never,” “no.”\n\n\nNumber words\nWords indicating quantity, e.g., “one,” “two,” “few,” “many,” “several.”\n\n\nTime words\nWords indicating when something happened or will happen, e.g., “now,” “yet,” “soon.”\n\n\nPlace words\nWords indicating where something is or happened, e.g., “here,” “there,” “everywhere.”\n\n\nDegree words\nWords indicating the extent or degree to which something is true, e.g., “totally,” “completely,” “slightly.”",
+    "crumbs": [
+      "Mastering Prompt Engineering (ChatGPT)",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Intro to ChatGPT</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/1-python basics.html",
+    "href": "1. python basics/1-python basics.html",
+    "title": "1  Introduction to Python",
+    "section": "",
+    "text": "1.1 Python Basics:\nOpen the search bar and open one of the following:\nRun your Python script in the directory where you have stored your .py python file just open cmd there and run the command: python filename.py",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/1-python basics.html#python-basics",
+    "href": "1. python basics/1-python basics.html#python-basics",
+    "title": "1  Introduction to Python",
+    "section": "",
+    "text": "Command Prompt (cmd) for short.\nPowerShell\nIDLE Python shell\nOpen your favorite Editor and write the following code into it and then save it as hello.py (python programs can be run only if they are in .py extension)\n\n\n\n1print(\"Yay! i am writing my first program\")\n2print('i am printing')\n3('' , \"\")\n\n1\n\nprint is called a function which will be explained in the letter chapters. so don’t stuck on this programming lingo for now.\n\n2\n\nAs you can see between those yellow brackets, text can be enclosed in both single and double quotes.\n\n3\n\nThese quotes tell Python that we are writing strings and strings are like plain text to Python, it’s that simple.\n\n\n\n\n\n\n\n\nTip\n\n\n\nAlso, run your code in Python Visual Compiler which explains and runs your code step by step to show you what happens under the hood. Here’s the link: Python Visual Compiler\n\n\n\n1.1.1 Comments in Python\nComments are used to tell what the specific part of your program does and it’s like an instruction box for your line of code. It can also be used to disable your code. so this it won’t run.\n\n1print('printing nothing') #single line comment\n\n2'''Multiline comments'''\n\n1\n\nThis is a single line of comment. Here with pound character, I can write anything just to explain this piece of code not to execute it\n\n2\n\nYou can also use multiline comments with the help of 3 single quotes which are used to write multiple lines without specifying any # hash or pound character every time you start a new line of text.\n\n\n\n\n1.1.2 Numbers & Math in Python\n\nMost Commonly used Mathematics symbols\n\n\nSymbols\nNames\n\n\n\n\n+\nPlus\n\n\n-\nMinus\n\n\n/\nSlash\n\n\n*\nAsterisk\n\n\n%\nPercent\n\n\n&lt;\nLess-than\n\n\n&gt;\nGreater-than\n\n\n&lt;=\nLess-than-equal\n\n\n&gt;=\nGreater-than-equal\n\n\n\n\n\n1.1.3 Variable & Names\nFirst, let’s understand Variable in simple terms:\nImagine you have a box, and you give it a name, like number_box Now, you can put a number in it, let’s say 5. So, number_box holds the value 5.\nnumber_box = 5\nHere number_box is the variable and the number 5 is the value in it. You can also change it like below\nnumber_box = 10\nprint(number_box) # Output: 10\nNow it contains 10 instead of 5. Variables are useful and it lets you store and keep track of your numbers text and several other things you will see in the advanced sections.\nQuiz time:\n\nQuestion 1: Write a Python code snippet to print the phrase “Hello, Python!”\n\n\nQuestion 2: How can you print the result of multiplying two numbers, let’s say 4 and 7, in Python?\n\n\nQuestion 3: Explain what the end parameter in the print function is used for.\n\n\nQuestion 4: Write a Python code snippet to print your name on one line and your age on the next line.\n\n\nQuestion 5: If you want to print the following text on separate lines:\n\nProgramming\nis\nfun!\nHow would you achieve this using the print function?\n\n\n\n\n\n\nClick to see answers…\n\n\n\n\n\n\nprint(\"Hello, Python!\")\nprint(4 * 7)\nThe end parameter in the print function is used to specify the character that separates multiple printed items. By default, it is set to \\n, which means a newline character. Newline is like when we reach the end of a line we press enter that’s exactly what do, just to press enter at the end of a line.\nprint(\"Your Name\")\nprint(\"Your Age\")\nprint(\"Programming\")\nprint(\"is\")\nprint(\"fun!\")\n\n\n\n\nString formating\nWe can also format our string output in different ways, First I will write code and then from following you can see its explanation below:\n\nmy_name = 'Asad Pro Beta' # My digital persona \naddress = 'Peshawar, Pakistan'\nmy_age = 35 # Just kidding\nmy_height = 74 # inches\n\n1print(my_name+' ',address)\n2print(my_name+3*'.')\n3print('Your name is: {} my age: {}'.format(my_name,my_age))\n4print('Your age is: {1} my name: {0}'.format(my_name, my_age))\n5print(f'Your name is: {my_name} my age: {my_age}')\n6print(r'Your name is: {my_name} my age: {my_age}')\n\n1\n\nThis + sign merges (concatenates) two strings together and that white space separates them\n\n2\n\nFirst multiply the dot with 3 which becomes (…) & then concatenate (merge) it with that string (my_name)\n\n3\n\nThe format function in Python is like a template for creating sentences where you want to replace certain parts with specific values. Let me explain with an analogy: Imagine you have a fill-in-the-blank storybook. The storybook has sentences with blanks, and you have stickers with words on them. Each sticker has a different word that fits into one of the blanks.\n\n4\n\nWe can also use index numbers, Index are like the address of every variable where stored on computer memory.\n\n5\n\nPutting f in the beginning acts as a format function with which it identifies variables.\n\n6\n\nPutting r in the beginning means that this string is raw which means nothing in other words, print everything as it is.\n\n\n\n1A,B,C,D,E = [i for i in range(ord('A'),ord('E')+1)]\na,b,c,d,e = [i for i in range(ord('a'),ord('e')+1)]\n\n\n2print(A,B,C,D,E,\n      a,b,c,d,e)\n\n3A, B, C, D, E = [65, 66, 67, 68, 69]\n\ndays = \"Mon Tue Wed Thu Fri Sat Sun\"\n4months = \"Jan\\nFeb\\nMar\\nApr\\nMay\\nJun\\nJul\\nAug\"\n\nprint(days)\nprint(months) \n\n1\n\nThis is another way to assign a list of values to multiple variables at once. (Don’t bother we will cover Lists in later chapters)\n\n2\n\nRemove that comma after ‘E’ and see what happens\n\n3\n\nIt’s the same as the first one above, I have just created the list dynamically in the first place.\n\n4\n\nHere you will see that the \\n character will act as an enter and printing will start from the new line. Copy and paste it into your editor and see its result on your own.\n\n\n\n\n\n\n\n\nClick to explore print function thoroughly\n\n\n\nMore on print\n\n\n\n\n1.1.4 Escape Sequences\nImagine you’re writing a story on the computer, and you want to do some special things with your words. Escape sequences in Python are like magic codes you can use to make your words look different or do special tricks!\nLook at the following table and try them out on your own:\n\n\n\n\n\n\n\nEscape\nWhat it does\n\n\n\n\n\\\\\nBackslash ()\n\n\n\\'\nSingle-quote (’)\n\n\n\\\"\nDouble-quote (“)\n\n\n\\a\nASCII bell (BEL)\n\n\n\\b\nASCII backspace (BS)\n\n\n\\f\nASCII formfeed (FF)\n\n\n\\n\nASCII linefeed (LF)\n\n\n\\N{name}\nCharacter named name in the Unicode database\n\n\n\\r\nASCII carriage return (CR)\n\n\n\\t\nASCII horizontal tab (TAB)\n\n\n\\uxxxx\nCharacter with 16-bit hex value xxxx (Unicode only)\n\n\n\\Uxxxxxxxx\nCharacter with 32-bit hex value xxxxxxxx (Unicode only)\n\n\n\\v\nASCII vertical tab (VT)\n\n\n\\ooo\nCharacter with octal value oo\n\n\n\\xhh\nCharacter with hex value hh\n\n\n\nPrompting People or Asking for Input\nprint('How old are you?') \nage =  input()\nprint(f'Your age : {age}')\ninput() is a method that shows you an empty placeholder for you to insert any value & when you insert then press enter so that the value can be stored in the age variable.\n\nInput() function is like an empty page; someone gives you and you write anything that comes to your mind.\n\n\nHere, we have used the same string formatting as we used earlier.\n\n\n\n1.1.5 Python modules\nLet’s see the code first…\n1import os\n2current_path = os.getcwd()\nprint(current_path)\n\n1\n\nos is a built-in module of Python that is used to do local operating system level operations like directory change, the path of the folder navigating through directories etc.\n\n2\n\nThis code just copies the path where you are running your file. Don’t confuse yourself with that os.getcwd() for now you will soon understand this.\n\n\n\n\n\n\n\n\nModule in simple terms\n\n\n\nThink of these modules OS this way. If Python is an electrician then modules are its tool sets with every tool having its specific purpose (pliers, voltage tester, wire stripper, multimeter etc) or you can say these modules are the features of Python.\n\n\nAsking Prompt and Passing Argument\nfrom sys import argv\nscript_name, username = argv\nprint(f'Script name: {script_name}')\nprint(f'Username: {username}')\n\n'''\nInput:   python delete.py asad\nOutput:  Script name: delete.py\n         Username: Asad\n'''\n\nThis is the other way to import a module(feature) which says import from the module sys the argv method (which is a small part of that module)\nFirst open the terminal and navigate to your file where it is stored then run python delete.py asad here delete.py is my python file name write what’s yours and asad is the argument like an extra input to catch it inside our program.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Python</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html",
+    "href": "1. python basics/2-flow control.html",
+    "title": "2  Flow Control",
+    "section": "",
+    "text": "2.1 Boolean Values\nWhile string, integer & floating numbers can have an infinite number of possible values, the Boolean data type has only 2 values True or False. They would always start with capital T or F with the rest of the words in lowercase. Practice the following code into the shell:",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#boolean-values",
+    "href": "1. python basics/2-flow control.html#boolean-values",
+    "title": "2  Flow Control",
+    "section": "",
+    "text": "defect = True\ndefect # Output: True\n\ndefect = False\ndefect # Output: False\n\n2+2 == 4 # Output: True\n\n1True = 4+5 # will give you SyntaxError: can't assign to keyword\n\n1\n\nYou can’t use keyword as a variable check on keyword more",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#comparison-operators",
+    "href": "1. python basics/2-flow control.html#comparison-operators",
+    "title": "2  Flow Control",
+    "section": "2.2 Comparison Operators",
+    "text": "2.2 Comparison Operators\nComparison operator aka relational operators. These are used to compare two expressions and evaluate them to a single Boolean value.\n\nList of most commonly used comparison operators\n\n\nOperator\nMeaning\n\n\n\n\n==\nEqual to\n\n\n!=\nNot equal to\n\n\n&lt;\nLess than\n\n\n&gt;\nGreater than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to\n\n\n\nOpen Python Shell by pressing Win+RWin+R & write python press EnterEnter:\n23 == 32\n23 != 43\n43 &lt; 234\n43 &gt; 23\n54 &lt;= 54\n66 &gt;= 77\n\n'hi' == 'hi'\n1'Hello' == 'hello'\nTrue == True\n242 == 42.0\n39124 == '9124'\n49124 == int('9124')\n\n1\n\nThis will return False because the first character of both is different in the context of programming and both have separate representations in binary on memory.\n\n2\n\nBoth are the same but if you write 42.0 as 42.1 then it will return False and will it bigger than only 42.\n\n3\n\nOne is an integer and the other is a string so both have different data types and different meanings.\n\n4\n\nThe int() function will take 9124 as a string and will convert it into an integer and then it will be compared with 9124, which will return True.\n\n\n\n\n\n\n\n\nDifference Between == & = Operators\n\n\n\nThe == operator is used to compare two things whether they are the same or not.  The = operator is used to assign a value to the variable.\n You will learn more about this later once you understand flow control statements.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#boolean-operators",
+    "href": "1. python basics/2-flow control.html#boolean-operators",
+    "title": "2  Flow Control",
+    "section": "2.3 Boolean Operators",
+    "text": "2.3 Boolean Operators\nThree Boolean operators (and, or, & not) are used to compare boolean values. Let’s see its truth tables\n\n\n\n\n\n\n\nAND Truth Table\n\n\nExpression\nOutput\n\n\n\n\nTrue and True\nTrue\n\n\nTrue and False\nFalse\n\n\nFalse and True\nFalse\n\n\nFalse and False\nFalse\n\n\n\n\n\n\nOR Truth Table\n\n\nExpression\nOutput\n\n\n\n\nTrue or True\nTrue\n\n\nTrue or False\nTrue\n\n\nFalse or True\nTrue\n\n\nFalse or False\nFalse\n\n\n\n\n\n\nNOT Truth Table\n\n\nExpression\nOutput\n\n\n\n\nnot True\nFalse\n\n\nnot False\nTrue",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#mixed-up-boolean-and-comparison-operatos",
+    "href": "1. python basics/2-flow control.html#mixed-up-boolean-and-comparison-operatos",
+    "title": "2  Flow Control",
+    "section": "2.4 Mixed up Boolean and Comparison Operatos",
+    "text": "2.4 Mixed up Boolean and Comparison Operatos\nNow let’s see it in practicing it in interactive shell of python:\n1&gt;&gt;&gt; (5 &gt; 4) and (7 &lt; 9)\nTrue\n2&gt;&gt;&gt; (23 &lt; 22) or (32 &gt; 23)\nTrue\n3&gt;&gt;&gt; not (5 &gt; 1)\nFalse\n\n1\n\nThe interpreter will start from the most left and goes to the right such as (5 &gt; 4) return True and then the second expression will return True then if you see the truth table of AND above you will see its outcome.\n\n2\n\nThe same goes for or gate where first expression False and the second expression return True which is also True\n\n3\n\nnot negate the boolean value so (5 &gt; 1) is True but then not operator will make it False\n\n\n\n\n\n\n\n\nNote\n\n\n\nFlow control statetments have 2 part called the condition and are always followed by a block of code called clause.\n\nif police == True: # Condition \n   print('Police is coming to catch the thief.') # Clause or Body\n   print('Help police in catching thief.')\n\n\nAll flow control statements ends with colon and followed by new block of code or clause.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#if-and-else-statements",
+    "href": "1. python basics/2-flow control.html#if-and-else-statements",
+    "title": "2  Flow Control",
+    "section": "2.5 if and else Statements",
+    "text": "2.5 if and else Statements\nAn if condition will execute if it’s true followed by its body block of code. If it’s false then optionally there is an else clause to execute (else block is optional you can omit it as well.)\nIn simple words you can say that “If you work hard you will succeed else you will become looser”\nLet’s practice:\n&gt;&gt;&gt; if work == 'hard':\n...     print('Made him succeed')\n... else:\n...     print('Made him looser')\n...\nMade him succeed # Output",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#elif-statements",
+    "href": "1. python basics/2-flow control.html#elif-statements",
+    "title": "2  Flow Control",
+    "section": "2.6 elif statements",
+    "text": "2.6 elif statements\nWe also have an else if statement in short elif it allows you to include multiple conditions. Check it below in practice:\nage = 25\nif age == 5:\n    print('You are not old enough to watch movies')\nelif age == 18:\n    print('You can watch 16+ movies')\nelif age == 23:\n    print('You are old enough to watch extreme horror movies')\nelse:\n    print('You mature enough to care after your family')\n\nYou mature enough to care after your family # Output",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#while-loop",
+    "href": "1. python basics/2-flow control.html#while-loop",
+    "title": "2  Flow Control",
+    "section": "2.7 While Loop",
+    "text": "2.7 While Loop\nA while loop is a control flow structure in programming that repeats a block of code while a certain condition is true. It continues executing the code as long as the specified condition remains true.\nHere’s a simple explanation and example in Python:\nExplanation:\nA while loop checks a condition before each iteration. If the condition is true, the code inside the loop is executed. After each iteration, the condition is checked again. The loop continues until the condition becomes false.\n# Initialize a variable\ncounter = 1\n\n# Define the condition\nwhile counter &lt;= 5:\n    # Code inside the loop\n    print(counter) # \n    \n    # Update the counter for the next iteration\n    counter += 1\nExplanation of the Example:\n\nWe start with the counter set to 1.\nThe condition counter &lt;= 5 is true, so we enter the loop and print the value of the counter.\nWe increment the counter by 1 (using counter += 1) to move to the next number.\n\n\n\n\n\n\n\nWarning\n\n\n\nWhile loop may also crash your program while giving it such a condition which never meant to end like the one below:\nwhile True:\n   print('This loop will never end.')\n\n\n\n\n\n\n\n\nTrapped in an infinite loop\n\n\n\n\n\nIf you ever find yourself trapped in the infinite loop then simply press CTRL+CCTRL+C. This will send a KeyboardInterrupt error to your program and will halt the execution of your program.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#break-statement",
+    "href": "1. python basics/2-flow control.html#break-statement",
+    "title": "2  Flow Control",
+    "section": "2.8 Break Statement",
+    "text": "2.8 Break Statement\nNow if you fear not to stuck in the infinite loop then there is the solution to this which is the break statement. Place it in a place where you want to exit the execution of a program e.g. Run the following code in the interactive shell.\nwhile True:\n   print('This loop will break')\n1   break\n\n1\n\nThis break statement will terminate the flow of the while loop.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#continue-statement",
+    "href": "1. python basics/2-flow control.html#continue-statement",
+    "title": "2  Flow Control",
+    "section": "2.9 Continue statement",
+    "text": "2.9 Continue statement\nSimilar to the break statement, we also have a continue statement which lets you jump back to the start of the loop. Let’s try it in the interactive shell:\nwhile True:\n   print('who are you?')\n   name = input()\n   if name != 'asad':\n            continue\n   print(f'your name is {name}')\n   break",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#for-loop",
+    "href": "1. python basics/2-flow control.html#for-loop",
+    "title": "2  Flow Control",
+    "section": "2.10 For loop",
+    "text": "2.10 For loop\nSo far, We have seen the while loop but if want the loop to execute a certain number of times, for that we have for loops. imagine you have a backpack full of books, and you want to know what’s inside each book. A for loop is like flipping through each book one by one and checking the pages. You keep doing this until you’ve looked through all the books in your backpack.\n# Imagine your backpack is like a list of books\nbackpack = [\"Adventure Book\", \"Science Book\", \"Mystery Book\", \"Comic Book\"]\n\n# Using a for loop to check each book\nfor book in a backpack:\n    # Code inside the loop\n    print(\"Checking the pages of\", book)\n\n# After the loop, you've checked every book in your backpack!\nIn this example:\n\nbackpack is like your list of books.\nThe for loop is like going through each book (Adventure Book, Science Book, etc.) in your backpack, one after the other.\nThe code inside the loop (printing “Checking the pages of [book]”) is like looking through the pages of each book.\nAfter the loop, you’ve checked every book in your backpack.\n\n\n2.10.1 Range() function\nThe range function is used to specify the number of iterations dynamically to the loop so it won’t go beyond that limit e.g. Let’s stick to the previous example:\nbackpack = [\"Adventure Book\", \"Science Book\", \"Mystery Book\", \"Comic Book\"]\n\n1for i in range(len(backpack))\n2   print(backpack[i])\n\n1\n\nThe len() function returns the number of elements in the list which is 5, so it would start from 0 and go to the length of that list (5).\n\n2\n\nHere, in the first iteration i would be 0 so it will fetch the first element of the list.\n\n\nDon’t worry, We will see the lists in detail later.\n\n\n2.10.2 Start, Stop & Step Arguments to range()\nWe can also pass arguments to the functions & arguments are like giving superpower to that function. Look it in practice:\n1for i in range(1, 10, 2): # (start, stop, step)\n   print(i)\n   Output: 1, 3, 5, 7, 9\n\n1\n\nThis says, Start from 1 and go till 10 but skip 2 digits between and print the third digit.\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou can also use a negative number in the step argument to make the for go from up to down.\nfor i in range(0, -10, -1): \n   print(i)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#importing-modules",
+    "href": "1. python basics/2-flow control.html#importing-modules",
+    "title": "2  Flow Control",
+    "section": "2.11 Importing modules",
+    "text": "2.11 Importing modules\nThe module is a Python program made by a third party to use it for your task. Python also comes with built-in modules called standard libraries. Each module is a set of Python programs that can be embedded in your programs. For example, the math module is used to do all the mathematical operations and the random module has random-number-related functions.\nBefore you use the module, you must import it into your Python file in the following format:\n1import random\nfor i in range(4):\n   print(random.randint(50,100))\n\n2import random, os, math, sys\n\n1\n\nImport the random module and give us 4 random numbers b/w 50-100.\n\n2\n\nYou can import multiple modules as long as every module name is separated by a comma.\n\n\n:::{.callout-caution title=” DON’T OVERWRITE MODULE NAMES”} If you save your Python file with the same name you used in the import statement like random.py or math.py this will import the Python file you have created instead of the Python module. :::",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#from-import-statements",
+    "href": "1. python basics/2-flow control.html#from-import-statements",
+    "title": "2  Flow Control",
+    "section": "2.12 from import statements",
+    "text": "2.12 from import statements\nAs you see in the above example we have imported the whole module which contains several functions within it, but sometimes we want a single function from that module, like if we want to use only the randint() function, then we can do this by: from random import randint\nThe above statement will only import the randint function and you cannot use other functions of the random module. This way you save a lot of memory from importing any unnecessary functions from that random module & use only the required one.\nYou can also import multiple functions like: from random import randint, choice, shuffle",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#ending-a-program-before-time",
+    "href": "1. python basics/2-flow control.html#ending-a-program-before-time",
+    "title": "2  Flow Control",
+    "section": "2.13 Ending a Program Before Time",
+    "text": "2.13 Ending a Program Before Time\nThe program always terminates once it reaches the bottom of the program execution. However, if you want the program to terminate early you can use the following module & its function.\nimport sys\n\nwhile True:\n   for i in range(5):\n      print(i)\n   sys.exit()\n\n\n\n\n\n\nAnswer to Curious Individual\n\n\n\nNow, you will say why not use a break statement rather than sys.exit()? Because the break statement lets you break out of the loop and the remaining program continues to execute conversely sys. exit() is used to terminate the execution of the whole program.\n\n\n\n2.13.1 Guess the Number Quiz\nWrite a program and ask the user to guess the number between 1-10.\n\n\n\n\n\n\nClick to See the Solution Code\n\n\n\n\n\nimport random\n\nrand_number = random.randint(1,10)\nprint('Guess the number between 1-10: ')\nanswer = False\n\nwhile answer!=True:\n   response = int(input('Take a guess: '))\n   \n   if response &lt; rand_number:\n      print('You guess too low')\n\n   elif response &gt; rand_number:\n      print('You guess too high')\n\n   else:\n      answer = not answer   \n      print('You guessed it right')\n      print(f'System guess: {rand_number}\\nUser guess: {response}')\n\n\n\n\n\n\nThis is how Flow Control Works in Programming",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/3-functions.html",
+    "href": "1. python basics/3-functions.html",
+    "title": "3  Functions",
+    "section": "",
+    "text": "3.1 Functions with Arguments\nWhen you pass the string to the print() function between parenthesis is called the arguments. Think of an argument as an extra set of powers a function can have. Let’s look at the following analogy: Imagine you have a Robot friend and you want to give it 2 numbers to add them and give you the result. Every time you give it different numbers and will give you the sum of it.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/3-functions.html#functions-with-arguments",
+    "href": "1. python basics/3-functions.html#functions-with-arguments",
+    "title": "3  Functions",
+    "section": "",
+    "text": "# Copy and Paste it into your shell window to see its output:\n\n1def robot(num1 , num2):\n    print(num1 + num2)\n\n2robot(23, 42)\nrobot(3, 2)\nrobot(33, 12)\n\n1\n\nnum1 & num2 are parameters (which is an empty Box)\n\n2\n\n23 & 42 are the arguments that will go inside the num1 & num2 parameters.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/3-functions.html#the-none-value",
+    "href": "1. python basics/3-functions.html#the-none-value",
+    "title": "3  Functions",
+    "section": "3.2 The None Value",
+    "text": "3.2 The None Value\nIn Python, we have a value called None which represents nothing or the absence of a value. The None keyword must be started with capital ‘N’. None is the only data type of the NoneType class. (will explain later what are classes)\ndef func_none(response):\n    if response == 'Gold' or response == 'Silver':\n        print('You Got Gold!!')\n    elif response == 'Gold' or response == 'Silver':\n        print('You Got Gold!!')\n    else:\n        return func_none\n\n1result = func_none(response=input('Choose Gold or Silver, If you choose anything else you will get \"None\" '))\n\n2print(result)\n\n1\n\nHere, the program will ask the user to enter the value and that value will be passed to the func_none() function as an argument and there the condition would be applied to the corresponding value if none of the conditions met, then the function returns the None value.\n\n2\n\nHere, if func_none() returns the result of the condition met like “Gold” or “Silver” then in the second line it would also print None and that’s because print() function on itself return nothing which is basically None.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/3-functions.html#local-and-global-scope",
+    "href": "1. python basics/3-functions.html#local-and-global-scope",
+    "title": "3  Functions",
+    "section": "3.3 Local and Global Scope",
+    "text": "3.3 Local and Global Scope\nLet’s look at the code first and then we will see what is Local and Global.\n1name = 'asad'\n\ndef func1():\n    name = 'wafi'\n2    print(name)\n\ndef func2():\n    age = 18\n3    print('Name: ',name)\n    print('Age: ',age)\n\nfunc1() \nfunc2() \n\n1\n\nHere, the name variable can be accessed everywhere in the same program file e.g. func1.py while the name variable inside the func1() function can only be accessed inside that function.\n\n2\n\nGives you wafi` in output.\n\n3\n\nHere the name variable will return the value ‘asad’ from the Global scope.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/2-flow control.html#mixed-up-boolean-and-comparison-operators",
+    "href": "1. python basics/2-flow control.html#mixed-up-boolean-and-comparison-operators",
+    "title": "2  Flow Control",
+    "section": "2.4 Mixed up Boolean and Comparison Operators",
+    "text": "2.4 Mixed up Boolean and Comparison Operators\nNow let’s see it by practicing it in the interactive shell of Python:\n1&gt;&gt;&gt; (5 &gt; 4) and (7 &lt; 9)\nTrue\n2&gt;&gt;&gt; (23 &lt; 22) or (32 &gt; 23)\nTrue\n3&gt;&gt;&gt; not (5 &gt; 1)\nFalse\n\n1\n\nThe interpreter will start from the left and go to the right such as (5 &gt; 4) return True and then the second expression will return True then if you see the truth table of AND above you will see its outcome.\n\n2\n\nThe same goes for or gate where the first expression is False and the second expression returns True which is also True\n\n3\n\nnot negate the boolean value so (5 &gt; 1) is True but then the not operator will make it False\n\n\n\n\n\n\n\n\nNote\n\n\n\nFlow control statements have 2 parts called the condition and are always followed by a block of code called clause.\n\nif police == True: # Condition \n   print('Police is coming to catch the thief.') # Clause or Body\n   print('Help police in catching thief.')\n\n\nAll flow control statements end with a colon and are followed by a new block of code or clause.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Flow Control</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/3-functions.html#global-statement",
+    "href": "1. python basics/3-functions.html#global-statement",
+    "title": "3  Functions",
+    "section": "3.4 Global Statement",
+    "text": "3.4 Global Statement\nIf you want to modify the Global variable inside a function you can use the global keyword before that variable but do not create a variable with the same name as the Global variable inside that function.\n# Global variable\ncounter = 5\n\ndef increase_counter():\n    global counter\n    counter += 1\n\n# Before calling the function\nprint(\"Before: Counter =\", counter)\n\n# Calling the function to modify the global variable\nincrease_counter()\n\n# After calling the function\nprint(\"After: Counter =\", counter)\n\n\n\n\n\n\nNote\n\n\n\nIf you ever wanted to change the value of the Global variable you must use the global statement on the variable. So that Python knows which variable you are referring to.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/3-functions.html#exception-handling",
+    "href": "1. python basics/3-functions.html#exception-handling",
+    "title": "3  Functions",
+    "section": "3.5 Exception Handling",
+    "text": "3.5 Exception Handling\nGetting an error or exception, in your Python programs means that the entire program will crash, But we don’t want this to happen in real-world scenarios, rather than you want the program to detect the error handle them and continue afterward.\nFor instance, run the following code in the editor:\ndef division(divider):\n    print(42 / divider)\n\ndivision(2) # Passing argument 2 to the function.\ndivision(7)\n1division(0)\ndivision(1)\n\n1\n\nHere when you pass 0 dividers to the division() function means you are dividing 42 by 0 which will give you an error like the one below:\n\n\n\nprint(42 / divider)\n\n1ZeroDivisionError: division by zero\n\n1\n\nZeroDivisionError is an exception raised by an error of dividing the number by zero.\n\n\nNow to prevent such types of exceptions & errors, Python has try and except clauses. The code that causes the error will go inside the try clause and the code that prevents the program from crashing goes into the except clause.\nFor example, Look at the above code with try and except clause:\n\ndef division(divider):\n    try:\n        print(42 / divider)\n1    except ZeroDivisionError:\n        print('You cannot divide with Zero')\n\n\n2division(0)\n\n1\n\nZeroDivisionError tells Python if you encounter ZeroDivisionError raise the following print message But you can write anything below except clause.\n\n2\n\nNow when you call the division function with 0 number it won’t crash the entire program but will give you a decent error message and the program will continue to execute other remaining instructions.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/3-functions.html#zigzag-program-for-fun",
+    "href": "1. python basics/3-functions.html#zigzag-program-for-fun",
+    "title": "3  Functions",
+    "section": "3.6 ZigZag Program for Fun:",
+    "text": "3.6 ZigZag Program for Fun:\nLet’s use your previous knowledge of programming to create a small animation zigzag program. Type the following code into your file editor & save the file as zigzag.py:\n2import time\nimport sys\n\ntry:\n1    while True:\n        counter = 4\n\n        for i in range(10):\n\n            if i &lt;= 4:\n                print(f'{counter*\" \"}********')\n                counter -= 1\n            elif counter == -1 or counter == 0:\n                counter = 1\n            else:\n                print(f'{\" \"*counter}********')\n                counter += 1\n\n3            time.sleep(0.3)  # Adjust the delay time as needed to make it more like animation\nexcept KeyboardInterrupt:\n    sys.exit()\n\n1\n\nThe while loop will never exit until you press Ctrl+cCtrl+c which calls the KeyboardInterrupt Error.\n\n2\n\nIn Python, the time module helps you work with time-related functions. It’s like a toolbox with tools to handle time-related tasks.\n\n3\n\nTry to write a program without try and except which will cause the program to crash if you want to stop the while loop by Ctrl+cCtrl+c and will give you an ugly error message. However, for our program we it to cleanly handle KeyboardInterrupt in except clause then pressing Ctrl+cCtrl+c won’t crash the program rather it will stop smoothly as usual by calling the sys.exit() function.\n\n\n\n\n\n\n\n\nSummary\n\n\n\nFunctions are the primary way to prevent you from duplicating your code. Functions are great to help you organize your code. You can think of it as the black boxes: they have input in the form of parameters and have output in the form of return values.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html",
+    "href": "1. python basics/4-lists.html",
+    "title": "4  Lists",
+    "section": "",
+    "text": "4.1 Getting Values in a List with Indexes\nSay you have a list ['red', 'blue', 'green', 45, True] stored in a variable named colors. If we want to access elements from this list we have to access it by its index (index is like the address of that item on the memory). e.g. colors[0] would return red and so on. Since list indexing starts with 0 that’s why to access the 5th element of the list you have to give it 4 or len(list)-1 less than one of the total length of the list.\nWe can also use negative indexing to display the list in reverse order or to iterate on the list from backward.\nFor example, try the following in the interactive shell.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#getting-values-in-a-list-with-indexes",
+    "href": "1. python basics/4-lists.html#getting-values-in-a-list-with-indexes",
+    "title": "4  Lists",
+    "section": "",
+    "text": "Source: https://www.dataquest.io\n\n\n\ncolors = ['blue','green','red','brown','white', 9124, True, False, 9.33]\n\ncolors = ['blue','green','red','brown','white', 9124, True, False, 9.33]\ncolors[0]\n'blue'\n1colors[-1]\n9.33\ncolors[-2]\nFalse\ncolors[-3]\nTrue\ncolors[-4]\n9124\ncolors[2]\n'red'\ncolors[3]\n'brown' \n2colors[1:4]\n['green', 'red', 'brown']\ncolors[0:4]\n['blue', 'green', 'red', 'brown']\n\n1\n\nHere, we are using the negative indexing to iterate from the back of the list and colors[-1] will return the last element/item of the list.\n\n2\n\nWe can also use the slicing (a range of values in a list) in a list to specify the range to tell it where to start and where to stop. colors[0:4] Here, you can see we tell Python to start from the index 0 and goes upto 4 (but 4 is not included because indexing starts from 0 that’s why it will stop on 3. if you start from 0 like (0, 1, 2, 3) == 4 elements.)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#nested-list",
+    "href": "1. python basics/4-lists.html#nested-list",
+    "title": "4  Lists",
+    "section": "4.2 Nested List",
+    "text": "4.2 Nested List\nLet’s create a Nested list in Python:\ncars = ['toyota', 'mercedes', 'benz', ['tesla x', 'tesla y', 'tesla z']]\nprint(cars[0:2]) # Output: ['toyota', 'mercedes', 'benz']\n1print(cars[3])  # Output: ['tesla x', 'tesla y', 'tesla z']\n2print(cars[3][0]) # Output: 'tesla x'\n3print(cars[3][0:2]) # Output: ['tesla x', 'tesla y']\n\n1\n\ncars[3] will give the value on index 3 which is the nested list inside the cars list.\n\n2\n\nThis cars[3][0] expression tells Python to go on the third item on the list cars then on the third element fetch element on index 0 and return it.\n\n3\n\ncars[3][0:2] expression tells Python to extract elements ranging from 0 up to 2 from the nested list within cars.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#changing-values-of-a-list-by-indexes",
+    "href": "1. python basics/4-lists.html#changing-values-of-a-list-by-indexes",
+    "title": "4  Lists",
+    "section": "4.3 Changing Values of a List by Indexes",
+    "text": "4.3 Changing Values of a List by Indexes\nNormally, when we change the value of a variable we use the variable name and the corresponding value, But in the case of lists we use the index to change the value of a particular item. e.g. Let’s look at the following coding example:\ncars = ['toyota', 'mercedes', 'benz', ['tesla x', 'tesla y', 'tesla z']]\n\ncars[0] = 'Toyota Phoenix'\nprint(cars[0]) # value changed from 'toyota' to 'Toyota Phoenix'\n\n# Changing the value using Negative indexing\ncars[-1] = ['A', 'B', 'C', 'D'] # This replaces the list of Tesla car names\nprint(cars[-1])\n\n# Print the whole list\nprint(cars)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#list-concatenation-replication",
+    "href": "1. python basics/4-lists.html#list-concatenation-replication",
+    "title": "4  Lists",
+    "section": "4.4 List Concatenation & Replication",
+    "text": "4.4 List Concatenation & Replication\nTo concatenate the list we can use the + operator and to make multiple copies we use the * operator just like the following:\n# The multiplication operator will create 3 copies of the same list and will merge them\nprint([1, 2, 3, 4] * 3)\n\n# Addition operator concatenates or chains together multiple lists into a single list.\n\nprint([1, 2, 3, 4] + [5, 6, 7, 8] + [9, 10, 11, 12, 13])",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#removing-values-from-lists",
+    "href": "1. python basics/4-lists.html#removing-values-from-lists",
+    "title": "4  Lists",
+    "section": "4.5 Removing Values from Lists",
+    "text": "4.5 Removing Values from Lists\nThe remove(), pop(), and del are three different methods in Python used for removing elements from a list, but they have distinct functionalities:\n\nremove(value) Method:\n\nUsage: list.remove(value)\nFunctionality: Removes the first occurrence of the specified value from the list.\nExample:\nmy_list = [10, 20, 30, 20, 40]\nmy_list.remove(20)\nprint(my_list)  # Output: [10, 30, 20, 40]\n\npop(index) Method:\n\nUsage: element = list.pop(index)\nFunctionality: Removes and returns the element at the specified index. If no index is provided, it removes and returns the last element.\nExample:\nmy_list = [10, 20, 30, 40]\nremoved_element = my_list.pop(1)\nprint(removed_element)  # Output: 20\nprint(my_list)  # Output: [10, 30, 40]\n\ndel Statement:\n\nUsage: del list[index] or del list[start:end] or del list\nFunctionality: Deletes the specified element(s) or the entire list.\nExamples:\n\nDelete a specific element by index:\nmy_list = [10, 20, 30, 40]\ndel my_list[1]\nprint(my_list)  # Output: [10, 30, 40]\nDelete a slice of the list:\nmy_list = [10, 20, 30, 40]\ndel my_list[1:3]\nprint(my_list)  # Output: [10, 40]\nDelete the entire list:\nmy_list = [10, 20, 30, 40]\ndel my_list\n# Raises an error if you try to access my_list after deletion\n\n\n\nKey Points:\n\nremove() is used when you know the value you want to remove.\npop() is used when you want to remove an element by its index and optionally retrieve its value.\ndel is a more general statement that can delete elements by index or slices, or even delete entire lists.\n\nChoose the method that best fits your specific use case based on whether you need to remove by value, by index, or delete specific elements or slices.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#working-with-lists",
+    "href": "1. python basics/4-lists.html#working-with-lists",
+    "title": "4  Lists",
+    "section": "4.6 Working with Lists",
+    "text": "4.6 Working with Lists\nWhen you first begin writing programs it’s tedious to create many variables of the same type. For example to store my car collection:\n\n# Long way to store multiple values in different variable names\nCertainly! Here are nine different car model names:\n\ncar1 = \"Toyota Camry\"\ncar2 = \"Ford Mustang\"\ncar3 = \"Honda Civic\"\ncar4 = \"BMW 3 Series\"\ncar5 = \"Chevrolet Corvette\"\ncar6 = \"Mercedes-Benz E-Class\"\ncar7 = \"Volkswagen Golf\"\ncar8 = \"Tesla Model S\"\ncar9 = \"Nissan Rogue\"\nThis turns out that this is a bad way to write code. (I also don’t own these cars, I swear, I just copied these names from the Internet)\nInstead of using multiple repetitive variables, you can use a single variable that has list of values. For example, here’s a new and improved version of the above source code.\ncars_collection = []\nwhile True:\n    print('Enter the name of Car or Leave it empty to Quit:')\n    name = input()\n    if name == \"\":\n        break\n    else:\n        # list Concatenation \n        cars_collection = cars_collection + [name] \nprint('Collection: ',cars_collection)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#iterate-through-lists",
+    "href": "1. python basics/4-lists.html#iterate-through-lists",
+    "title": "4  Lists",
+    "section": "4.7 Iterate through Lists",
+    "text": "4.7 Iterate through Lists\nIn the previous lessons we have seen loops\n\n\n\nSource: https://www.dataquest.io",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#iteration",
+    "href": "1. python basics/4-lists.html#iteration",
+    "title": "4  Lists",
+    "section": "4.7 Iterate through Lists",
+    "text": "4.7 Iterate through Lists\nIn the previous lessons we have seen loops execute a block of code a certain number of times. For loop execute the code in the loop body for each item in the range. e.g.\nfor i in range(4):\n    print(i)\n\n\"\"\" Output: 0\n            1\n            2\n            3\n\"\"\"\n# This is because Python looks at this range function as [0, 1, 2, 3] and retrieves an item at a time from the list.\nWe will use the range function to iterate through the following list and will access values by its index:\ncars_collection = [\"Toyota Camry\",\n                    \"Ford Mustang\",\n                    \"Honda Civic\",\n                    \"BMW 3 Series\",\n                    \"Chevrolet Corvette\",\n                    \"Mercedes-Benz E-Class\",\n                    \"Volkswagen Golf\",\n                    \"Tesla Model S\",\n                    \"Nissan Rogue\"]\n# Assign the first value of the list to the 'car_name' variable and print it.\nfor car_name in cars_collection:\n    print(car_name)\n\n# Accessing value by index, range() & len() function\nfor index in range(len(cars_collection)):\n    print(cars_collection[index])",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#in-and-not-in-operators",
+    "href": "1. python basics/4-lists.html#in-and-not-in-operators",
+    "title": "4  Lists",
+    "section": "4.8 in and not in Operators",
+    "text": "4.8 in and not in Operators\nWe can determine whether a value is present in a list or not by using in & not in operators. e.g. Enter the following into the interactive shell:\n# Output: True\n'salih' in ['sadiq','safi','salih','qaisar','ikram']\n\nanimals = ['cat', 'dog', 'bird', 'cow']\n'cat' in animals # Output: True\n'elephant' in animals # Output: False",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#multiple-assignment-using-lists",
+    "href": "1. python basics/4-lists.html#multiple-assignment-using-lists",
+    "title": "4  Lists",
+    "section": "4.9 Multiple Assignment using Lists",
+    "text": "4.9 Multiple Assignment using Lists\nToyota = ['20 miles', '2016', '2024', 'Red']\nmileage, model, year, color = toyota[0], toyota[1], toyota[2], toyota[3]\n\nprint(mileage)\nprint(model)\nprint(year)\nprint(color)\nYou can also assign values to variables like below:\nToyota = ['20 miles', '2016', '2024', 'Red']\nmileage, model, year, color = Toyota\nprint(mileage)\nprint(model)\nprint(year)\nprint(color)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#using-enumerate-function-with-lists",
+    "href": "1. python basics/4-lists.html#using-enumerate-function-with-lists",
+    "title": "4  Lists",
+    "section": "4.10 Using enumerate() function with Lists",
+    "text": "4.10 Using enumerate() function with Lists\nThe enumerate() function is useful if you want both index & value. Instead of using range(len(list name)) let’s do the same with enumerate().\ncars_collection = [\"Toyota Camry\",\n                    \"Ford Mustang\",\n                    \"Honda Civic\",\n                    \"BMW 3 Series\",\n                    \"Chevrolet Corvette\",\n                    \"Mercedes-Benz E-Class\",\n                    \"Volkswagen Golf\",\n                    \"Tesla Model S\",\n                    \"Nissan Rogue\"]\n\nfor index, value in enumerate(cars_collection):\n    print(f'Index is: {index}\\nValue is: {value}')\n    \nStarting Index from a Specific Value:\nmy_list = ['apple', 'banana', 'orange']\nfor index, value in enumerate(my_list, start=1):\n    print(f\"Index: {index}, Value: {value}\")\nUsing Random module with Lists\nThe random module in Python can be used to perform various operations with lists. Here are a few examples:\n\nShuffling a List:\nimport random\n\nmy_list = [1, 2, 3, 4, 5]\nrandom.shuffle(my_list)\nprint(\"Shuffled List:\", my_list)\nSelecting a Random Element from a List:\nimport random\n\nfruits = ['apple', 'banana', 'orange', 'grape', 'kiwi']\nrandom_fruit = random.choice(fruits)\nprint(\"Random Fruit:\", random_fruit)\nRandom Sampling from a List:\nimport random\n\nnumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nrandom_sample = random.sample(numbers, k=3)\nprint(\"Random Sample:\", random_sample)\nGenerating Random Numbers within a Range:\nimport random\n\nrandom_number = random.randint(1, 100)\nprint(\"Random Number between 1 and 100:\", random_number)\nRandomizing List Order for a Specific Task:\nimport random\n\ntasks = ['Task A', 'Task B', 'Task C', 'Task D']\nrandom.shuffle(tasks)\nprint(\"Randomized Order for Task Execution:\", tasks)\n\nThese are just a few examples, and the random module provides more functions for working with randomness in Python. Depending on your specific use case, you can choose the appropriate function from the random module to achieve the desired behavior with lists.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#in-place-operators-or-compound-assignment-operators",
+    "href": "1. python basics/4-lists.html#in-place-operators-or-compound-assignment-operators",
+    "title": "4  Lists",
+    "section": "4.11 In-Place Operators or Compound Assignment Operators:",
+    "text": "4.11 In-Place Operators or Compound Assignment Operators:\nIn Python, augmented assignment operators are shorthand syntax for performing an operation and assigning the result to the same variable. They combine an operation (like addition or multiplication) with the assignment. Here are some examples:\n\nAddition: +=\nx = 5\nx += 3  # Equivalent to x = x + 3\nprint(x)  # Output: 8\nSubtraction: -=\ny = 10\ny -= 4  # Equivalent to y = y - 4\nprint(y)  # Output: 6\nMultiplication: *=\nz = 3\nz *= 2  # Equivalent to z = z * 2\nprint(z)  # Output: 6\nDivision: /=\na = 15\na /= 3  # Equivalent to a = a / 3\nprint(a)  # Output: 5.0\nModulus: %=\nb = 17\nb %= 5  # Equivalent to b = b % 5\nprint(b)  # Output: 2\nExponentiation: **=\nc = 2\nc **= 3  # Equivalent to c = c ** 3\nprint(c)  # Output: 8\nFloor Division: //=\nd = 25\nd //= 4  # Equivalent to d = d // 4\nprint(d)  # Output: 6\n\nThese operators are concise ways to update the value of a variable based on its current value and the result of an operation. They can be useful for making code more readable and efficient.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#insert-append-methods-of-list",
+    "href": "1. python basics/4-lists.html#insert-append-methods-of-list",
+    "title": "4  Lists",
+    "section": "4.12 insert() & append() methods of List",
+    "text": "4.12 insert() & append() methods of List\nLet’s keep it simple:\n\nappend() method:\n\nWhat it does: Adds something to the end of a list.\nExample: If you have a list of fruits and you want to add a new fruit to the end, you use append().\n\ninsert() method:\n\nWhat it does: Adds something to a specific position in a list.\nExample: If you have a list of friends and you want to add a new friend at a particular spot, you use insert().\n\n\nSo, append() adds to the end, and insert() adds at a specific place. Easy, right?\n# Using append() to add to the end of a list\nfruits = ['apple', 'banana', 'orange']\nfruits.append('grape')\n# Now, fruits is ['apple', 'banana', 'orange', 'grape']\n\n# Using insert() to add at a specific position in a list\nfriends = ['Alice', 'Bob', 'Charlie']\nfriends.insert(1, 'David')\n# Now, friends is ['Alice', 'David', 'Bob', 'Charlie']",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#sorting-value-of-list-using-sort-method",
+    "href": "1. python basics/4-lists.html#sorting-value-of-list-using-sort-method",
+    "title": "4  Lists",
+    "section": "4.13 Sorting value of list using sort() Method:",
+    "text": "4.13 Sorting value of list using sort() Method:\nValues inside the list can be sorted with sort() method:\nnumber = [1,5,3,2,7,4,3]\n\n# Sort it in ascending order\nnumber.sort()\nprint('Descending order: ',number)\n\n# Sort it in descending order by passing `reverse` parameter\nnumber.sort(reverse=True)\nprint('Ascending order: ',number)\n\n# You can also sort list contain strings in alphabetical order\n# You cannot sort list contain both string & number\n\n# sort() uses 'ASCIIbetical order' rather than actual alphabetical order for sorting strings which means uppercase letters comes before lowercase letters.\nmy_list = ['apple','Apple', 'banana', 'Banana', 'orange', \n'grape', 'kiwi', 'melon', 'peach', 'pear', 'strawberry', 'blueberry']\nmy_list.sort()\nprint(my_list)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#reversing-the-values-of-list",
+    "href": "1. python basics/4-lists.html#reversing-the-values-of-list",
+    "title": "4  Lists",
+    "section": "4.14 Reversing the Values of List",
+    "text": "4.14 Reversing the Values of List\nTo reverse the order of a list you can call reverse() method on the list. e.g.\ncount = [1, 2, 3, 4, 5, 6]\ncount.reverse()\nprint(count)\n\n\n\n\n\n\nLine Continuation Character\n\n\n\nSome time we want to organize our long line of code and to make it look pretty and readable. So, we use  line continuation character at the end. This tells python that line is continues and it don’t end here. For example, look at the following code:\nlong_text = \"This is a very long text that \\\ncontinues on the next line using the continuation character.\"\n\nprint(long_text)\n\n# Continuation on lists\ncolors = ['red', 'green', 'blue', \\\n          'yellow', 'orange', 'purple']\n\nprint(colors)\n\n# Continuation on numbers\nequation = 3 +  \\\n           5 *  \\\n           2\n\nprint(equation)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#string-lists-similarities",
+    "href": "1. python basics/4-lists.html#string-lists-similarities",
+    "title": "4  Lists",
+    "section": "4.15 String & Lists Similarities",
+    "text": "4.15 String & Lists Similarities\nIn Python, strings and lists share some similarities:\n\nOrdered Sequence:\n\nBoth strings and lists are ordered sequences, meaning the order in which elements appear is maintained.\n\nIndexing:\n\nYou can access individual elements in both strings and lists using indexing. For example, my_string[0] or my_list[0] refers to the first element.\n\nSlicing:\n\nBoth support slicing to extract a portion of the sequence. For instance, my_string[1:4] or my_list[1:4] extracts elements from index 1 to 3.\n\nIterability:\n\nBoth can be iterated using loops. You can use a for loop to go through each character in a string or each element in a list.\n\nConcatenation:\n\nYou can concatenate strings using the + operator, and you can concatenate lists using the + operator as well.\n\nInclusion:\n\nBoth can use the in operator to check if a specific element is present in the sequence.\n\n\nHere’s a quick example showcasing these similarities:\n# Strings\nmy_string = \"Hello, World!\"\nprint(my_string[0])        # Output: H\nprint(my_string[7:12])     # Output: World\nprint('W' in my_string)    # Output: True\n\n# Lists\nmy_list = [1, 2, 3, 4, 5]\nprint(my_list[2])          # Output: 3\nprint(my_list[1:4])        # Output: [2, 3, 4]\nprint(3 in my_list)        # Output: True\nDespite these similarities, it’s crucial to note that strings are immutable (you can’t change individual characters once the string is created), while lists are mutable (you can modify, add, or remove elements).",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#lists",
+    "href": "1. python basics/4-lists.html#lists",
+    "title": "4  Lists",
+    "section": "4.16 Tuple cousin of Lists",
+    "text": "4.16 Tuple cousin of Lists\nTuples are identical to lists except it create with parenthesis () rather than curly braces [] like lists. Another distinction between list & tuple is that tuple is immutable (can’t change its values) like strings. If you want to create a tuple with a single value then type a single comma after the value. This comma is what lets Python know this is a tuple value. If you don’t place trailing comma after the value Python will think of it as a regular string:\nType the following into editor & see its types:\nnot_tup = ('hours')\nprint(type(tup))\n\ntup = ('hours',)\nprint(type(tup))\n\nmy_list = ['hours']\nprint(type(my_list))\nNow, let’s create some tuples and try to tweak it a little bit and apply some of the list operations on it:\nmy_tuple = ('apple', 5, 3.14, 'banana', 7, 2.718)\n\n# looping through tuple using slicing\nprint(my_tuple[1:3])\n\n# Accessing value the way we access of list\n1print(my_tuple[0])\n\n# Changing the value of tuple (Remember tuple are Immutable)\n2my_tuple[0] = 'Apple'\n\n1\n\nWe can access tuple value like the way we access of lists.\n\n2\n\nThis will cause error TypeError: 'tuple' object does not support item assignment because tuple values can’t be changed",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#converting-types-with-list-tuple-functions",
+    "href": "1. python basics/4-lists.html#converting-types-with-list-tuple-functions",
+    "title": "4  Lists",
+    "section": "4.17 Converting Types with list() & tuple() functions",
+    "text": "4.17 Converting Types with list() & tuple() functions\nThe list() and tuple() functions in Python are used for converting between different sequence types. Here are some common use cases for these functions:\n\n4.17.1 list() functions:\n\nConvert String to List of Words:\nmy_string = \"Hello, how are you?\"\nword_list = list(my_string.split())\nprint(word_list)\nConvert Range to List:\nnumber_range = range(1, 6)\nnumber_list = list(number_range)\nprint(number_list)\nClone Another List:\noriginal_list = [1, 2, 3, 4, 5]\nnew_list = list(original_list)\nConvert Tuple to List:\n# Converting tuple to list\nmy_tuple = (10, 20, 30, 40, 50)\nmy_list = list(my_tuple)\nprint(my_list)\n\n\n\n4.17.2 tuple() functions:\n\nConvert List to Tuple:\nmy_list = [10, 20, 30, 40, 50]\nmy_tuple = tuple(my_list)\nprint(my_tuple)\nConvert String to Tuple of Characters:\nmy_string = \"Python\"\nchar_tuple = tuple(my_string)\nprint(char_tuple)\nCreate a Tuple from Values:\nvalues_tuple = tuple(1, 2, 3, 4, 5)\nprint(values_tuple)\nThese functions are versatile and can be used in various scenarios where you need to convert one sequence type to another.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#reference-to-variables",
+    "href": "1. python basics/4-lists.html#reference-to-variables",
+    "title": "4  Lists",
+    "section": "4.18 Reference to Variables",
+    "text": "4.18 Reference to Variables\nVariables in Python act as references to objects (values) in memory. For example, when you do x = 10, x is a reference to the memory location where the value 10 is stored. Let’s look at the following code block:\n# Creating references\na = 5  # 'a' is a reference to the value 5\nb = [1, 2, 3]  # 'b' is a reference to a list [1, 2, 3]\n\n# Modifying through references\na = a + 1  # Creates a new object (6) and updates 'a' to reference it\nb.append(4)  # Modifies the list object directly\n\n# Passing references to a function\ndef modify_list(lst):\n    lst.append(5)\n\nmodify_list(b)  # 'b' is passed by reference, and the list is modified\n\n# Changing reference\nc = b  # 'c' now references the same list as 'b'\nIn simple words, reference means when you create variable var1 = data variable (var1) point to the address of value data on computer memory. For example in the following code you can find the address of a variable using id() function.\n\n# Creating different names variable with same value\n1var1 = 'data'\nvar2 = 'data'\nvar3 = 'data'\n\n# Find memory address using id() method\nprint(id(var1))\nprint(id(var2))\nprint(id(var3))\n\n# Create variable with different value \n2var4 = 'data1'\nvar5 = 'data2'\n\nprint(id(var4))\nprint(id(var5))\n\n1\n\nAs you can see these three variable have same value so their value won’t create separate memory address rather all of them will point to the same memory address.\n\n2\n\nvar4 & var5 have different values so each variable will create their own memory address.\n\n\n\n\n\nVariable Reference\n\n\ncomputers = [1, 2, 3, 4, 5, 6]\nlaptop = computers\nmobile = computers\n\n\n# Below all will return the same memory address because all of the variable have same value. So, all of them would point to the memory address of [1, 2, 3, 4, 5, 6] instead of creating identical copy of it.\n\nprint(f'Address 1: {id(computers)}\\nAddress 2: {id(laptop)}\\nAddress 3: {id(mobile)}')\nDifferent Variable of Same Value You can create two lists with the same values using different variables. Here’s an example:\n# Creating two lists with the same values\nlist1 = [1, 2, 3, 4, 5]\nlist2 = [1, 2, 3, 4, 5]\n\n# Checking if they have the same values\nprint(\"Are the lists equal?\", list1 == list2)\n\n# Checking if they are different objects (different variables)\nprint(\"Are the variables different?\", list1 is not list2)\n\n# Checking memory address of both\nprint(id(list1),id(list2))\nprint(id(list1) == id(list2))\nIn this example, list1 and list2 have the same values, but they are different objects with different memory addresses. The == operator checks for equality of values, and the is operator checks if they refer to the same object in memory.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#copy-and-deepcopy-functions",
+    "href": "1. python basics/4-lists.html#copy-and-deepcopy-functions",
+    "title": "4  Lists",
+    "section": "4.19 copy() and deepcopy() functions",
+    "text": "4.19 copy() and deepcopy() functions\nThe copy() and deepcopy() functions are used to create copies of objects in Python, but they behave differently when dealing with nested or complex objects like lists within lists or dictionaries within dictionaries.\nHere’s an example using both functions:\nimport copy\n\n# Original list with nested lists\noriginal_list = [1, [2, 3, 4], 5]\n\n# Using copy() to create a shallow copy\nshallow_copy = copy.copy(original_list)\n\n# Using deepcopy() to create a deep copy\ndeep_copy = copy.deepcopy(original_list)\n\n# Modifying the original list\noriginal_list[1][0] = 'X'\n\n# Displaying the original and copied lists\nprint(\"Original List:\", original_list)\nprint(\"Shallow Copy:\", shallow_copy)\nprint(\"Deep Copy:\", deep_copy)\n\n# Output :\n      # Original List: [1, ['X', 3, 4], 5]\n      # Shallow Copy: [1, ['X', 3, 4], 5]\n      # Deep Copy: [1, [2, 3, 4], 5]\nIn this example, copy.copy() creates a shallow copy, and copy.deepcopy() creates a deep copy. The difference becomes apparent when the original list is modified. The shallow copy retains references to the nested lists, so changes inside the nested lists are reflected in both the original and shallow copy. The deep copy, on the other hand, creates entirely new objects for the nested lists, making it independent of changes in the original.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/4-lists.html#practice-questions",
+    "href": "1. python basics/4-lists.html#practice-questions",
+    "title": "4  Lists",
+    "section": "4.20 Practice Questions",
+    "text": "4.20 Practice Questions\n\n\n\n\n\nHow would you assign the value ‘world’ as the third element in a list stored in a variable named eggs? (Assume eggs contains [1, 3, 5, 7, 9]).\n\n eggs = [1, 3, 5, 7, 9]  eggs.insert(2, ‘world’) print(eggs) \n\n\n\nmy_list = [10, 20, 30, 40, 50] How would you remove the element 30 from the list without using the remove() method?\n\n my_list = [10, 20, 30, 40, 50] new_list = [i for i in my_list if i != 30] print(new_list) \n\n\n\nnumbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]How can you remove all occurrences of the number 5 from the list without using the remove() method?\n\n numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] new_numbers = [num for num in numbers if num != 5] print(new_numbers)\n\n\n\n\n\n\n\nSource: https://www.dataquest.io\nVariable Reference",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lists</span>"
     ]
   }
 ]

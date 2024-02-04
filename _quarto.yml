@@ -6,46 +6,57 @@ project:
 book:
   title: "Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics"
   author: "Mr. Saeed Ullah"
-  date: "20/01/2024"
+  date: last-modified
   favicon: images/icon.png
-  page-navigation: true
+  
+
 
 
 
   chapters:
     - index.qmd
-    - about author.qmd
-    - setup.qmd
+    - 1. python basics/about author.qmd
+    - 1. python basics/setup.qmd
     - part: Python Programming Basics
-      restart-chapter-numbering: true
       chapters: 
-        - python basics.qmd
-        - flow control.qmd
-        - functions.qmd
-        - lists.qmd
-        - dictionaries.qmd
-        - string manipulation.qmd
+        - 1. python basics/1-python basics.qmd
+        - 1. python basics/2-flow control.qmd
+        - 1. python basics/3-functions.qmd
+        - 1. python basics/4-lists.qmd
+        - 1. python basics/5-dictionaries.qmd
+        - 1. python basics/6-string manipulation.qmd
     - part: Automation with Python
-      restart-chapter-numbering: true
       chapters:
-        - pattern matching with regex.qmd
-        - input validation.qmd
-        - Reading and writing files.qmd
-
+        - 2. Regular Expressions/pattern matching with regex.qmd
+        - 2. Regular Expressions/input validation.qmd
+        - 2. Regular Expressions/Reading and writing files.qmd
+    - part: Mastering Prompt Engineering (ChatGPT)
+      chapters: 
+        - ChatGPT Guide/prompt engineering basics.qmd
 
 bibliography: references.bib
 
 
+toc: true
+number-sections: true
+highlight-style: pygments
+toc-title: 'Table of Contents'
+toc-expand: true
+
 format:
   html:
+    smooth-scroll: true  # for scrolling smothly be default it disabled
+    link-external-icon: true
+
+    include-in-header:   # Include the scrolling button to every page on site
+      - file: html files/scroll_button.html
+      - file: html files/progress_bar.html # Adding progress bar to all the pages that are longer than 1 page
     theme:
       light: flatly
       dark: darkly    
 
-  pdf:
-    documentclass: scrreprt
-    header-includes:
-      - \makeatletter
-      - \@addtoreset{chapter}{part}
-      - \makeatother           
+
+  # pdf:
+  #   documentclass: scrreprt
+     
 

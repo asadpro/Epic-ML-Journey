@@ -1,0 +1,209 @@
+# Functions 
+So far, you have seen built-in functions of Python such as `print()`, `len()` & `input()` functions. Functions are like mini-programs that are meant to do a single task like the `print()` function prints the string on your terminal. Let's break it down in simple terms to an 8th-grader child: 
+
+Imagine you have a box, and you can put different tasks or instructions inside that box. In programming, we call this box a "function."
+
+Now, why do we use functions? Well, think of it like having a set of instructions that you might need to use multiple times. Instead of writing those instructions again and again, you put them in a box (function). So, whenever you need to follow those instructions, you just use the box (call the function) instead of writing everything out each time.
+
+```python
+# Define the function
+def add_numbers(): # <1>
+    result = 12 + 12
+    return result   # <2>
+
+
+# Print the result
+print("The sum is:", add_numbers()) # <3>
+
+```
+1. `def` means define and is used to define a function in Python.
+2. `return` In programming, the `"return"` keyword is like telling a function to give you something back. It's a way for the function to share a specific result or piece of information with the rest of the program. Just as you put something in a box and then open the box to get it later, `"return"` allows a function to hand back its result when it's done.
+3. In this case `add_numbers()` function will return 24 and place it in the print function.
+
+
+## Functions with Arguments
+When you pass the string to the `print()` function between parenthesis is called the **arguments**. Think of an argument as an extra set of powers a function can have. 
+Let's look at the following analogy:
+Imagine you have a Robot friend and you want to give it 2 numbers to add them and give you the result. Every time you give it different numbers and will give you the sum of it.
+
+```python
+# Copy and Paste it into your shell window to see its output:
+
+def robot(num1 , num2): # <1>
+    print(num1 + num2)
+
+robot(23, 42) # <2>
+robot(3, 2)
+robot(33, 12)
+```
+
+1. `num1` & `num2` are parameters (which is an empty Box)
+
+2. `23` & `42` are the arguments that will go inside the `num1` & `num2` parameters.
+
+## The None Value
+In Python, we have a value called `None` which represents nothing or the absence of a value. The `None` keyword must be started with capital 'N'. `None` is the only data type of the `NoneType` class. (will explain later what are classes)
+
+```python
+def func_none(response):
+    if response == 'Gold' or response == 'Silver':
+        print('You Got Gold!!')
+    elif response == 'Gold' or response == 'Silver':
+        print('You Got Gold!!')
+    else:
+        return func_none
+
+result = func_none(response=input('Choose Gold or Silver, If you choose anything else you will get "None" ')) # <1>
+
+print(result) # <2> 
+```
+
+1. Here, the program will ask the user to enter the value and that value will be passed to the `func_none()` function as an argument and there the condition would be applied to the corresponding value if none of the conditions met, then the function returns the `None` value.
+
+2. Here, if `func_none()` returns the result of the condition met like "Gold" or "Silver" then in the second line it would also print `None` and that's because `print()` function on itself return nothing which is basically `None`.
+
+## Local and Global Scope
+Let's look at the code first and then we will see what is Local and Global.
+```python 
+name = 'asad' # <1>
+
+def func1():
+    name = 'wafi'
+    print(name) # <2>
+
+def func2():
+    age = 18
+    print('Name: ',name) # <3>
+    print('Age: ',age) # <3>
+
+func1() 
+func2() 
+
+```
+
+1. Here, the `name` variable can be accessed everywhere in the same program file e.g. *`func1.py`* while the `name` variable inside the `func1()` function can only be accessed inside that function.
+
+2. Gives you **wafi**` in output.
+3. Here the `name` variable will return the value 'asad' from the Global scope. 
+
+## Global Statement
+If you want to modify the Global variable inside a function you can use the `global` keyword before that variable but do not create a variable with the same name as the Global variable inside that function. 
+
+```python
+# Global variable
+counter = 5
+
+def increase_counter():
+    global counter
+    counter += 1
+
+# Before calling the function
+print("Before: Counter =", counter)
+
+# Calling the function to modify the global variable
+increase_counter()
+
+# After calling the function
+print("After: Counter =", counter)
+
+```
+
+::: {.callout-important title="Note" appearance="simple"}
+If you ever wanted to change the value of the Global variable you must use the global statement on the variable. So that Python knows which variable you are referring to.
+:::
+
+## Exception Handling
+Getting an error or *exception*, in your Python programs means that the entire program will crash, But we don't want this to happen in real-world scenarios, rather than you want the program to detect the error handle them and continue afterward.
+
+For instance, run the following code in the editor:
+```python
+def division(divider):
+    print(42 / divider)
+
+division(2) # Passing argument 2 to the function.
+division(7)
+division(0) # <1>
+division(1)
+```
+
+1. Here when you pass 0 dividers to the `division()` function means you are dividing 42 by 0 which will give you an error like the one below:
+```py
+
+print(42 / divider)
+
+ZeroDivisionError: division by zero  # <1>
+
+```
+1. `ZeroDivisionError` is an exception raised by an error of dividing the number by zero.
+
+Now to prevent such types of exceptions & errors, Python has `try` and `except` clauses. The code that causes the error will go inside the `try` clause and the code that prevents the program from crashing goes into the except clause.
+
+For example, Look at the above code with `try` and `except` clause:
+
+```py
+
+def division(divider):
+    try:
+        print(42 / divider)
+    except ZeroDivisionError:  #<1>
+        print('You cannot divide with Zero')  #<1>
+
+
+division(0) # <2>
+
+```
+
+1. `ZeroDivisionError` tells Python if you encounter ZeroDivisionError raise the following print message But you can write anything below except clause.
+2. Now when you call the division function with 0 number it won't crash the entire program but will give you a decent error message and the program will continue to execute other remaining instructions.
+
+
+## ZigZag Program for Fun:
+Let's use your previous knowledge of programming to create a small animation zigzag program.
+Type the following code into your file editor & save the file as zigzag.py:
+
+```py
+import time  # <2>
+import sys
+
+try:
+    while True:  # <1>
+        counter = 4
+
+        for i in range(10):
+
+            if i <= 4:
+                print(f'{counter*" "}********')
+                counter -= 1
+            elif counter == -1 or counter == 0:
+                counter = 1
+            else:
+                print(f'{" "*counter}********')
+                counter += 1
+
+            time.sleep(0.3)  # Adjust the delay time as needed to make it more like animation # <3>
+except KeyboardInterrupt: # <3>
+    sys.exit()
+
+```
+
+1. The `while` loop will never exit until you press {{< kbd Ctrl+c >}} which calls the `KeyboardInterrupt` Error.
+
+
+2. In Python, the `time` module helps you work with time-related functions. It's like a toolbox with tools to handle time-related tasks.
+
+    For example:
+
+    - You can use it to pause your program for a moment with `time. sleep(seconds)`.
+    - You can get the current time or date with various functions.
+    - It allows you to format and manipulate time and dates.
+
+    So, think of the `time` module as your toolkit for dealing with anything related to time in your Python programs.
+3. Try to write a program without `try` and `except` which will cause the program to crash if you want to stop the while loop by {{< kbd Ctrl+c >}} and will give you an ugly error message. However, for our program we it to cleanly handle `KeyboardInterrupt` in except clause then pressing {{< kbd Ctrl+c >}} won't crash the program rather it will stop smoothly as usual by calling the `sys.exit()` function.
+
+::: {.callout-note title="Summary"}
+Functions are the primary way to prevent you from duplicating your code. Functions are great to help you organize your code. You can think of it as the black boxes: they have input in the form of `parameters` and have output in the form of `return` values.
+
+:::
+
+
+

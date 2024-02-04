@@ -1,0 +1,17 @@
+<body>
+    <button onclick="scrollToBottom()" style="position: fixed; bottom: 20px; right: 20px; border-radius: 100%; background-color: rgba(131, 230, 132, 0.7); padding: 10px; border: none; cursor: pointer;">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <script>
+      function scrollToBottom() {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  
+  </body>
+  </html>

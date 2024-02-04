@@ -1,15 +1,15 @@
 # Windows OS Setup {.unnumbered}
-Install python from the following link or watch any youtube video on it to install it as it requires only vscode (editor) and python language installation:
+Install Python from the following link or watch any YouTube video on it to install it as it requires only vs code (editor) and Python language installation:
 Certainly, Asad_Pro_3.1. Here’s a paraphrased version of the instructions:
 
-1. Visit [Notepad++](http://notepad-plus-plus.org/), download the Notepad++ text editor, and install it without requiring administrator privileges.
+1. Visit [Notepad++](http://notepad-plus-plus.org/), download the Notepad++ text editor and install it without requiring administrator privileges.
 2. Ensure easy access to Notepad++ by placing shortcuts on your desktop and/or in Quick Launch during the installation.
 3. Launch PowerShell from the Start menu by searching for it and pressing Enter.
 4. Create shortcuts for PowerShell on your desktop and/or Quick Launch for convenience.
 5. Open your Terminal program, and if Python is not recognized, install it from Python.
 6. Consider using ActiveState Python if administrative rights are an issue. If Python isn’t recognized after installation, set the environment variable in PowerShell and restart it.
 
-> a. If you run python and it’s not there (python is not recognized.), install it from http://python.org/download.
+> a. If you run Python and it’s not there (python is not recognized.), install it from http://python.org/download.
 > b. Make sure you install Python 2, not Python 3.
 > c. You may be better off with ActiveState Python, especially if you do not have administrative rights.
 > d. If after you install it python still isn’t recognized, then in PowerShell enter this: `[Environment]::SetEnvironmentVariable(“Path”, “$env:Path;C:”, “User”)`

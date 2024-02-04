@@ -1,0 +1,403 @@
+<!-- Adding scrolling button into the bottom left -->
+
+::: {}
+
+:::
+<!-- Ending of Scrolling button code. -->
+
+# Flow Control {#loops}
+Flow control in programming refers to the order in which a computer executes instructions in a program. It's like giving directions to the computer, telling it what to do and when.
+
+Here are simple terms to explain key aspects of flow control:
+
+1. **Sequential Execution:**
+- Imagine your program as a set of instructions listed one after the other. The computer follows these instructions in order, just like reading a book from start to finish.
+
+2. **Conditional Statements:**
+- Sometimes, you want the computer to make decisions. Conditional statements are like asking questions. For example, "If it's sunny, go outside. If it's raining, stay inside." The computer checks conditions and acts accordingly.
+
+3. **Loops:**
+- Loops are like repeating instructions. You might want the computer to do something multiple times. It's like saying, "Do this five times." The computer repeats the instructions until a certain condition is met.
+
+4. **Branching:**
+- Branching is when your program can take different paths based on conditions. It's like having multiple choices. For instance, "If it's a weekday, go to school. If it's the weekend, have fun at home."
+
+***Let's make flow control more kid-friendly:***
+
+1. **Step-by-Step Story:**
+   - Think of your computer program like a storybook with instructions. The computer reads each page (instruction) in order, just like you read a book from the first page to the last.
+
+2. **Making Choices:**
+   - Sometimes, you want the computer to make decisions. It's like asking your computer, "Hey buddy, if it's sunny, go play outside! If it's raining, stay cozy inside your digital house." The computer follows your instructions based on what's happening.
+
+3. **Repeat the Fun:**
+   - Imagine you have a favorite dance move, and you want to show it off five times. Loops are like saying, "Do your cool dance move until you've done it five times." The computer loves to repeat things, just like you might repeat your favorite game.
+
+4. **Pick Your Adventure:**
+   - Flow control is like creating a "Choose Your Adventure" story. It's asking the computer, "If it's a weekday, go on a school adventure. If it's the weekend, have a home adventure." The computer can go down different paths based on what's happening.
+
+So, flow control is like giving your computer a storybook filled with fun instructions. It can follow the story step by step, make choices, repeat actions, and go on different adventures based on your playful instructions! 🚀✨.
+
+![This is how Flow Control Works in Programming](https://i.pinimg.com/736x/78/e3/11/78e311d46f507f8f270650b40427ff9b.jpg){.lightbox}
+
+
+## Boolean Values 
+While string, integer & floating numbers can have an infinite number of possible values, the Boolean data type has only 2 values `True` or `False`. They would always start with capital *T* or *F* with the rest of the words in lowercase.
+Practice the following code into the shell:
+
+```python
+defect = True
+defect # Output: True
+
+defect = False
+defect # Output: False
+
+2+2 == 4 # Output: True
+
+True = 4+5 # will give you SyntaxError: can't assign to keyword # <1>
+```
+1. You can't use keyword as a variable check on keyword [more](https://realpython.com/python-keywords/)
+
+## Comparison Operators 
+Comparison operator aka relational operators. These are used to compare two expressions and evaluate them to a single Boolean value.
+
+| Operator | Meaning                 |
+|----------|-------------------------|
+| ==       | Equal to                |
+| !=       | Not equal to            |
+| <        | Less than               |
+| >        | Greater than            |
+| <=       | Less than or equal to   |
+| >=       | Greater than or equal to|
+
+: List of most commonly used comparison operators {.hover .striped }
+
+Open **Python Shell** by pressing {{< kbd Win+R >}} & write **python** press {{< kbd Enter >}}:
+
+```python
+23 == 32
+23 != 43
+43 < 234
+43 > 23
+54 <= 54
+66 >= 77
+
+'hi' == 'hi'
+'Hello' == 'hello' # <1>
+True == True
+42 == 42.0 # <2>
+9124 == '9124' # <3>
+9124 == int('9124') # <4>
+
+```
+1. This will return False because the first character of both is different in the context of programming and both have separate representations in binary on memory.
+2. Both are the same but if you write 42.0 as 42.1 then it will return False and will it bigger than only 42.
+3. One is an integer and the other is a string so both have different data types and different meanings.
+4. The `int()` function will take `9124` as a string and will convert it into an integer and then it will be compared with 9124, which will return True.
+
+::: {.callout title="Difference Between == & = Operators"}
+
+The **==** operator is used to compare two things whether they are the same or not. <br>
+The **=** operator is used to assign a value to the variable.
+
+<mark> You will learn more about this later once you understand flow control statements.</mark>
+
+:::
+
+## Boolean Operators 
+Three Boolean operators (`and`, `or`, & `not`) are used to compare boolean values. Let's see its truth tables
+
+::: {layout-ncol=3 }
+| Expression       | Output       |
+|------------------|--------------|
+| True and True    | True         |
+| True and False   | False        |
+| False and True   | False        |
+| False and False  | False        |
+: AND Truth Table
+
+| Expression       | Output       |
+|------------------|--------------|
+| True or True     | True         |
+| True or False    | True         |
+| False or True    | True         |
+| False or False   | False        |
+: OR Truth Table
+
+| Expression       | Output       |
+|------------------|--------------|
+| not True         | False        |
+| not False        | True         |
+: NOT Truth Table
+
+
+:::
+
+## Mixed up Boolean and Comparison Operators 
+
+Now let's see it by practicing it in the interactive shell of Python:
+
+```python
+>>> (5 > 4) and (7 < 9) # <1> 
+True
+>>> (23 < 22) or (32 > 23) # <2> 
+True
+>>> not (5 > 1) # <3>
+False
+
+```
+1. The interpreter will start from the left and go to the right such as `(5 > 4)` return `True` and then the second expression will return `True` then if you see the truth table of AND above you will see its outcome.
+
+2. The same goes for or gate where the first expression is `False` and the second expression returns `True` which is also `True`
+
+3. `not` negate the boolean value so `(5 > 1)` is `True` but then the not operator will make it `False`
+
+::: {.callout-note}
+Flow control statements have 2 parts called the **condition** and are always followed by a block of code called **clause**.
+
+```python
+
+if police == True: # Condition 
+   print('Police is coming to catch the thief.') # Clause or Body
+   print('Help police in catching thief.')
+```
+:::
+
+All flow control statements end with a colon and are followed by a new block of code or clause.
+
+## ***if*** and ***else*** Statements 
+
+An **if** condition will execute if it's true followed by its body block of code. If it's false then optionally there is an **else** clause to execute (else block is optional you can omit it as well.)
+
+In simple words you can say that "`If` you work hard you will succeed `else` you will become looser"
+
+Let's practice:
+```python
+>>> if work == 'hard':
+...     print('Made him succeed')
+... else:
+...     print('Made him looser')
+...
+Made him succeed # Output
+```
+
+## ***elif*** statements 
+
+We also have an `else if` statement in short `elif` it allows you to include multiple conditions. Check it below in practice:
+
+```python
+age = 25
+if age == 5:
+    print('You are not old enough to watch movies')
+elif age == 18:
+    print('You can watch 16+ movies')
+elif age == 23:
+    print('You are old enough to watch extreme horror movies')
+else:
+    print('You mature enough to care after your family')
+
+You mature enough to care after your family # Output
+
+
+```
+
+## ***While*** Loop 
+
+A **while** loop is a control flow structure in programming that repeats a block of code while a certain condition is true. It continues executing the code as long as the specified condition remains true.
+
+Here's a simple explanation and example in Python:
+
+**Explanation:**
+
+A **while** loop checks a condition before each iteration.
+If the condition is true, the code inside the loop is executed.
+After each iteration, the condition is checked again.
+The loop continues until the condition becomes false.
+
+```python
+# Initialize a variable
+counter = 1  # <1>
+
+# Define the condition
+while counter <= 5: # <2>
+    # Code inside the loop
+    print(counter) # 
+    
+    # Update the counter for the next iteration
+    counter += 1 # <3>
+
+```
+
+**Explanation of the Example:**
+
+1. We start with the counter set to 1.
+2. The condition counter <= 5 is true, so we enter the loop and print the value of the counter.
+3. We increment the counter by 1 (`using counter += 1`) to move to the next number.
+
+::: {.callout-warning}
+While loop may also crash your program while giving it such a condition which never meant to end like the one below:
+
+``` python
+while True:
+   print('This loop will never end.')
+```
+:::
+
+:::{.callout-tip collapse="true" title="Trapped in an infinite loop"}
+If you ever find yourself trapped in the infinite loop then simply press {{< kbd CTRL+C >}}. This will send a **KeyboardInterrupt** error to your program and will halt the execution of your program.
+:::
+
+## ***Break*** Statement
+
+Now if you fear not to stuck in the infinite loop then there is the solution to this which is the `break` statement. Place it in a place where you want to exit the execution of a program e.g. Run the following code in the interactive shell.
+
+```python
+while True:
+   print('This loop will break')
+   break # <1> 
+```
+1. This `break` statement will terminate the flow of the while loop.
+
+## ***Continue*** statement
+Similar to the `break` statement, we also have a `continue` statement which lets you jump back to the start of the loop. 
+Let's try it in the interactive shell: 
+
+```python
+while True:
+   print('who are you?')
+   name = input()
+   if name != 'asad':
+            continue
+   print(f'your name is {name}')
+   break
+```
+## ***For*** loop
+So far, We have seen the `while` loop but if want the loop to execute a certain number of times, for that we have `for` loops. 
+imagine you have a backpack full of books, and you want to know what's inside each book. A for loop is like flipping through each book one by one and checking the pages. You keep doing this until you've looked through all the books in your backpack.
+
+```python
+# Imagine your backpack is like a list of books
+backpack = ["Adventure Book", "Science Book", "Mystery Book", "Comic Book"]
+
+# Using a for loop to check each book
+for book in a backpack:
+    # Code inside the loop
+    print("Checking the pages of", book)
+
+# After the loop, you've checked every book in your backpack!
+
+```
+In this example:
+
+1. `backpack` is like your list of books.
+2. The `for` loop is like going through each book (Adventure Book, Science Book, etc.) in your backpack, one after the other.
+3. The code inside the loop (printing "Checking the pages of [book]") is like looking through the pages of each book.
+4. After the loop, you've checked every book in your backpack.
+
+### **`Range()`** function
+The `range` function is used to specify the number of iterations dynamically to the loop so it won't go beyond that limit e.g. Let's stick to the previous example:
+
+```python
+backpack = ["Adventure Book", "Science Book", "Mystery Book", "Comic Book"]
+
+for i in range(len(backpack)) # <1>
+   print(backpack[i]) # <2>
+```
+1. The `len()` function returns the number of elements in the list which is 5, so it would start from 0 and go to the length of that list (5).
+2. Here, in the first iteration `i` would be 0 so it will fetch the first element of the list.
+
+Don't worry, We will see the lists in detail later.
+
+### **Start, Stop & Step** Arguments to range()
+We can also pass arguments to the functions & arguments are like giving superpower to that function. Look it in practice:
+
+```python
+for i in range(1, 10, 2): # (start, stop, step) # <1>
+   print(i) # <1>
+   Output: 1, 3, 5, 7, 9
+```
+1. This says, **Start** from 1 and **go** till 10 but **skip** 2 digits between and print the `third` digit.
+
+::: {.callout-tip}
+You can also use a negative number in the step argument to make the for go from up to down.
+
+```python
+for i in range(0, -10, -1): 
+   print(i)
+```
+:::
+
+## Importing modules
+
+The module is a Python program made by a third party to use it for your task. Python also comes with built-in modules called standard libraries. Each module is a set of Python programs that can be embedded in your programs. For example, the `math` module is used to do all the mathematical operations and the `random` module has random-number-related functions.
+
+Before you use the module, you must import it into your Python file in the following format:
+
+```python
+import random # <1>
+for i in range(4):
+   print(random.randint(50,100)) # <1>
+
+import random, os, math, sys # <2>
+```
+1. Import the `random` module and give us 4 random numbers b/w 50-100.
+2. You can import multiple modules as long as every module name is separated by a comma.
+
+:::{.callout-caution title=" DON'T OVERWRITE MODULE NAMES"}
+If you save your Python file with the same name you used in the import statement like `random.py` or `math.py` this will import the Python file you have created instead of the Python module.
+:::
+
+## *from* import statements
+As you see in the above example we have imported the whole module which contains several functions within it, but sometimes we want a single function from that module, like if we want to use only the `randint()` function, then we can do this by:
+`from random import randint`
+
+The above statement will only import the `randint` function and you cannot use other functions of the `random` module. This way you save a lot of memory from importing any unnecessary functions from that random module & use only the required one. 
+
+You can also import multiple functions like:
+`from random import randint, choice, shuffle`
+
+## Ending a Program Before Time
+The program always terminates once it reaches the bottom of the program execution. However, if you want the program to terminate early you can use the following module & its function.
+
+```python
+import sys
+
+while True:
+   for i in range(5):
+      print(i)
+   sys.exit()
+```
+:::{.callout-note title="Answer to Curious Individual" }
+Now, you will say why not use a `break` statement rather than `sys.exit()`? Because the `break` statement lets you break out of the loop and the remaining program continues to execute conversely `sys. exit()` is used to terminate the execution of the whole program.
+
+:::
+
+### Guess the Number Quiz
+
+Write a program and ask the user to guess the number between 1-10.
+
+:::{.callout title="Click to See the Solution Code" collapse="true"}
+
+```python
+import random
+
+rand_number = random.randint(1,10)
+print('Guess the number between 1-10: ')
+answer = False
+
+while answer!=True:
+   response = int(input('Take a guess: '))
+   
+   if response < rand_number:
+      print('You guess too low')
+
+   elif response > rand_number:
+      print('You guess too high')
+
+   else:
+      answer = not answer   
+      print('You guessed it right')
+      print(f'System guess: {rand_number}\nUser guess: {response}')
+```
+:::
+

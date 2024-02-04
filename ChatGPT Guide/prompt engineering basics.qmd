@@ -1,0 +1,38 @@
+# Intro to ChatGPT
+ChatGPT is an AI language model that is trained on massive amount of text data that generate natural language responses in conversation style.
+
+**Simple Explanation💨** ChatGPT is like a super smart talking robot that can answer questions, tell stories, and chat with you. It learns from lots of words and sentences to understand and talk like a friend. It's here to help and have fun conversations!
+
+**5 main benefits of ChatGPT:↴**
+
+1. **Smart Helper:** Helps you learn and find answers really fast!
+2. **Talks Like a Friend:** Makes writing and talking better and more fun.
+3. **Idea Buddy:** Helps you think of cool and creative stuff.
+4. **Time Saver:** Saves time by helping you quickly.
+5. **Gets Smarter with You:** Learns and becomes an even better friend over time!
+
+**Main outputs it can generate**
+
+1. **Text Answers:** Provides detailed written answers to questions.
+2. **Creative Writing:** Generates stories, poems, or creative conte
+3. **Code Assistance:** Helps with coding and programming-related qu
+4. **Language Translation:** Translates text from one language to an
+5. **Conversation:** Engages in natural language conversations on va
+6. **Synthesize Info:** Summarize large amound of content into a con
+
+
+List of Modifiers for ChatGPT to give you better output:
+
+|   Names         | Modifiers                                                 |
+|-----------------|-----------------------------------------------------------|
+| Qualifiers      | Words like "some," "few," "many," "most," "all" modifying nouns or adjectives they precedes. |
+| Adjectives      | Words that describe or modifying nouns/pronouns, e.g., "red," "happy," "large." |
+| Adverbs         | Words that modifying verbs, adjectives, or other adverbs, e.g., "quickly," "well," "loudly." |
+| Intensifiers    | Words strengthening the meaning of an adjective or adverb, e.g., "very," "extremely," "totally." |
+| Negatives       | Words negating or reversing the meaning of a sentence, e.g., "not," "never," "no." |
+| Number words    | Words indicating quantity, e.g., "one," "two," "few," "many," "several." |
+| Time words      | Words indicating when something happened or will happen, e.g., "now," "yet," "soon." |
+| Place words     | Words indicating where something is or happened, e.g., "here," "there," "everywhere." |
+| Degree words    | Words indicating the extent or degree to which something is true, e.g., "totally," "completely," "slightly." |
+:List of Modifiers {.hover .striped}
+
