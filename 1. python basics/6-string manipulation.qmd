@@ -1,1 +1,483 @@
 # String Manipulations
+You already know how to concatenate two or more strings together with the + operator but we can do much more than that. e.g. We can convert the Capital part of a string to a small letter and vice versa. You can remove spaces, insert emojis, extract partial strings from string values and much more you will see in the upcoming lessons.
+
+## Double vs Single & Escape Characters Quotes
+Strings can begin & end with single or double quotes. But when we need to use a quote (either single or double) inside a string then there we need **Escape Characters** which is the way to tell the program to treat this character as a string not as a keyword e.g. look at the following example:
+```python
+
+q = "Who're you" # Correct Structure # <1>
+
+q = 'who're you' # Faulty code # <1>
+
+q = 'who\'re you' # Using Escape Sequence 
+
+a = "I\"m khan" # Using Escape Sequence 
+```
+1. Here, if you start your string with a single quote and then somewhere between you need a single quote as a string literal not the ending quote then we need to tell the Python program to treat it as a string by **Escape Sequence (\)**.
+
+Below are some Escape Characters that we can use:
+
+| Escape character |        Output       |
+|:----------------:|:-------------------:|
+| \\               | Backslash           |
+| \\t              | Tab                 |
+| \\n              | newline             |
+| \'               | single quote        |
+| \"               | double quote        |
+: List of Escape characters you can use.
+
+## Raw Strings
+Placing `r` at the beginning quotation mark of a string will make it a raw string. A *raw string* completely ignores all the special characters used inside the string and will print it as it is.
+```python
+print(r'C:\Users\User\Desktop\platform-tools'Hello'\iam') # <1>
+# Output: C:\Users\User\Desktop\platform-tools'Hello'\iam
+```
+1. Raw strings are useful when we have a lot of special characters in our strings.
+
+## Multiline Strings 
+We can use '\\n' to tell Python Interpreter to start from the new line but a good practice is to use Multiline for such strings that are longer than two lines. E.g.
+```python
+print("""Dear Whatsapp,
+            'am being a victim of receiving multiple death 
+            threats from an Unknown caller, who wants me to 
+            pay them ransom. It's been a half week, since 
+            then he tries to breach my social accounts in 
+            order to take control of all of my data.
+            
+        I will be sincerely thankful If you could do something about it.
+        Cell No: +92***234***3 
+        Note: I do not receive such threats. Chill!!!""")
+     
+```
+Escaping single & double quotes are optional in multiline strings as you can see in the single quote at the beginning of the above multiline strings.
+
+## Multiline for Comments & docstrings
+For a single line of comment, we use (#) hash character but for multiple lines, we use triple quote also. If you write a built-in function in the editor you will see a description like text in the suggestion box about what this function does, that is what **docstring** is. We can also use triple quotes to give a user-defined function its docstring. E.g.
+```python
+"""
+This is an example of Multiline comment which is used \noutside the function to tell what we are going to do with \nthe following user-defined function.
+
+"""
+
+def addition(num1, num2):
+    "This function does all the addition-related tasks
+        """
+    return num1 + num2
+
+print(addition(23, 22))
+
+```
+## Indexing and Slicing Strings
+Strings can be accessed via indexing and slicing just like we do with lists but you cannot modify the strings just like we do with lists because strings are immutable, unlike lists.
+
+```python
+water = 'Un vaso de agua. por favor!'
+
+water[0] # Accessing the first letter 'U'
+water[4] # Accessing the fourth letter 'v'
+
+water[4:] # Start from character 4 up to end
+
+water [:4] # Start from the beginning up to 4 letter
+
+```
+## `In` & `not in` Operators with Strings
+The `in` and `not in` operators can be used with strings just like we used before with lists.
+Run the following in the editor:
+```python
+sentence = 'hola! buoneus dias'
+
+print('hola' in sentence)
+print('!' in a sentence)
+print('#' in sentence)
+print('Dias' not in sentence)
+print('dias' not in sentence)
+
+```
+## Strings Methods
+
+Some of the string methods are mentioned below. Look for others as well on the internet and play with it what more can you do with strings?
+```python
+sentence = 'Hola! buoneus dias'
+
+# Convert string to uppercase
+print(sentence.upper())
+
+# Convert string to lowercase
+print(sentence.lower())
+
+# Make the first character upper and remain smaller
+print(sentence.capitalize())
+
+# Convert string to list
+print(sentence.split())
+
+# Convert uppercase letter to lower & lower to uppercase
+print(sentence.swapcase())
+
+print(sentence.isalpha()) # <1>
+print(sentence.isupper()) # <1>
+print(sentence.islower()) # <1>
+print(sentence.isdigit()) # <1>
+
+```
+
+1. several other string methods start with `is`, these return boolean results.
+
+## The *join()*, *split()* & *partition()* Methods
+
+**join() method**
+
+The ***join()*** method is useful when you have a list of strings that you want to join together in one single string. E.g. 
+```python
+sentence = 'Hola! buoneus dias' # <1>
+print(' '.join(sentence)) # <1>
+
+```
+1. The abovementioned code will pick a single character from `sentence` and join a single white space to it.
+
+**split() method**
+
+The ***split()*** method is commonly used to convert a string to a list or to split a multiline string along the newline characters. Enter the following into the editor:
+```python
+from pprint import pprint
+
+sentence = 'Mi Autobus esta aqui!' 
+pprint(sentence.split()) 
+
+paragraph = """
+Semiconductor technology is usually called solid state. This means that the
+materials used are of one piece. This is in contrast with the vacuum tube, which
+consists of a series of assembled parts. Of course, the substances from which 
+semiconductors are made are not solid. They have atomic structures consisting largely of space.
+The spaces are essential for the movement of electrons.
+"""
+
+pprint(paragraph.split(sep='\n'))
+```
+
+**partition() method**
+
+The ***partition()*** method splits the string before and after the separator and returns a tuple object, not the list. See the code:
+```python
+from pprint import pprint
+
+intro = 'Hello my name is Imran Khan' # <1>
+pprint(intro.partition('is')) # <1>
+```
+1. This would split the string into partitions.
+
+## The *rjust()*, *ljust()* & *center()* methods
+The rjust, ljust() & center() methods are simply putting padding to the strings. These methods justify the string by padding it with the specified character (in this case, '*') until the total length reaches the specified width (30 in our case). If the string is already longer than the specified width, it won't truncate it. The original string "abcdefghijklmnopqrstuvwxyz" is 26 characters long, so it adds 4 '*' characters to the string to make it a total of 30 characters. 
+
+```python
+letters = 'abcdefghijklmnopqrstuvwxyz'
+
+# Number of characters in the above variable.
+print(len(letters))
+
+# rightly-justifies
+print(letters.rjust(30, '*')) 
+
+# left-justifies
+print(letters.ljust(30, '*')) 
+
+# center-justifies
+print(letters.center(30, '*'))
+```
+
+## **ord()** and **chr()** functions
+In Python, the `ord()` and `chr()` functions are used for converting between characters and their corresponding ASCII or Unicode representations.
+
+- `ord()`: This function takes a character (a string of length 1) as an argument and returns the ASCII or Unicode code point of that character.
+
+- `chr()`: This function takes an integer representing an ASCII or Unicode code point and returns the corresponding character.
+
+Here's a simple example to illustrate their usage:
+
+```python
+# Using ord() to get the ASCII code of a character
+char = 'A'
+ascii_code = ord(char)
+print(f"The ASCII code of '{char}' is {ascii_code}")
+
+# Using chr() to get the character from an ASCII code
+code_point = 65  # ASCII code for 'A'
+character = chr(code_point)
+print(f"The character with ASCII code {code_point} is '{character}'")
+```
+
+In this example:
+- `ord('A')` returns 65, which is the ASCII code for the character 'A'.
+- `chr(65)` returns 'A', which is the character corresponding to the ASCII code 65.
+
+These functions are particularly useful when working with text, and you need to convert characters to their numeric representations or vice versa.
+
+
+## Copying and Pasting Text via `pyperclip` Module
+
+To copy and paste text from the clipboard in Python, you can use the `pyperclip` module. If you haven't installed it yet, you can do so by running:
+
+```bash
+# Run it in the bash / Python Interpreter / Terminal
+pip install pyperclip
+```
+Once installed, you can use the following example to copy and paste text:
+
+```python
+import pyperclip
+
+# Copy text to clipboard
+text_to_copy = "Hello, this is the text to copy!"
+pyperclip.copy(text_to_copy)
+
+# Paste text from clipboard
+pasted_text = pyperclip.paste()
+print(f"Pasted text: {pasted_text}")
+```
+
+This example demonstrates how to copy the string "Hello, this is the text to copy!" to the clipboard using `pyperclip.copy()` and then paste it using `pyperclip.paste()`.
+
+Make sure your clipboard is accessible from the Python environment, as some environments (like certain IDEs or online platforms) may have restrictions on clipboard access. In a regular local Python environment, this should work as expected.
+
+## Practice Projects 1
+The following program will extract the tip from the following dictionary and will show you on the terminal only if you pass the corresponding key to the command-line argument. 
+**For Example:**  Write the following program in the editor or Interpreter and call it from your terminal with the Python file name and one of the keys from the following dictionary.
+
+```bash
+python filename.py pruning
+```
+After running the below program then check your clipboard to see the value of key `pruning` or press {{< kbd Win+v >}} (shortcut for opening the clipboard directly)
+
+```python
+import pyperclip, sys
+
+gardening_tips = {
+    'pruning': 'Remember to prune your plants regularly for healthy growth.',
+    'watering': 'Water your plants deeply but infrequently to encourage deep root growth.',
+    'fertilizing': 'Apply organic fertilizer to your garden beds in the spring for best results.'
+}
+
+if len(sys.argv)  < 2:
+    print('You have not passed any argument & whatsoever')
+    sys.exit()
+
+key = sys.argv[1] # Command line argument passed to terminal
+
+if key in gardening_tips:
+    pyperclip.copy(gardening_tips[key])
+    print('Text for ' + str(key) + ' copied to clipboard.')
+
+else:
+    print('There is no text for ' + key)
+```
+## Practice Projects 2
+
+**Develop a program that extracts text from the clipboard, enhances it by making it bold for markdown formatting (using double asterisks), and subsequently pastes the formatted text back into the clipboard.**
+
+For Example: In our case, I copied the following text to my clipboard
+```bash
+Sunset paints the sky's canvas.
+Coffee fuels creative minds.
+Books open new worlds.
+Robots learn and evolve daily.
+Gardens bloom with care.
+Silence speaks, loud echoes.
+Data shapes future innovations.
+Curiosity sparks endless discoveries.
+Music transcends cultural boundaries.
+Coding simplifies complex problems.
+```
+
+**Here's an explanation for each line of code with comments:**
+```python
+# Import the pyperclip module for working with the clipboard
+import pyperclip
+
+# Get the text from the clipboard, split it into lines, and remove '\r' from each line
+list_of_strings = [line.rstrip('\r') for line in pyperclip.paste().split('\n')]
+
+# Initialize an empty string to store the modified phrases
+phrases = ''
+
+# Iterate through the list of strings
+for sentence in list_of_strings:
+    # Check if the sentence is not an empty string
+    if sentence != '':
+        # Concatenate the modified sentence with '**' on both sides and a newline character
+        phrases += '**' + sentence + '**' + '\n'
+
+# Copy the modified phrases back to the clipboard
+pyperclip.copy(phrases)
+```
+
+::: {.callout collapse="true" title="Click to see alternative to the above program" style="text-align:center"}
+
+```python
+import pyperclip
+
+list_of_strings = [ line.rstrip('\r') for line in pyperclip.paste().split('\n')]
+
+phrases = ''
+
+phrases += '\n'.join(list_of_strings)
+
+pyperclip.copy(phrases)
+```
+:::
+
+**Explanation in details:**
+
+1. **Import pyperclip:**
+   ```python
+   import pyperclip
+   ```
+   Import the `pyperclip` module, which provides a cross-platform interface for working with the clipboard.
+
+2. **Get text from the clipboard and process line endings:**
+   ```python
+   list_of_strings = [line.rstrip('\r') for line in pyperclip.paste().split('\n')]
+   ```
+   - `pyperclip.paste()`: Retrieve the text currently on the clipboard.
+   - `.split('\n')`: Split the text into a list of strings based on newline characters.
+   - `[line.rstrip('\r') for line in ...]`: Iterate through each line and remove trailing carriage return (`\r`) characters, if any.
+
+3. **Initialize an empty string for modified phrases:**
+   ```python
+   phrases = ''
+   ```
+   Create an empty string `phrases` to store the modified sentences.
+
+4. **Iterate through the list of strings:**
+   ```python
+   for sentence in list_of_strings:
+   ```
+   Loop through each line in the list of processed strings.
+
+5. **Check for non-empty sentences:**
+   ```python
+   if sentence != '':
+   ```
+   Check if the current line (sentence) is not an empty string.
+
+6. **Modify and concatenate sentences:**
+   ```python
+   phrases += '**' + sentence + '**' + '\n'
+   ```
+   Concatenate the modified sentence by adding '**' at the beginning and end, and include a newline character at the end.
+
+7. **Copy the modified phrases back to the clipboard:**
+   ```python
+   pyperclip.copy(phrases)
+   ```
+   Use `pyperclip.copy` to copy the modified phrases back to the clipboard, making them available for pasting elsewhere.
+
+## Practice Projects 3
+
+Let's explore another linguistic transformation. This time, let's delve into a playful language called "Double Trouble Language." In this language:
+
+1. If a word has an even number of letters, append "ee" to the end of the word.
+2. If a word has an odd number of letters, double the last letter.
+
+For example:
+
+- "sun" becomes "sunn"
+- "cloud" becomes "cloudd"
+- "happy" becomes "happyy"
+- "python" becomes "pythonee"
+
+Now, it's quiz time! Transform the following words according to the rules of the Double Trouble Language:
+
+1. "moon"
+2. "butter"
+3. "apple"
+4. "coding"
+5. "elephant"
+
+::: {.callout-tip collapse="true" title="**Click to see the solution to the above project**"}
+
+
+Certainly, Asad_Pro_Beta. Here's an explanation for each line of code with comments:
+
+```python
+# Import the pprint module for pretty-printing dictionaries
+from pprint import pprint
+
+# List of words to be transformed
+words = ["moon", "butter", "apple", "coding", "elephant"]
+
+# Initialize an empty list to store the transformed words
+update_words = []
+
+# Iterate through each word in the list
+for word in words:
+    # Check if the length of the word is even
+    if len(word) % 2 == 0:
+        # If even, append 'ee' to the end of the word
+        update_words.append(word + 'ee')
+    else:
+        # If odd, double the last letter and append to the word
+        update_words.append(word + word[-1])
+
+# Creating a dictionary using Zip, pairing original words with transformed words
+my_dict = dict(zip(words, update_words))
+
+# Pretty-print the resulting dictionary
+pprint(my_dict)
+```
+
+***Step-by-step explanation:***
+
+1. **Import the pprint module:**
+   ```python
+   from pprint import pprint
+   ```
+   Import the `pprint` function from the `pprint` module for pretty-printing dictionaries.
+
+2. **List of words to be transformed:**
+   ```python
+   words = ["moon", "butter", "apple", "coding", "elephant"]
+   ```
+   Initialize a list named `words` containing words to be transformed.
+
+3. **Initialize an empty list for transformed words:**
+   ```python
+   update_words = []
+   ```
+   Create an empty list named `update_words` to store the transformed words.
+
+4. **Iterate through each word:**
+   ```python
+   for word in words:
+   ```
+   Loop through each word in the `words` list.
+
+5. **Check if the length of the word is even:**
+   ```python
+   if len(word) % 2 == 0:
+   ```
+   Use the `len` function to check if the length of the word is even.
+
+6. **Append 'ee' to even-length words, or double the last letter for odd-length words:**
+   ```python
+   update_words.append(word + 'ee')  # even-length
+   ```
+   If the length is even, append 'ee' to the end of the word. Otherwise:
+   ```python
+   update_words.append(word + word[-1])  # odd-length, double last letter
+   ```
+   If the length is odd, double the last letter and append it to the word.
+
+7. **Creating a dictionary using zip:**
+   ```python
+   my_dict = dict(zip(words, update_words))
+   ```
+   Use the `zip` function to pair each original word with its transformed version, then create a dictionary (`my_dict`) from these pairs.
+
+8. **Pretty-print the resulting dictionary:**
+   ```python
+   pprint(my_dict)
+   ```
+   Use `pprint` to display the resulting dictionary in a more readable format.
+
+:::

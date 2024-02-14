@@ -1,1 +1,253 @@
 # Dictionaries
+In Python, dictionaries are a collection of key-value pairs. Think of them like a real-world dictionary where words (keys) have meanings (values). You can use a key to quickly look up its corresponding value. It's a flexible and powerful data structure for organizing and retrieving data.
+Syntax of Dictionary:
+```python
+    my_dict = {
+    'name': 'Asad',
+    'age': 22,
+    'major': 'Computer Science'
+}
+```
+## Dictionary vs Lists
+
+Lists are ordered, while dictionaries are unordered. 
+For Example, look at the following code to differentiate both:
+```python
+# List
+my_list = [10, 20, 30, 40, 50]
+# Shuffling above list
+shuffled_list = [30, 20, 40, 10, 50]
+
+print(my_list == shuffled_list)
+
+# Dictionary
+my_dict = {
+    'apple': 5,
+    'banana': 8,
+    'orange': 12,
+    'grape': 20,
+    'kiwi': 3
+}
+
+# Shuffled version of the above dictionary
+shuffled_my_dict = {
+    'banana': 8,
+    'orange': 12,
+    'apple': 5,
+    'kiwi': 3,
+    'grape': 20
+}
+
+print(my_dict == shuffled_my_dict)
+```
+
+::: {.callout-note}
+As you can see, if you keep the content of a list the same and just change its order, Python won't accept it as equal. 
+As for the dictionaries you can see no matter what the order of the key-value pair is, python would still consider it as a copy of the first dictionary because in a dictionary we access values by its key, unlike indexes which must be to access it in order.
+:::
+
+## The `keys()`, `values()`, `items()` & `get()` methods
+
+1. The `keys()` method returns the keys of a dictionary in a list-like format but not exactly a list. For Example:
+
+    ```python
+        my_dict = {
+        'apple': 5,
+        'banana': 8,
+        'orange': 12,
+        'grape': 20,
+        'kiwi': 3
+    }
+
+    for key in my_dict.keys():
+        print(key)
+    ```
+
+2. The `values()` method returns values of the dictionary in list-like format. For Example:
+
+    ```python
+        my_dict = {
+        'apple': 5,
+        'banana': 8,
+        'orange': 12,
+        'grape': 20,
+        'kiwi': 3
+    }
+
+    for value in my_dict.values():
+        print(value)
+
+    ```
+    
+3. The `items()` method returns both `keys` and `values` separately. For Example:
+   ```python
+        my_dict = {
+        'apple': 5,
+        'banana': 8,
+        'orange': 12,
+        'grape': 20,
+        'kiwi': 3
+                   }
+
+        for key, value in my_dict.items():
+            print(key,' : ', value)
+
+        print(type(my_dict.values())) # <1>
+
+4. `get()` Sometimes we want to return the value of a key in a dictionary but what if the key doesn't exist then it would give you a tedious and ugly error message. Fortunately, to prevent such error messages python has the `get()` method on dictionary that returns `None` by default else returns the user-defined value. For Example:
+   ```python
+    my_dict = {
+        'name': 'Asad',
+        'age': 22,
+        'city': 'Peshawar',
+        'occupation': 'Student',
+        'interest': 'Machine Learning'
+    }
+
+    # Using get() to retrieve values
+    name_value = my_dict.get('name')
+
+    # If gender key isn't in `my_dict` dictionary then it would return `Not specified`
+    gender_value = my_dict.get('gender', 'Not specified')
+
+    print(name_value)      # Output: 'Asad'
+    print(gender_value)    # Output: 'Not specified' (since the 'gender' key is not present)
+
+    ```
+1. If you run `print(type(my_dict.values()))` this will return a view of the values in a dictionary which if I explain simply to an 8 grader child then 'view of the values' would be like a mirror which facing the current dictionary within which we can see all the values inside of that dictionary but if we change the values inside dictionary this affect the view of the values also.
+
+## Value or Key exists
+If you remember from the last chapter we saw `in` and `not in` operators from the past chapters. We can also use this operator on dictionaries to see if a certain key or value exists in a dictionary or not.
+
+```python
+    my_dict = {
+        'name': 'Asad',
+        'age': 22,
+        'city': 'Peshawar',
+        'occupation': 'Student',
+        'interest': 'Machine Learning'
+    }
+
+    result_1, result_2 = 'name' in my_dict.keys(), 'Student' not in my_dict.values()
+
+    print('Name key exists in my_dict: ',result_1)
+    print('Student value not exist in my_dict: ',result_2)
+```
+
+## `pprint` Module
+
+```python
+import pprint # <1>
+
+my_dict = {
+    'name': 'Asad',
+    'age': 22,
+    'city': 'Peshawar',
+    'occupation': 'Student',
+    'interest': 'Machine Learning'
+}
+
+# Set the key `cast` if it's not in my_dict
+my_dict.setdefault('cast',' Khalil Mohmand')
+
+# key & value would remain the same as above because we have the key of `cast` already
+my_dict.setdefault('cast', 'Yousaf Zai')
+pprint.pprint(my_dict)
+```
+1. The `pprint` module stands for 'pretty-print'. It provides a way to print data structures like dictionaries, and lists in a more human-readable and aesthetically pleasing format especially when dealing with nested or complex structures. The `pprint` module is part of the Python standard library.
+
+::: {.callout-tip title="Python Standard Library vs Third Party Library" style="text-align: center"}
+**Python Standard Library** means modules that come with Python installation and don't require any additional installation while **Third Party Library** are the modules that you have to install manually when you need it e.g. If we need a `numpy` module we have to first install it using package manager `pip` i.e. `pip install numpy`.
+:::
+
+## `pprint` vs `pformat` methods
+Both are these method works the same unless you want the output to save somewhere. In simple, if you want to store the formatted output into a file then use `pformat` else use the `pprint` method. For Example:
+```python
+from pprint import pformat, pprint
+
+# Example dictionary with nested structure
+complex_dict = {
+    'name': 'Asad',
+    'age': 22,
+    'details': {
+        'city': 'Peshawar',
+        'interests': ['Machine Learning', 'Gardening']
+    }
+}
+
+# Below will return its output and can be saved to a text file.
+with open('pformat.txt','w') as writer:
+    writer.write(pformat(complex_dict))
+
+# You can see the result of pprint on the console but you can't store it in a text file that's you will get an error by running the below code:
+with open('pprint.txt','w') as writer:
+    writer.write(pprint(complex_dict)) 
+```
+
+::: {.callout-tip}
+The `pprint.pprint()` function is useful especially when you have a nested dictionary or dictionary with a complex structure.
+:::
+
+Nested dictionaries and lists in Python allow you to create more complex data structures by placing dictionaries or lists inside other dictionaries or lists. This is particularly useful when dealing with hierarchical or structured data. Here are examples of both nested dictionaries and nested lists:
+
+## Nested Dictionaries:
+
+```python
+# Example of a nested dictionary representing information about a person
+person_info = {
+    'name': 'Asad',
+    'age': 22,
+    'address': {
+        'city': 'Peshawar',
+        'country': 'Pakistan',
+        'zipcode': '12345'
+    },
+    'contacts': {
+        'email': 'asad@example.com',
+        'phone': '123-456-7890'
+    }
+}
+
+# Accessing nested values
+print(person_info['address']['city'])  # Output: 'Peshawar'
+print(person_info['contacts']['email'])  # Output: 'asad@example.com'
+```
+
+In this example, the `person_info` dictionary contains nested dictionaries for 'address' and 'contacts', creating a hierarchical structure.
+
+## Nested Lists:
+
+```python
+# Example of a nested list representing a matrix
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Accessing elements in the nested list
+print(matrix[1][2])  # Output: 6 (row 1, column 2)
+```
+
+Here, the `matrix` list is nested, forming a 2D list. Elements can be accessed using indices for both the outer list (row) and the inner list (column).
+
+You can also have a combination of nested dictionaries and lists:
+
+```python
+# Example of a nested dictionary containing a nested list
+organization = {
+    'name': 'TechCorp',
+    'departments': {
+        'engineering': ['Software', 'Hardware'],
+        'sales': ['Domestic', 'International'],
+        'hr': ['Recruitment', 'Employee Relations']
+    }
+}
+
+# Accessing elements in the nested structure
+print(organization['departments']['engineering'][0])  # Output: 'Software'
+```
+
+In this example, the `departments` key in the `organization` dictionary contains a nested dictionary with department names as keys and lists of sub-departments as values.
+
+These examples illustrate how nesting dictionaries and lists allows you to represent more intricate and organized data structures in your Python programs.

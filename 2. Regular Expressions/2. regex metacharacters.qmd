@@ -1,0 +1,665 @@
+# Metacharacters & Special Sequences
+
+In regular expressions, metacharacters are characters with a special meaning and are not interpreted literally. They are used to define the structure and rules of a pattern. Special sequences are combinations of characters that represent special properties or sets of characters. Here are some common metacharacters and special sequences:
+
+## Metacharacters: 
+1. `.` (Dot): Matches any character except a newline.
+2. `^`: Anchors the regex at the start of the string.
+3. `$`: Anchors the regex at the end of the string.
+4. `*`: Matches 0 or more occurrences of the preceding character.
+5. `+`: Matches 1 or more occurrences of the preceding character.
+6. `?`: Matches 0 or 1 occurrence of the preceding character.
+7. `|` (Pipe): Acts as an OR operator, allowing multiple patterns.
+8. `()` (Parentheses): Groups patterns together.
+
+## Special Sequences: 
+1. `\d`: Matches any digit (equivalent to `[0-9]`).
+2. `\D`: Matches any non-digit character.
+3. `\w`: Matches any alphanumeric character (equivalent to `[a-zA-Z0-9_]`).
+4. `\W`: Matches any non-alphanumeric character.
+5. `\s`: Matches any whitespace character (space, tab, newline).
+6. `\S`: Matches any non-whitespace character.
+7. `\b`: Matches a word boundary.
+8. `\B`: Matches a non-word boundary.
+
+## Other Names: 
+- Metacharacters are sometimes referred to as **"regex operators"** or **"special characters."**
+- Special sequences are also known as **"character classes"** or **"escape sequences."**
+
+Understanding metacharacters and special sequences is essential for constructing powerful and flexible regular expressions.
+
+## The dot **(`.`)** metacharacter: 
+The dot metacharacter (`.`) in a regular expression matches any single character except for a newline. It's often used when you want to represent any character in a pattern. Here's a simple example:
+
+```python
+import re
+
+pattern = r'c.t'  # Pattern with a dot representing any single character
+text1 = "cat"
+text2 = "cot"
+text3 = "coat"
+text4 = "cart"
+text5 = "cut"
+
+for text in [text1, text2, text3, text4, text5]:
+    match = re.search(pattern, text)
+    if match:
+        print(f'Pattern "{pattern}" found in "{text}"')
+    else:
+        print(f'Pattern "{pattern}" not found in "{text}"')
+```
+
+In this example, the pattern `'c.t'` consists of:
+- `'c'`: The letter 'c' at the beginning of the pattern.
+- `'.'`: The dot metacharacter represents any single character.
+- `'t'`: The letter 't' at the end of the pattern.
+
+The loop goes through different texts and checks if the pattern is found in each of them. 
+**The output will be:**
+
+```bash
+Pattern "c.t" found in "cat"
+Pattern "c.t" found in "cot"
+Pattern "c.t" found in "coat"
+Pattern "c.t" found in "cart"
+Pattern "c.t" not found in "cut"
+```
+
+## The caret **(`^`)** metacharacter: 
+
+The caret (`^`) metacharacter in a regular expression is an anchor that asserts the start of a line or the start of the string, depending on its position. It indicates that the following pattern must appear at the beginning of the line or string.
+
+Here's a simple example to illustrate the use of the caret metacharacter:
+
+```python
+import re
+
+# Example text
+text = """Hello, World!
+This is a multiline text.
+It has multiple lines.
+"""
+
+# Pattern with caret (^) to match lines starting with "This"
+pattern = r'^This'
+
+# Using re.findall() to find lines starting with "This"
+matches = re.findall(pattern, text, re.MULTILINE | re.IGNORECASE)
+
+# Displaying the matches
+print("Lines starting with 'This':")
+for match in matches:
+    print(match)
+```
+
+In this example:
+- The `^This` pattern uses the caret metacharacter to match lines that start with the word "This."
+- `re.MULTILINE` flag is used to make the caret match the start of each line within the multiline text.
+
+**The output will be:**
+```bash
+Lines starting with 'This':
+This is a multiline text.
+```
+
+Here, the pattern matches the line "This is a multiline text." because it starts with "This."
+
+The caret metacharacter is particularly useful when you want to ensure that a specific pattern appears at the beginning of a line or the entire string. If you have any further questions or if there's anything else you'd like to explore, feel free to let me know!
+
+## The dollar **(`$`)** metacharacter: 
+
+The dollar `($)` metacharacter in a regular expression is an anchor that asserts the end of a line or the end of the string, depending on its position. It indicates that the preceding pattern must appear at the end of the line or the entire string.
+
+Here's a simple example to illustrate the use of the dollar metacharacter:
+
+```python
+import re
+
+# Example text
+text = """Line 1: The price is $50.
+Line 2: The total cost is $120.
+Line 3: The discount is $30.
+Line 4: The final amount is $90.
+"""
+
+# Pattern with dollar ($) to match lines ending with a sequence of numbers
+pattern = r'\$\d+$'
+
+# Using re.findall() to find lines ending with a sequence of numbers
+matches = re.findall(pattern, text, re.MULTILINE)
+
+# Displaying the matches
+print("Lines ending with a sequence of numbers:")
+for match in matches:
+    print(match)
+```
+
+In this example:
+- The `\$\d+$` pattern uses the dollar metacharacter to match lines that end with a sequence of numbers following a dollar sign.
+- `\$\d+` specifies a dollar sign followed by one or more digits.
+
+**The output will be:**
+```bash
+Lines ending with a sequence of numbers:
+The price is $50.
+The total cost is $120.
+The discount is $30.
+The final amount is $90.
+```
+
+This pattern ensures that it only matches lines where the content ends with a dollar sign and is immediately followed by one or more digits.
+
+## The asterisk **(`*`)** metacharacter: 
+
+The asterisk (`*`) metacharacter in a regular expression denotes zero or more occurrences of the preceding character or group. It allows for matching patterns with varying lengths of the preceding content, including the case where the preceding content is entirely absent.
+
+Let's go through a simple example to illustrate the use of the asterisk metacharacter:
+
+```python
+import re
+
+# Example text
+text = """Hello, World!
+Helllo, World!
+Hellllo, World!
+"""
+
+# Pattern with asterisk (*) to match variations of "Hello"
+pattern = r'Hell*o'
+
+# Using re.findall() to find variations of "Hello"
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Variations of 'Hello' found:")
+for match in matches:
+    print(match)
+```
+
+In this example:
+- The `Hell*o` pattern uses the asterisk metacharacter to match variations of the word "Hello."
+- `l*` allows for zero or more occurrences of the letter 'l' in the middle of the pattern.
+
+**The output will be:**
+```bash
+Variations of 'Hello' found:
+Hello
+Helllo
+Hellllo
+```
+
+The pattern matches variations like "Hello," "Helllo," and "Hellllo" by allowing for zero or more 'l' characters between 'Hell' and 'o'.
+The asterisk metacharacter is useful for creating flexible patterns that can accommodate varying lengths of content.w!
+
+## The plus **(`+`)** metacharacter: 
+
+The plus (`+`) metacharacter in a regular expression denotes one or more occurrences of the preceding character or group. It requires at least one occurrence of the preceding pattern but allows for additional occurrences as well.
+
+Let's go through a simple example to illustrate the use of the plus metacharacter:
+
+```python
+import re
+
+# Example text
+text = """Hello, World!
+Helllo, World!
+Hellllo, World!
+"""
+
+# Pattern with plus (+) to match variations of "Helllo"
+pattern = r'Hell+o'
+
+# Using re.findall() to find variations of "Helllo"
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Variations of 'Helllo' found:")
+for match in matches:
+    print(match)
+```
+
+In this example:
+- The `Hell+o` pattern uses the plus metacharacter to match variations of the word "Helllo."
+- `l+` requires at least one occurrence of the letter 'l' in the middle of the pattern, but it allows for additional occurrences.
+
+**The output will be:**
+```bash
+Variations of 'Helllo' found:
+Helllo
+Hellllo
+```
+
+The pattern matches variations like "Helllo" and "Hellllo" by requiring at least one 'l' character between 'Hell' and 'o', but allowing for more if they exist.
+
+The plus metacharacter is useful when you want to ensure that there is at least one occurrence of a specific pattern, but you are open to matching more if they are present.
+
+## The question mark **(`?`)** metacharacter: 
+
+The question mark (`?`) metacharacter in a regular expression denotes zero or one occurrence of the preceding character or group. It makes the preceding element optional, allowing for flexibility in matching patterns.
+
+Let's go through a simple example to illustrate the use of the question mark metacharacter:
+
+```python
+import re
+
+# Example text
+text = """color
+colour
+"""
+
+# Pattern with question mark (?) to match variations of "color"
+pattern = r'colou?r'
+
+# Using re.findall() to find variations of "color"
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Variations of 'color' found:")
+for match in matches:
+    print(match)
+```
+
+In this example:
+- The `colou?r` pattern uses the question mark metacharacter to match variations of the word "color."
+- `u?` makes the letter 'u' optional, allowing for both "color" and "colour."
+
+**The output will be:**
+```bash
+Variations of 'color' found:
+color
+colour
+```
+
+The pattern matches both "color" and "colour" by making the 'u' character optional.
+
+The question mark metacharacter is useful when you want to indicate that a particular element is optional in the pattern, allowing for different variations of the same word or phrase.
+
+## The backslash **(`\`)** metacharacter: 
+The backslash (`\`) metacharacter in a regular expression is used to escape special characters, allowing you to use them as literal characters in the pattern. It can also introduce special sequences representing predefined character classes or special characters.
+
+* **Escaping Special Characters: **
+
+When you want to match a character that has a special meaning in regular expressions, you need to use a backslash before that character to indicate that you want to treat it literally. For example:
+
+```python
+import re
+
+# Example text
+text = "The price is $50."
+
+# Pattern with escaped dollar sign (\$) to match the literal dollar sign
+pattern = r'\$50'
+
+# Using re.search() to find the pattern
+match = re.search(pattern, text)
+
+# Displaying the match
+print("Match:", match.group() if match else "No match")
+```
+
+In this example, the pattern `\$50` is used to match the literal string "$50" in the text.
+
+* **Special Sequences:** 
+The backslash can be used to introduce special sequences that represent predefined character classes. For example:
+
+```python
+import re
+
+# Example text
+text = "The phone number is 123-456-7890."
+
+# Pattern with special sequence (\d) to match a digit
+pattern = r'\d{3}-\d{3}-\d{4}'
+
+# Using re.search() to find the pattern
+match = re.search(pattern, text)
+
+# Displaying the match
+print("Match:", match.group() if match else "No match")
+```
+
+In this example, the pattern `\d{3}-\d{3}-\d{4}` uses the special sequence `\d` to match three digits, representing a typical phone number format.
+
+The backslash is a versatile tool in regular expressions, allowing you to work with special characters and special sequences in a flexible way.
+
+## The square bracket **(`[]`)** metacharacter: 
+The square bracket (`[]`) metacharacter in a regular expression is used to define a character class, which is a set of characters that you want to match at a specific position in the pattern. It allows you to specify a range of characters, individual characters, or a combination of both.
+
+### Examples of Character Classes: {.unnumbered} 
+
+* **Matching Individual Characters:**
+```python
+import re
+
+# Example text
+text = "The color of the sky is blue."
+
+# Pattern with a character class to match either 'c' or 'l'
+pattern = r'[cl]'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+Output:
+```bash
+Matches: ['c', 'l', 'l', 'c']
+```
+In this example, the pattern `[cl]` matches any occurrence of either 'c' or 'l' in the text.
+
+* **Matching a Range of Characters:**
+```python
+import re
+
+# Example text
+text = "The temperature is 25 degrees Celsius."
+
+# Pattern with a character class to match any digit (0-9)
+pattern = r'[0-9]'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+Output:
+```bash
+Matches: ['2', '5']
+```
+Here, the pattern `[0-9]` matches any digit from 0 to 9 in the text.
+
+* **Negating a Character Class:** 
+```python
+import re
+
+# Example text
+text = "The quick brown fox jumps over the lazy dog."
+
+# Pattern with a negated character class to match any character except vowels
+pattern = r'[^aeiou]'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+Output:
+```bash
+Matches: ['T', 'h', ' ', 'q', 'c', 'k', ' ', 'b', 'r', 'w', 'n', ' ', 'f', 'x', ' ', 'j', 'm', 'p', 's', ' ', 'v', 'r', ' ', 't', 'h', ' ', 'l', 'z', 'y', ' ', 'd', 'g', '.']
+```
+In this example, the pattern `[^aeiou]` matches any character except vowels.
+
+Character classes provide a concise way to specify which characters you want to match at a particular position in the pattern.
+
+## The character classes metacharacter: 
+Character classes in regular expressions allow you to specify a set of characters that you want to match at a particular position in the pattern. They are defined using square brackets (`[]`) and provide a concise way to express a group of characters.
+
+Here is a list of different character classes:
+
+- `\d`: Matches any digit (equivalent to `[0-9]`).
+- `\D`: Matches any non-digit character (equivalent to `[^0-9]`).
+- `\w`: Matches any word character (alphanumeric + underscore, equivalent to `[A-Za-z0-9_]`).
+- `\W`: Matches any non-word character (equivalent to `[^A-Za-z0-9_]`).
+- `\s`: Matches any whitespace character (spaces, tabs, and newlines).
+- `\S`: Matches any non-whitespace character.
+- `[a-zA-Z]`: Matches any uppercase or lowercase letter.
+- `[^abc]`: Matches any character except 'a', 'b', or 'c'.
+
+### Examples of Character Classes: {.unnumbered}  
+
+* **Matching Digits:** 
+```python
+import re
+
+# Example text
+text = "The price is $25.99."
+
+# Pattern with a character class to match any digit (0-9)
+pattern = r'\d'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+Output:
+```bash
+Matches: ['2', '5', '9', '9']
+```
+In this example, the pattern `\d` is a shorthand for the character class `[0-9]` and matches any digit.
+
+* **Matching Alphanumeric Characters:** 
+```python
+import re
+
+# Example text
+text = "The account ID is A1234B."
+
+# Pattern with a character class to match alphanumeric characters
+pattern = r'[A-Za-z0-9]'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+Output:
+```bash
+Matches: ['T', 'h', 'e', 'a', 'c', 'c', 'o', 'u', 'n', 't', 'I', 'D', 'i', 's', 'A', '1', '2', '3', '4', 'B']
+```
+Here, the pattern `[A-Za-z0-9]` matches any uppercase letter, lowercase letter, or digit.
+
+* **Matching Whitespace Characters:** 
+```python
+import re
+
+# Example text
+text = "This is a sentence with some spaces."
+
+# Pattern with a character class to match whitespace characters
+pattern = r'\s'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+Output:
+```bash
+Matches: [' ', ' ', ' ', ' ', ' ']
+```
+In this example, the pattern `\s` matches any whitespace character (spaces).
+
+Character classes are versatile and allow you to specify groups of characters that you want to match at a specific position in your regular expression pattern.
+
+## The curly braces **(`{}`)** metacharacter: 
+The curly braces (`{}`) in a regular expression are used as quantifiers to specify the exact number of occurrences or a range of occurrences of the preceding character or group.
+
+### Examples of Using Curly Braces: {.unnumbered}  
+
+* **Matching a Specific Number of Occurrences:** 
+```python
+import re
+
+# Example text
+text = "The number is 12345."
+
+# Pattern to match exactly 5 digits
+pattern = r'\d{5}'
+
+# Using re.search() to find the pattern
+match = re.search(pattern, text)
+
+# Displaying the match
+print("Match:", match.group() if match else "No match")
+```
+Output:
+```bash
+Match: 12345
+```
+In this example, the pattern `\d{5}` matches exactly 5 consecutive digits in the text.
+
+* **Matching a Range of Occurrences:** 
+```python
+import re
+
+# Example text
+text = "The price is $25.99."
+
+# Pattern to match 2 to 4 digits
+pattern = r'\d{2,4}'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+Output:
+```bash
+Matches: ['25', '99']
+```
+Here, the pattern `\d{2,4}` matches a sequence of 2 to 4 digits.
+
+* **Greedy vs. Non-Greedy Quantifiers:** 
+```python
+import re
+
+# Example text
+text = "abcddddd"
+
+# Greedy quantifier (matches as much as possible)
+greedy_pattern = r'ab.{2,4}d'
+
+# Non-greedy quantifier (matches as little as possible)
+non_greedy_pattern = r'ab.{2,4}?d'
+
+# Using re.search() to find matches
+greedy_match = re.search(greedy_pattern, text)
+non_greedy_match = re.search(non_greedy_pattern, text)
+
+# Displaying the matches
+print("Greedy Match:", greedy_match.group() if greedy_match else "No match")
+print("Non-Greedy Match:", non_greedy_match.group() if non_greedy_match else "No match")
+```
+Output:
+```bash
+Greedy Match: abcd
+Non-Greedy Match: abc
+```
+Here, the greedy quantifier `{2,4}` tries to match as much as possible, while the non-greedy quantifier `{2,4}?` matches as little as possible.
+
+Curly braces provide a precise way to control the number of occurrences in a regular expression pattern.
+
+## The pipe **(`|`)** metacharacter: 
+The pipe (`|`) metacharacter in a regular expression serves as an alternation operator. It allows you to specify multiple alternative patterns, and the expression will match if any of those patterns are found. It essentially functions as a logical OR.
+
+* **Example:** 
+
+```python
+import re
+
+# Example text
+text = "The cat is black and the dog is brown."
+
+# Pattern to match either "cat" or "dog"
+pattern = r'cat|dog'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+Output:
+```bash
+Matches: ['cat', 'dog']
+```
+
+In this example, the pattern `cat|dog` uses the pipe metacharacter to match either "cat" or "dog" in the given text. The alternation operator allows for flexibility in matching different alternatives within the same pattern.
+
+You can extend the alternation to include more options:
+
+```python
+import re
+
+# Example text
+text = "The cat is black and the dog is brown."
+
+# Pattern to match either "cat", "dog", or "black"
+pattern = r'cat|dog|black'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+Output:
+```bash
+Matches: ['cat', 'dog', 'black']
+```
+
+Here, the pattern includes three alternatives: "cat," "dog," or "black." The alternation operator makes it possible to match any of these options.
+
+The pipe metacharacter is useful for creating more flexible and inclusive patterns when you want to match different possibilities at a specific position in the text.
+
+
+
+## Greedy vs Non-Greedy Quantifiers: 
+In regular expressions, the terms "greedy" and "non-greedy" refer to the behavior of quantifiers when determining how much of the input string they should match. Quantifiers are metacharacters that specify the number of occurrences of the preceding character or group.
+
+* **Greedy Quantifiers:** 
+- Greedy quantifiers match as much of the input string as possible while still allowing the entire pattern to match.
+- Greedy quantifiers include `*` (asterisk), `+` (plus), and `?` (question mark).
+
+* **Non-Greedy (or Lazy) Quantifiers:** 
+- Non-greedy quantifiers match as little of the input string as possible while still allowing the entire pattern to match.
+- Non-greedy quantifiers are obtained by adding an extra `?` after a greedy quantifier (`*?`, `+?`, `??`).
+
+* **Example:** 
+Let's consider an example using a greedy quantifier (`*`) and a non-greedy quantifier (`*?`):
+
+```python
+import re
+
+# Example text
+text = "This is a sample <b>greedy</b> example <b>non-greedy</b>."
+
+# Greedy quantifier (matches as much as possible)
+greedy_pattern = r'<b>.*</b>'
+
+# Non-greedy quantifier (matches as little as possible)
+non_greedy_pattern = r'<b>.*?</b>'
+
+# Using re.search() to find matches
+greedy_match = re.search(greedy_pattern, text)
+non_greedy_match = re.search(non_greedy_pattern, text)
+
+# Displaying the matches
+print("Greedy Match:", greedy_match.group() if greedy_match else "No match")
+print("Non-Greedy Match:", non_greedy_match.group() if non_greedy_match else "No match")
+```
+
+In this example:
+- The greedy pattern `<b>.*</b>` aims to match everything between the first `<b>` and the last `</b>`.
+- The non-greedy pattern `<b>.*?</b>` aims to match the smallest possible content between `<b>` and `</b>`.
+
+**The output will be:**
+```bash
+Greedy Match: <b>greedy</b> example <b>non-greedy</b>
+Non-Greedy Match: <b>greedy</b>
+```
+
+As you can see, the greedy quantifier matches as much as possible, capturing everything between the first `<b>` and the last `</b>`. On the other hand, the non-greedy quantifier captures the smallest possible content, stopping at the first `</b>`.
+
+Understanding the difference between greedy and non-greedy quantifiers is crucial when working with regular expressions, especially in scenarios where you want to control the extent of the match.

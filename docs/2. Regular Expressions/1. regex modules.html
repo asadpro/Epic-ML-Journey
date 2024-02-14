@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../2. Regular Expressions/input validation.html" rel="next">
+<link href="../2. Regular Expressions/2. regex metacharacters.html" rel="next">
 <link href="../1. python basics/6-string manipulation.html" rel="prev">
 <link href="../images/icon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2. Regular Expressions/pattern matching with regex.html">Automation with Python</a></li><li class="breadcrumb-item"><a href="../2. Regular Expressions/pattern matching with regex.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><code>re</code> — Regular expression operations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2. Regular Expressions/1. regex modules.html">Automation with Python</a></li><li class="breadcrumb-item"><a href="../2. Regular Expressions/1. regex modules.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><code>re</code> — Regular expression operations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -279,14 +279,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2. Regular Expressions/pattern matching with regex.html" class="sidebar-item-text sidebar-link active">
+  <a href="../2. Regular Expressions/1. regex modules.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><code>re</code> — Regular expression operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2. Regular Expressions/input validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Input Validation</span></span></a>
+  <a href="../2. Regular Expressions/2. regex metacharacters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Metacharacters &amp; Special Sequences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -327,23 +327,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#simple-analogy" id="toc-simple-analogy" class="nav-link active" data-scroll-target="#simple-analogy">Simple Analogy:</a></li>
   <li><a href="#in-machine-learning" id="toc-in-machine-learning" class="nav-link" data-scroll-target="#in-machine-learning">In Machine Learning:</a></li>
   <li><a href="#in-daily-life" id="toc-in-daily-life" class="nav-link" data-scroll-target="#in-daily-life">In Daily Life:</a></li>
-  <li><a href="#analogy-recap" id="toc-analogy-recap" class="nav-link" data-scroll-target="#analogy-recap">Analogy Recap:</a></li>
-  <li><a href="#re.compile-re.findall" id="toc-re.compile-re.findall" class="nav-link" data-scroll-target="#re.compile-re.findall"><code>re.compile()</code>, <code>re.findall()</code></a></li>
-  <li><a href="#re.searchpattern-string-flags0" id="toc-re.searchpattern-string-flags0" class="nav-link" data-scroll-target="#re.searchpattern-string-flags0"><code>re.search(pattern, string, flags=0)</code></a></li>
-  <li><a href="#re.matchpattern-string-flags0" id="toc-re.matchpattern-string-flags0" class="nav-link" data-scroll-target="#re.matchpattern-string-flags0"><code>re.match(pattern, string, flags=0)</code></a></li>
-  <li><a href="#re.fullmatchpattern-string-flags0" id="toc-re.fullmatchpattern-string-flags0" class="nav-link" data-scroll-target="#re.fullmatchpattern-string-flags0"><code>re.fullmatch(pattern, string, flags=0)</code></a></li>
-  <li><a href="#re.findallpattern-string-flags0" id="toc-re.findallpattern-string-flags0" class="nav-link" data-scroll-target="#re.findallpattern-string-flags0"><code>re.findall(pattern, string, flags=0)</code></a></li>
-  <li><a href="#re.splitpattern-string-maxsplit0-flags0" id="toc-re.splitpattern-string-maxsplit0-flags0" class="nav-link" data-scroll-target="#re.splitpattern-string-maxsplit0-flags0"><code>re.split(pattern, string, maxsplit=0, flags=0)</code></a></li>
-  <li><a href="#re.subpattern-replacement-string-count0-flags0" id="toc-re.subpattern-replacement-string-count0-flags0" class="nav-link" data-scroll-target="#re.subpattern-replacement-string-count0-flags0"><code>re.sub(pattern, replacement, string, count=0, flags=0)</code></a></li>
-  <li><a href="#re.subnpattern-replacement-string-count0-flags0" id="toc-re.subnpattern-replacement-string-count0-flags0" class="nav-link" data-scroll-target="#re.subnpattern-replacement-string-count0-flags0"><code>re.subn(pattern, replacement, string, count=0, flags=0)</code></a></li>
-  <li><a href="#concise-overview-of-re-modules" id="toc-concise-overview-of-re-modules" class="nav-link" data-scroll-target="#concise-overview-of-re-modules">Concise Overview of <code>re</code> Modules:</a></li>
+  <li><a href="#re.compile-re.findall" id="toc-re.compile-re.findall" class="nav-link" data-scroll-target="#re.compile-re.findall"><span class="header-section-number">7.1</span> <code>re.compile()</code>, <code>re.findall()</code></a></li>
+  <li><a href="#re.searchpattern-string-flags0" id="toc-re.searchpattern-string-flags0" class="nav-link" data-scroll-target="#re.searchpattern-string-flags0"><span class="header-section-number">7.2</span> <code>re.search(pattern, string, flags=0)</code></a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works"><strong>How it works:</strong></a>
+  <ul class="collapse">
+  <li><a href="#real-life-usage-examples" id="toc-real-life-usage-examples" class="nav-link" data-scroll-target="#real-life-usage-examples"><span class="header-section-number">7.2.1</span> Real-life usage examples:</a></li>
+  </ul></li>
+  <li><a href="#re.matchpattern-string-flags0" id="toc-re.matchpattern-string-flags0" class="nav-link" data-scroll-target="#re.matchpattern-string-flags0"><span class="header-section-number">7.3</span> <code>re.match(pattern, string, flags=0)</code></a></li>
+  <li><a href="#how-it-works-1" id="toc-how-it-works-1" class="nav-link" data-scroll-target="#how-it-works-1"><strong>How it works:</strong></a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><strong>Example:</strong></a></li>
+  <li><a href="#re.fullmatchpattern-string-flags0" id="toc-re.fullmatchpattern-string-flags0" class="nav-link" data-scroll-target="#re.fullmatchpattern-string-flags0"><span class="header-section-number">7.4</span> <code>re.fullmatch(pattern, string, flags=0)</code></a></li>
+  <li><a href="#how-it-works-2" id="toc-how-it-works-2" class="nav-link" data-scroll-target="#how-it-works-2"><strong>How it works:</strong></a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">7.4.1</span> <strong>Example:</strong></a></li>
+  </ul></li>
+  <li><a href="#re.findallpattern-string-flags0" id="toc-re.findallpattern-string-flags0" class="nav-link" data-scroll-target="#re.findallpattern-string-flags0"><span class="header-section-number">7.5</span> <code>re.findall(pattern, string, flags=0)</code></a></li>
+  <li><a href="#how-it-works-3" id="toc-how-it-works-3" class="nav-link" data-scroll-target="#how-it-works-3"><strong>How it works:</strong></a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><strong>Example:</strong></a></li>
+  <li><a href="#re.splitpattern-string-maxsplit0-flags0" id="toc-re.splitpattern-string-maxsplit0-flags0" class="nav-link" data-scroll-target="#re.splitpattern-string-maxsplit0-flags0"><span class="header-section-number">7.6</span> <code>re.split(pattern, string, maxsplit=0, flags=0)</code></a></li>
+  <li><a href="#how-it-works-4" id="toc-how-it-works-4" class="nav-link" data-scroll-target="#how-it-works-4"><strong>How it works:</strong></a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3"><strong>Example:</strong></a></li>
+  <li><a href="#re.subpattern-replacement-string-count0-flags0" id="toc-re.subpattern-replacement-string-count0-flags0" class="nav-link" data-scroll-target="#re.subpattern-replacement-string-count0-flags0"><span class="header-section-number">7.7</span> <code>re.sub(pattern, replacement, string, count=0, flags=0)</code></a></li>
+  <li><a href="#how-it-works-5" id="toc-how-it-works-5" class="nav-link" data-scroll-target="#how-it-works-5"><strong>How it works:</strong></a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4"><strong>Example:</strong></a></li>
+  <li><a href="#re.subnpattern-replacement-string-count0-flags0" id="toc-re.subnpattern-replacement-string-count0-flags0" class="nav-link" data-scroll-target="#re.subnpattern-replacement-string-count0-flags0"><span class="header-section-number">7.8</span> <code>re.subn(pattern, replacement, string, count=0, flags=0)</code></a></li>
+  <li><a href="#how-it-works-6" id="toc-how-it-works-6" class="nav-link" data-scroll-target="#how-it-works-6"><strong>How it works:</strong></a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5"><strong>Example:</strong></a></li>
+  <li><a href="#concise-overview-of-re-modules" id="toc-concise-overview-of-re-modules" class="nav-link" data-scroll-target="#concise-overview-of-re-modules"><span class="header-section-number">7.9</span> Concise Overview of <code>re</code> Modules:</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2. Regular Expressions/pattern matching with regex.html">Automation with Python</a></li><li class="breadcrumb-item"><a href="../2. Regular Expressions/pattern matching with regex.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><code>re</code> — Regular expression operations</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2. Regular Expressions/1. regex modules.html">Automation with Python</a></li><li class="breadcrumb-item"><a href="../2. Regular Expressions/1. regex modules.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><code>re</code> — Regular expression operations</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><code>re</code> — Regular expression operations</span></h1>
 </div>
@@ -397,12 +414,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 </section>
-<section id="analogy-recap" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="analogy-recap">Analogy Recap:</h3>
-<p>Just like a magnifying glass helps you find specific shapes or patterns in a book, regular expressions help computers find specific patterns or structures in text. Whether it’s in machine learning for extracting information from data or in daily life for searching or validating information, regular expressions are a versatile tool for pattern matching.</p>
-</section>
-<section id="re.compile-re.findall" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.compile-re.findall"><code>re.compile()</code>, <code>re.findall()</code></h3>
+<section id="re.compile-re.findall" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="re.compile-re.findall"><span class="header-section-number">7.1</span> <code>re.compile()</code>, <code>re.findall()</code></h2>
 <p>The compile method is useful when you want to search for the same pattern over and over again but if you need it only a single time then you can pass the pattern directly to that function as you will see in the upcoming lessons.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -419,22 +432,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="re.searchpattern-string-flags0" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.searchpattern-string-flags0"><code>re.search(pattern, string, flags=0)</code></h3>
+<section id="re.searchpattern-string-flags0" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="re.searchpattern-string-flags0"><span class="header-section-number">7.2</span> <code>re.search(pattern, string, flags=0)</code></h2>
 <ul>
 <li><code>pattern</code>: This is the regular expression pattern you want to search for in the given string.</li>
 <li><code>string</code>: This is the input string where the search operation will be performed.</li>
 <li><code>flags</code>: An optional parameter that can modify the behavior of the search. It’s typically set to 0.</li>
 </ul>
-<section id="how-it-works" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="how-it-works"><strong>How it works:</strong></h4>
+</section>
+<section id="how-it-works" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-it-works"><strong>How it works:</strong></h2>
 <ul>
 <li>The <code>re.search()</code> method scans the entire string to find a match with the specified pattern.</li>
 <li>If a match is found, it returns a match object; otherwise, it returns <code>None</code>.</li>
 </ul>
-</section>
-<section id="real-life-usage-examples" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="real-life-usage-examples">Real-life usage examples:</h4>
+<section id="real-life-usage-examples" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="real-life-usage-examples"><span class="header-section-number">7.2.1</span> Real-life usage examples:</h3>
 <ol type="1">
 <li><p><strong>Validation</strong>: You can use <code>re.search()</code> to validate whether a string adheres to a certain pattern. For example, checking if an email address or a phone number is in the correct format.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
@@ -457,22 +470,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These are just a couple of examples, but <code>re.search()</code> is quite versatile and can be applied in various scenarios where you need to find or validate patterns within strings. If you have a specific use case in mind, feel free to let me know!</p>
 </section>
 </section>
-<section id="re.matchpattern-string-flags0" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.matchpattern-string-flags0"><code>re.match(pattern, string, flags=0)</code></h3>
+<section id="re.matchpattern-string-flags0" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="re.matchpattern-string-flags0"><span class="header-section-number">7.3</span> <code>re.match(pattern, string, flags=0)</code></h2>
 <ul>
 <li><code>pattern</code>: The regular expression pattern to match at the beginning of the string.</li>
 <li><code>string</code>: The input string where the match operation will be performed.</li>
 <li><code>flags</code>: Optional flags that can modify the behavior of the match.</li>
 </ul>
-<section id="how-it-works-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="how-it-works-1"><strong>How it works:</strong></h4>
+</section>
+<section id="how-it-works-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-it-works-1"><strong>How it works:</strong></h2>
 <ul>
 <li>The <code>re.match()</code> method checks if the specified pattern matches at the beginning of the string.</li>
 <li>If a match is found at the start of the string, it returns a match object; otherwise, it returns <code>None</code>.</li>
 </ul>
 </section>
-<section id="example" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example"><strong>Example:</strong></h4>
+<section id="example" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example"><strong>Example:</strong></h2>
 <p>Let’s say we want to check if a given string starts with the word “Hello”.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -496,23 +510,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'"</span><span class="sc">{</span>string2<span class="sc">}</span><span class="ss">" does not start with "Hello"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this example, <code>match1</code> will be <code>None</code> because “Hello” is not at the very beginning of <code>string1</code>. However, <code>match2</code> will be a match object because “Hello” is at the beginning of <code>string2</code>.</p>
 </section>
-</section>
-<section id="re.fullmatchpattern-string-flags0" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.fullmatchpattern-string-flags0"><code>re.fullmatch(pattern, string, flags=0)</code></h3>
+<section id="re.fullmatchpattern-string-flags0" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="re.fullmatchpattern-string-flags0"><span class="header-section-number">7.4</span> <code>re.fullmatch(pattern, string, flags=0)</code></h2>
 <ul>
 <li><code>pattern</code>: The regular expression pattern to match against the entire string.</li>
 <li><code>string</code>: The input string where the match operation will be performed.</li>
 <li><code>flags</code>: Optional flags that can modify the behavior of the match.</li>
 </ul>
-<section id="how-it-works-2" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="how-it-works-2"><strong>How it works:</strong></h4>
+</section>
+<section id="how-it-works-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-it-works-2"><strong>How it works:</strong></h2>
 <ul>
 <li>The <code>re.fullmatch()</code> method checks if the specified pattern matches the entire string.</li>
 <li>If a match is found for the entire string, it returns a match object; otherwise, it returns <code>None</code>.</li>
 </ul>
-</section>
-<section id="example-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-1"><strong>Example:</strong></h4>
+<section id="example-1" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">7.4.1</span> <strong>Example:</strong></h3>
 <p>Let’s consider an example where we want to check if a string consists of only alphanumeric characters:</p>
 <div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -553,22 +566,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this example, <code>match1</code> will be a match object because “Hello123” consists of only alphanumeric characters, and it matches the entire pattern. However, <code>match2</code> will be <code>None</code> because “Hi there, Hello!” contains non-alphanumeric characters and doesn’t match the entire pattern.</p>
 </section>
 </section>
-<section id="re.findallpattern-string-flags0" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.findallpattern-string-flags0"><code>re.findall(pattern, string, flags=0)</code></h3>
+<section id="re.findallpattern-string-flags0" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="re.findallpattern-string-flags0"><span class="header-section-number">7.5</span> <code>re.findall(pattern, string, flags=0)</code></h2>
 <ul>
 <li><code>pattern</code>: The regular expression pattern to search for in the string.</li>
 <li><code>string</code>: The input string where the search operation will be performed.</li>
 <li><code>flags</code>: Optional flags that can modify the behavior of the search.</li>
 </ul>
-<section id="how-it-works-3" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="how-it-works-3"><strong>How it works:</strong></h4>
+</section>
+<section id="how-it-works-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-it-works-3"><strong>How it works:</strong></h2>
 <ul>
 <li>The <code>re.findall()</code> method scans the entire string to find all non-overlapping occurrences of the specified pattern.</li>
 <li>It returns a list containing all the matches found.</li>
 </ul>
 </section>
-<section id="example-2" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-2"><strong>Example:</strong></h4>
+<section id="example-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-2"><strong>Example:</strong></h2>
 <p>Let’s say we want to find all the words in a string that start with the letter ‘C’. Here’s how you can use <code>re.findall()</code> for this:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -582,24 +596,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <code>re.findall()</code> method searches the <code>string</code> for all occurrences of words that start with ‘C’ and returns a list containing those words. The output will be:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Words</span> starting with <span class="st">'C'</span>: [<span class="st">'Cool'</span>, <span class="st">'Coder'</span>, <span class="st">'C'</span>, <span class="st">'and'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-<section id="re.splitpattern-string-maxsplit0-flags0" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.splitpattern-string-maxsplit0-flags0"><code>re.split(pattern, string, maxsplit=0, flags=0)</code></h3>
+<section id="re.splitpattern-string-maxsplit0-flags0" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="re.splitpattern-string-maxsplit0-flags0"><span class="header-section-number">7.6</span> <code>re.split(pattern, string, maxsplit=0, flags=0)</code></h2>
 <ul>
 <li><code>pattern</code>: The regular expression pattern used for splitting the string.</li>
 <li><code>string</code>: The input string to be split.</li>
 <li><code>maxsplit</code>: An optional parameter that specifies the maximum number of splits. The default is 0, which means “all occurrences.”</li>
 <li><code>flags</code>: Optional flags that can modify the behavior of the split.</li>
 </ul>
-<section id="how-it-works-4" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="how-it-works-4"><strong>How it works:</strong></h4>
+</section>
+<section id="how-it-works-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-it-works-4"><strong>How it works:</strong></h2>
 <ul>
 <li>The <code>re.split()</code> method uses the specified pattern to identify positions in the string where the split should occur.</li>
 <li>It returns a list of substrings resulting from the split.</li>
 </ul>
 </section>
-<section id="example-3" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-3"><strong>Example:</strong></h4>
+<section id="example-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-3"><strong>Example:</strong></h2>
 <p>Let’s say we want to split a string into words based on spaces and punctuation. Here’s how you can use <code>re.split()</code> for this:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -614,9 +628,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Splitted</span> words: [<span class="st">'Hello'</span>, <span class="st">'how'</span>, <span class="st">'are'</span>, <span class="st">'you'</span>, <span class="st">'I'</span>, <span class="st">'hope'</span>, <span class="st">'everything'</span>, <span class="st">'is'</span>, <span class="st">'fine'</span>, <span class="st">''</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The resulting list contains individual words from the original string, excluding spaces and punctuation.</p>
 </section>
-</section>
-<section id="re.subpattern-replacement-string-count0-flags0" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.subpattern-replacement-string-count0-flags0"><code>re.sub(pattern, replacement, string, count=0, flags=0)</code></h3>
+<section id="re.subpattern-replacement-string-count0-flags0" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="re.subpattern-replacement-string-count0-flags0"><span class="header-section-number">7.7</span> <code>re.sub(pattern, replacement, string, count=0, flags=0)</code></h2>
 <ul>
 <li><code>pattern</code>: The regular expression pattern to search for in the string.</li>
 <li><code>replacement</code>: The string to replace the matched occurrences of the pattern.</li>
@@ -624,16 +637,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>count</code>: An optional parameter that specifies the maximum number of substitutions to make. The default is 0, which means “replace all occurrences.”</li>
 <li><code>flags</code>: Optional flags that can modify the behavior of the substitution.</li>
 </ul>
-<section id="how-it-works-5" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="how-it-works-5"><strong>How it works:</strong></h4>
+</section>
+<section id="how-it-works-5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-it-works-5"><strong>How it works:</strong></h2>
 <ul>
 <li>The <code>re.sub()</code> method searches for all occurrences of the specified pattern in the string.</li>
 <li>It replaces each occurrence with the specified replacement string.</li>
 <li>The modified string is then returned.</li>
 </ul>
 </section>
-<section id="example-4" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-4"><strong>Example:</strong></h4>
+<section id="example-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-4"><strong>Example:</strong></h2>
 <p>Let’s say we want to replace all occurrences of the word “apple” with “orange” in a given string. Here’s how you can use <code>re.sub()</code> for this:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -647,9 +661,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this example, the <code>re.sub()</code> method searches for all occurrences of the pattern ‘apple’ in the <code>string</code> and replaces each occurrence with ‘orange’. The output will be:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Modified</span> string: I have an orange, and she has an orange too. We all love oranges!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-<section id="re.subnpattern-replacement-string-count0-flags0" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="re.subnpattern-replacement-string-count0-flags0"><code>re.subn(pattern, replacement, string, count=0, flags=0)</code></h3>
+<section id="re.subnpattern-replacement-string-count0-flags0" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="re.subnpattern-replacement-string-count0-flags0"><span class="header-section-number">7.8</span> <code>re.subn(pattern, replacement, string, count=0, flags=0)</code></h2>
 <ul>
 <li><code>pattern</code>: The regular expression pattern to search for in the string.</li>
 <li><code>replacement</code>: The string to replace the matched occurrences of the pattern.</li>
@@ -657,16 +670,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>count</code>: An optional parameter that specifies the maximum number of substitutions to make. The default is 0, which means “replace all occurrences.”</li>
 <li><code>flags</code>: Optional flags that can modify the behavior of the substitution.</li>
 </ul>
-<section id="how-it-works-6" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="how-it-works-6"><strong>How it works:</strong></h4>
+</section>
+<section id="how-it-works-6" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-it-works-6"><strong>How it works:</strong></h2>
 <ul>
 <li>The <code>re.subn()</code> method is similar to <code>re.sub()</code>; it searches for all occurrences of the specified pattern in the string.</li>
 <li>It replaces each occurrence with the specified replacement string.</li>
 <li>It returns a tuple containing the modified string and the count of substitutions made.</li>
 </ul>
 </section>
-<section id="example-5" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-5"><strong>Example:</strong></h4>
+<section id="example-5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-5"><strong>Example:</strong></h2>
 <p>Let’s modify the previous example slightly to use <code>re.subn()</code> and see the count of substitutions:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -683,9 +697,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Number</span> of substitutions: 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>re.subn()</code> method not only returns the modified string (<code>result</code>) but also the count of substitutions (<code>count</code>). In this case, it tells us that two substitutions were made for the pattern ‘password’ in the original text. This can be useful when you want to know how many replacements were performed.</p>
 </section>
-</section>
-<section id="concise-overview-of-re-modules" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="concise-overview-of-re-modules">Concise Overview of <code>re</code> Modules:</h3>
+<section id="concise-overview-of-re-modules" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="concise-overview-of-re-modules"><span class="header-section-number">7.9</span> Concise Overview of <code>re</code> Modules:</h2>
 <table class="table">
 <colgroup>
 <col style="width: 9%">
@@ -1286,8 +1299,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../2. Regular Expressions/input validation.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Input Validation</span>">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Input Validation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../2. Regular Expressions/2. regex metacharacters.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Metacharacters &amp; Special Sequences</span>">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Metacharacters &amp; Special Sequences</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

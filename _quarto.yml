@@ -10,9 +10,6 @@ book:
   favicon: images/icon.png
   
 
-
-
-
   chapters:
     - index.qmd
     - 1. python basics/about author.qmd
@@ -27,8 +24,8 @@ book:
         - 1. python basics/6-string manipulation.qmd
     - part: Automation with Python
       chapters:
-        - 2. Regular Expressions/pattern matching with regex.qmd
-        - 2. Regular Expressions/input validation.qmd
+        - 2. Regular Expressions/1. regex modules.qmd
+        - 2. Regular Expressions/2. regex metacharacters.qmd
         - 2. Regular Expressions/Reading and writing files.qmd
     - part: Mastering Prompt Engineering (ChatGPT)
       chapters: 
@@ -43,7 +40,9 @@ highlight-style: pygments
 toc-title: 'Table of Contents'
 toc-expand: true
 
+
 format:
+  
   html:
     smooth-scroll: true  # for scrolling smothly be default it disabled
     link-external-icon: true

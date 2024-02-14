@@ -1,0 +1,323 @@
+# `re` — Regular expression operations
+A regular expression, often abbreviated as regex, is a sequence of characters that defines a search pattern. It's a powerful tool used for string manipulation and matching patterns within text.
+
+### Simple Analogy: {.unnumbered}
+
+Let's think of a regular expression like a special search query. Imagine you have a magic magnifying glass, and you can define patterns or shapes you want to find in a book.
+
+- **Book (Text):** Represents a piece of information, like a document or text data.
+- **Magnifying Glass (Regular Expression):** Represents the tool that helps you search for specific patterns.
+
+### In Machine Learning: {.unnumbered}
+
+1. **Text Processing:**
+   - In natural language processing (NLP), regular expressions are used to extract specific information from text data. For example, finding all email addresses or dates in a document.
+
+2. **Data Cleaning:**
+   - In data preprocessing, regular expressions help clean and format data. For instance, removing special characters or formatting dates consistently.
+
+### In Daily Life: {.unnumbered}
+
+1. **Search Operations:**
+   - Have you ever used Ctrl+F to find a word or phrase in a document? Regular expressions provide a more advanced version of this, allowing you to search for patterns like phone numbers or URLs.
+
+2. **Form Validation:**
+   - When you fill out a form online, the system might use regular expressions to check if you entered a valid email address, phone number, or other details.
+
+
+## `re.compile()`, `re.findall()` 
+
+The compile method is useful when you want to search for the same pattern over and over again but if you need it only a single time then you can pass the pattern directly to that function as you will see in the upcoming lessons.
+
+```python
+import re
+
+sentence = "Hello123! This is a mixed-string example with @special# symbols 456 and characters."
+
+# Always pass a raw string to the pattern
+pattern = r'\d{3}'
+
+# Giving the above pattern to compile function so that it knows what to look
+compiled = re.compile(pattern= pattern) 
+
+# Use the compiled object on any string where you want to find the pattern you defined earlier.
+result = re.findall(compiled, string = sentence)
+
+print(result)
+
+```
+
+## `re.search(pattern, string, flags=0)` 
+- `pattern`: This is the regular expression pattern you want to search for in the given string.
+- `string`: This is the input string where the search operation will be performed.
+- `flags`: An optional parameter that can modify the behavior of the search. It's typically set to 0.
+
+## **How it works:** {.unnumbered}
+- The `re.search()` method scans the entire string to find a match with the specified pattern.
+- If a match is found, it returns a match object; otherwise, it returns `None`.
+
+### Real-life usage examples: 
+1. **Validation**: You can use `re.search()` to validate whether a string adheres to a certain pattern. For example, checking if an email address or a phone number is in the correct format.
+
+    ```python
+    import re
+
+    email_pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    email = "example@email.com"
+
+    if re.search(email_pattern, email):
+        print("Valid email address")
+    else:
+        print("Invalid email address")
+    ```
+
+2. **Text extraction**: When dealing with textual data, you can use regular expressions to extract specific information. For instance, extracting all the mentions from a tweet.
+
+    ```python
+    tweet = "Hey @user1 and @user2, how are you doing?"
+
+    mention_pattern = r'@([a-zA-Z0-9_]+)'
+    mentions = re.findall(mention_pattern, tweet)
+
+    print("Mentions:", mentions)
+    ```
+
+These are just a couple of examples, but `re.search()` is quite versatile and can be applied in various scenarios where you need to find or validate patterns within strings. If you have a specific use case in mind, feel free to let me know!
+
+## `re.match(pattern, string, flags=0)` 
+- `pattern`: The regular expression pattern to match at the beginning of the string.
+- `string`: The input string where the match operation will be performed.
+- `flags`: Optional flags that can modify the behavior of the match.
+
+## **How it works:** {.unnumbered}
+- The `re.match()` method checks if the specified pattern matches at the beginning of the string.
+- If a match is found at the start of the string, it returns a match object; otherwise, it returns `None`.
+
+## **Example:** {.unnumbered}
+Let's say we want to check if a given string starts with the word "Hello".
+
+```python
+import re
+
+pattern = r'Hello'
+string1 = "Hello, how are you?"
+string2 = "Hi there, Hello!"
+
+# Using re.match() to check if the pattern matches at the beginning of the string
+match1 = re.match(pattern, string1)
+match2 = re.match(pattern, string2)
+
+# Checking the results
+if match1:
+    print(f'"{string1}" starts with "Hello"')
+else:
+    print(f'"{string1}" does not start with "Hello"')
+
+if match2:
+    print(f'"{string2}" starts with "Hello"')
+else:
+    print(f'"{string2}" does not start with "Hello"')
+```
+
+In this example, `match1` will be `None` because "Hello" is not at the very beginning of `string1`. However, `match2` will be a match object because "Hello" is at the beginning of `string2`.
+
+## `re.fullmatch(pattern, string, flags=0)` 
+- `pattern`: The regular expression pattern to match against the entire string.
+- `string`: The input string where the match operation will be performed.
+- `flags`: Optional flags that can modify the behavior of the match.
+
+## **How it works:**{.unnumbered}
+- The `re.fullmatch()` method checks if the specified pattern matches the entire string.
+- If a match is found for the entire string, it returns a match object; otherwise, it returns `None`.
+
+### **Example:**
+Let's consider an example where we want to check if a string consists of only alphanumeric characters:
+
+```python
+import re
+
+pattern = r'^[a-zA-Z0-9]+$'  # Pattern for alphanumeric string # <1>
+string1 = "Hello123"
+string2 = "Hi there, Hello!"
+
+# Using re.fullmatch() to check if the pattern matches the entire string
+match1 = re.fullmatch(pattern, string1)
+match2 = re.fullmatch(pattern, string2)
+
+# Checking the results
+if match1:
+    print(f'"{string1}" is a valid alphanumeric string.')
+else:
+    print(f'"{string1}" is not a valid alphanumeric string.')
+
+if match2:
+    print(f'"{string2}" is a valid alphanumeric string.')
+else:
+    print(f'"{string2}" is not a valid alphanumeric string.')
+```
+
+1. The regular expression `^[a-zA-Z0-9]+$` is a pattern commonly used to check if a string consists of only alphanumeric characters. Let's break down the components of this regular expression:
+
+- `^`: Asserts the start of the string.
+- `[a-zA-Z0-9]`: Matches any uppercase letter (A-Z), lowercase letter (a-z), or digit (0-9). This character class ensures that only alphanumeric characters are allowed.
+- `+`: Requires one or more occurrences of the preceding character class. This ensures that the string contains at least one alphanumeric character.
+- `$`: Asserts the end of the string.
+
+So, when you put it all together:
+
+- `^[a-zA-Z0-9]+$` ensures that the entire string consists of one or more alphanumeric characters, allowing no other characters in between.
+
+In this example, `match1` will be a match object because "Hello123" consists of only alphanumeric characters, and it matches the entire pattern. However, `match2` will be `None` because "Hi there, Hello!" contains non-alphanumeric characters and doesn't match the entire pattern.
+
+## `re.findall(pattern, string, flags=0)` 
+- `pattern`: The regular expression pattern to search for in the string.
+- `string`: The input string where the search operation will be performed.
+- `flags`: Optional flags that can modify the behavior of the search.
+
+## **How it works:** {.unnumbered}
+- The `re.findall()` method scans the entire string to find all non-overlapping occurrences of the specified pattern.
+- It returns a list containing all the matches found.
+
+## **Example:** {.unnumbered}
+Let's say we want to find all the words in a string that start with the letter 'C'. Here's how you can use `re.findall()` for this:
+
+```python
+import re
+
+pattern = r'\bC\w*'  # Pattern for words starting with 'C'
+string = "Python is a cool programming language. Coder enjoys coding in C and Python."
+
+matches = re.findall(pattern, string)
+
+print("Words starting with 'C':", matches)
+```
+
+In this example, the pattern `r'\bC\w*'` is used:
+- `\b`: Word boundary to ensure that we match whole words.
+- `C`: The letter 'C' that the word should start with.
+- `\w*`: Matches zero or more word characters (alphanumeric characters and underscores).
+
+The `re.findall()` method searches the `string` for all occurrences of words that start with 'C' and returns a list containing those words. The output will be:
+
+```bash
+Words starting with 'C': ['Cool', 'Coder', 'C', 'and']
+```
+
+## `re.split(pattern, string, maxsplit=0, flags=0)` 
+- `pattern`: The regular expression pattern used for splitting the string.
+- `string`: The input string to be split.
+- `maxsplit`: An optional parameter that specifies the maximum number of splits. The default is 0, which means "all occurrences."
+- `flags`: Optional flags that can modify the behavior of the split.
+
+## **How it works:** {.unnumbered}
+- The `re.split()` method uses the specified pattern to identify positions in the string where the split should occur.
+- It returns a list of substrings resulting from the split.
+
+## **Example:** {.unnumbered}
+Let's say we want to split a string into words based on spaces and punctuation. Here's how you can use `re.split()` for this:
+
+```python
+import re
+
+pattern = r'[ ,.?!]+'  # Pattern for one or more spaces, commas, periods, question marks, or exclamation marks
+string = "Hello, how are you? I hope everything is fine."
+
+result = re.split(pattern, string)
+
+print("Splitted words:", result)
+```
+
+In this example, the pattern `r'[ ,.?!]+'` is used:
+- `[ ,.?!]+`: Matches one or more occurrences of spaces, commas, periods, question marks, or exclamation marks.
+
+The `re.split()` method uses this pattern to split the `string` wherever it encounters one or more of these characters. The output will be:
+
+```bash
+Splitted words: ['Hello', 'how', 'are', 'you', 'I', 'hope', 'everything', 'is', 'fine', '']
+```
+
+The resulting list contains individual words from the original string, excluding spaces and punctuation.
+
+## `re.sub(pattern, replacement, string, count=0, flags=0)` 
+- `pattern`: The regular expression pattern to search for in the string.
+- `replacement`: The string to replace the matched occurrences of the pattern.
+- `string`: The input string where the substitutions will be performed.
+- `count`: An optional parameter that specifies the maximum number of substitutions to make. The default is 0, which means "replace all occurrences."
+- `flags`: Optional flags that can modify the behavior of the substitution.
+
+## **How it works:** {.unnumbered}
+- The `re.sub()` method searches for all occurrences of the specified pattern in the string.
+- It replaces each occurrence with the specified replacement string.
+- The modified string is then returned.
+
+## **Example:** {.unnumbered}
+Let's say we want to replace all occurrences of the word "apple" with "orange" in a given string. Here's how you can use `re.sub()` for this:
+
+```python
+import re
+
+pattern = r'apple'  # Pattern to search for
+replacement = 'orange'  # String to replace the matched occurrences
+string = "I have an apple, and she has an apple too. We all love apples!"
+
+result = re.sub(pattern, replacement, string)
+
+print("Modified string:", result)
+```
+
+In this example, the `re.sub()` method searches for all occurrences of the pattern 'apple' in the `string` and replaces each occurrence with 'orange'. The output will be:
+
+```bash
+Modified string: I have an orange, and she has an orange too. We all love oranges!
+```
+
+## `re.subn(pattern, replacement, string, count=0, flags=0)` 
+- `pattern`: The regular expression pattern to search for in the string.
+- `replacement`: The string to replace the matched occurrences of the pattern.
+- `string`: The input string where the substitutions will be performed.
+- `count`: An optional parameter that specifies the maximum number of substitutions to make. The default is 0, which means "replace all occurrences."
+- `flags`: Optional flags that can modify the behavior of the substitution.
+
+## **How it works:** {.unnumbered}
+- The `re.subn()` method is similar to `re.sub()`; it searches for all occurrences of the specified pattern in the string.
+- It replaces each occurrence with the specified replacement string.
+- It returns a tuple containing the modified string and the count of substitutions made.
+
+## **Example:** {.unnumbered}
+Let's modify the previous example slightly to use `re.subn()` and see the count of substitutions:
+
+```python
+import re
+
+pattern = r'password'  # Pattern to search for
+replacement = '***'     # String to replace the matched occurrences
+text = "Please enter your password to proceed. Your password is case-sensitive."
+
+result, count = re.subn(pattern, replacement, text)
+
+print("Modified text:", result)
+print("Number of substitutions:", count)
+```
+
+In this example, the output will be:
+
+```bash
+Modified text: Please enter your *** to proceed. Your *** is case-sensitive.
+Number of substitutions: 2
+```
+
+The `re.subn()` method not only returns the modified string (`result`) but also the count of substitutions (`count`). In this case, it tells us that two substitutions were made for the pattern 'password' in the original text. This can be useful when you want to know how many replacements were performed.
+
+## Concise Overview of `re` Modules: 
+
+| Method          | Description                                                                                                                                              |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `re.search()`   | Searches for a specified pattern within a string and returns a match object if found, otherwise returns None.                                            |
+| `re.match()`    | Checks if a specified pattern matches at the beginning of a string and returns a match object if successful, otherwise returns None.                      |
+| `re.fullmatch()`| Determines if the entire string matches a given pattern and returns a match object if successful, otherwise returns None.                                   |
+| `re.findall()`  | Finds all occurrences of a specified pattern in a string and returns them as a list.                                                                       |
+| `re.split()`    | Splits a string into a list of substrings based on a specified regular expression pattern.                                                                 |
+| `re.sub()`      | Replaces occurrences of a specified pattern in a string with a specified replacement and returns the modified string.                                      |
+| `re.subn()`     | Similar to `re.sub()`, but also returns the count of substitutions made along with the modified string.                                                    |
+
+
