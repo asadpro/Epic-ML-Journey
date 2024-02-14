@@ -544,11 +544,704 @@
     ]
   },
   {
+    "objectID": "1. python basics/5-dictionaries.html",
+    "href": "1. python basics/5-dictionaries.html",
+    "title": "5  Dictionaries",
+    "section": "",
+    "text": "5.1 Dictionary vs Lists\nLists are ordered, while dictionaries are unordered. For Example, look at the following code to differentiate both:",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/5-dictionaries.html#dictionary-vs-lists",
+    "href": "1. python basics/5-dictionaries.html#dictionary-vs-lists",
+    "title": "5  Dictionaries",
+    "section": "",
+    "text": "# List\nmy_list = [10, 20, 30, 40, 50]\n# Shuffling above list\nshuffled_list = [30, 20, 40, 10, 50]\n\nprint(my_list == shuffled_list)\n\n# Dictionary\nmy_dict = {\n    'apple': 5,\n    'banana': 8,\n    'orange': 12,\n    'grape': 20,\n    'kiwi': 3\n}\n\n# Shuffled version of the above dictionary\nshuffled_my_dict = {\n    'banana': 8,\n    'orange': 12,\n    'apple': 5,\n    'kiwi': 3,\n    'grape': 20\n}\n\nprint(my_dict == shuffled_my_dict)\n\n\n\n\n\n\nNote\n\n\n\nAs you can see, if you keep the content of a list the same and just change its order, Python won’t accept it as equal. As for the dictionaries you can see no matter what the order of the key-value pair is, python would still consider it as a copy of the first dictionary because in a dictionary we access values by its key, unlike indexes which must be to access it in order.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/5-dictionaries.html#the-keys-values-items-get-methods",
+    "href": "1. python basics/5-dictionaries.html#the-keys-values-items-get-methods",
+    "title": "5  Dictionaries",
+    "section": "5.2 The keys(), values(), items() & get() methods",
+    "text": "5.2 The keys(), values(), items() & get() methods\n\nThe keys() method returns the keys of a dictionary in a list-like format but not exactly a list. For Example:\n    my_dict = {\n    'apple': 5,\n    'banana': 8,\n    'orange': 12,\n    'grape': 20,\n    'kiwi': 3\n}\n\nfor key in my_dict.keys():\n    print(key)\nThe values() method returns values of the dictionary in list-like format. For Example:\n    my_dict = {\n    'apple': 5,\n    'banana': 8,\n    'orange': 12,\n    'grape': 20,\n    'kiwi': 3\n}\n\nfor value in my_dict.values():\n    print(value)\nThe items() method returns both keys and values separately. For Example: ```python my_dict = { ‘apple’: 5, ‘banana’: 8, ‘orange’: 12, ‘grape’: 20, ‘kiwi’: 3 }\n for key, value in my_dict.items():\n     print(key,' : ', value)\n\n print(type(my_dict.values()))\nget() Sometimes we want to return the value of a key in a dictionary but what if the key doesn’t exist then it would give you a tedious and ugly error message. Fortunately, to prevent such error messages python has the get() method on dictionary that returns None by default else returns the user-defined value. For Example:\n my_dict = {\n     'name': 'Asad',\n     'age': 22,\n     'city': 'Peshawar',\n     'occupation': 'Student',\n     'interest': 'Machine Learning'\n }\n\n # Using get() to retrieve values\n name_value = my_dict.get('name')\n\n # If gender key isn't in `my_dict` dictionary then it would return `Not specified`\n gender_value = my_dict.get('gender', 'Not specified')\n\n print(name_value)      # Output: 'Asad'\n print(gender_value)    # Output: 'Not specified' (since the 'gender' key is not present)\nIf you run print(type(my_dict.values())) this will return a view of the values in a dictionary which if I explain simply to an 8 grader child then ‘view of the values’ would be like a mirror which facing the current dictionary within which we can see all the values inside of that dictionary but if we change the values inside dictionary this affect the view of the values also.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/5-dictionaries.html#value-or-key-exists",
+    "href": "1. python basics/5-dictionaries.html#value-or-key-exists",
+    "title": "5  Dictionaries",
+    "section": "5.3 Value or Key exists",
+    "text": "5.3 Value or Key exists\nIf you remember from the last chapter we saw in and not in operators from the past chapters. We can also use this operator on dictionaries to see if a certain key or value exists in a dictionary or not.\n    my_dict = {\n        'name': 'Asad',\n        'age': 22,\n        'city': 'Peshawar',\n        'occupation': 'Student',\n        'interest': 'Machine Learning'\n    }\n\n    result_1, result_2 = 'name' in my_dict.keys(), 'Student' not in my_dict.values()\n\n    print('Name key exists in my_dict: ',result_1)\n    print('Student value not exist in my_dict: ',result_2)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/5-dictionaries.html#pprint-module",
+    "href": "1. python basics/5-dictionaries.html#pprint-module",
+    "title": "5  Dictionaries",
+    "section": "5.4 pprint Module",
+    "text": "5.4 pprint Module\n1import pprint\n\nmy_dict = {\n    'name': 'Asad',\n    'age': 22,\n    'city': 'Peshawar',\n    'occupation': 'Student',\n    'interest': 'Machine Learning'\n}\n\n# Set the key `cast` if it's not in my_dict\nmy_dict.setdefault('cast',' Khalil Mohmand')\n\n# key & value would remain the same as above because we have the key of `cast` already\nmy_dict.setdefault('cast', 'Yousaf Zai')\npprint.pprint(my_dict)\n\n1\n\nThe pprint module stands for ‘pretty-print’. It provides a way to print data structures like dictionaries, and lists in a more human-readable and aesthetically pleasing format especially when dealing with nested or complex structures. The pprint module is part of the Python standard library.\n\n\n\n\n\n\n\n\nPython Standard Library vs Third Party Library\n\n\n\nPython Standard Library means modules that come with Python installation and don’t require any additional installation while Third Party Library are the modules that you have to install manually when you need it e.g. If we need a numpy module we have to first install it using package manager pip i.e. pip install numpy.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/5-dictionaries.html#pprint-vs-pformat-methods",
+    "href": "1. python basics/5-dictionaries.html#pprint-vs-pformat-methods",
+    "title": "5  Dictionaries",
+    "section": "5.5 pprint vs pformat methods",
+    "text": "5.5 pprint vs pformat methods\nBoth are these method works the same unless you want the output to save somewhere. In simple, if you want to store the formatted output into a file then use pformat else use the pprint method. For Example:\nfrom pprint import pformat, pprint\n\n# Example dictionary with nested structure\ncomplex_dict = {\n    'name': 'Asad',\n    'age': 22,\n    'details': {\n        'city': 'Peshawar',\n        'interests': ['Machine Learning', 'Gardening']\n    }\n}\n\n# Below will return its output and can be saved to a text file.\nwith open('pformat.txt','w') as writer:\n    writer.write(pformat(complex_dict))\n\n# You can see the result of pprint on the console but you can't store it in a text file that's you will get an error by running the below code:\nwith open('pprint.txt','w') as writer:\n    writer.write(pprint(complex_dict)) \n\n\n\n\n\n\nTip\n\n\n\nThe pprint.pprint() function is useful especially when you have a nested dictionary or dictionary with a complex structure.\n\n\nNested dictionaries and lists in Python allow you to create more complex data structures by placing dictionaries or lists inside other dictionaries or lists. This is particularly useful when dealing with hierarchical or structured data. Here are examples of both nested dictionaries and nested lists:",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/5-dictionaries.html#nested-dictionaries",
+    "href": "1. python basics/5-dictionaries.html#nested-dictionaries",
+    "title": "5  Dictionaries",
+    "section": "5.6 Nested Dictionaries:",
+    "text": "5.6 Nested Dictionaries:\n# Example of a nested dictionary representing information about a person\nperson_info = {\n    'name': 'Asad',\n    'age': 22,\n    'address': {\n        'city': 'Peshawar',\n        'country': 'Pakistan',\n        'zipcode': '12345'\n    },\n    'contacts': {\n        'email': 'asad@example.com',\n        'phone': '123-456-7890'\n    }\n}\n\n# Accessing nested values\nprint(person_info['address']['city'])  # Output: 'Peshawar'\nprint(person_info['contacts']['email'])  # Output: 'asad@example.com'\nIn this example, the person_info dictionary contains nested dictionaries for ‘address’ and ‘contacts’, creating a hierarchical structure.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/5-dictionaries.html#nested-lists",
+    "href": "1. python basics/5-dictionaries.html#nested-lists",
+    "title": "5  Dictionaries",
+    "section": "5.7 Nested Lists:",
+    "text": "5.7 Nested Lists:\n# Example of a nested list representing a matrix\nmatrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\n\n# Accessing elements in the nested list\nprint(matrix[1][2])  # Output: 6 (row 1, column 2)\nHere, the matrix list is nested, forming a 2D list. Elements can be accessed using indices for both the outer list (row) and the inner list (column).\nYou can also have a combination of nested dictionaries and lists:\n# Example of a nested dictionary containing a nested list\norganization = {\n    'name': 'TechCorp',\n    'departments': {\n        'engineering': ['Software', 'Hardware'],\n        'sales': ['Domestic', 'International'],\n        'hr': ['Recruitment', 'Employee Relations']\n    }\n}\n\n# Accessing elements in the nested structure\nprint(organization['departments']['engineering'][0])  # Output: 'Software'\nIn this example, the departments key in the organization dictionary contains a nested dictionary with department names as keys and lists of sub-departments as values.\nThese examples illustrate how nesting dictionaries and lists allows you to represent more intricate and organized data structures in your Python programs.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Dictionaries</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html",
+    "href": "1. python basics/6-string manipulation.html",
+    "title": "6  String Manipulations",
+    "section": "",
+    "text": "6.1 Double vs Single & Escape Characters Quotes\nStrings can begin & end with single or double quotes. But when we need to use a quote (either single or double) inside a string then there we need Escape Characters which is the way to tell the program to treat this character as a string not as a keyword e.g. look at the following example:\nBelow are some Escape Characters that we can use:",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#double-vs-single-escape-characters-quotes",
+    "href": "1. python basics/6-string manipulation.html#double-vs-single-escape-characters-quotes",
+    "title": "6  String Manipulations",
+    "section": "",
+    "text": "1q = \"Who're you\" # Correct Structure\n\nq = 'who're you' # Faulty code\n\nq = 'who\\'re you' # Using Escape Sequence \n\na = \"I\\\"m khan\" # Using Escape Sequence \n\n1\n\nHere, if you start your string with a single quote and then somewhere between you need a single quote as a string literal not the ending quote then we need to tell the Python program to treat it as a string by Escape Sequence ().\n\n\n\n\nList of Escape characters you can use.\n\n\nEscape character\nOutput\n\n\n\n\n\\\nBackslash\n\n\n\\t\nTab\n\n\n\\n\nnewline\n\n\n'\nsingle quote\n\n\n\"\ndouble quote",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#raw-strings",
+    "href": "1. python basics/6-string manipulation.html#raw-strings",
+    "title": "6  String Manipulations",
+    "section": "6.2 Raw Strings",
+    "text": "6.2 Raw Strings\nPlacing r at the beginning quotation mark of a string will make it a raw string. A raw string completely ignores all the special characters used inside the string and will print it as it is.\n1print(r'C:\\Users\\User\\Desktop\\platform-tools'Hello'\\iam')\n# Output: C:\\Users\\User\\Desktop\\platform-tools'Hello'\\iam\n\n1\n\nRaw strings are useful when we have a lot of special characters in our strings.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#multiline-strings",
+    "href": "1. python basics/6-string manipulation.html#multiline-strings",
+    "title": "6  String Manipulations",
+    "section": "6.3 Multiline Strings",
+    "text": "6.3 Multiline Strings\nWe can use ‘\\n’ to tell Python Interpreter to start from the new line but a good practice is to use Multiline for such strings that are longer than two lines. E.g.\nprint(\"\"\"Dear Whatsapp,\n            'am being a victim of receiving multiple death \n            threats from an Unknown caller, who wants me to \n            pay them ransom. It's been a half week, since \n            then he tries to breach my social accounts in \n            order to take control of all of my data.\n            \n        I will be sincerely thankful If you could do something about it.\n        Cell No: +92***234***3 \n        Note: I do not receive such threats. Chill!!!\"\"\")\n     \nEscaping single & double quotes are optional in multiline strings as you can see in the single quote at the beginning of the above multiline strings.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#multiline-for-comments-docstrings",
+    "href": "1. python basics/6-string manipulation.html#multiline-for-comments-docstrings",
+    "title": "6  String Manipulations",
+    "section": "6.4 Multiline for Comments & docstrings",
+    "text": "6.4 Multiline for Comments & docstrings\nFor a single line of comment, we use (#) hash character but for multiple lines, we use triple quote also. If you write a built-in function in the editor you will see a description like text in the suggestion box about what this function does, that is what docstring is. We can also use triple quotes to give a user-defined function its docstring. E.g.\n\"\"\"\nThis is an example of Multiline comment which is used \\noutside the function to tell what we are going to do with \\nthe following user-defined function.\n\n\"\"\"\n\ndef addition(num1, num2):\n    \"This function does all the addition-related tasks\n        \"\"\"\n    return num1 + num2\n\nprint(addition(23, 22))",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#indexing-and-slicing-strings",
+    "href": "1. python basics/6-string manipulation.html#indexing-and-slicing-strings",
+    "title": "6  String Manipulations",
+    "section": "6.5 Indexing and Slicing Strings",
+    "text": "6.5 Indexing and Slicing Strings\nStrings can be accessed via indexing and slicing just like we do with lists but you cannot modify the strings just like we do with lists because strings are immutable, unlike lists.\nwater = 'Un vaso de agua. por favor!'\n\nwater[0] # Accessing the first letter 'U'\nwater[4] # Accessing the fourth letter 'v'\n\nwater[4:] # Start from character 4 up to end\n\nwater [:4] # Start from the beginning up to 4 letter",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#in-not-in-operators-with-strings",
+    "href": "1. python basics/6-string manipulation.html#in-not-in-operators-with-strings",
+    "title": "6  String Manipulations",
+    "section": "6.6 In & not in Operators with Strings",
+    "text": "6.6 In & not in Operators with Strings\nThe in and not in operators can be used with strings just like we used before with lists. Run the following in the editor:\nsentence = 'hola! buoneus dias'\n\nprint('hola' in sentence)\nprint('!' in a sentence)\nprint('#' in sentence)\nprint('Dias' not in sentence)\nprint('dias' not in sentence)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#strings-methods",
+    "href": "1. python basics/6-string manipulation.html#strings-methods",
+    "title": "6  String Manipulations",
+    "section": "6.7 Strings Methods",
+    "text": "6.7 Strings Methods\nSome of the string methods are mentioned below. Look for others as well on the internet and play with it what more can you do with strings?\nsentence = 'Hola! buoneus dias'\n\n# Convert string to uppercase\nprint(sentence.upper())\n\n# Convert string to lowercase\nprint(sentence.lower())\n\n# Make the first character upper and remain smaller\nprint(sentence.capitalize())\n\n# Convert string to list\nprint(sentence.split())\n\n# Convert uppercase letter to lower & lower to uppercase\nprint(sentence.swapcase())\n\n1print(sentence.isalpha())\nprint(sentence.isupper())\nprint(sentence.islower())\nprint(sentence.isdigit())\n\n1\n\nseveral other string methods start with is, these return boolean results.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#the-join-split-partition-methods",
+    "href": "1. python basics/6-string manipulation.html#the-join-split-partition-methods",
+    "title": "6  String Manipulations",
+    "section": "6.8 The join(), split() & partition() Methods",
+    "text": "6.8 The join(), split() & partition() Methods\njoin() method\nThe join() method is useful when you have a list of strings that you want to join together in one single string. E.g.\n1sentence = 'Hola! buoneus dias'\nprint(' '.join(sentence))\n\n1\n\nThe abovementioned code will pick a single character from sentence and join a single white space to it.\n\n\nsplit() method\nThe split() method is commonly used to convert a string to a list or to split a multiline string along the newline characters. Enter the following into the editor:\nfrom pprint import pprint\n\nsentence = 'Mi Autobus esta aqui!' \npprint(sentence.split()) \n\nparagraph = \"\"\"\nSemiconductor technology is usually called solid state. This means that the\nmaterials used are of one piece. This is in contrast with the vacuum tube, which\nconsists of a series of assembled parts. Of course, the substances from which \nsemiconductors are made are not solid. They have atomic structures consisting largely of space.\nThe spaces are essential for the movement of electrons.\n\"\"\"\n\npprint(paragraph.split(sep='\\n'))\npartition() method\nThe partition() method splits the string before and after the separator and returns a tuple object, not the list. See the code:\nfrom pprint import pprint\n\n1intro = 'Hello my name is Imran Khan'\npprint(intro.partition('is'))\n\n1\n\nThis would split the string into partitions.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#the-rjust-ljust-center-methods",
+    "href": "1. python basics/6-string manipulation.html#the-rjust-ljust-center-methods",
+    "title": "6  String Manipulations",
+    "section": "6.9 The rjust(), ljust() & center() methods",
+    "text": "6.9 The rjust(), ljust() & center() methods\nThe rjust, ljust() & center() methods are simply putting padding to the strings. These methods justify the string by padding it with the specified character (in this case, ‘’) until the total length reaches the specified width (30 in our case). If the string is already longer than the specified width, it won’t truncate it. The original string “abcdefghijklmnopqrstuvwxyz” is 26 characters long, so it adds 4 ’’ characters to the string to make it a total of 30 characters.\nletters = 'abcdefghijklmnopqrstuvwxyz'\n\n# Number of characters in the above variable.\nprint(len(letters))\n\n# rightly-justifies\nprint(letters.rjust(30, '*')) \n\n# left-justifies\nprint(letters.ljust(30, '*')) \n\n# center-justifies\nprint(letters.center(30, '*'))",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#ord-and-chr-functions",
+    "href": "1. python basics/6-string manipulation.html#ord-and-chr-functions",
+    "title": "6  String Manipulations",
+    "section": "6.10 ord() and chr() functions",
+    "text": "6.10 ord() and chr() functions\nIn Python, the ord() and chr() functions are used for converting between characters and their corresponding ASCII or Unicode representations.\n\nord(): This function takes a character (a string of length 1) as an argument and returns the ASCII or Unicode code point of that character.\nchr(): This function takes an integer representing an ASCII or Unicode code point and returns the corresponding character.\n\nHere’s a simple example to illustrate their usage:\n# Using ord() to get the ASCII code of a character\nchar = 'A'\nascii_code = ord(char)\nprint(f\"The ASCII code of '{char}' is {ascii_code}\")\n\n# Using chr() to get the character from an ASCII code\ncode_point = 65  # ASCII code for 'A'\ncharacter = chr(code_point)\nprint(f\"The character with ASCII code {code_point} is '{character}'\")\nIn this example: - ord('A') returns 65, which is the ASCII code for the character ‘A’. - chr(65) returns ‘A’, which is the character corresponding to the ASCII code 65.\nThese functions are particularly useful when working with text, and you need to convert characters to their numeric representations or vice versa.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#copying-and-pasting-text-via-pyperclip-module",
+    "href": "1. python basics/6-string manipulation.html#copying-and-pasting-text-via-pyperclip-module",
+    "title": "6  String Manipulations",
+    "section": "6.11 Copying and Pasting Text via pyperclip Module",
+    "text": "6.11 Copying and Pasting Text via pyperclip Module\nTo copy and paste text from the clipboard in Python, you can use the pyperclip module. If you haven’t installed it yet, you can do so by running:\n# Run it in the bash / Python Interpreter / Terminal\npip install pyperclip\nOnce installed, you can use the following example to copy and paste text:\nimport pyperclip\n\n# Copy text to clipboard\ntext_to_copy = \"Hello, this is the text to copy!\"\npyperclip.copy(text_to_copy)\n\n# Paste text from clipboard\npasted_text = pyperclip.paste()\nprint(f\"Pasted text: {pasted_text}\")\nThis example demonstrates how to copy the string “Hello, this is the text to copy!” to the clipboard using pyperclip.copy() and then paste it using pyperclip.paste().\nMake sure your clipboard is accessible from the Python environment, as some environments (like certain IDEs or online platforms) may have restrictions on clipboard access. In a regular local Python environment, this should work as expected.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#practice-projects-1",
+    "href": "1. python basics/6-string manipulation.html#practice-projects-1",
+    "title": "6  String Manipulations",
+    "section": "6.12 Practice Projects 1",
+    "text": "6.12 Practice Projects 1\nThe following program will extract the tip from the following dictionary and will show you on the terminal only if you pass the corresponding key to the command-line argument. For Example: Write the following program in the editor or Interpreter and call it from your terminal with the Python file name and one of the keys from the following dictionary.\npython filename.py pruning\nAfter running the below program then check your clipboard to see the value of key pruning or press Win+vWin+v (shortcut for opening the clipboard directly)\nimport pyperclip, sys\n\ngardening_tips = {\n    'pruning': 'Remember to prune your plants regularly for healthy growth.',\n    'watering': 'Water your plants deeply but infrequently to encourage deep root growth.',\n    'fertilizing': 'Apply organic fertilizer to your garden beds in the spring for best results.'\n}\n\nif len(sys.argv)  &lt; 2:\n    print('You have not passed any argument & whatsoever')\n    sys.exit()\n\nkey = sys.argv[1] # Command line argument passed to terminal\n\nif key in gardening_tips:\n    pyperclip.copy(gardening_tips[key])\n    print('Text for ' + str(key) + ' copied to clipboard.')\n\nelse:\n    print('There is no text for ' + key)",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#practice-projects-2",
+    "href": "1. python basics/6-string manipulation.html#practice-projects-2",
+    "title": "6  String Manipulations",
+    "section": "6.13 Practice Projects 2",
+    "text": "6.13 Practice Projects 2\nDevelop a program that extracts text from the clipboard, enhances it by making it bold for markdown formatting (using double asterisks), and subsequently pastes the formatted text back into the clipboard.\nFor Example: In our case, I copied the following text to my clipboard\nSunset paints the sky's canvas.\nCoffee fuels creative minds.\nBooks open new worlds.\nRobots learn and evolve daily.\nGardens bloom with care.\nSilence speaks, loud echoes.\nData shapes future innovations.\nCuriosity sparks endless discoveries.\nMusic transcends cultural boundaries.\nCoding simplifies complex problems.\nHere’s an explanation for each line of code with comments:\n# Import the pyperclip module for working with the clipboard\nimport pyperclip\n\n# Get the text from the clipboard, split it into lines, and remove '\\r' from each line\nlist_of_strings = [line.rstrip('\\r') for line in pyperclip.paste().split('\\n')]\n\n# Initialize an empty string to store the modified phrases\nphrases = ''\n\n# Iterate through the list of strings\nfor sentence in list_of_strings:\n    # Check if the sentence is not an empty string\n    if sentence != '':\n        # Concatenate the modified sentence with '**' on both sides and a newline character\n        phrases += '**' + sentence + '**' + '\\n'\n\n# Copy the modified phrases back to the clipboard\npyperclip.copy(phrases)\n\n\n\n\n\n\nClick to see alternative to the above program\n\n\n\n\n\nimport pyperclip\n\nlist_of_strings = [ line.rstrip('\\r') for line in pyperclip.paste().split('\\n')]\n\nphrases = ''\n\nphrases += '\\n'.join(list_of_strings)\n\npyperclip.copy(phrases)\n\n\n\nExplanation in details:\n\nImport pyperclip:\nimport pyperclip\nImport the pyperclip module, which provides a cross-platform interface for working with the clipboard.\nGet text from the clipboard and process line endings:\nlist_of_strings = [line.rstrip('\\r') for line in pyperclip.paste().split('\\n')]\n\npyperclip.paste(): Retrieve the text currently on the clipboard.\n.split('\\n'): Split the text into a list of strings based on newline characters.\n[line.rstrip('\\r') for line in ...]: Iterate through each line and remove trailing carriage return (\\r) characters, if any.\n\nInitialize an empty string for modified phrases:\nphrases = ''\nCreate an empty string phrases to store the modified sentences.\nIterate through the list of strings:\nfor sentence in list_of_strings:\nLoop through each line in the list of processed strings.\nCheck for non-empty sentences:\nif sentence != '':\nCheck if the current line (sentence) is not an empty string.\nModify and concatenate sentences:\nphrases += '**' + sentence + '**' + '\\n'\nConcatenate the modified sentence by adding ’**’ at the beginning and end, and include a newline character at the end.\nCopy the modified phrases back to the clipboard:\npyperclip.copy(phrases)\nUse pyperclip.copy to copy the modified phrases back to the clipboard, making them available for pasting elsewhere.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "1. python basics/6-string manipulation.html#practice-projects-3",
+    "href": "1. python basics/6-string manipulation.html#practice-projects-3",
+    "title": "6  String Manipulations",
+    "section": "6.14 Practice Projects 3",
+    "text": "6.14 Practice Projects 3\nLet’s explore another linguistic transformation. This time, let’s delve into a playful language called “Double Trouble Language.” In this language:\n\nIf a word has an even number of letters, append “ee” to the end of the word.\nIf a word has an odd number of letters, double the last letter.\n\nFor example:\n\n“sun” becomes “sunn”\n“cloud” becomes “cloudd”\n“happy” becomes “happyy”\n“python” becomes “pythonee”\n\nNow, it’s quiz time! Transform the following words according to the rules of the Double Trouble Language:\n\n“moon”\n“butter”\n“apple”\n“coding”\n“elephant”\n\n\n\n\n\n\n\nClick to see the solution to the above project\n\n\n\n\n\nCertainly, Asad_Pro_Beta. Here’s an explanation for each line of code with comments:\n# Import the pprint module for pretty-printing dictionaries\nfrom pprint import pprint\n\n# List of words to be transformed\nwords = [\"moon\", \"butter\", \"apple\", \"coding\", \"elephant\"]\n\n# Initialize an empty list to store the transformed words\nupdate_words = []\n\n# Iterate through each word in the list\nfor word in words:\n    # Check if the length of the word is even\n    if len(word) % 2 == 0:\n        # If even, append 'ee' to the end of the word\n        update_words.append(word + 'ee')\n    else:\n        # If odd, double the last letter and append to the word\n        update_words.append(word + word[-1])\n\n# Creating a dictionary using Zip, pairing original words with transformed words\nmy_dict = dict(zip(words, update_words))\n\n# Pretty-print the resulting dictionary\npprint(my_dict)\nStep-by-step explanation:\n\nImport the pprint module:\nfrom pprint import pprint\nImport the pprint function from the pprint module for pretty-printing dictionaries.\nList of words to be transformed:\nwords = [\"moon\", \"butter\", \"apple\", \"coding\", \"elephant\"]\nInitialize a list named words containing words to be transformed.\nInitialize an empty list for transformed words:\nupdate_words = []\nCreate an empty list named update_words to store the transformed words.\nIterate through each word:\nfor word in words:\nLoop through each word in the words list.\nCheck if the length of the word is even:\nif len(word) % 2 == 0:\nUse the len function to check if the length of the word is even.\nAppend ‘ee’ to even-length words, or double the last letter for odd-length words:\nupdate_words.append(word + 'ee')  # even-length\nIf the length is even, append ‘ee’ to the end of the word. Otherwise:\nupdate_words.append(word + word[-1])  # odd-length, double last letter\nIf the length is odd, double the last letter and append it to the word.\nCreating a dictionary using zip:\nmy_dict = dict(zip(words, update_words))\nUse the zip function to pair each original word with its transformed version, then create a dictionary (my_dict) from these pairs.\nPretty-print the resulting dictionary:\npprint(my_dict)\nUse pprint to display the resulting dictionary in a more readable format.",
+    "crumbs": [
+      "Python Programming Basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>String Manipulations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html",
+    "href": "2. Regular Expressions/1. regex modules.html",
+    "title": "7  re — Regular expression operations",
+    "section": "",
+    "text": "Simple Analogy:\nLet’s think of a regular expression like a special search query. Imagine you have a magic magnifying glass, and you can define patterns or shapes you want to find in a book.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.compile-re.findall",
+    "href": "2. Regular Expressions/1. regex modules.html#re.compile-re.findall",
+    "title": "7  re — Regular expression operations",
+    "section": "7.1 re.compile(), re.findall()",
+    "text": "7.1 re.compile(), re.findall()\nThe compile method is useful when you want to search for the same pattern over and over again but if you need it only a single time then you can pass the pattern directly to that function as you will see in the upcoming lessons.\nimport re\n\nsentence = \"Hello123! This is a mixed-string example with @special# symbols 456 and characters.\"\n\n# Always pass a raw string to the pattern\npattern = r'\\d{3}'\n\n# Giving the above pattern to compile function so that it knows what to look\ncompiled = re.compile(pattern= pattern) \n\n# Use the compiled object on any string where you want to find the pattern you defined earlier.\nresult = re.findall(compiled, string = sentence)\n\nprint(result)",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.searchpattern-string-flags0",
+    "href": "2. Regular Expressions/1. regex modules.html#re.searchpattern-string-flags0",
+    "title": "7  re — Regular expression operations",
+    "section": "7.2 re.search(pattern, string, flags=0)",
+    "text": "7.2 re.search(pattern, string, flags=0)\n\npattern: This is the regular expression pattern you want to search for in the given string.\nstring: This is the input string where the search operation will be performed.\nflags: An optional parameter that can modify the behavior of the search. It’s typically set to 0.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#how-it-works",
+    "href": "2. Regular Expressions/1. regex modules.html#how-it-works",
+    "title": "7  re — Regular expression operations",
+    "section": "How it works:",
+    "text": "How it works:\n\nThe re.search() method scans the entire string to find a match with the specified pattern.\nIf a match is found, it returns a match object; otherwise, it returns None.\n\n\n7.2.1 Real-life usage examples:\n\nValidation: You can use re.search() to validate whether a string adheres to a certain pattern. For example, checking if an email address or a phone number is in the correct format.\nimport re\n\nemail_pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$'\nemail = \"example@email.com\"\n\nif re.search(email_pattern, email):\n    print(\"Valid email address\")\nelse:\n    print(\"Invalid email address\")\nText extraction: When dealing with textual data, you can use regular expressions to extract specific information. For instance, extracting all the mentions from a tweet.\ntweet = \"Hey @user1 and @user2, how are you doing?\"\n\nmention_pattern = r'@([a-zA-Z0-9_]+)'\nmentions = re.findall(mention_pattern, tweet)\n\nprint(\"Mentions:\", mentions)\n\nThese are just a couple of examples, but re.search() is quite versatile and can be applied in various scenarios where you need to find or validate patterns within strings. If you have a specific use case in mind, feel free to let me know!",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.matchpattern-string-flags0",
+    "href": "2. Regular Expressions/1. regex modules.html#re.matchpattern-string-flags0",
+    "title": "7  re — Regular expression operations",
+    "section": "7.3 re.match(pattern, string, flags=0)",
+    "text": "7.3 re.match(pattern, string, flags=0)\n\npattern: The regular expression pattern to match at the beginning of the string.\nstring: The input string where the match operation will be performed.\nflags: Optional flags that can modify the behavior of the match.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#how-it-works-1",
+    "href": "2. Regular Expressions/1. regex modules.html#how-it-works-1",
+    "title": "7  re — Regular expression operations",
+    "section": "How it works:",
+    "text": "How it works:\n\nThe re.match() method checks if the specified pattern matches at the beginning of the string.\nIf a match is found at the start of the string, it returns a match object; otherwise, it returns None.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#example",
+    "href": "2. Regular Expressions/1. regex modules.html#example",
+    "title": "7  re — Regular expression operations",
+    "section": "Example:",
+    "text": "Example:\nLet’s say we want to check if a given string starts with the word “Hello”.\nimport re\n\npattern = r'Hello'\nstring1 = \"Hello, how are you?\"\nstring2 = \"Hi there, Hello!\"\n\n# Using re.match() to check if the pattern matches at the beginning of the string\nmatch1 = re.match(pattern, string1)\nmatch2 = re.match(pattern, string2)\n\n# Checking the results\nif match1:\n    print(f'\"{string1}\" starts with \"Hello\"')\nelse:\n    print(f'\"{string1}\" does not start with \"Hello\"')\n\nif match2:\n    print(f'\"{string2}\" starts with \"Hello\"')\nelse:\n    print(f'\"{string2}\" does not start with \"Hello\"')\nIn this example, match1 will be None because “Hello” is not at the very beginning of string1. However, match2 will be a match object because “Hello” is at the beginning of string2.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.fullmatchpattern-string-flags0",
+    "href": "2. Regular Expressions/1. regex modules.html#re.fullmatchpattern-string-flags0",
+    "title": "7  re — Regular expression operations",
+    "section": "7.4 re.fullmatch(pattern, string, flags=0)",
+    "text": "7.4 re.fullmatch(pattern, string, flags=0)\n\npattern: The regular expression pattern to match against the entire string.\nstring: The input string where the match operation will be performed.\nflags: Optional flags that can modify the behavior of the match.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#how-it-works-2",
+    "href": "2. Regular Expressions/1. regex modules.html#how-it-works-2",
+    "title": "7  re — Regular expression operations",
+    "section": "How it works:",
+    "text": "How it works:\n\nThe re.fullmatch() method checks if the specified pattern matches the entire string.\nIf a match is found for the entire string, it returns a match object; otherwise, it returns None.\n\n\n7.4.1 Example:\nLet’s consider an example where we want to check if a string consists of only alphanumeric characters:\nimport re\n\n1pattern = r'^[a-zA-Z0-9]+$'  # Pattern for alphanumeric string\nstring1 = \"Hello123\"\nstring2 = \"Hi there, Hello!\"\n\n# Using re.fullmatch() to check if the pattern matches the entire string\nmatch1 = re.fullmatch(pattern, string1)\nmatch2 = re.fullmatch(pattern, string2)\n\n# Checking the results\nif match1:\n    print(f'\"{string1}\" is a valid alphanumeric string.')\nelse:\n    print(f'\"{string1}\" is not a valid alphanumeric string.')\n\nif match2:\n    print(f'\"{string2}\" is a valid alphanumeric string.')\nelse:\n    print(f'\"{string2}\" is not a valid alphanumeric string.')\n\n1\n\nThe regular expression ^[a-zA-Z0-9]+$ is a pattern commonly used to check if a string consists of only alphanumeric characters. Let’s break down the components of this regular expression:\n\n\n\n^: Asserts the start of the string.\n[a-zA-Z0-9]: Matches any uppercase letter (A-Z), lowercase letter (a-z), or digit (0-9). This character class ensures that only alphanumeric characters are allowed.\n+: Requires one or more occurrences of the preceding character class. This ensures that the string contains at least one alphanumeric character.\n$: Asserts the end of the string.\n\nSo, when you put it all together:\n\n^[a-zA-Z0-9]+$ ensures that the entire string consists of one or more alphanumeric characters, allowing no other characters in between.\n\nIn this example, match1 will be a match object because “Hello123” consists of only alphanumeric characters, and it matches the entire pattern. However, match2 will be None because “Hi there, Hello!” contains non-alphanumeric characters and doesn’t match the entire pattern.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.findallpattern-string-flags0",
+    "href": "2. Regular Expressions/1. regex modules.html#re.findallpattern-string-flags0",
+    "title": "7  re — Regular expression operations",
+    "section": "7.5 re.findall(pattern, string, flags=0)",
+    "text": "7.5 re.findall(pattern, string, flags=0)\n\npattern: The regular expression pattern to search for in the string.\nstring: The input string where the search operation will be performed.\nflags: Optional flags that can modify the behavior of the search.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#how-it-works-3",
+    "href": "2. Regular Expressions/1. regex modules.html#how-it-works-3",
+    "title": "7  re — Regular expression operations",
+    "section": "How it works:",
+    "text": "How it works:\n\nThe re.findall() method scans the entire string to find all non-overlapping occurrences of the specified pattern.\nIt returns a list containing all the matches found.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#example-2",
+    "href": "2. Regular Expressions/1. regex modules.html#example-2",
+    "title": "7  re — Regular expression operations",
+    "section": "Example:",
+    "text": "Example:\nLet’s say we want to find all the words in a string that start with the letter ‘C’. Here’s how you can use re.findall() for this:\nimport re\n\npattern = r'\\bC\\w*'  # Pattern for words starting with 'C'\nstring = \"Python is a cool programming language. Coder enjoys coding in C and Python.\"\n\nmatches = re.findall(pattern, string)\n\nprint(\"Words starting with 'C':\", matches)\nIn this example, the pattern r'\\bC\\w*' is used: - \\b: Word boundary to ensure that we match whole words. - C: The letter ‘C’ that the word should start with. - \\w*: Matches zero or more word characters (alphanumeric characters and underscores).\nThe re.findall() method searches the string for all occurrences of words that start with ‘C’ and returns a list containing those words. The output will be:\nWords starting with 'C': ['Cool', 'Coder', 'C', 'and']",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.splitpattern-string-maxsplit0-flags0",
+    "href": "2. Regular Expressions/1. regex modules.html#re.splitpattern-string-maxsplit0-flags0",
+    "title": "7  re — Regular expression operations",
+    "section": "7.6 re.split(pattern, string, maxsplit=0, flags=0)",
+    "text": "7.6 re.split(pattern, string, maxsplit=0, flags=0)\n\npattern: The regular expression pattern used for splitting the string.\nstring: The input string to be split.\nmaxsplit: An optional parameter that specifies the maximum number of splits. The default is 0, which means “all occurrences.”\nflags: Optional flags that can modify the behavior of the split.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#how-it-works-4",
+    "href": "2. Regular Expressions/1. regex modules.html#how-it-works-4",
+    "title": "7  re — Regular expression operations",
+    "section": "How it works:",
+    "text": "How it works:\n\nThe re.split() method uses the specified pattern to identify positions in the string where the split should occur.\nIt returns a list of substrings resulting from the split.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#example-3",
+    "href": "2. Regular Expressions/1. regex modules.html#example-3",
+    "title": "7  re — Regular expression operations",
+    "section": "Example:",
+    "text": "Example:\nLet’s say we want to split a string into words based on spaces and punctuation. Here’s how you can use re.split() for this:\nimport re\n\npattern = r'[ ,.?!]+'  # Pattern for one or more spaces, commas, periods, question marks, or exclamation marks\nstring = \"Hello, how are you? I hope everything is fine.\"\n\nresult = re.split(pattern, string)\n\nprint(\"Splitted words:\", result)\nIn this example, the pattern r'[ ,.?!]+' is used: - [ ,.?!]+: Matches one or more occurrences of spaces, commas, periods, question marks, or exclamation marks.\nThe re.split() method uses this pattern to split the string wherever it encounters one or more of these characters. The output will be:\nSplitted words: ['Hello', 'how', 'are', 'you', 'I', 'hope', 'everything', 'is', 'fine', '']\nThe resulting list contains individual words from the original string, excluding spaces and punctuation.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.subpattern-replacement-string-count0-flags0",
+    "href": "2. Regular Expressions/1. regex modules.html#re.subpattern-replacement-string-count0-flags0",
+    "title": "7  re — Regular expression operations",
+    "section": "7.7 re.sub(pattern, replacement, string, count=0, flags=0)",
+    "text": "7.7 re.sub(pattern, replacement, string, count=0, flags=0)\n\npattern: The regular expression pattern to search for in the string.\nreplacement: The string to replace the matched occurrences of the pattern.\nstring: The input string where the substitutions will be performed.\ncount: An optional parameter that specifies the maximum number of substitutions to make. The default is 0, which means “replace all occurrences.”\nflags: Optional flags that can modify the behavior of the substitution.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#how-it-works-5",
+    "href": "2. Regular Expressions/1. regex modules.html#how-it-works-5",
+    "title": "7  re — Regular expression operations",
+    "section": "How it works:",
+    "text": "How it works:\n\nThe re.sub() method searches for all occurrences of the specified pattern in the string.\nIt replaces each occurrence with the specified replacement string.\nThe modified string is then returned.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#example-4",
+    "href": "2. Regular Expressions/1. regex modules.html#example-4",
+    "title": "7  re — Regular expression operations",
+    "section": "Example:",
+    "text": "Example:\nLet’s say we want to replace all occurrences of the word “apple” with “orange” in a given string. Here’s how you can use re.sub() for this:\nimport re\n\npattern = r'apple'  # Pattern to search for\nreplacement = 'orange'  # String to replace the matched occurrences\nstring = \"I have an apple, and she has an apple too. We all love apples!\"\n\nresult = re.sub(pattern, replacement, string)\n\nprint(\"Modified string:\", result)\nIn this example, the re.sub() method searches for all occurrences of the pattern ‘apple’ in the string and replaces each occurrence with ‘orange’. The output will be:\nModified string: I have an orange, and she has an orange too. We all love oranges!",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#re.subnpattern-replacement-string-count0-flags0",
+    "href": "2. Regular Expressions/1. regex modules.html#re.subnpattern-replacement-string-count0-flags0",
+    "title": "7  re — Regular expression operations",
+    "section": "7.8 re.subn(pattern, replacement, string, count=0, flags=0)",
+    "text": "7.8 re.subn(pattern, replacement, string, count=0, flags=0)\n\npattern: The regular expression pattern to search for in the string.\nreplacement: The string to replace the matched occurrences of the pattern.\nstring: The input string where the substitutions will be performed.\ncount: An optional parameter that specifies the maximum number of substitutions to make. The default is 0, which means “replace all occurrences.”\nflags: Optional flags that can modify the behavior of the substitution.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#how-it-works-6",
+    "href": "2. Regular Expressions/1. regex modules.html#how-it-works-6",
+    "title": "7  re — Regular expression operations",
+    "section": "How it works:",
+    "text": "How it works:\n\nThe re.subn() method is similar to re.sub(); it searches for all occurrences of the specified pattern in the string.\nIt replaces each occurrence with the specified replacement string.\nIt returns a tuple containing the modified string and the count of substitutions made.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#example-5",
+    "href": "2. Regular Expressions/1. regex modules.html#example-5",
+    "title": "7  re — Regular expression operations",
+    "section": "Example:",
+    "text": "Example:\nLet’s modify the previous example slightly to use re.subn() and see the count of substitutions:\nimport re\n\npattern = r'password'  # Pattern to search for\nreplacement = '***'     # String to replace the matched occurrences\ntext = \"Please enter your password to proceed. Your password is case-sensitive.\"\n\nresult, count = re.subn(pattern, replacement, text)\n\nprint(\"Modified text:\", result)\nprint(\"Number of substitutions:\", count)\nIn this example, the output will be:\nModified text: Please enter your *** to proceed. Your *** is case-sensitive.\nNumber of substitutions: 2\nThe re.subn() method not only returns the modified string (result) but also the count of substitutions (count). In this case, it tells us that two substitutions were made for the pattern ‘password’ in the original text. This can be useful when you want to know how many replacements were performed.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/1. regex modules.html#concise-overview-of-re-modules",
+    "href": "2. Regular Expressions/1. regex modules.html#concise-overview-of-re-modules",
+    "title": "7  re — Regular expression operations",
+    "section": "7.9 Concise Overview of re Modules:",
+    "text": "7.9 Concise Overview of re Modules:\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nre.search()\nSearches for a specified pattern within a string and returns a match object if found, otherwise returns None.\n\n\nre.match()\nChecks if a specified pattern matches at the beginning of a string and returns a match object if successful, otherwise returns None.\n\n\nre.fullmatch()\nDetermines if the entire string matches a given pattern and returns a match object if successful, otherwise returns None.\n\n\nre.findall()\nFinds all occurrences of a specified pattern in a string and returns them as a list.\n\n\nre.split()\nSplits a string into a list of substrings based on a specified regular expression pattern.\n\n\nre.sub()\nReplaces occurrences of a specified pattern in a string with a specified replacement and returns the modified string.\n\n\nre.subn()\nSimilar to re.sub(), but also returns the count of substitutions made along with the modified string.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>`re` — Regular expression operations</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html",
+    "href": "2. Regular Expressions/2. regex metacharacters.html",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "",
+    "text": "8.1 Metacharacters:",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#metacharacters",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#metacharacters",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "",
+    "text": ". (Dot): Matches any character except a newline.\n^: Anchors the regex at the start of the string.\n$: Anchors the regex at the end of the string.\n*: Matches 0 or more occurrences of the preceding character.\n+: Matches 1 or more occurrences of the preceding character.\n?: Matches 0 or 1 occurrence of the preceding character.\n| (Pipe): Acts as an OR operator, allowing multiple patterns.\n() (Parentheses): Groups patterns together.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#special-sequences",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#special-sequences",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.2 Special Sequences:",
+    "text": "8.2 Special Sequences:\n\n\\d: Matches any digit (equivalent to [0-9]).\n\\D: Matches any non-digit character.\n\\w: Matches any alphanumeric character (equivalent to [a-zA-Z0-9_]).\n\\W: Matches any non-alphanumeric character.\n\\s: Matches any whitespace character (space, tab, newline).\n\\S: Matches any non-whitespace character.\n\\b: Matches a word boundary.\n\\B: Matches a non-word boundary.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#other-names",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#other-names",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.3 Other Names:",
+    "text": "8.3 Other Names:\n\nMetacharacters are sometimes referred to as “regex operators” or “special characters.”\nSpecial sequences are also known as “character classes” or “escape sequences.”\n\nUnderstanding metacharacters and special sequences is essential for constructing powerful and flexible regular expressions.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-dot-.-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-dot-.-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.4 The dot (.) metacharacter:",
+    "text": "8.4 The dot (.) metacharacter:\nThe dot metacharacter (.) in a regular expression matches any single character except for a newline. It’s often used when you want to represent any character in a pattern. Here’s a simple example:\nimport re\n\npattern = r'c.t'  # Pattern with a dot representing any single character\ntext1 = \"cat\"\ntext2 = \"cot\"\ntext3 = \"coat\"\ntext4 = \"cart\"\ntext5 = \"cut\"\n\nfor text in [text1, text2, text3, text4, text5]:\n    match = re.search(pattern, text)\n    if match:\n        print(f'Pattern \"{pattern}\" found in \"{text}\"')\n    else:\n        print(f'Pattern \"{pattern}\" not found in \"{text}\"')\nIn this example, the pattern 'c.t' consists of: - 'c': The letter ‘c’ at the beginning of the pattern. - '.': The dot metacharacter represents any single character. - 't': The letter ‘t’ at the end of the pattern.\nThe loop goes through different texts and checks if the pattern is found in each of them. The output will be:\nPattern \"c.t\" found in \"cat\"\nPattern \"c.t\" found in \"cot\"\nPattern \"c.t\" found in \"coat\"\nPattern \"c.t\" found in \"cart\"\nPattern \"c.t\" not found in \"cut\"",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-caret-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-caret-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.5 The caret (^) metacharacter:",
+    "text": "8.5 The caret (^) metacharacter:\nThe caret (^) metacharacter in a regular expression is an anchor that asserts the start of a line or the start of the string, depending on its position. It indicates that the following pattern must appear at the beginning of the line or string.\nHere’s a simple example to illustrate the use of the caret metacharacter:\nimport re\n\n# Example text\ntext = \"\"\"Hello, World!\nThis is a multiline text.\nIt has multiple lines.\n\"\"\"\n\n# Pattern with caret (^) to match lines starting with \"This\"\npattern = r'^This'\n\n# Using re.findall() to find lines starting with \"This\"\nmatches = re.findall(pattern, text, re.MULTILINE | re.IGNORECASE)\n\n# Displaying the matches\nprint(\"Lines starting with 'This':\")\nfor match in matches:\n    print(match)\nIn this example: - The ^This pattern uses the caret metacharacter to match lines that start with the word “This.” - re.MULTILINE flag is used to make the caret match the start of each line within the multiline text.\nThe output will be:\nLines starting with 'This':\nThis is a multiline text.\nHere, the pattern matches the line “This is a multiline text.” because it starts with “This.”\nThe caret metacharacter is particularly useful when you want to ensure that a specific pattern appears at the beginning of a line or the entire string. If you have any further questions or if there’s anything else you’d like to explore, feel free to let me know!",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-dollar-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-dollar-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.6 The dollar ($) metacharacter:",
+    "text": "8.6 The dollar ($) metacharacter:\nThe dollar ($) metacharacter in a regular expression is an anchor that asserts the end of a line or the end of the string, depending on its position. It indicates that the preceding pattern must appear at the end of the line or the entire string.\nHere’s a simple example to illustrate the use of the dollar metacharacter:\nimport re\n\n# Example text\ntext = \"\"\"Line 1: The price is $50.\nLine 2: The total cost is $120.\nLine 3: The discount is $30.\nLine 4: The final amount is $90.\n\"\"\"\n\n# Pattern with dollar ($) to match lines ending with a sequence of numbers\npattern = r'\\$\\d+$'\n\n# Using re.findall() to find lines ending with a sequence of numbers\nmatches = re.findall(pattern, text, re.MULTILINE)\n\n# Displaying the matches\nprint(\"Lines ending with a sequence of numbers:\")\nfor match in matches:\n    print(match)\nIn this example: - The \\$\\d+$ pattern uses the dollar metacharacter to match lines that end with a sequence of numbers following a dollar sign. - \\$\\d+ specifies a dollar sign followed by one or more digits.\nThe output will be:\nLines ending with a sequence of numbers:\nThe price is $50.\nThe total cost is $120.\nThe discount is $30.\nThe final amount is $90.\nThis pattern ensures that it only matches lines where the content ends with a dollar sign and is immediately followed by one or more digits.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-asterisk-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-asterisk-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.7 The asterisk (*) metacharacter:",
+    "text": "8.7 The asterisk (*) metacharacter:\nThe asterisk (*) metacharacter in a regular expression denotes zero or more occurrences of the preceding character or group. It allows for matching patterns with varying lengths of the preceding content, including the case where the preceding content is entirely absent.\nLet’s go through a simple example to illustrate the use of the asterisk metacharacter:\nimport re\n\n# Example text\ntext = \"\"\"Hello, World!\nHelllo, World!\nHellllo, World!\n\"\"\"\n\n# Pattern with asterisk (*) to match variations of \"Hello\"\npattern = r'Hell*o'\n\n# Using re.findall() to find variations of \"Hello\"\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Variations of 'Hello' found:\")\nfor match in matches:\n    print(match)\nIn this example: - The Hell*o pattern uses the asterisk metacharacter to match variations of the word “Hello.” - l* allows for zero or more occurrences of the letter ‘l’ in the middle of the pattern.\nThe output will be:\nVariations of 'Hello' found:\nHello\nHelllo\nHellllo\nThe pattern matches variations like “Hello,” “Helllo,” and “Hellllo” by allowing for zero or more ‘l’ characters between ‘Hell’ and ‘o’. The asterisk metacharacter is useful for creating flexible patterns that can accommodate varying lengths of content.w!",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-plus-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-plus-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.8 The plus (+) metacharacter:",
+    "text": "8.8 The plus (+) metacharacter:\nThe plus (+) metacharacter in a regular expression denotes one or more occurrences of the preceding character or group. It requires at least one occurrence of the preceding pattern but allows for additional occurrences as well.\nLet’s go through a simple example to illustrate the use of the plus metacharacter:\nimport re\n\n# Example text\ntext = \"\"\"Hello, World!\nHelllo, World!\nHellllo, World!\n\"\"\"\n\n# Pattern with plus (+) to match variations of \"Helllo\"\npattern = r'Hell+o'\n\n# Using re.findall() to find variations of \"Helllo\"\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Variations of 'Helllo' found:\")\nfor match in matches:\n    print(match)\nIn this example: - The Hell+o pattern uses the plus metacharacter to match variations of the word “Helllo.” - l+ requires at least one occurrence of the letter ‘l’ in the middle of the pattern, but it allows for additional occurrences.\nThe output will be:\nVariations of 'Helllo' found:\nHelllo\nHellllo\nThe pattern matches variations like “Helllo” and “Hellllo” by requiring at least one ‘l’ character between ‘Hell’ and ‘o’, but allowing for more if they exist.\nThe plus metacharacter is useful when you want to ensure that there is at least one occurrence of a specific pattern, but you are open to matching more if they are present.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-question-mark-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-question-mark-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.9 The question mark (?) metacharacter:",
+    "text": "8.9 The question mark (?) metacharacter:\nThe question mark (?) metacharacter in a regular expression denotes zero or one occurrence of the preceding character or group. It makes the preceding element optional, allowing for flexibility in matching patterns.\nLet’s go through a simple example to illustrate the use of the question mark metacharacter:\nimport re\n\n# Example text\ntext = \"\"\"color\ncolour\n\"\"\"\n\n# Pattern with question mark (?) to match variations of \"color\"\npattern = r'colou?r'\n\n# Using re.findall() to find variations of \"color\"\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Variations of 'color' found:\")\nfor match in matches:\n    print(match)\nIn this example: - The colou?r pattern uses the question mark metacharacter to match variations of the word “color.” - u? makes the letter ‘u’ optional, allowing for both “color” and “colour.”\nThe output will be:\nVariations of 'color' found:\ncolor\ncolour\nThe pattern matches both “color” and “colour” by making the ‘u’ character optional.\nThe question mark metacharacter is useful when you want to indicate that a particular element is optional in the pattern, allowing for different variations of the same word or phrase.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-backslash-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-backslash-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.10 The backslash (\\) metacharacter:",
+    "text": "8.10 The backslash (\\) metacharacter:\nThe backslash (\\) metacharacter in a regular expression is used to escape special characters, allowing you to use them as literal characters in the pattern. It can also introduce special sequences representing predefined character classes or special characters.\n\nEscaping Special Characters: \n\nWhen you want to match a character that has a special meaning in regular expressions, you need to use a backslash before that character to indicate that you want to treat it literally. For example:\nimport re\n\n# Example text\ntext = \"The price is $50.\"\n\n# Pattern with escaped dollar sign (\\$) to match the literal dollar sign\npattern = r'\\$50'\n\n# Using re.search() to find the pattern\nmatch = re.search(pattern, text)\n\n# Displaying the match\nprint(\"Match:\", match.group() if match else \"No match\")\nIn this example, the pattern \\$50 is used to match the literal string “$50” in the text.\n\nSpecial Sequences: The backslash can be used to introduce special sequences that represent predefined character classes. For example:\n\nimport re\n\n# Example text\ntext = \"The phone number is 123-456-7890.\"\n\n# Pattern with special sequence (\\d) to match a digit\npattern = r'\\d{3}-\\d{3}-\\d{4}'\n\n# Using re.search() to find the pattern\nmatch = re.search(pattern, text)\n\n# Displaying the match\nprint(\"Match:\", match.group() if match else \"No match\")\nIn this example, the pattern \\d{3}-\\d{3}-\\d{4} uses the special sequence \\d to match three digits, representing a typical phone number format.\nThe backslash is a versatile tool in regular expressions, allowing you to work with special characters and special sequences in a flexible way.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-square-bracket-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-square-bracket-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.11 The square bracket ([]) metacharacter:",
+    "text": "8.11 The square bracket ([]) metacharacter:\nThe square bracket ([]) metacharacter in a regular expression is used to define a character class, which is a set of characters that you want to match at a specific position in the pattern. It allows you to specify a range of characters, individual characters, or a combination of both.\n\nExamples of Character Classes:\n\nMatching Individual Characters:\n\nimport re\n\n# Example text\ntext = \"The color of the sky is blue.\"\n\n# Pattern with a character class to match either 'c' or 'l'\npattern = r'[cl]'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['c', 'l', 'l', 'c']\nIn this example, the pattern [cl] matches any occurrence of either ‘c’ or ‘l’ in the text.\n\nMatching a Range of Characters:\n\nimport re\n\n# Example text\ntext = \"The temperature is 25 degrees Celsius.\"\n\n# Pattern with a character class to match any digit (0-9)\npattern = r'[0-9]'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['2', '5']\nHere, the pattern [0-9] matches any digit from 0 to 9 in the text.\n\nNegating a Character Class:\n\nimport re\n\n# Example text\ntext = \"The quick brown fox jumps over the lazy dog.\"\n\n# Pattern with a negated character class to match any character except vowels\npattern = r'[^aeiou]'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['T', 'h', ' ', 'q', 'c', 'k', ' ', 'b', 'r', 'w', 'n', ' ', 'f', 'x', ' ', 'j', 'm', 'p', 's', ' ', 'v', 'r', ' ', 't', 'h', ' ', 'l', 'z', 'y', ' ', 'd', 'g', '.']\nIn this example, the pattern [^aeiou] matches any character except vowels.\nCharacter classes provide a concise way to specify which characters you want to match at a particular position in the pattern.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-character-classes-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-character-classes-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.12 The character classes metacharacter:",
+    "text": "8.12 The character classes metacharacter:\nCharacter classes in regular expressions allow you to specify a set of characters that you want to match at a particular position in the pattern. They are defined using square brackets ([]) and provide a concise way to express a group of characters.\nHere is a list of different character classes:\n\n\\d: Matches any digit (equivalent to [0-9]).\n\\D: Matches any non-digit character (equivalent to [^0-9]).\n\\w: Matches any word character (alphanumeric + underscore, equivalent to [A-Za-z0-9_]).\n\\W: Matches any non-word character (equivalent to [^A-Za-z0-9_]).\n\\s: Matches any whitespace character (spaces, tabs, and newlines).\n\\S: Matches any non-whitespace character.\n[a-zA-Z]: Matches any uppercase or lowercase letter.\n[^abc]: Matches any character except ‘a’, ‘b’, or ‘c’.\n\n\nExamples of Character Classes:\n\nMatching Digits:\n\nimport re\n\n# Example text\ntext = \"The price is $25.99.\"\n\n# Pattern with a character class to match any digit (0-9)\npattern = r'\\d'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['2', '5', '9', '9']\nIn this example, the pattern \\d is a shorthand for the character class [0-9] and matches any digit.\n\nMatching Alphanumeric Characters:\n\nimport re\n\n# Example text\ntext = \"The account ID is A1234B.\"\n\n# Pattern with a character class to match alphanumeric characters\npattern = r'[A-Za-z0-9]'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['T', 'h', 'e', 'a', 'c', 'c', 'o', 'u', 'n', 't', 'I', 'D', 'i', 's', 'A', '1', '2', '3', '4', 'B']\nHere, the pattern [A-Za-z0-9] matches any uppercase letter, lowercase letter, or digit.\n\nMatching Whitespace Characters:\n\nimport re\n\n# Example text\ntext = \"This is a sentence with some spaces.\"\n\n# Pattern with a character class to match whitespace characters\npattern = r'\\s'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: [' ', ' ', ' ', ' ', ' ']\nIn this example, the pattern \\s matches any whitespace character (spaces).\nCharacter classes are versatile and allow you to specify groups of characters that you want to match at a specific position in your regular expression pattern.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-curly-braces-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-curly-braces-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.13 The curly braces ({}) metacharacter:",
+    "text": "8.13 The curly braces ({}) metacharacter:\nThe curly braces ({}) in a regular expression are used as quantifiers to specify the exact number of occurrences or a range of occurrences of the preceding character or group.\n\nExamples of Using Curly Braces:\n\nMatching a Specific Number of Occurrences:\n\nimport re\n\n# Example text\ntext = \"The number is 12345.\"\n\n# Pattern to match exactly 5 digits\npattern = r'\\d{5}'\n\n# Using re.search() to find the pattern\nmatch = re.search(pattern, text)\n\n# Displaying the match\nprint(\"Match:\", match.group() if match else \"No match\")\nOutput:\nMatch: 12345\nIn this example, the pattern \\d{5} matches exactly 5 consecutive digits in the text.\n\nMatching a Range of Occurrences:\n\nimport re\n\n# Example text\ntext = \"The price is $25.99.\"\n\n# Pattern to match 2 to 4 digits\npattern = r'\\d{2,4}'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['25', '99']\nHere, the pattern \\d{2,4} matches a sequence of 2 to 4 digits.\n\nGreedy vs. Non-Greedy Quantifiers:\n\nimport re\n\n# Example text\ntext = \"abcddddd\"\n\n# Greedy quantifier (matches as much as possible)\ngreedy_pattern = r'ab.{2,4}d'\n\n# Non-greedy quantifier (matches as little as possible)\nnon_greedy_pattern = r'ab.{2,4}?d'\n\n# Using re.search() to find matches\ngreedy_match = re.search(greedy_pattern, text)\nnon_greedy_match = re.search(non_greedy_pattern, text)\n\n# Displaying the matches\nprint(\"Greedy Match:\", greedy_match.group() if greedy_match else \"No match\")\nprint(\"Non-Greedy Match:\", non_greedy_match.group() if non_greedy_match else \"No match\")\nOutput:\nGreedy Match: abcd\nNon-Greedy Match: abc\nHere, the greedy quantifier {2,4} tries to match as much as possible, while the non-greedy quantifier {2,4}? matches as little as possible.\nCurly braces provide a precise way to control the number of occurrences in a regular expression pattern.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#the-pipe-metacharacter",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#the-pipe-metacharacter",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.14 The pipe (|) metacharacter:",
+    "text": "8.14 The pipe (|) metacharacter:\nThe pipe (|) metacharacter in a regular expression serves as an alternation operator. It allows you to specify multiple alternative patterns, and the expression will match if any of those patterns are found. It essentially functions as a logical OR.\n\nExample:\n\nimport re\n\n# Example text\ntext = \"The cat is black and the dog is brown.\"\n\n# Pattern to match either \"cat\" or \"dog\"\npattern = r'cat|dog'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['cat', 'dog']\nIn this example, the pattern cat|dog uses the pipe metacharacter to match either “cat” or “dog” in the given text. The alternation operator allows for flexibility in matching different alternatives within the same pattern.\nYou can extend the alternation to include more options:\nimport re\n\n# Example text\ntext = \"The cat is black and the dog is brown.\"\n\n# Pattern to match either \"cat\", \"dog\", or \"black\"\npattern = r'cat|dog|black'\n\n# Using re.findall() to find matches\nmatches = re.findall(pattern, text)\n\n# Displaying the matches\nprint(\"Matches:\", matches)\nOutput:\nMatches: ['cat', 'dog', 'black']\nHere, the pattern includes three alternatives: “cat,” “dog,” or “black.” The alternation operator makes it possible to match any of these options.\nThe pipe metacharacter is useful for creating more flexible and inclusive patterns when you want to match different possibilities at a specific position in the text.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
+    "objectID": "2. Regular Expressions/2. regex metacharacters.html#greedy-vs-non-greedy-quantifiers",
+    "href": "2. Regular Expressions/2. regex metacharacters.html#greedy-vs-non-greedy-quantifiers",
+    "title": "8  Metacharacters & Special Sequences",
+    "section": "8.15 Greedy vs Non-Greedy Quantifiers:",
+    "text": "8.15 Greedy vs Non-Greedy Quantifiers:\nIn regular expressions, the terms “greedy” and “non-greedy” refer to the behavior of quantifiers when determining how much of the input string they should match. Quantifiers are metacharacters that specify the number of occurrences of the preceding character or group.\n\nGreedy Quantifiers:\nGreedy quantifiers match as much of the input string as possible while still allowing the entire pattern to match.\nGreedy quantifiers include * (asterisk), + (plus), and ? (question mark).\nNon-Greedy (or Lazy) Quantifiers:\nNon-greedy quantifiers match as little of the input string as possible while still allowing the entire pattern to match.\nNon-greedy quantifiers are obtained by adding an extra ? after a greedy quantifier (*?, +?, ??).\nExample: Let’s consider an example using a greedy quantifier (*) and a non-greedy quantifier (*?):\n\nimport re\n\n# Example text\ntext = \"This is a sample &lt;b&gt;greedy&lt;/b&gt; example &lt;b&gt;non-greedy&lt;/b&gt;.\"\n\n# Greedy quantifier (matches as much as possible)\ngreedy_pattern = r'&lt;b&gt;.*&lt;/b&gt;'\n\n# Non-greedy quantifier (matches as little as possible)\nnon_greedy_pattern = r'&lt;b&gt;.*?&lt;/b&gt;'\n\n# Using re.search() to find matches\ngreedy_match = re.search(greedy_pattern, text)\nnon_greedy_match = re.search(non_greedy_pattern, text)\n\n# Displaying the matches\nprint(\"Greedy Match:\", greedy_match.group() if greedy_match else \"No match\")\nprint(\"Non-Greedy Match:\", non_greedy_match.group() if non_greedy_match else \"No match\")\nIn this example: - The greedy pattern &lt;b&gt;.*&lt;/b&gt; aims to match everything between the first &lt;b&gt; and the last &lt;/b&gt;. - The non-greedy pattern &lt;b&gt;.*?&lt;/b&gt; aims to match the smallest possible content between &lt;b&gt; and &lt;/b&gt;.\nThe output will be:\nGreedy Match: &lt;b&gt;greedy&lt;/b&gt; example &lt;b&gt;non-greedy&lt;/b&gt;\nNon-Greedy Match: &lt;b&gt;greedy&lt;/b&gt;\nAs you can see, the greedy quantifier matches as much as possible, capturing everything between the first &lt;b&gt; and the last &lt;/b&gt;. On the other hand, the non-greedy quantifier captures the smallest possible content, stopping at the first &lt;/b&gt;.\nUnderstanding the difference between greedy and non-greedy quantifiers is crucial when working with regular expressions, especially in scenarios where you want to control the extent of the match.",
+    "crumbs": [
+      "Automation with Python",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Metacharacters & Special Sequences</span>"
+    ]
+  },
+  {
     "objectID": "ChatGPT Guide/prompt engineering basics.html",
     "href": "ChatGPT Guide/prompt engineering basics.html",
     "title": "10  Intro to ChatGPT",
     "section": "",
-    "text": "ChatGPT is an AI language model that is trained on massive amount of text data that generate natural language responses in conversation style.\nSimple Explanation💨 ChatGPT is like a super smart talking robot that can answer questions, tell stories, and chat with you. It learns from lots of words and sentences to understand and talk like a friend. It’s here to help and have fun conversations!\n5 main benefits of ChatGPT:↴\n\nSmart Helper: Helps you learn and find answers really fast!\nTalks Like a Friend: Makes writing and talking better and more fun.\nIdea Buddy: Helps you think of cool and creative stuff.\nTime Saver: Saves time by helping you quickly.\nGets Smarter with You: Learns and becomes an even better friend over time!\n\nMain outputs it can generate\n\nText Answers: Provides detailed written answers to questions.\nCreative Writing: Generates stories, poems, or creative conte\nCode Assistance: Helps with coding and programming-related qu\nLanguage Translation: Translates text from one language to an\nConversation: Engages in natural language conversations on va\nSynthesize Info: Summarize large amound of content into a con\n\nList of Modifiers for ChatGPT to give you better output:\n\nList of Modifiers\n\n\n\n\n\n\nNames\nModifiers\n\n\n\n\nQualifiers\nWords like “some,” “few,” “many,” “most,” “all” modifying nouns or adjectives they precedes.\n\n\nAdjectives\nWords that describe or modifying nouns/pronouns, e.g., “red,” “happy,” “large.”\n\n\nAdverbs\nWords that modifying verbs, adjectives, or other adverbs, e.g., “quickly,” “well,” “loudly.”\n\n\nIntensifiers\nWords strengthening the meaning of an adjective or adverb, e.g., “very,” “extremely,” “totally.”\n\n\nNegatives\nWords negating or reversing the meaning of a sentence, e.g., “not,” “never,” “no.”\n\n\nNumber words\nWords indicating quantity, e.g., “one,” “two,” “few,” “many,” “several.”\n\n\nTime words\nWords indicating when something happened or will happen, e.g., “now,” “yet,” “soon.”\n\n\nPlace words\nWords indicating where something is or happened, e.g., “here,” “there,” “everywhere.”\n\n\nDegree words\nWords indicating the extent or degree to which something is true, e.g., “totally,” “completely,” “slightly.”",
+    "text": "10.1 Basic Initiating Phrases\nYou can start with the Initial starter prompts to get your desired results.",
+    "crumbs": [
+      "Mastering Prompt Engineering (ChatGPT)",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Intro to ChatGPT</span>"
+    ]
+  },
+  {
+    "objectID": "ChatGPT Guide/prompt engineering basics.html#basic-initiating-phrases",
+    "href": "ChatGPT Guide/prompt engineering basics.html#basic-initiating-phrases",
+    "title": "10  Intro to ChatGPT",
+    "section": "",
+    "text": "Define the term along with a metaphor…\nExplain the purpose behind…\nDevelop a framework for…\nOutline the episodes for this podcast…\nAssist me in devising a budget plan for…\nOffer creative prompts to inspire my writing…\nGenerate 10 ideas to enhance the writing in this transcript…\nFormulate a well-organized chapter list for a book about…\nCompile recipes utilizing these ingredients…\nForm a catalog of topics related to…\nDevelop a lesson plan for…\nGenerate five headlines for…\nSummarize this book in a tweet…\nDevise a comprehensive strategy for social media content for…\nWrite an introductory email for outreach regarding…\nRecommend metaphors, analogies, or synonyms for…\nCreate a clever reply to this message…\nTurn this title into a captivating hook…\nTranslate this into the French language…\nCraft a polite response to decline this email…\nInvent an opening scene for a video featuring…\nPropose improvements to my resume…\nClarify the concept of…\nSuggest online courses or books to enhance…\nShare effective strategies for…\nOffer tips for starting my…\nRecommend nutritious meal options for…\nAssist in creating a daily schedule for…\nElaborate on the basics of…\nGuide on…",
+    "crumbs": [
+      "Mastering Prompt Engineering (ChatGPT)",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Intro to ChatGPT</span>"
+    ]
+  },
+  {
+    "objectID": "ChatGPT Guide/prompt engineering basics.html#prompt-priming",
+    "href": "ChatGPT Guide/prompt engineering basics.html#prompt-priming",
+    "title": "10  Intro to ChatGPT",
+    "section": "10.2 Prompt Priming",
+    "text": "10.2 Prompt Priming\nPriming is refers to the practice of giving context to the model before generating response. It gives the model to get more desired response that are relevent and coherent with users intended output.\nWithout Priming: How can i learn machine learning? With Priming: I am student of Computer science and i gain various techs certification in the field. I have strong foundation of computer science & have the practicing knowledge of numerous programming knowledge which is, Python, C, C++, Java, Dart, Javascript etc. Now i want to dive into realm of machine learning from where can i start my journey?",
     "crumbs": [
       "Mastering Prompt Engineering (ChatGPT)",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Intro to ChatGPT</span>"

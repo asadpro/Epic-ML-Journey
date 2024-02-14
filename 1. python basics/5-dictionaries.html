@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -245,14 +279,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2. Regular Expressions/pattern matching with regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pattern Matching</span></span></a>
+  <a href="../2. Regular Expressions/1. regex modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><code>re</code> — Regular expression operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2. Regular Expressions/input validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Input Validation</span></span></a>
+  <a href="../2. Regular Expressions/2. regex metacharacters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Metacharacters &amp; Special Sequences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -286,7 +320,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#dictionary-vs-lists" id="toc-dictionary-vs-lists" class="nav-link active" data-scroll-target="#dictionary-vs-lists"><span class="header-section-number">5.1</span> Dictionary vs Lists</a></li>
+  <li><a href="#the-keys-values-items-get-methods" id="toc-the-keys-values-items-get-methods" class="nav-link" data-scroll-target="#the-keys-values-items-get-methods"><span class="header-section-number">5.2</span> The <code>keys()</code>, <code>values()</code>, <code>items()</code> &amp; <code>get()</code> methods</a></li>
+  <li><a href="#value-or-key-exists" id="toc-value-or-key-exists" class="nav-link" data-scroll-target="#value-or-key-exists"><span class="header-section-number">5.3</span> Value or Key exists</a></li>
+  <li><a href="#pprint-module" id="toc-pprint-module" class="nav-link" data-scroll-target="#pprint-module"><span class="header-section-number">5.4</span> <code>pprint</code> Module</a></li>
+  <li><a href="#pprint-vs-pformat-methods" id="toc-pprint-vs-pformat-methods" class="nav-link" data-scroll-target="#pprint-vs-pformat-methods"><span class="header-section-number">5.5</span> <code>pprint</code> vs <code>pformat</code> methods</a></li>
+  <li><a href="#nested-dictionaries" id="toc-nested-dictionaries" class="nav-link" data-scroll-target="#nested-dictionaries"><span class="header-section-number">5.6</span> Nested Dictionaries:</a></li>
+  <li><a href="#nested-lists" id="toc-nested-lists" class="nav-link" data-scroll-target="#nested-lists"><span class="header-section-number">5.7</span> Nested Lists:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -310,8 +356,248 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>In Python, dictionaries are a collection of key-value pairs. Think of them like a real-world dictionary where words (keys) have meanings (values). You can use a key to quickly look up its corresponding value. It’s a flexible and powerful data structure for organizing and retrieving data. Syntax of Dictionary:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    my_dict <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: <span class="st">'Asad'</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'age'</span>: <span class="dv">22</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'major'</span>: <span class="st">'Computer Science'</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="dictionary-vs-lists" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="dictionary-vs-lists"><span class="header-section-number">5.1</span> Dictionary vs Lists</h2>
+<p>Lists are ordered, while dictionaries are unordered. For Example, look at the following code to differentiate both:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Shuffling above list</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>shuffled_list <span class="op">=</span> [<span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">10</span>, <span class="dv">50</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list <span class="op">==</span> shuffled_list)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Dictionary</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'apple'</span>: <span class="dv">5</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'banana'</span>: <span class="dv">8</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'orange'</span>: <span class="dv">12</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'grape'</span>: <span class="dv">20</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'kiwi'</span>: <span class="dv">3</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Shuffled version of the above dictionary</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>shuffled_my_dict <span class="op">=</span> {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'banana'</span>: <span class="dv">8</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'orange'</span>: <span class="dv">12</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'apple'</span>: <span class="dv">5</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'kiwi'</span>: <span class="dv">3</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'grape'</span>: <span class="dv">20</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_dict <span class="op">==</span> shuffled_my_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As you can see, if you keep the content of a list the same and just change its order, Python won’t accept it as equal. As for the dictionaries you can see no matter what the order of the key-value pair is, python would still consider it as a copy of the first dictionary because in a dictionary we access values by its key, unlike indexes which must be to access it in order.</p>
+</div>
+</div>
+</section>
+<section id="the-keys-values-items-get-methods" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-keys-values-items-get-methods"><span class="header-section-number">5.2</span> The <code>keys()</code>, <code>values()</code>, <code>items()</code> &amp; <code>get()</code> methods</h2>
+<ol type="1">
+<li><p>The <code>keys()</code> method returns the keys of a dictionary in a list-like format but not exactly a list. For Example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    my_dict <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'apple'</span>: <span class="dv">5</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'banana'</span>: <span class="dv">8</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'orange'</span>: <span class="dv">12</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'grape'</span>: <span class="dv">20</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'kiwi'</span>: <span class="dv">3</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> my_dict.keys():</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>The <code>values()</code> method returns values of the dictionary in list-like format. For Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    my_dict <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'apple'</span>: <span class="dv">5</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'banana'</span>: <span class="dv">8</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'orange'</span>: <span class="dv">12</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'grape'</span>: <span class="dv">20</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'kiwi'</span>: <span class="dv">3</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> value <span class="kw">in</span> my_dict.values():</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>The <code>items()</code> method returns both <code>keys</code> and <code>values</code> separately. For Example: ```python my_dict = { ‘apple’: 5, ‘banana’: 8, ‘orange’: 12, ‘grape’: 20, ‘kiwi’: 3 }</p>
+<pre id="annotated-cell-11" class="code-annotation-code"><code> for key, value in my_dict.items():
+     print(key,' : ', value)
+
+ print(type(my_dict.values()))</code></pre></li>
+<li><p><code>get()</code> Sometimes we want to return the value of a key in a dictionary but what if the key doesn’t exist then it would give you a tedious and ugly error message. Fortunately, to prevent such error messages python has the <code>get()</code> method on dictionary that returns <code>None</code> by default else returns the user-defined value. For Example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> my_dict <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">'name'</span>: <span class="st">'Asad'</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">'age'</span>: <span class="dv">22</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">'city'</span>: <span class="st">'Peshawar'</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">'occupation'</span>: <span class="st">'Student'</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">'interest'</span>: <span class="st">'Machine Learning'</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a> <span class="co"># Using get() to retrieve values</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a> name_value <span class="op">=</span> my_dict.get(<span class="st">'name'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a> <span class="co"># If gender key isn't in `my_dict` dictionary then it would return `Not specified`</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a> gender_value <span class="op">=</span> my_dict.get(<span class="st">'gender'</span>, <span class="st">'Not specified'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(name_value)      <span class="co"># Output: 'Asad'</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(gender_value)    <span class="co"># Output: 'Not specified' (since the 'gender' key is not present)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>If you run <code>print(type(my_dict.values()))</code> this will return a view of the values in a dictionary which if I explain simply to an 8 grader child then ‘view of the values’ would be like a mirror which facing the current dictionary within which we can see all the values inside of that dictionary but if we change the values inside dictionary this affect the view of the values also.</p></li>
+</ol>
+</section>
+<section id="value-or-key-exists" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="value-or-key-exists"><span class="header-section-number">5.3</span> Value or Key exists</h2>
+<p>If you remember from the last chapter we saw <code>in</code> and <code>not in</code> operators from the past chapters. We can also use this operator on dictionaries to see if a certain key or value exists in a dictionary or not.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    my_dict <span class="op">=</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">'name'</span>: <span class="st">'Asad'</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'age'</span>: <span class="dv">22</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'city'</span>: <span class="st">'Peshawar'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'occupation'</span>: <span class="st">'Student'</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'interest'</span>: <span class="st">'Machine Learning'</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    result_1, result_2 <span class="op">=</span> <span class="st">'name'</span> <span class="kw">in</span> my_dict.keys(), <span class="st">'Student'</span> <span class="kw">not</span> <span class="kw">in</span> my_dict.values()</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Name key exists in my_dict: '</span>,result_1)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Student value not exist in my_dict: '</span>,result_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pprint-module" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="pprint-module"><span class="header-section-number">5.4</span> <code>pprint</code> Module</h2>
+<div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pprint</span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: <span class="st">'Asad'</span>,</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'age'</span>: <span class="dv">22</span>,</span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'city'</span>: <span class="st">'Peshawar'</span>,</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'occupation'</span>: <span class="st">'Student'</span>,</span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'interest'</span>: <span class="st">'Machine Learning'</span></span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the key `cast` if it's not in my_dict</span></span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>my_dict.setdefault(<span class="st">'cast'</span>,<span class="st">' Khalil Mohmand'</span>)</span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-14"><a href="#annotated-cell-4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># key &amp; value would remain the same as above because we have the key of `cast` already</span></span>
+<span id="annotated-cell-4-15"><a href="#annotated-cell-4-15" aria-hidden="true" tabindex="-1"></a>my_dict.setdefault(<span class="st">'cast'</span>, <span class="st">'Yousaf Zai'</span>)</span>
+<span id="annotated-cell-4-16"><a href="#annotated-cell-4-16" aria-hidden="true" tabindex="-1"></a>pprint.pprint(my_dict)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="1" data-code-annotation="1">The <code>pprint</code> module stands for ‘pretty-print’. It provides a way to print data structures like dictionaries, and lists in a more human-readable and aesthetically pleasing format especially when dealing with nested or complex structures. The <code>pprint</code> module is part of the Python standard library.</span>
+</dd>
+</dl>
+<div class="callout callout-style-default callout-tip callout-titled" title="Python Standard Library vs Third Party Library" style="text-align: center">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Python Standard Library vs Third Party Library
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Python Standard Library</strong> means modules that come with Python installation and don’t require any additional installation while <strong>Third Party Library</strong> are the modules that you have to install manually when you need it e.g.&nbsp;If we need a <code>numpy</code> module we have to first install it using package manager <code>pip</code> i.e.&nbsp;<code>pip install numpy</code>.</p>
+</div>
+</div>
+</section>
+<section id="pprint-vs-pformat-methods" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="pprint-vs-pformat-methods"><span class="header-section-number">5.5</span> <code>pprint</code> vs <code>pformat</code> methods</h2>
+<p>Both are these method works the same unless you want the output to save somewhere. In simple, if you want to store the formatted output into a file then use <code>pformat</code> else use the <code>pprint</code> method. For Example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pformat, pprint</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example dictionary with nested structure</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>complex_dict <span class="op">=</span> {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: <span class="st">'Asad'</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'age'</span>: <span class="dv">22</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'details'</span>: {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'city'</span>: <span class="st">'Peshawar'</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'interests'</span>: [<span class="st">'Machine Learning'</span>, <span class="st">'Gardening'</span>]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Below will return its output and can be saved to a text file.</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'pformat.txt'</span>,<span class="st">'w'</span>) <span class="im">as</span> writer:</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    writer.write(pformat(complex_dict))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># You can see the result of pprint on the console but you can't store it in a text file that's you will get an error by running the below code:</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'pprint.txt'</span>,<span class="st">'w'</span>) <span class="im">as</span> writer:</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    writer.write(pprint(complex_dict)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>pprint.pprint()</code> function is useful especially when you have a nested dictionary or dictionary with a complex structure.</p>
+</div>
+</div>
+<p>Nested dictionaries and lists in Python allow you to create more complex data structures by placing dictionaries or lists inside other dictionaries or lists. This is particularly useful when dealing with hierarchical or structured data. Here are examples of both nested dictionaries and nested lists:</p>
+</section>
+<section id="nested-dictionaries" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="nested-dictionaries"><span class="header-section-number">5.6</span> Nested Dictionaries:</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of a nested dictionary representing information about a person</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>person_info <span class="op">=</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: <span class="st">'Asad'</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'age'</span>: <span class="dv">22</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'address'</span>: {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'city'</span>: <span class="st">'Peshawar'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'country'</span>: <span class="st">'Pakistan'</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'zipcode'</span>: <span class="st">'12345'</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'contacts'</span>: {</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'email'</span>: <span class="st">'asad@example.com'</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'phone'</span>: <span class="st">'123-456-7890'</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Accessing nested values</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(person_info[<span class="st">'address'</span>][<span class="st">'city'</span>])  <span class="co"># Output: 'Peshawar'</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(person_info[<span class="st">'contacts'</span>][<span class="st">'email'</span>])  <span class="co"># Output: 'asad@example.com'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the <code>person_info</code> dictionary contains nested dictionaries for ‘address’ and ‘contacts’, creating a hierarchical structure.</p>
+</section>
+<section id="nested-lists" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="nested-lists"><span class="header-section-number">5.7</span> Nested Lists:</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of a nested list representing a matrix</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Accessing elements in the nested list</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(matrix[<span class="dv">1</span>][<span class="dv">2</span>])  <span class="co"># Output: 6 (row 1, column 2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, the <code>matrix</code> list is nested, forming a 2D list. Elements can be accessed using indices for both the outer list (row) and the inner list (column).</p>
+<p>You can also have a combination of nested dictionaries and lists:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of a nested dictionary containing a nested list</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>organization <span class="op">=</span> {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: <span class="st">'TechCorp'</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'departments'</span>: {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'engineering'</span>: [<span class="st">'Software'</span>, <span class="st">'Hardware'</span>],</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'sales'</span>: [<span class="st">'Domestic'</span>, <span class="st">'International'</span>],</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'hr'</span>: [<span class="st">'Recruitment'</span>, <span class="st">'Employee Relations'</span>]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Accessing elements in the nested structure</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(organization[<span class="st">'departments'</span>][<span class="st">'engineering'</span>][<span class="dv">0</span>])  <span class="co"># Output: 'Software'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the <code>departments</code> key in the <code>organization</code> dictionary contains a nested dictionary with department names as keys and lists of sub-departments as values.</p>
+<p>These examples illustrate how nesting dictionaries and lists allows you to represent more intricate and organized data structures in your Python programs.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
