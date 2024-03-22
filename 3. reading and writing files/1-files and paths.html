@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics - 15&nbsp; Intro to ChatGPT</title>
+<title>Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics - Reading and Writing Files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../3. reading and writing files/1. files and paths.html" rel="prev">
+<link href="../ChatGPT Guide/prompt engineering basics.html" rel="next">
+<link href="../2. Regular Expressions/7. data analysis with regular expressions.html" rel="prev">
 <link href="../images/icon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -140,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html">Mastering Prompt Engineering (ChatGPT)</a></li><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3. reading and writing files/1-files and paths.html">Reading and Writing Files</a></li><li class="breadcrumb-item"><a href="../3. reading and writing files/1-files and paths.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -297,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../3. reading and writing files/1. files and paths.html" class="sidebar-item-text sidebar-link">
+  <a href="../3. reading and writing files/1-files and paths.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></span></a>
   </div>
 </li>
@@ -314,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ChatGPT Guide/prompt engineering basics.html" class="sidebar-item-text sidebar-link active">
+  <a href="../ChatGPT Guide/prompt engineering basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></span></a>
   </div>
 </li>
@@ -326,21 +327,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Table of Contents</h2>
-   
-  <ul>
-  <li><a href="#basic-initiating-phrases" id="toc-basic-initiating-phrases" class="nav-link active" data-scroll-target="#basic-initiating-phrases"><span class="header-section-number">15.1</span> Basic Initiating Phrases</a></li>
-  <li><a href="#prompt-priming" id="toc-prompt-priming" class="nav-link" data-scroll-target="#prompt-priming"><span class="header-section-number">15.2</span> Prompt Priming</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html">Mastering Prompt Engineering (ChatGPT)</a></li><li class="breadcrumb-item"><a href="../ChatGPT Guide/prompt engineering basics.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3. reading and writing files/1-files and paths.html">Reading and Writing Files</a></li><li class="breadcrumb-item"><a href="../3. reading and writing files/1-files and paths.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></h1>
+<h1 class="title">Reading and Writing Files</h1>
 </div>
 
 
@@ -357,120 +351,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>ChatGPT is an AI language model that is trained on massive amounts of text data that generate natural language responses in conversation style.</p>
-<p><strong>Simple Explanation💨</strong> ChatGPT is like a super smart talking robot that can answer questions, tell stories, and chat with you. It learns from lots of words and sentences to understand and talk like a friend. It’s here to help and have fun conversations!</p>
-<p><strong>5 main benefits of ChatGPT:↴</strong></p>
-<ol type="1">
-<li><strong>Smart Helper:</strong> Helps you learn and find answers fast!</li>
-<li><strong>Talks Like a Friend:</strong> Makes writing and talking better and more fun.</li>
-<li><strong>Idea Buddy:</strong> Helps you think of cool and creative stuff.</li>
-<li><strong>Time Saver:</strong> Saves time by helping you quickly.</li>
-<li><strong>Gets Smarter with You:</strong> Learns and becomes an even better friend over time!</li>
-</ol>
-<p><strong>Main outputs it can generate</strong></p>
-<ol type="1">
-<li><strong>Text Answers:</strong> Provides detailed written answers to questions.</li>
-<li><strong>Creative Writing:</strong> Generates stories, poems, or creative content</li>
-<li><strong>Code Assistance:</strong> Helps with coding and programming-related qu</li>
-<li><strong>Language Translation:</strong> Translates text from one language to an</li>
-<li><strong>Conversation:</strong> Engages in natural language conversations on va</li>
-<li><strong>Synthesize Info:</strong> Summarize large amounts of content into a con</li>
-</ol>
-<p>List of Modifiers for ChatGPT to give you better output:</p>
-<table class="table-hover table-striped table">
-<caption>List of Modifiers</caption>
-<colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Names</th>
-<th>Modifiers</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Qualifiers</td>
-<td>Words like “some,” “few,” “many,” “most,” and “all” modify nouns or adjectives they precede.</td>
-</tr>
-<tr class="even">
-<td>Adjectives</td>
-<td>Words that describe or modify nouns/pronouns, e.g., “red,” “happy,” and “large.”</td>
-</tr>
-<tr class="odd">
-<td>Adverbs</td>
-<td>Words that modify verbs, adjectives, or other adverbs, e.g., “quickly,” “well,” and “loudly.”</td>
-</tr>
-<tr class="even">
-<td>Intensifiers</td>
-<td>Words strengthening the meaning of an adjective or adverb, e.g., “very,” “extremely,” or “totally.”</td>
-</tr>
-<tr class="odd">
-<td>Negatives</td>
-<td>Words negating or reversing the meaning of a sentence, e.g., “not,” “never,” “no.”</td>
-</tr>
-<tr class="even">
-<td>Number words</td>
-<td>Words indicating the quantity, e.g., “one,” “two,” “few,” “many,” “several.”</td>
-</tr>
-<tr class="odd">
-<td>Time words</td>
-<td>Words indicating when something happened or will happen, e.g., “now,” “yet,” “soon.”</td>
-</tr>
-<tr class="even">
-<td>Place words</td>
-<td>Words indicating where something is or happened, e.g., “here,” “there,” “everywhere.”</td>
-</tr>
-<tr class="odd">
-<td>Degree words</td>
-<td>Words indicating the extent or degree to which something is true, e.g., “totally,” “completely,” “slightly.”</td>
-</tr>
-</tbody>
-</table>
-<section id="basic-initiating-phrases" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="basic-initiating-phrases"><span class="header-section-number">15.1</span> Basic Initiating Phrases</h2>
-<ol type="1">
-<li>Define the term along with a metaphor…</li>
-<li>Explain the purpose behind…</li>
-<li>Develop a framework for…</li>
-<li>Outline the episodes for this podcast…</li>
-<li>Assist me in devising a budget plan for…</li>
-<li>Offer creative prompts to inspire my writing…</li>
-<li>Generate 10 ideas to enhance the writing in this transcript…</li>
-<li>Formulate a well-organized chapter list for a book about…</li>
-<li>Compile recipes utilizing these ingredients…</li>
-<li>Form a catalog of topics related to…</li>
-<li>Develop a lesson plan for…</li>
-<li>Generate five headlines for…</li>
-<li>Summarize this book in a tweet…</li>
-<li>Devise a comprehensive strategy for social media content for…</li>
-<li>Write an introductory email for outreach regarding…</li>
-<li>Recommend metaphors, analogies, or synonyms for…</li>
-<li>Create a clever reply to this message…</li>
-<li>Turn this title into a captivating hook…</li>
-<li>Translate this into the French language…</li>
-<li>Craft a polite response to decline this email…</li>
-<li>Invent an opening scene for a video featuring…</li>
-<li>Propose improvements to my resume…</li>
-<li>Clarify the concept of…</li>
-<li>Suggest online courses or books to enhance…</li>
-<li>Share effective strategies for…</li>
-<li>Offer tips for starting my…</li>
-<li>Recommend nutritious meal options for…</li>
-<li>Assist in creating a daily schedule for…</li>
-<li>Elaborate on the basics of…</li>
-<li>Guide on…</li>
-</ol>
-<p>You can start with the Initial starter prompts to get your desired results.</p>
-</section>
-<section id="prompt-priming" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="prompt-priming"><span class="header-section-number">15.2</span> Prompt Priming</h2>
-<p>Priming is refers to the practice of giving context to the model before generating response. It gives the model to get more desired response that are relevent and coherent with users intended output.</p>
-<p><strong>Without Priming:</strong> How can i learn machine learning? <strong>With Priming:</strong> I am student of Computer science and i gain various techs certification in the field. I have strong foundation of computer science &amp; have the practicing knowledge of numerous programming knowledge which is, Python, C, C++, Java, Dart, Javascript etc. Now i want to dive into realm of machine learning from where can i start my journey?</p>
+<p>A file has two key properties: a <em>filename</em> and a <em>path</em> (address where your file stored on a hard drive)</p>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1021,11 +904,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../3. reading and writing files/1. files and paths.html" class="pagination-link  aria-label=" &lt;span="" and="" writing="" files&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></span>
+      <a href="../2. Regular Expressions/7. data analysis with regular expressions.html" class="pagination-link  aria-label=" &lt;span="" module:&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>Pandas</code> module:</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../ChatGPT Guide/prompt engineering basics.html" class="pagination-link" aria-label="<span class='chapter-number'>15</span>&nbsp; <span class='chapter-title'>Intro to ChatGPT</span>">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intro to ChatGPT</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics - 3&nbsp; Functions</title>
+<title>Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics - 13&nbsp; Pandas module:</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../1. python basics/4-lists.html" rel="next">
-<link href="../1. python basics/2-flow control.html" rel="prev">
+<link href="../3. reading and writing files/1. files and paths.html" rel="next">
+<link href="../2. Regular Expressions/6. regular expression on excel files.html" rel="prev">
 <link href="../images/icon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -78,8 +78,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
-<link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -177,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1. python basics/1-python basics.html">Python Basics</a></li><li class="breadcrumb-item"><a href="../1. python basics/3-functions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2. Regular Expressions/1. regex modules.html">Automation with Python</a></li><li class="breadcrumb-item"><a href="../2. Regular Expressions/7. data analysis with regular expressions.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>Pandas</code> module:</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -246,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1. python basics/3-functions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../1. python basics/3-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
@@ -317,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2. Regular Expressions/7. data analysis with regular expressions.html" class="sidebar-item-text sidebar-link">
+  <a href="../2. Regular Expressions/7. data analysis with regular expressions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>Pandas</code> module:</span></span></a>
   </div>
 </li>
@@ -363,25 +361,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Table of Contents</h2>
-   
-  <ul>
-  <li><a href="#functions-with-arguments" id="toc-functions-with-arguments" class="nav-link active" data-scroll-target="#functions-with-arguments"><span class="header-section-number">3.1</span> Functions with Arguments</a></li>
-  <li><a href="#the-none-value" id="toc-the-none-value" class="nav-link" data-scroll-target="#the-none-value"><span class="header-section-number">3.2</span> The None Value</a></li>
-  <li><a href="#local-and-global-scope" id="toc-local-and-global-scope" class="nav-link" data-scroll-target="#local-and-global-scope"><span class="header-section-number">3.3</span> Local and Global Scope</a></li>
-  <li><a href="#global-statement" id="toc-global-statement" class="nav-link" data-scroll-target="#global-statement"><span class="header-section-number">3.4</span> Global Statement</a></li>
-  <li><a href="#exception-handling" id="toc-exception-handling" class="nav-link" data-scroll-target="#exception-handling"><span class="header-section-number">3.5</span> Exception Handling</a></li>
-  <li><a href="#zigzag-program-for-fun" id="toc-zigzag-program-for-fun" class="nav-link" data-scroll-target="#zigzag-program-for-fun"><span class="header-section-number">3.6</span> ZigZag Program for Fun:</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1. python basics/1-python basics.html">Python Basics</a></li><li class="breadcrumb-item"><a href="../1. python basics/3-functions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2. Regular Expressions/1. regex modules.html">Automation with Python</a></li><li class="breadcrumb-item"><a href="../2. Regular Expressions/7. data analysis with regular expressions.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>Pandas</code> module:</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>Pandas</code> module:</span></h1>
 </div>
 
 
@@ -398,244 +385,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>So far, you have seen built-in functions of Python such as <code>print()</code>, <code>len()</code> &amp; <code>input()</code> functions. Functions are like mini-programs that are meant to do a single task like the <code>print()</code> function prints the string on your terminal. Let’s break it down in simple terms to an 8th-grader child:</p>
-<p>Imagine you have a box, and you can put different tasks or instructions inside that box. In programming, we call this box a “function.”</p>
-<p>Now, why do we use functions? Well, think of it like having a set of instructions that you might need to use multiple times. Instead of writing those instructions again and again, you put them in a box (function). So, whenever you need to follow those instructions, you just use the box (call the function) instead of writing everything out each time.</p>
-<div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers():</span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="dv">12</span> <span class="op">+</span> <span class="dv">12</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The sum is:"</span>, add_numbers())</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="2" data-code-annotation="1"><code>def</code> means define and is used to define a function in Python.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="2"><code>return</code> In programming, the <code>"return"</code> keyword is like telling a function to give you something back. It’s a way for the function to share a specific result or piece of information with the rest of the program. Just as you put something in a box and then open the box to get it later, <code>"return"</code> allows a function to hand back its result when it’s done.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="8" data-code-annotation="3">In this case <code>add_numbers()</code> function will return 24 and place it in the print function.</span>
-</dd>
-</dl>
-<section id="functions-with-arguments" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="functions-with-arguments"><span class="header-section-number">3.1</span> Functions with Arguments</h2>
-<p>When you pass the string to the <code>print()</code> function between parenthesis is called the <strong>arguments</strong>. Think of an argument as an extra set of powers a function can have. Let’s look at the following analogy: Imagine you have a Robot friend and you want to give it 2 numbers to add them and give you the result. Every time you give it different numbers and will give you the sum of it.</p>
-<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy and Paste it into your shell window to see its output:</span></span>
-<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> robot(num1 , num2):</span>
-<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(num1 <span class="op">+</span> num2)</span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>robot(<span class="dv">23</span>, <span class="dv">42</span>)</span>
-<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>robot(<span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>robot(<span class="dv">33</span>, <span class="dv">12</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="1"><code>num1</code> &amp; <code>num2</code> are parameters (which is an empty Box)</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="6" data-code-annotation="2"><code>23</code> &amp; <code>42</code> are the arguments that will go inside the <code>num1</code> &amp; <code>num2</code> parameters.</span>
-</dd>
-</dl>
-</section>
-<section id="the-none-value" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="the-none-value"><span class="header-section-number">3.2</span> The None Value</h2>
-<p>In Python, we have a value called <code>None</code> which represents nothing or the absence of a value. The <code>None</code> keyword must be started with capital ‘N’. <code>None</code> is the only data type of the <code>NoneType</code> class. (will explain later what are classes)</p>
-<div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func_none(response):</span>
-<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> response <span class="op">==</span> <span class="st">'Gold'</span> <span class="kw">or</span> response <span class="op">==</span> <span class="st">'Silver'</span>:</span>
-<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'You Got Gold!!'</span>)</span>
-<span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> response <span class="op">==</span> <span class="st">'Gold'</span> <span class="kw">or</span> response <span class="op">==</span> <span class="st">'Silver'</span>:</span>
-<span id="annotated-cell-3-5"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'You Got Gold!!'</span>)</span>
-<span id="annotated-cell-3-6"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="annotated-cell-3-7"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> func_none</span>
-<span id="annotated-cell-3-8"><a href="#annotated-cell-3-8" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-9" class="code-annotation-target"><a href="#annotated-cell-3-9" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> func_none(response<span class="op">=</span><span class="bu">input</span>(<span class="st">'Choose Gold or Silver, If you choose anything else you will get "None" '</span>))</span>
-<span id="annotated-cell-3-10"><a href="#annotated-cell-3-10" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-11" class="code-annotation-target"><a href="#annotated-cell-3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="9" data-code-annotation="1">Here, the program will ask the user to enter the value and that value will be passed to the <code>func_none()</code> function as an argument and there the condition would be applied to the corresponding value if none of the conditions met, then the function returns the <code>None</code> value.</span>
-</dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="11" data-code-annotation="2">Here, if <code>func_none()</code> returns the result of the condition met like “Gold” or “Silver” then in the second line it would also print <code>None</code> and that’s because <code>print()</code> function on itself return nothing which is basically <code>None</code>.</span>
-</dd>
-</dl>
-</section>
-<section id="local-and-global-scope" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="local-and-global-scope"><span class="header-section-number">3.3</span> Local and Global Scope</h2>
-<p>Let’s look at the code first and then we will see what is Local and Global.</p>
-<div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'asad'</span></span>
-<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func1():</span>
-<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'wafi'</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-5" class="code-annotation-target"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name)</span>
-<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func2():</span>
-<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a>    age <span class="op">=</span> <span class="dv">18</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-4-9" class="code-annotation-target"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Name: '</span>,name)</span>
-<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Age: '</span>,age)</span>
-<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>func1() </span>
-<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>func2() </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="1" data-code-annotation="1">Here, the <code>name</code> variable can be accessed everywhere in the same program file e.g.&nbsp;<em><code>func1.py</code></em> while the <code>name</code> variable inside the <code>func1()</code> function can only be accessed inside that function.</span>
-</dd>
-<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="5" data-code-annotation="2">Gives you <strong>wafi</strong>` in output.</span>
-</dd>
-<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="9,10" data-code-annotation="3">Here the <code>name</code> variable will return the value ‘asad’ from the Global scope.</span>
-</dd>
-</dl>
-</section>
-<section id="global-statement" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="global-statement"><span class="header-section-number">3.4</span> Global Statement</h2>
-<p>If you want to modify the Global variable inside a function you can use the <code>global</code> keyword before that variable but do not create a variable with the same name as the Global variable inside that function.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Global variable</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> increase_counter():</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> counter</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    counter <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Before calling the function</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Before: Counter ="</span>, counter)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calling the function to modify the global variable</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>increase_counter()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># After calling the function</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"After: Counter ="</span>, counter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-simple callout-important callout-titled" title="Note">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you ever wanted to change the value of the Global variable you must use the global statement on the variable. So that Python knows which variable you are referring to.</p>
-</div>
-</div>
-</section>
-<section id="exception-handling" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="exception-handling"><span class="header-section-number">3.5</span> Exception Handling</h2>
-<p>Getting an error or <em>exception</em>, in your Python programs means that the entire program will crash, But we don’t want this to happen in real-world scenarios, rather than you want the program to detect the error handle them and continue afterward.</p>
-<p>For instance, run the following code in the editor:</p>
-<div class="sourceCode" id="annotated-cell-6"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> division(divider):</span>
-<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">42</span> <span class="op">/</span> divider)</span>
-<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-6-4"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>division(<span class="dv">2</span>) <span class="co"># Passing argument 2 to the function.</span></span>
-<span id="annotated-cell-6-5"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a>division(<span class="dv">7</span>)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-6" class="code-annotation-target"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a>division(<span class="dv">0</span>)</span>
-<span id="annotated-cell-6-7"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a>division(<span class="dv">1</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="6" data-code-annotation="1">Here when you pass 0 dividers to the <code>division()</code> function means you are dividing 42 by 0 which will give you an error like the one below:</span>
-</dd>
-</dl>
-<div class="sourceCode" id="annotated-cell-7"><pre class="sourceCode py code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">42</span> <span class="op">/</span> divider)</span>
-<span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-4" class="code-annotation-target"><a href="#annotated-cell-7-4" aria-hidden="true" tabindex="-1"></a><span class="pp">ZeroDivisionError</span>: division by zero</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-7" data-code-lines="4" data-code-annotation="1"><code>ZeroDivisionError</code> is an exception raised by an error of dividing the number by zero.</span>
-</dd>
-</dl>
-<p>Now to prevent such types of exceptions &amp; errors, Python has <code>try</code> and <code>except</code> clauses. The code that causes the error will go inside the <code>try</code> clause and the code that prevents the program from crashing goes into the except clause.</p>
-<p>For example, Look at the above code with <code>try</code> and <code>except</code> clause:</p>
-<div class="sourceCode" id="annotated-cell-8"><pre class="sourceCode py code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> division(divider):</span>
-<span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="dv">42</span> <span class="op">/</span> divider)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-5" class="code-annotation-target"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
-<span id="annotated-cell-8-6"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'You cannot divide with Zero'</span>)</span>
-<span id="annotated-cell-8-7"><a href="#annotated-cell-8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-8-8"><a href="#annotated-cell-8-8" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-9" class="code-annotation-target"><a href="#annotated-cell-8-9" aria-hidden="true" tabindex="-1"></a>division(<span class="dv">0</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="5,6" data-code-annotation="1"><code>ZeroDivisionError</code> tells Python if you encounter ZeroDivisionError raise the following print message But you can write anything below except clause.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="9" data-code-annotation="2">Now when you call the division function with 0 number it won’t crash the entire program but will give you a decent error message and the program will continue to execute other remaining instructions.</span>
-</dd>
-</dl>
-</section>
-<section id="zigzag-program-for-fun" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="zigzag-program-for-fun"><span class="header-section-number">3.6</span> ZigZag Program for Fun:</h2>
-<p>Let’s use your previous knowledge of programming to create a small animation zigzag program. Type the following code into your file editor &amp; save the file as zigzag.py:</p>
-<div class="sourceCode" id="annotated-cell-9"><pre class="sourceCode py code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="annotated-cell-9-2"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="annotated-cell-9-3"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-9-4"><a href="#annotated-cell-9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-5" class="code-annotation-target"><a href="#annotated-cell-9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="annotated-cell-9-6"><a href="#annotated-cell-9-6" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">=</span> <span class="dv">4</span></span>
-<span id="annotated-cell-9-7"><a href="#annotated-cell-9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-9-8"><a href="#annotated-cell-9-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="annotated-cell-9-9"><a href="#annotated-cell-9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-9-10"><a href="#annotated-cell-9-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&lt;=</span> <span class="dv">4</span>:</span>
-<span id="annotated-cell-9-11"><a href="#annotated-cell-9-11" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>counter<span class="op">*</span><span class="st">" "</span><span class="sc">}</span><span class="ss">********'</span>)</span>
-<span id="annotated-cell-9-12"><a href="#annotated-cell-9-12" aria-hidden="true" tabindex="-1"></a>                counter <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="annotated-cell-9-13"><a href="#annotated-cell-9-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> counter <span class="op">==</span> <span class="op">-</span><span class="dv">1</span> <span class="kw">or</span> counter <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="annotated-cell-9-14"><a href="#annotated-cell-9-14" aria-hidden="true" tabindex="-1"></a>                counter <span class="op">=</span> <span class="dv">1</span></span>
-<span id="annotated-cell-9-15"><a href="#annotated-cell-9-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="annotated-cell-9-16"><a href="#annotated-cell-9-16" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span><span class="st">" "</span><span class="op">*</span>counter<span class="sc">}</span><span class="ss">********'</span>)</span>
-<span id="annotated-cell-9-17"><a href="#annotated-cell-9-17" aria-hidden="true" tabindex="-1"></a>                counter <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="annotated-cell-9-18"><a href="#annotated-cell-9-18" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-9-19" class="code-annotation-target"><a href="#annotated-cell-9-19" aria-hidden="true" tabindex="-1"></a>            time.sleep(<span class="fl">0.3</span>)  <span class="co"># Adjust the delay time as needed to make it more like animation</span></span>
-<span id="annotated-cell-9-20"><a href="#annotated-cell-9-20" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
-<span id="annotated-cell-9-21"><a href="#annotated-cell-9-21" aria-hidden="true" tabindex="-1"></a>    sys.exit()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-9" data-code-lines="5" data-code-annotation="1">The <code>while</code> loop will never exit until you press <kbd aria-hidden="true">Ctrl+c</kbd><span class="visually-hidden">Ctrl+c</span> which calls the <code>KeyboardInterrupt</code> Error.</span>
-</dd>
-<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-9" data-code-lines="1" data-code-annotation="2">In Python, the <code>time</code> module helps you work with time-related functions. It’s like a toolbox with tools to handle time-related tasks.</span>
-</dd>
-<dt data-target-cell="annotated-cell-9" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-9" data-code-lines="19,20" data-code-annotation="3">Try to write a program without <code>try</code> and <code>except</code> which will cause the program to crash if you want to stop the while loop by <kbd aria-hidden="true">Ctrl+c</kbd><span class="visually-hidden">Ctrl+c</span> and will give you an ugly error message. However, for our program we it to cleanly handle <code>KeyboardInterrupt</code> in except clause then pressing <kbd aria-hidden="true">Ctrl+c</kbd><span class="visually-hidden">Ctrl+c</span> won’t crash the program rather it will stop smoothly as usual by calling the <code>sys.exit()</code> function.</span>
-</dd>
-</dl>
-<div class="callout callout-style-default callout-note callout-titled" title="Summary">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Summary
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Functions are the primary way to prevent you from duplicating your code. Functions are great to help you organize your code. You can think of it as the black boxes: they have input in the form of <code>parameters</code> and have output in the form of <code>return</code> values.</p>
-</div>
-</div>
+<p>Let’s break down the <code>pandas</code> library in simple terms with analogies.</p>
+<p><strong>Pandas as a Data Organizer:</strong></p>
+<p>Imagine you have a big box of LEGO bricks. Each LEGO brick is like a piece of data. Now, you want to build something cool with these bricks, but managing them in the box can be messy. Here’s where <code>pandas</code> comes in.</p>
+<ol type="1">
+<li><p><strong>Series - The Single LEGO Stack:</strong></p>
+<ul>
+<li>A Series is like a single stack of LEGO bricks. It’s organized and labeled. Each brick (data point) has its place, and you can easily refer to them by their position or label.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a Series</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>temperatures <span class="op">=</span> pd.Series([<span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">24</span>, <span class="dv">30</span>, <span class="dv">22</span>], name<span class="op">=</span><span class="st">'Temperature'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Just like a stack of LEGO bricks neatly arranged, a Series keeps your data in order.</p></li>
+<li><p><strong>DataFrame - The LEGO Structure:</strong></p>
+<ul>
+<li>Now, imagine you want to build something more complex, like a spaceship. A DataFrame is like a structured LEGO creation. It consists of multiple stacks (Series), each representing a specific aspect of your project.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a DataFrame</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Day'</span>: [<span class="st">'Mon'</span>, <span class="st">'Tue'</span>, <span class="st">'Wed'</span>, <span class="st">'Thu'</span>, <span class="st">'Fri'</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Temperature'</span>: [<span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">24</span>, <span class="dv">30</span>, <span class="dv">22</span>]}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>weather_df <span class="op">=</span> pd.DataFrame(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this analogy, your spaceship (DataFrame) has different sections (columns) for the day and temperature, and each section is like a well-organized stack of LEGO bricks (Series).</p></li>
+</ol>
+<p>Let’s look another simple example of creating dataframe:</p>
+<p>Certainly, Asad_Pro_Beta! Let’s break down the provided code step by step:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a DataFrame</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([[<span class="dv">1000</span>, <span class="st">'steve'</span>, <span class="dv">86</span>],</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1001</span>, <span class="st">'mathew'</span>, <span class="dv">91</span>],</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1002</span>, <span class="st">'jose'</span>, <span class="dv">72</span>],</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1003</span>, <span class="st">'patty'</span>, <span class="dv">69</span>],</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                   [<span class="dv">1004</span>, <span class="st">'vin'</span>, <span class="dv">88</span>]],</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                  columns<span class="op">=</span>[<span class="st">'Regd.No'</span>, <span class="st">'Name'</span>, <span class="st">'Marks%'</span>],</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                  index<span class="op">=</span>[<span class="st">'ID1'</span>, <span class="st">'ID2'</span>, <span class="st">'ID3'</span>, <span class="st">'ID4'</span>, <span class="st">'ID5'</span>])</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying the DataFrame</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong></p>
+<ol type="1">
+<li><strong>Importing Pandas:</strong>
+<ul>
+<li><code>import pandas as pd</code>: This line imports the <code>pandas</code> library and gives it the alias <code>pd</code>. This alias is commonly used for brevity.</li>
+</ul></li>
+<li><strong>Creating a DataFrame:</strong>
+<ul>
+<li><code>pd.DataFrame(...)</code>: This creates a DataFrame. The data is provided as a list of lists, where each inner list represents a row of data.</li>
+</ul></li>
+<li><strong>Data Values:</strong>
+<ul>
+<li>The inner lists contain values for ‘Regd.No’ (Registration Number), ‘Name’, and ‘Marks%’ respectively for each student.</li>
+</ul></li>
+<li><strong>Columns:</strong>
+<ul>
+<li><code>columns=['Regd.No', 'Name', 'Marks%']</code>: This specifies the column names for the DataFrame.</li>
+</ul></li>
+<li><strong>Index:</strong>
+<ul>
+<li><code>index=['ID1', 'ID2', 'ID3', 'ID4', 'ID5']</code>: This sets custom index values for the DataFrame. Each index corresponds to a row.</li>
+</ul></li>
+<li><strong>Displaying the DataFrame:</strong>
+<ul>
+<li><code>print(df)</code>: This prints the DataFrame to the console.</li>
+</ul></li>
+</ol>
+<p><strong>Resulting DataFrame:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>     <span class="ex">Regd.No</span>   Name  Marks%</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ID1</span>     1000  steve      86</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ID2</span>     1001  mathew     91</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ID3</span>     1002  jose       72</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ID4</span>     1003  patty      69</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">ID5</span>     1004  vin        88</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So, the DataFrame <code>df</code> is a table with columns ‘Regd.No’, ‘Name’, and ‘Marks%’, and custom row indices ‘ID1’ through ‘ID5’, representing information about students, their registration numbers, names, and marks percentage. Each row corresponds to a different student.</p>
+<p><strong>Note: From now on i will be using Jupyter Notebook to do data analysis because Jupyter Notebook is made for that purpose.</strong> To install <strong>Jupyter Notebook</strong> go on to this <a href="https://docs.jupyter.org/en/latest/install/notebook-classic.html" target="_blank">Jupyter Notebook</a></p>
+<p>**Creating a DataFrame and adding some data to it.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Giving alias to pandas module and calling it pd instead of pandas as you would give a nickname to a person</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([[<span class="dv">1000</span>,<span class="st">'steve'</span>,<span class="dv">86</span>],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                       [<span class="dv">1001</span>,<span class="st">'mathew'</span>,<span class="dv">91</span>],</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                       [<span class="dv">1002</span>,<span class="st">'jose'</span>,<span class="dv">72</span>],</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                       [<span class="dv">1003</span>,<span class="st">'patty'</span>,<span class="dv">69</span>],</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                       [<span class="dv">1004</span>,<span class="st">'vin'</span>,<span class="dv">88</span>]], columns <span class="op">=</span> [<span class="st">'Regd.No'</span>,<span class="st">'Name'</span>,<span class="st">'Marks%'</span>], index<span class="op">=</span>[<span class="st">'ID1'</span>,<span class="st">'ID2'</span>,<span class="st">'ID3'</span>,<span class="st">'ID4'</span>,<span class="st">'ID5'</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Reading the data from a webpage</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://en.wikipedia.org/wiki/Python_(programming_language)'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> pd.read_html(url)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>d[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Now we will use the above data to perform various operation on it.</strong></p>
+<p>You have to convert the DataFrame into string for regular expression to work on it.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> d[<span class="dv">1</span>].to_string()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>content[:<span class="dv">1000</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Scenario 1:</strong> Return Data types that are mutable</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> d[<span class="dv">1</span>].to_string()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r'\n\d{1,}\s{1,}(.+?)\s{1,}mutable.+'</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(pattern, content)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Scenario 2:</strong> Return those data types that uses the curly braces format</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pattern2 <span class="op">=</span> <span class="vs">r'\d{1,}\s{1,}(\w+?)\s{1,}.+\{.*\}'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(pattern2, content)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Scenario 3:</strong> Extract datatype names who is no longer than 4 characters e.g.&nbsp;int, set, dict, list so on.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pattern3 <span class="op">=</span> <span class="vs">r'\n\d{1,}\s{1,}(\w{3,4})\s{1,}.+'</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(pattern3, content)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Scenario 3:</strong> return the description of those id who is odd</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pattern4 <span class="op">=</span> <span class="vs">r'\n(\d*[13579])\s{1,}.+?\s{1,}\w+\s{1,}(.{,10}).+'</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(pattern4,content)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Scenario 4:</strong> return all the data type who’s syntax part contain at least one decimal part</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pattern5 <span class="op">=</span> <span class="vs">r'\n\d{1,}\s{1,}(\w+).+\s{1,}.+(\d+\.\d+)'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(pattern5, content)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1186,13 +1057,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../1. python basics/2-flow control.html" class="pagination-link  aria-label=" &lt;span="" control&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flow Control</span></span>
+      <a href="../2. Regular Expressions/6. regular expression on excel files.html" class="pagination-link  aria-label=" &lt;span="" on="" excel="" files:&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regex on Excel Files:</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../1. python basics/4-lists.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Lists</span>">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../3. reading and writing files/1. files and paths.html" class="pagination-link" aria-label="<span class='chapter-number'>14</span>&nbsp; <span class='chapter-title'>Reading and Writing Files</span>">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reading and Writing Files</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
