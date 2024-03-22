@@ -1,0 +1,377 @@
+## Project: Validating user info:
+
+### Project requirements: {.unnumbered}
+
+**Note! Please find some hints on solving these tasks at the bottom of this page.**
+
+### Solving project step-by-step: {.unnumbered}
+
+#### **First Name:** {.unnumbered}
+
+Does not contain any other characters besides letters.
+
+It starts with a capital letter and all the other letters are lowercase.
+
+Is at least 2 characters long.
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+
+# Asking the user for the first name and checking the format
+while True:
+    fname = input("\nPlease enter your First Name: ")
+
+    check = re.fullmatch(r"[A-Z][a-z]+", fname)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+```
+:::
+
+#### **Last Name:** {.unnumbered}
+
+
+Does not contain any other characters besides letters.
+
+It starts with a capital letter and all the other letters are lowercase.
+
+Is at least 2 characters long.
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+# Asking the user for the last name and checking the format
+while True:
+    lname = input("\nPlease enter your Last Name: ")
+    
+    check = re.fullmatch(r"[A-Z][a-z]+", lname)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+```
+:::
+**3. Date of birth:**
+
+The person was born before January 1st 2002.
+
+Contains only digits and forward slashes.
+
+Follows the format MM/DD/YYYY
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+# Asking the user for the date of birth and checking the format
+while True:
+    date = input("\nPlease enter your Date of Birth (mm/dd/yyyy): ")
+    
+    check = re.fullmatch(r"(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/(19[0-9][0-9]|200[01])", date)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+```
+:::
+**4. Email address:**
+
+Follows the correct format: username@domain.extension
+
+The username may contain only letters, digits, dots or the underscore character.
+
+The domain may contain only lowercase letters.
+
+The extension may contain only 2, 3 or 4 lowercase letters.
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+#Asking the user for the email address and checking the format
+
+while True:
+    email = input("\nPlease enter your Email Address: ")
+    check = re.fullmatch(r"\w+@[a-z]+\.[a-z]{2,4}", email)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+```
+:::
+
+**5. Username:**
+
+Does not contain any other characters besides letters, digits or the underscore character.
+
+Has a minimum of 6 characters and a maximum of 12 characters.
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+#Asking the user for the username and checking the format
+while True:
+    user = input("\nPlease enter your Username: ")
+    
+    check = re.fullmatch(r"\w{6,12}", user)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+```
+:::
+**6. Password:**
+
+Is at least 8 characters long.
+
+Starts with a lowercase letter.
+
+Should contain at least one lowercase letter, one uppercase letter, one digit and one of the following characters: $, &, ?, ! or %.
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+#Asking the user for the password and checking the format
+while True:
+    passw = input("\nPlease enter your Password: ")
+    
+    check = re.match(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$&?!%])[a-zA-Z\d$&?!%]{8,}$", passw)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+```
+:::
+
+**7. Credit card number:**
+
+The card should be issued by Visa or Mastercard only (starting with a 4 or a 5).
+
+It is exactly 16 digits long and contains no other characters besides digits.
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+#Asking the user for the credit card number and checking the format
+while True:
+    ccnum = input("\nPlease enter your Credit Card Number (no spaces): ")
+    
+    check = re.fullmatch(r"^(4|5)\d{15}", ccnum)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+```
+:::
+**8. Credit card expiration date:**
+
+Is not sooner than May 2024 inclusively.
+
+Contains only digits and forward slashes.
+
+Follows the format MM/YY
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+#Asking the user for the credit card expiration date and checking the format
+while True:
+    ccdat = input("\nPlease enter your Credit Card Expiration Date (mm/yy): ")
+    
+    check = re.fullmatch(r"(0[5-9]|1[0-2])/24|(0[1-9]|1[0-2])/(2[5-9]|[3-9][0-9])", ccdat)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+```
+:::
+**9. Credit card verification code / verification value (CVC / CVV):**
+
+Is a 3 digit number, does not contain any other characters.
+
+::: {.callout collapse="true" title="Click to see the solution"}
+
+```python
+import re
+#Asking the user for the credit card verification code and checking the format
+while True:
+    cccvc = input("\nPlease enter your Credit Card Verification Code: ")
+    
+    check = re.fullmatch(r"\d{3}", cccvc)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:   
+        break
+```
+:::
+
+**Hints for solving some of the project tasks**
+
+- **Date of birth:** Regarding the date of birth - the application validates this value only if the date is before January 1st 2002, in the required format, meaning 12/31/2001 for instance. So, any month from 01 to 12 is valid; any day from 01 to 31 is valid; and any year from prior to 2002 is valid. Therefore, to specify any of these ranges, you will need to use character classes and OR operations, using the pipe metacharacter. Don't forget about the forward slashes separating the month, day and year!
+
+- **The password:** The password should start with a lowercase letter (character class here) and be at least 8 characters long, with no upper limit. For specifying the types of characters that the password needs to contain I would use character classes. Also, for signaling that the password should contain each of these classes (lowercase letters, uppercase letters, digits and the special symbols), I would use several positive lookahead assertions for each character class.
+
+- **Credit card expiration date:** After writing the pattern for the date of birth, the one for validating the credit card expiration date should be a bit easier to conceive. Nonetheless, this is a different pattern that needs special attention. The credit card should not expire sooner than May 2024, and the date needs to follow the MM/YY format - this would be 05/24 in our case. So, split this issue in two - the rest of the year 2024 starting from May, and then any subsequent years, with no upper limit. So, you will need several OR operations - mind your pipe metacharacters, as well as some thought process on how to match the 05-12 months in 2024, and then all the other months from 2025 onwards.
+
+**Note!** For the rest of the tasks (not included in the **Hints** section) you should be able to easily find a solution given all the information we discussed throughout the course. The three tasks that I have provided hints for are indeed more complex, however they can also be solved using the concepts and syntax we discussed in the course - so you already have all the tools and knowledge to solve the entire project if you watched all the videos, took notes, wrote the code alongside me, solved the quizzes and the exercises that I provided.
+
+::: {.callout-tip title="Click to see the Project Source Code" collapse="true"}
+```python
+import re
+
+# Asking the user for the first name and checking the format
+while True:
+    fname = input("\nPlease enter your First Name: ")
+
+    check = re.fullmatch(r"[A-Z][a-z]+", fname)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+# Asking the user for the last name and checking the format
+while True:
+    lname = input("\nPlease enter your Last Name: ")
+    
+    check = re.fullmatch(r"[A-Z][a-z]+", lname)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+# Asking the user for the date of birth and checking the format
+while True:
+    date = input("\nPlease enter your Date of Birth (mm/dd/yyyy): ")
+    
+    check = re.fullmatch(r"(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/(19[0-9][0-9]|200[01])", date)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+#Asking the user for the email address and checking the format
+
+while True:
+    email = input("\nPlease enter your Email Address: ")
+    check = re.fullmatch(r"\w+@[a-z]+\.[a-z]{2,4}", email)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+#Asking the user for the username and checking the format
+while True:
+    user = input("\nPlease enter your Username: ")
+    
+    check = re.fullmatch(r"\w{6,12}", user)
+
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+#Asking the user for the password and checking the format
+while True:
+    passw = input("\nPlease enter your Password: ")
+    
+    check = re.fullmatch(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$&?!%])[a-zA-Z\d$&?!%]{8,}$", passw)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+#Asking the user for the credit card number and checking the format
+while True:
+    ccnum = input("\nPlease enter your Credit Card Number (no spaces): ")
+    
+    check = re.fullmatch(r"^(4|5)\d{15}", ccnum)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+#Asking the user for the credit card expiration date and checking the format
+while True:
+    ccdat = input("\nPlease enter your Credit Card Expiration Date (mm/yy): ")
+    
+    check = re.fullmatch(r"(0[5-9]|1[0-2])/24|(0[1-9]|1[0-2])/(2[5-9]|[3-9][0-9])", ccdat)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:
+        break
+
+#Asking the user for the credit card verification code and checking the format
+while True:
+    cccvc = input("\nPlease enter your Credit Card Verification Code: ")
+    
+    check = re.fullmatch(r"\d{3}", cccvc)
+    
+    if check == None:
+        print("Wrong format! Please try again.")
+        continue
+    else:   
+        break
+
+userinfo = ["First Name: " + fname, 
+            "Last Name: " + lname, 
+            "Date of birth: " + date, 
+            "Email address: " + email, 
+            "Username: " + user, 
+            "Password: " + passw, 
+            "Card number: " + ccnum, 
+            "Expiration date: " + ccdat, 
+            "CVC: " + cccvc]
+
+string = "\n".join(userinfo)
+
+print("This is your user account information: \n\n" + string)
+```
+:::
+
+
+
+
+

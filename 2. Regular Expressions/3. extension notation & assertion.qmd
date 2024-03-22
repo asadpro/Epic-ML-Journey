@@ -1,0 +1,355 @@
+# Extentions notations and Assertions
+
+## Non-capturing group
+
+A non-capturing group in a regular expression is a group that is used for grouping, but it doesn't capture the matched text. It's denoted by `(?: ... )`. Non-capturing groups are useful when you want to apply quantifiers or alternation to a part of your pattern but don't need to capture the matched text.
+
+Here's a simple example to illustrate the use of a non-capturing group:
+
+```python
+import re
+
+# Example text
+text = "apple banana cherry date"
+
+# Pattern to match words with optional plural "s"
+# Using a non-capturing group for the "s" part
+pattern = r'\b\w+(?:s)?\b'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+In this example:
+
+- `\b`: Represents a word boundary to ensure that we are matching whole words.
+- `\w+`: Matches one or more word characters (letters, digits, or underscores) representing the base word.
+- `(?:s)?`: A non-capturing group that matches the letter 's' optionally (zero or one occurrence).
+
+The non-capturing group `(?:s)?` allows us to treat the 's' as optional for plural forms without capturing it. If we used a capturing group, it would capture the 's' as part of the match.
+
+Output:
+```bash
+Matches: ['apple', 'banana', 'cherry', 'date']
+```
+
+In this case, the pattern matches words like "apple," "banana," "cherry," and "date," allowing for an optional 's' at the end without capturing it.
+
+## Groupdict() and Named groups: 
+
+Non-capturing groups are handy for making your regular expressions more modular and efficient by avoiding unnecessary captures when you don't need to extract the specific content within the group.
+
+In regular expressions, named groups and the `groupdict()` method are features that allow you to assign names to capturing groups and extract matched content using those names.
+
+### Named Groups:
+
+You can define a named capturing group using the syntax `(?P<name>...)`. Here's an example:
+
+```python
+import re
+
+# Example text
+text = "John's age is 25, and Jane's age is 30."
+
+# Pattern with named capturing groups for names and ages
+pattern = r"(?P<name>\w+)'s age is (?P<age>\d+)"
+
+# Using re.search() to find the first match
+match = re.search(pattern, text)
+
+# Accessing named groups using groupdict()
+if match:
+    group_dict = match.groupdict()
+    print("Matched Groups:", group_dict)
+    print("Name:", group_dict["name"])
+    print("Age:", group_dict["age"])
+else:
+    print("No match")
+```
+
+In this example:
+
+- `(?P<name>\w+)`: Defines a named capturing group named "name" to capture the person's name.
+- `(?P<age>\d+)`: Defines a named capturing group named "age" to capture the person's age.
+
+The `groupdict()` method is then used to retrieve a dictionary containing the named groups and their corresponding matched values.
+
+Output:
+```bash
+Matched Groups: {'name': 'John', 'age': '25'}
+Name: John
+Age: 25
+```
+
+### Using Named Groups in Regular Expressions:
+
+You can also use named groups directly within the regular expression for referencing later. Here's an example:
+
+```python
+import re
+
+# Example text
+text = "John's age is 25, and Jane's age is 30."
+
+# Pattern with named capturing groups used in the pattern
+pattern = r"(?P<name>\w+)'s age is (?P<age>\d+)"
+
+# Using re.findall() to find all matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+Output:
+```bash
+Matches: [('John', '25'), ('Jane', '30')]
+```
+
+In this example, the `re.findall()` method returns a list of tuples, each containing the matched values for the named groups.
+
+Named groups provide a clearer and more maintainable way to extract specific information from matched patterns in regular expressions. They are especially useful when dealing with complex patterns where multiple groups are involved.
+
+## Positive and negative lookahead
+
+Positive lookahead and negative lookahead are assertions in regular expressions that allow you to assert whether a certain pattern is present or not, without consuming characters in the process. These are non-capturing groups that enforce conditions on the text around the main pattern.
+
+### Positive Lookahead: {.unnumbered}
+
+Positive lookahead is expressed as `(?=...)`. It asserts that a certain pattern must be present at a particular position in the text.
+
+#### Example:
+
+Let's say you want to match words that are followed by the word "apple":
+
+```python
+import re
+
+# Example text
+text = "banana apple orange apple"
+
+# Pattern using positive lookahead to match words before "apple"
+pattern = r'\b\w+(?=\sapple)'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+Output:
+```bash
+Matches: ['banana', 'orange']
+```
+
+In this example, the pattern `\b\w+(?=\sapple)` matches words (`\b\w+`) only if they are followed by a space and the word "apple" (`(?=\sapple)`). The positive lookahead ensures that "apple" is present after the matched words.
+
+### Negative Lookahead: {.unnumbered}
+
+Negative lookahead is expressed as `(?!...)`. It asserts that a certain pattern must not be present at a particular position in the text.
+
+#### Example:
+
+Let's say you want to match words that are not followed by the word "apple":
+
+```python
+import re
+
+# Example text
+text = "banana orange apple"
+
+# Pattern using negative lookahead to match words not followed by "apple"
+pattern = r'\b\w+\b(?!.*\sapple)'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+Output:
+```bash
+Matches: ['apple']
+```
+
+In this example, the pattern `\b\w+\b(?!.*\sapple)` matches words (`\b\w+\b`) only if they are not followed by any sequence (`(?!.*\sapple)`) that includes space and the word "apple". The negative lookahead ensures that "apple" is not present after the matched words.
+
+Lookahead assertions are powerful tools for creating flexible and precise regular expressions by specifying conditions in the context surrounding the main pattern.
+
+Positive lookbehind and negative lookbehind assertions in regular expressions are used to assert whether a certain pattern is present or not immediately before the main pattern, without consuming characters in the process.
+
+### Positive Lookbehind: {.unnumbered}
+
+Positive lookbehind is expressed as `(?<=...)`. It asserts that a certain pattern must be present immediately before the main pattern.
+
+#### Example:
+
+Let's say you want to match words that are preceded by the word "apple":
+
+```python
+import re
+
+# Example text
+text = "apple banana apple orange"
+
+# Pattern using positive lookbehind to match words after "apple"
+pattern = r'(?<=\sapple\s)\w+'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+Output:
+```bash
+Matches: ['banana', 'orange']
+```
+
+In this example, the pattern `(?<=\sapple\s)\w+` matches words (`\w+`) only if they are preceded by a space and the word "apple" (`(?<=\sapple\s)`). The positive lookbehind ensures that "apple" is present immediately before the matched words.
+
+### Negative Lookbehind: {.unnumbered}
+
+Negative lookbehind is expressed as `(?<!...)`. It asserts that a certain pattern must not be present immediately before the main pattern.
+
+#### Example:
+
+Let's say you want to match words that are not preceded by the word "apple":
+
+```python
+import re
+
+# Example text
+text = "banana orange apple"
+
+# Pattern using negative lookbehind to match words not preceded by "apple"
+pattern = r'(?<!\sapple\s)\w+'
+
+# Using re.findall() to find matches
+matches = re.findall(pattern, text)
+
+# Displaying the matches
+print("Matches:", matches)
+```
+
+Output:
+```bash
+Matches: ['banana', 'orange']
+```
+
+In this example, the pattern `(?<!\sapple\s)\w+` matches words (`\w+`) only if they are not preceded by a space and the word "apple" (`(?<!\sapple\s)`). The negative lookbehind ensures that "apple" is not present immediately before the matched words.
+
+Lookbehind assertions are useful for creating regular expressions that depend on the presence or absence of specific patterns before the main pattern. They provide additional flexibility in crafting precise matching conditions.
+
+**Difference between Lookahead and Lookbehind:**
+
+1. **Direction:**
+   - Lookahead (`(?=...)` and `(?!...)`): Looks forward in the text.
+   - Lookbehind `(?<=...)` and `(?<!...)`: Looks backward in the text.
+
+2. **Position:**
+   - Lookahead: Asserts a condition on what comes after the main pattern.
+   - Lookbehind: Asserts a condition on what comes before the main pattern.
+
+**Analogy for the Difference:**
+
+Consider you're exploring a new city. In lookahead, you decide whether to visit a place based on what you'll find after reaching there – checking for upcoming attractions. In lookbehind, you decide whether to visit a place based on what you have encountered before – checking for previous positive or negative experiences.
+
+**Summary:**
+
+- **Lookahead:** Anticipates what comes after the main pattern.
+  - **Positive Lookahead (`(?=...)`):** Ensures the presence of a condition.
+  - **Negative Lookahead `(?!...)`:** Ensures the absence of a condition.
+
+- **Lookbehind:** Reflects on what comes before the main pattern.
+  - **Positive Lookbehind `(?<=...)`:** Ensures the presence of a condition.
+  - **Negative Lookbehind `(?<!...)`:** Ensures the absence of a condition.
+
+
+Let's have practice examples for each: positive lookahead, negative lookahead, positive lookbehind, and negative lookbehind.
+
+### Positive Lookahead Practice Example:
+
+**Question: Match words that are followed by the letter 's'.**
+
+Consider the following words:
+
+```bash
+cats
+dogs
+horses
+birds
+```
+
+Write a regular expression pattern using positive lookahead to match only the words that are followed by the letter 's'.
+
+**Expected Output:**
+```bash
+['cat', 'dog', 'hors']
+```
+
+### Negative Lookahead Practice Example:
+
+**Question: Match words that are not followed by the letter 's'.**
+
+Consider the following words:
+
+```bash
+cats
+dogs
+horses
+birds
+```
+
+Write a regular expression pattern using negative lookahead to match only the words that are not followed by the letter 's'.
+
+**Expected Output:**
+```bash
+['bird']
+```
+
+### Positive Lookbehind Practice Example:
+
+**Question: Match words that are preceded by the letter 't'.**
+
+Consider the following words:
+
+```bash
+table
+chair
+desk
+lamp
+```
+
+Write a regular expression pattern using a positive lookbehind to match only the words that are preceded by the letter 't'.
+
+**Expected Output:**
+```bash
+['table', 'desk']
+```
+
+### Negative Lookbehind Practice Example:
+
+**Question: Match words that are not preceded by the letter 't'.**
+
+Consider the following words:
+
+```bash
+table
+chair
+desk
+lamp
+```
+
+Write a regular expression pattern using negative lookbehind to match only the words that are not preceded by the letter 't'.
+
+**Expected Output:**
+```bash
+['chair', 'lamp']
+```

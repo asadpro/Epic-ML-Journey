@@ -1,0 +1,384 @@
+# Regex on Excel Files:
+
+**Download <a href="https://jmp.sh/yOflqG5A" target="_blank">sample.xlsx</a> excel file to use in the upcoming practice session:**
+
+Download the sample file from the above link and let's start learning the usage of regular expression with excel files. 
+
+## `Openpyxl Module`:
+Install `openpyxl` module and then run `import openpyxl` in python shell/Python IDLE.
+
+```bash
+pip install openpyxl
+```
+The `openpyxl` module is a Python library used for working with Excel files (both .xlsx and .xlsm formats). It allows you to create, modify, and extract data from Excel spreadsheets. Some key features and use cases of `openpyxl` include:
+
+1. **Reading and Writing Excel Files:** You can use `openpyxl` to create new Excel files, modify existing ones, and read data from Excel files.
+
+2. **Working with Worksheets:** It provides functionality to create, delete, and manipulate worksheets within an Excel workbook.
+
+3. **Cell Manipulation:** You can read and write cell values, apply formatting, and perform various operations on individual cells.
+
+4. **Formatting:** `openpyxl` supports formatting options, such as font styles, colors, borders, and more.
+
+5. **Charts:** You can create charts and graphs within Excel using the data provided through `openpyxl`.
+
+6. **Formula Support:** It allows you to set and manipulate cell formulas within Excel.
+
+7. **Styling:** You can apply styles to cells, rows, and columns to enhance the visual appearance of the Excel sheet.
+
+**Example of creating Excel files, read & write some of its data.**
+```python
+import openpyxl
+
+# Create a new workbook
+workbook = openpyxl.Workbook()
+
+# Create a sheet inside the workbook
+sheet1 = workbook.create_sheet('asadpro')
+
+# Write data to a cell
+for i in range(1,21):
+    sheet1[f'A{i}'] = i
+
+# Save the workbook
+workbook.save('demo.xlsx')
+
+# To open an existing workbook
+
+read_sheet = openpyxl.load_workbook('demo.xlsx')
+
+# Display the name of sheets inside the workbook
+print(read_sheet.sheetnames)
+
+# Accessing the sheet of our choice from the above 
+reading = read_sheet['asadpro']
+
+# Read data from a specific cell
+print(reading['A3'].value) # Output: 3
+
+# Another alternative to the above method of reading cell value using 'cell'
+
+print(reading.cell(row=3,column=1).value) # Output: 3
+
+```
+
+
+**Here's another simple example of how you might use `openpyxl` to load an Excel file and read its data:**
+
+```python
+import openpyxl
+
+path_to_file = r'C:\Users\User\Desktop\Machine Learning Foundations A Comprehensive Guide from Python to Mathematics\project files\sample.xlsx'
+
+# Loading the existing Workbook
+workbook = openpyxl.load_workbook(filename=path_to_file)
+
+# Displaying all the worksheets in a single workbook
+# print(workbook.sheetnames)
+
+
+sheet = workbook['EmployeeData']
+
+# Displaying the number of rows and columns
+print(sheet.dimensions)
+
+data = []
+
+for row in sheet.values:
+    a,b,c,d,e,f,g = row
+    data.append(f"{a};{b};{c};{d};{e};{f};{g}")
+
+print('\n'.join(data))
+
+```
+
+## Practice 1:
+**Condition:** Fetch the last name of the employee with a salary between 24,000 and 29,999 rupees.
+
+```python
+import openpyxl
+import re
+
+path_to_file = r'C:\Users\User\Desktop\Machine Learning Foundations A Comprehensive Guide from Python to Mathematics\project files\sample.xlsx'
+
+# Loading the existing Workbook
+workbook = openpyxl.load_workbook(filename=path_to_file)
+
+sheet = workbook['EmployeeData']
+
+data = []
+
+for value in sheet.values:
+    a,b,c,d,e,f,g = value
+    data.append(f'{a};{b};{c};{d};{e};{f};{g}')
+
+employees = '\n'.join(data)
+
+pattern = r'\d{1,};.+?;(.+?);.+;(2[4-9]\d{3})'
+
+result = re.findall(pattern, employees)
+
+for element in result:
+    print(element)
+    
+```
+**Let's break down the given regular expression step by step:**
+
+```bash
+\d{1,};.+?;(.+?);.+;(2[4-9]\d{3})
+```
+
+1. `\d{1,}`: This part matches one or more digits. `\d` represents any digit (0-9), and `{1,}` specifies that there should be at least one digit.
+
+2. `.+?;`: This part matches one or more of any character (`.`) in a non-greedy manner (`+?`) until a semicolon (`;`) is encountered.
+
+3. `(.+?);`: This part captures one or more of any character in a non-greedy manner until a semicolon is encountered. The parentheses `()` denote a capturing group, allowing you to extract the content matched by this part later.
+
+4. `.+;`: This part matches one or more of any character until a semicolon is encountered.
+
+5. `(2[4-9]\d{3})`: This part captures a pattern that starts with a 2 followed by a digit from 4 to 9 (`[4-9]`) and is followed by exactly three more digits (`\d{3}`). This is enclosed in parentheses to create a capturing group.
+
+## Practice 2:
+
+Fetch all the employees from the Excel file whose last names are no more than 5 characters long & who work in the IT or Marketing department.
+**Condition 1:** Last name <= 5 characters
+**Condition 2:** IT or Marketing department
+
+```python
+import openpyxl
+import re
+
+path_to_file = r'C:\Users\User\Desktop\Machine Learning Foundations A Comprehensive Guide from Python to Mathematics\project files\sample.xlsx'
+
+# Loading the existing Workbook
+workbook = openpyxl.load_workbook(filename=path_to_file)
+
+sheet = workbook['EmployeeData']
+
+data = []
+
+for value in sheet.values:
+    a,b,c,d,e,f,g = value
+    data.append(f'{a};{b};{c};{d};{e};{f};{g}')
+
+employees = '\n'.join(data)
+
+pattern = r'\d{1,};.+?;(.{1,5});(?:IT|Marketing);.+'
+
+result = re.findall(pattern, employees)
+print(result)
+```
+**Let's break down the given regular expression step by step:**
+
+```bash
+\d{1,};.+?;(.{1,5});(?:IT|Marketing);.+
+```
+
+1. `\d{1,}`: This part matches one or more digits. `\d` represents any digit (0-9), and `{1,}` specifies that there should be at least one digit.
+
+2. `;`: This matches a semicolon.
+
+3. `.+?;`: This matches one or more of any character in a non-greedy manner until the next semicolon.
+
+4. `(.{1,5})`: This part captures a group of characters with a length between 1 and 5. The capturing group is denoted by parentheses. The dot `.` matches any character, and `{1,5}` specifies a length between 1 and 5 characters.
+
+5. `;`: This matches another semicolon.
+
+6. `(?:IT|Marketing)`: This is a non-capturing group `(?: ... )` that matches either "IT" or "Marketing".
+
+7. `;`: This matches another semicolon.
+
+8. `.+`: This matches one or more of any character.
+
+## Practice 3:
+
+**Condition #1:** First name should start with a letter P or a subsequent letter in the english alphabet.
+**Condition #2:** First digit of the phone no should starts with even digit and the ending digit should end with odd digit.
+
+```python
+import openpyxl
+import re
+
+path_to_file = r'C:\Users\User\Desktop\Machine Learning Foundations A Comprehensive Guide from Python to Mathematics\project files\sample.xlsx'
+
+# Loading the existing Workbook
+workbook = openpyxl.load_workbook(filename=path_to_file)
+
+sheet = workbook['EmployeeData']
+
+data = []
+
+for value in sheet.values:
+    a,b,c,d,e,f,g = value
+    data.append(f'{a};{b};{c};{d};{e};{f};{g}')
+
+employees = '\n'.join(data)
+print(employees[:150])
+
+pattern = r'\d{1,};([P-Z].+?);.+;[2468]\d{8}[13579];.+'
+
+result = re.findall(pattern, employees)
+print(result)
+```
+
+**Let's break down the given regular expression step by step:**
+
+```bash
+\d{1,};([P-Z].+?);.+;[2468]\d{8}[13579];.+
+```
+
+1. `\d{1,}`: This part matches one or more digits. `\d` represents any digit (0-9), and `{1,}` specifies that there should be at least one digit.
+
+2. `;`: This matches a semicolon.
+
+3. `([P-Z].+?)`: This part captures a group of characters. The capturing group is denoted by parentheses. It starts with a character range `[P-Z]`, meaning any uppercase letter from 'P' to 'Z'. The dot `.` matches any character, and `+?` makes it match one or more characters in a non-greedy manner (matching the minimum possible).
+
+4. `;`: This matches another semicolon.
+
+5. `.+;`: This matches one or more of any character until the next semicolon.
+
+6. `[2468]\d{8}[13579]`: This part matches a specific pattern of digits:
+   - `[2468]`: Any one digit among 2, 4, 6, or 8.
+   - `\d{8}`: Exactly 8 digits.
+   - `[13579]`: Any one digit among 1, 3, 5, 7, or 9.
+
+7. `;`: This matches another semicolon.
+
+8. `.+`: This matches one or more of any character.
+
+## Practice 4:
+
+**Condition #1:** Obtain all the employees who works in *Sales* department and live in *New York*.
+**Condition #2:** Fetch each employee his/her *first* & *last* name as well as his/her *phone number*.
+
+```python
+import openpyxl
+import re
+
+path_to_file = r'C:\Users\User\Desktop\Machine Learning Foundations A Comprehensive Guide from Python to Mathematics\project files\sample.xlsx'
+
+# Loading the existing Workbook
+workbook = openpyxl.load_workbook(filename=path_to_file)
+
+sheet = workbook['EmployeeData']
+
+data = []
+
+for value in sheet.values:
+    a,b,c,d,e,f,g = value
+    data.append(f'{a};{b};{c};{d};{e};{f};{g}')
+
+employees = '\n'.join(data)
+
+pattern = r'\d{1,};(.+);(.+);(Sales);(\d{10});(?:.*New York.*);.+'
+
+result = re.findall(pattern, employees)
+
+for element in result: 
+    print(element)
+```
+
+**Let's break down the given regular expression step by step:**
+
+```bash
+\d{1,};(.+);(.+);(Sales);(\d{10});(?:.*New York.*);.+
+```
+
+1. `\d{1,}`: This part matches one or more digits at the beginning. `\d` represents any digit (0-9), and `{1,}` specifies that there should be at least one digit.
+
+2. `;`: This matches a semicolon.
+
+3. `(.+)`: This is the first capturing group, which matches one or more of any character (except for a newline) and captures it for later use.
+
+4. `;`: This matches another semicolon.
+
+5. `(.+)`: This is the second capturing group, similar to the first one, capturing one or more of any character.
+
+6. `;`: This matches another semicolon.
+
+7. `(Sales)`: This matches the exact string "Sales".
+
+8. `;`: This matches another semicolon.
+
+9. `(\d{10})`: This is the third capturing group, which matches exactly 10 digits and captures them.
+
+10. `;`: This matches another semicolon.
+
+11. `(?:.*New York.*)`: This is a non-capturing group that matches any characters (zero or more) followed by the string "New York" and then any characters (zero or more).
+
+12. `;`: This matches another semicolon.
+
+13. `.+`: This matches one or more of any character.
+
+## Practice 5:
+
+**Condition:** Match any employee as long as his/her *Address* does not end in *Miami*
+
+```python
+import openpyxl
+import re
+
+path_to_file = r'C:\Users\User\Desktop\Machine Learning Foundations A Comprehensive Guide from Python to Mathematics\project files\sample.xlsx'
+
+# Loading the existing Workbook
+workbook = openpyxl.load_workbook(filename=path_to_file)
+
+sheet = workbook['EmployeeData']
+
+data = []
+
+for value in sheet.values:
+    a,b,c,d,e,f,g = value
+    data.append(f'{a};{b};{c};{d};{e};{f};{g}')
+
+employees = '\n'.join(data)
+
+print(employees[:150])
+pattern = r'\d{1,};.+;(.+);.+;.+;.+, (?!Miami)'
+
+result = re.findall(pattern, employees)
+
+for element in result: 
+    print(element)
+    
+print(len(result))
+```
+
+Let's break down the given regular expression with negative lookahead:
+
+```bash
+\d{1,};.+;(.+);.+;.+;.*, (?!Miami)
+```
+
+1. `\d{1,}`: This part matches one or more digits at the beginning. `\d` represents any digit (0-9), and `{1,}` specifies that there should be at least one digit.
+
+2. `;`: This matches a semicolon.
+
+3. `.+`: This matches one or more of any character (except for a newline), representing the content between the first and second semicolons.
+
+4. `;`: This matches another semicolon.
+
+5. `(.+)`: This is the first capturing group, which matches one or more of any character and captures it for later use.
+
+6. `;`: This matches another semicolon.
+
+7. `.+`: This matches one or more of any character, representing the content between the second and third semicolons.
+
+8. `;`: This matches another semicolon.
+
+9. `.+`: This matches one or more of any character, representing the content between the third and fourth semicolons.
+
+10. `;`: This matches another semicolon.
+
+11. `.+`: This matches one or more of any character, representing the content between the fourth and fifth semicolons.
+
+12. `, `: This matches a comma followed by a space.
+
+13. `(?!Miami)`: This is a negative lookahead assertion. It checks that what follows the comma and space is not the exact string "Miami".
+
+14. `.*`: This matches zero or more of any character after the negative lookahead.
+
+
+
+
+

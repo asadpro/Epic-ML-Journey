@@ -2,19 +2,21 @@ project:
   type: book
   output-dir: docs
 
+website: 
+  back-to-top-navigation: true
 
 book:
   title: "Machine Learning Foundations: A Comprehensive Guide from Python to Mathematics"
   author: "Mr. Saeed Ullah"
   date: last-modified
   favicon: images/icon.png
-  
+
 
   chapters:
     - index.qmd
     - 1. python basics/about author.qmd
     - 1. python basics/setup.qmd
-    - part: Python Programming Basics
+    - part: Python Basics
       chapters: 
         - 1. python basics/1-python basics.qmd
         - 1. python basics/2-flow control.qmd
@@ -26,12 +28,20 @@ book:
       chapters:
         - 2. Regular Expressions/1. regex modules.qmd
         - 2. Regular Expressions/2. regex metacharacters.qmd
-        - 2. Regular Expressions/Reading and writing files.qmd
+        - 2. Regular Expressions/3. extension notation & assertion.qmd
+        - 2. Regular Expressions/4. project+exercises.qmd
+        - 2. Regular Expressions/5. validating user accounts.qmd
+        - 2. Regular Expressions/6. regular expression on excel files.qmd
+        - 2. Regular Expressions/7. data analysis with regular expressions.qmd
+    - part: Reading and Writing Files
+      chapters: 
+        - 3. reading and writing files\1. files and paths.qmd
     - part: Mastering Prompt Engineering (ChatGPT)
       chapters: 
         - ChatGPT Guide/prompt engineering basics.qmd
 
 bibliography: references.bib
+
 
 
 toc: true

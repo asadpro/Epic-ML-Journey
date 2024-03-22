@@ -1,0 +1,312 @@
+# Projects of Regular Expressions:
+
+**Download <a href="https://jmp.sh/s/gGNzNSsXv9nakudl8csO" target="_blank">book.txt</a> text file to use it in the upcoming practice session:**
+
+## Project Bookshelf:
+
+```python
+import re
+
+
+with open(r'project files\book.txt','r') as file:
+    string = file.read()
+Exercise 1: Match all the authors whose book title are shorter than 25 characters
+
+    pattern = r'.+?;(.{1,25});.+?'
+    result = re.findall(pattern, string)
+
+# Exercise 2: Match the authors who publish their books after 2000
+
+    # pattern0 = r'.+;.+?;(2[0-9][0-9][0-9])'
+    
+    # Alternative to the above regex
+    pattern0 = r'.+;.+?;(2\d\d\d)'
+        
+    result0 = re.findall(pattern0,string)
+    print(result0)
+    
+```
+
+**Download <a href="https://jmp.sh/s/4mYxsju0PanQ13OMaVgJ" target="_blank">phone.txt</a> text file to use it in the upcoming practice session:**
+
+## Project Phone Book:
+
+```python
+import re
+
+with open(r'project files\phone.txt','r') as file:
+    string = file.read()
+    
+    # Excercise 1: Access the last name and their phone number having zero at the end of the area code
+    # In short (LastName + area code end with 0 + phone number)
+    
+    pattern = r'.+ (.+)\s{1,}\(\d\d0\)\s(.+)'
+    # result = re.findall(pattern, string)
+    # for tup in result:
+    #     print(tup)
+        
+    # Exercise 2: Fetch all the area-code whose last digit of phone number is 7
+    
+    pattern0 = r'.+\s+(\(\d\d\d\)) \d{3}-\d{3}7'
+    result = re.findall(pattern0, string)
+    for tup in result:
+        print(tup)
+```
+
+## Project Date and Time:
+
+**Download <a href="https://jmp.sh/s/R0xZwUhuXpzMMih1QGEp" target="_blank">logs.txt</a> text file to use it in the upcoming practice session:**
+
+```python
+import re
+
+with open(r'project files\logs.txt','r') as file:
+    string = file.read()
+    
+    # Exercise 1: Search for all the log entries that generated b/w on date 11-16-jan-2020 and extract the source part of the 
+    # entry meaning the component that causes the error e.g. 
+    
+    # Here ?: is the non-capturing group which will omit the time from the result
+    pattern = r'(Critical 1/1[1-6]/2020) (?:\d+:\d+:\d+ AM|PM) (.+) \(\d+\) .+'
+    
+    result = re.findall(pattern, string)
+    for tup in result: 
+        print(tup)
+
+```
+
+## Project Web Scrapping:
+**Download <a href="https://jmp.sh/s/GkSZ24dkrTDmTVk4WnXw" target="_blank">web.txt</a> text file to use it in the upcoming practice session:**
+
+```python
+import re
+
+
+with open(r'project files\web.txt','r') as file:
+    string = file.read()
+
+    # extract web addresses of ecommerce site only
+    
+    pattern = r'.+\s+(https://.+\.\w{2,}\s.+Online shopping.+)'
+        
+    result = re.findall(pattern, string)
+    for line in result:
+        print(line)
+```
+
+**Download <a href="https://jmp.sh/ZuM2Crsb" target="_blank">stocks.txt</a> text file to use it in the upcoming practice session:**
+
+## Project Stock:
+
+```python
+import re
+
+with open(r'project files\stocks.txt','r') as file:
+    string = file.read()
+
+    # Exercise 1: Match all the companies whose revenue is less than 50 billion dollars
+    pattern = r'(.+)\s+\d+\.\d+M\s+[1-4][0-9]\.\d+B\s+.+'
+    
+    
+    result = re.findall(pattern, string)
+    for tup in result:
+        print(tup)
+```
+## Project: Log File Analysis Tool
+
+### Overview: {.unnumbered}
+Develop a Python script that analyzes a server log file. The script should read a log file containing HTTP requests and extract useful information such as IP addresses, request types (GET, POST), URLs, status codes, and timestamps.
+
+
+### Steps: {.unnumbered}
+1. **Read the Log File**: Open and read the log file line by line.
+2. **Pattern Matching**:
+   - IP Address: Use a regex to match and extract IP addresses.
+   - Timestamp: Extract the date and time of each request.
+   - Request Type: Extract the request method (GET, POST, etc.).
+   - Status Code: Extract the HTTP status code.
+   - Optionally, extract the URL requested.
+
+
+### Tips: {.unnumbered}
+- Start by writing regex patterns to accurately extract each piece of information.
+- Use Python's `re` module to find matches within each log line.
+- Store extracted data in an appropriate data structure (e.g., dictionaries, lists).
+
+This project will challenge your understanding of regular expressions and give you practical experience with data extraction and analysis. It's a great way to see the power of regex in parsing and understanding large volumes of text data.
+
+::: {.callout collapse="true" title="Click to see the solution" }
+```python
+import re
+
+path = r'C:\Users\User\Desktop\Machine Learning Foundations A Comprehensive Guide from Python to Mathematics\project files\log2.txt'
+
+with open(path,'r') as file:
+    string = file.read()
+    
+    # IP Address: Use a regex to match and extract IP addresses
+    ip = r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}'
+    result = re.findall(ip, string)
+    
+    
+    # Timestamp: Extract the date and time of each request.
+    time = r'\d{1,2}:\d{1,2}:\d{1,2}'
+    result0 = re.findall(time, string)
+
+    
+    # Request Type: Extract the request method (GET, POST, etc.).
+    get = []
+    post = []
+    
+    request = r'\s"?(GET|POST)'
+    result1 = re.findall(request, string)
+    
+    # Assigning GET to list 'get' & POST to list 'post'
+    
+    for element in result1:
+        if element == 'GET':
+            get.append(element)
+        else:
+            post.append(element)
+
+    # print(len(get))
+    # print(len(post))
+
+    # Status Code: Extract the HTTP status code.
+     
+    http = r' \d{3} '
+    result2 = re.findall(http, string,re.IGNORECASE)
+    # print(len(result2))
+    
+    # Optionally, extract the URL requested.
+    url = r'https?://\S+(?=\)")'
+    result3 = re.findall(url, string, re.IGNORECASE)
+    # print(result3)
+```
+:::
+
+## Project Email & Phone Number Extraction:
+
+### Overview: {.unnumbered}
+This project involves extracting phone numbers and email addresses from a text source, cleaning up the data, and storing it in a tabular format in both an Excel file (.xlsx) and a text file (.txt). The extracted information is then added to a dictionary, where phone numbers are used as keys and email addresses as values. Carriage return characters (\r) are removed from the keys in the dictionary to ensure clean data. The final step involves saving the processed data to both an Excel file and a text file for easy reference.
+
+### Steps: {.unnumbered}
+1. Copy the content of the 'phonebook.txt' file to the clipboard.
+2. Use regular expressions to find and extract phone numbers and email addresses from the clipboard content.
+3. Organize the extracted data into a dictionary, where phone numbers are keys and email addresses are values.
+4. Clean up the dictionary by removing carriage return characters from the keys.
+5. Create an Excel workbook and sheet, inserting the phone numbers into one column and email addresses into another.
+6. Save the Excel workbook as 'phoneEmail.xlsx'.
+7. Create a PrettyTable to display the data in a tabular format.
+8. Write the tabular data to a text file named 'phoneEmail.txt'.
+9. Optionally, use Pyperclip to copy the cleaned dictionary to the clipboard for easy access.
+
+### Tips: {.unnumbered}
+- Ensure that the 'pyperclip', 'openpyxl', and 'prettytable' modules are installed before running the script.
+- Verify that the 'phonebook.txt' file contains the expected data and is accessible.
+- Review the generated 'phoneEmail.xlsx' Excel file and 'phoneEmail.txt' text file to confirm the output.
+- Experiment with the code and modify it based on specific project requirements or preferences.
+
+By following these steps, you can efficiently extract, clean, and organize phone numbers and email addresses from a text source, storing the information in both Excel and text files for convenient reference.
+
+::: {.callout-note title="Key note before implementing the project"}
+First you have to copy the content or text from the link <a href="https://jmp.sh/woihmu8N" target="_blank">phonebook</a>
+ to the clipboard and it has to be on the clipboard all the time in order for this project to work
+:::
+
+**Download <a href="https://jmp.sh/woihmu8N" target="_blank">phonebook.txt</a> text file to use it in the upcoming practice session:**
+
+**Condition 1:** Get the text off the clipboard.
+**Condition 2.** Find all phone numbers and email addresses in the text.
+**Condition 3.** Paste them onto the clipboard.
+
+```python
+import re
+import pyperclip
+
+# Click on the above link and copy the content of phonebook.txt to the clipboard.
+# Step 1: Get the text off the clipboard.
+content = pyperclip.paste()
+
+
+# Step 2: Find all phone numbers and email addresses in the text.
+
+# Create a regex for email address
+email_regex = r"(?:Email: )(.*@.+\.\w{2,3})"
+
+# Create a regex for phone number
+phone_regex = r'(?:Phone: )(.*)'
+
+# Search for phone number in string
+result1 = re.findall(phone_regex, content)
+
+# Search for email address in string
+result2 = re.findall(email_regex, content)
+
+# Encapsulated both in a dictionary
+d = dict(zip(result1,result2))
+
+# removing the carriage return character (\r) from every key in the dictionary to cleanup the dictionary
+clean_d = {key.rstrip() : value for key, value in d.items()}
+
+# Iterating through the key value pair of dictionary 
+# for key, value in clean_d.items():
+#     print(key, " : ", value)
+    
+# Further expanding this project by adding the above content to the excel sheet or text file (in tabular format)
+
+# ------------------------------------------------------------
+# Adding the above dictionary to text file in tabular format
+from openpyxl import Workbook
+
+# Create workbook/spreadsheet
+workbook = Workbook()
+
+# Focusing the current opening sheet
+sheet = workbook.active
+
+# Inserting the phone number in one column and email addresses to another column
+# The following code is explained briefly later on.
+for index, value in enumerate(clean_d.items(),start=1):
+    sheet[f'A{index}'] = value[0]
+    sheet[f'B{index}'] = value[1]
+    
+
+# Saving the excel file
+workbook.save('phoneEmail.xlsx')
+
+# ------------------------------------------------------------
+# Now adding the above content to a text file in tabular format
+from prettytable import PrettyTable
+table = PrettyTable(['Phone Number','Email Address'])
+for key, value in clean_d.items():
+    table.add_row([key, value])
+
+with open('phoneEmail.txt', 'w') as file:
+    file.write(str(table))
+
+# ------------------------------------------------------------
+# Step 3: Paste them onto the clipboard.
+# pyperclip.copy(str(clean_d))
+
+```
+**Explanation to the above snippet code:**
+```bash
+for index, value in enumerate(clean_d.items(),start=1):
+    sheet[f'A{index}'] = value[0]
+    sheet[f'B{index}'] = value[1]
+```
+Let's break down the code step by step:
+
+1. `enumerate(cleaned_dict.items(), start=1)`: This function is used to iterate over the items of the `cleaned_dict` dictionary, and it returns pairs of the form `(index, (key, value))`. The `start=1` argument specifies that the enumeration should start from index 1.
+
+2. `for i, (key, value) in ...`: This is a loop that iterates through the enumerated items. `i` is the index, and `(key, value)` is the key-value pair.
+
+3. `sheet[f'A{i}'] = key`: This line assigns the `key` to the cell in column 'A' and row `i` of the Excel sheet. The `f-string` is used for string formatting to include the value of `i` in the cell reference.
+
+4. `sheet[f'B{i}'] = value`: Similarly, this line assigns the `value` to the cell in column 'B' and row `i` of the Excel sheet.
+
+5. The loop continues for each key-value pair in the `cleaned_dict`, and the corresponding values are added to the 'A' and 'B' columns in the Excel sheet.
+
+In summary, the code iterates through the key-value pairs of the dictionary, assigns each key to column 'A' and each value to column 'B' in the Excel sheet, and increments the row index (`i`) for each iteration. This way, each key-value pair gets its own row in the Excel sheet.
+

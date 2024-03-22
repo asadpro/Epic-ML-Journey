@@ -1,0 +1,370 @@
+# Reading and Writing Files
+
+A file has two key properties: a *filename* and a *path* (address where your file stored on a hard drive)
+
+## **`pathlib` vs `os` library**  
+Here's a gentle introduction to both the `pathlib` and `os` libraries in Python:
+
+### **`pathlib`:** 
+
+1. **What is it?**
+   - `pathlib` is a module in Python's standard library that provides an object-oriented interface for interacting with file system paths.
+   
+2. **Key Features:**
+   - Object-oriented approach: Paths are represented as objects, making it easier to manipulate and interact with them.
+   - Clean and intuitive syntax: `pathlib` offers methods and properties that simplify common file path operations.
+   - Platform-independent: `pathlib` abstracts away the differences between Windows, Linux, and macOS file path conventions.
+   
+3. **Common Use Cases:**
+   - File and directory manipulation: Creating, deleting, moving, and renaming files and directories.
+   - Path operations: Joining paths, resolving symlinks, and checking file existence and permissions.
+   - Iterating over directory contents: Walking directory trees and searching for files.
+
+4. **Example:**
+   ```python
+   from pathlib import Path
+   
+   # Creating a Path object
+   file_path = Path('/path/to/file.txt')
+   
+   # Checking file existence
+   if file_path.exists():
+       print("File exists!")
+   ```
+
+### **`os`:**
+
+1. **What is it?**
+   - `os` is a module in Python's standard library that provides a wide range of functions for interacting with the operating system.
+   
+2. **Key Features:**
+   - Low-level operating system interface: `os` exposes functions to perform various system-level operations, such as file manipulation, process management, and environment variables.
+   - Platform-specific functionality: `os` includes functions that are specific to different operating systems, allowing developers to write cross-platform code.
+   
+3. **Common Use Cases:**
+   - File and directory operations: Creating, deleting, moving, and renaming files and directories.
+   - Process management: Spawning new processes, interacting with the environment, and working with system signals.
+   - Miscellaneous system utilities: Working with environment variables, accessing system information, and performing file I/O operations.
+
+4. **Example:**
+   ```python
+   import os
+   
+   # Checking file existence
+   if os.path.exists('/path/to/file.txt'):
+       print("File exists!")
+   ```
+
+**Comparison:**
+
+- While both `pathlib` and `os` can be used for file and directory operations, `pathlib` offers a more modern and object-oriented approach, making it easier to work with file paths in a platform-independent manner. 
+- On the other hand, `os` provides a broader set of functions for interacting with the operating system, including process management and environment variables, but with a more low-level interface. 
+
+## **Some common operations**: 
+
+1. **Current Working Directory**
+
+```python
+print(Path.cwd())
+
+# changing directory using os module
+os.chdir(r'C:\Users')
+print(Path.cwd())
+
+```
+2. **Home directory**
+
+```python
+
+# This will return the home directory path
+print(Path.home())
+
+```
+2. **Absolute vs Relative Paths**
+
+There are two ways to specify path:
+1. An *absolute* path which begins with root directory.
+e.g. `C:\Users\users\folder\subfolder\file1.txt`
+2. A *relative* path which is the current working directory.
+e.g. `.\folder\subfolder`
+
+3. **Create a folder using `os.makedirs()` and various other essential functions**
+
+```python
+import os
+
+# Creating a directory if it exist override it with new folder
+os.makedirs('new_folder',exist_ok=True)
+
+# Removing a directory from the current directory
+os.system('rmdir hello')
+
+# Creating multiple nested level folder
+os.makedirs('.\\grand_parent\\parent\\child\\grand_child',exist_ok=True)
+
+# Getting parts of a file path
+# You can also fetch the path by using Path.cwd()
+path = Path(r'C:\Users\User\Desktop\delete\delete.py')
+
+# Accesing the drive of path
+print(path.drive)
+
+# Accesing the anchor of path
+print(path.anchor)
+
+# Accesing the parent of path
+print(path.parent)
+
+# Accesing the last folder name in the path
+print(path.name)
+
+# Accessing the file extension of the file
+print(path.suffix)
+
+```
+
+4. **Folder contents and Files sizes**
+If you want to get the size of folder os.path provide function for that to calculate size in bytes e.g. like the following:
+
+```python
+folders_size = 0
+
+# getting size of folder via os.path.getsize(file)
+for filename in os.listdir(r'C:\Users\User\Desktop'):
+    folders_size = folders_size + os.path.getsize(os.path.join(r'C:\Users\User\Desktop',filename))
+    
+# Original file size in bytes    
+print(folders_size)
+
+# converting the above file size to KB
+print(folders_size/1024)
+
+# converting the above file size to MB 
+print((folders_size/1024)/1024)
+
+# converting the above file size to GB 
+print(((folders_size/1024)/1024)/1024)
+```
+
+5. **`Path.cwd().glob('*')`**
+```python
+from pathlib import Path
+import os
+
+# Here the start * means search for all.
+
+gen = list(Path.home().glob('*'))
+
+# Find all .txt files in the current directory
+text_files = list(Path.cwd().glob('*.txt'))
+
+# Find all .py files in the current directory and its subdirectories
+python_files = list(Path.cwd().glob('*.py'))
+
+# Find all directories in the current directory
+folders = [entry for entry in list(Path.cwd().glob('*/')) if entry.is_dir()]
+
+
+
+print(text_files)
+print(python_files)
+
+for folder in folders:
+    
+    print(folder)
+```
+5. **Checking Path Validity**
+If python doesn't find a valid path it will crash. Luckily both `os` and `Path` module have function for checking the validity of path whether it exists or not. Below you can see both library in action to do the same task.
+
+```python
+from pathlib import Path
+import os
+
+path = Path.home()
+
+print('Path exists via OS: ',os.path.exists(path))
+print('Path exists via Path: ',path.exists(), end='\n\n')
+
+# To check whether its a file or not
+print('File check via OS: ',os.path.isfile(path))
+print('File check via Path: ',path.is_file(), end='\n\n')
+
+# To check whether its directory or not
+print('Directory check via OS: ',os.path.isdir(path))
+print('Directory check via Path: ',path.is_dir())
+```
+## **The shutil Module**
+The `shutil` module in Python provides a higher-level interface for file operations. It offers functions for copying, moving, renaming, and deleting files and directories in a platform-independent manner. Here are some real-life usage examples of the `shutil` module:
+
+1. **Copying Files or Directories:**
+   ```python
+   import shutil
+   from pathlib import Path
+
+   
+   # Copy a file
+   shutil.copy('source.txt', 'destination.txt')
+   
+   # Copy a directory and its contents recursively
+   shutil.copytree('source_directory', 'destination_directory')
+
+
+   source = Path.cwd() / 'sadiq'
+   destination = Path.cwd() / 'farooq'
+
+   # In order for copytree to work properly you have to put the dirs_exist_ok paremeter to the function because it will throw an error if the destination folder already exist.
+   shutil.copytree(source, destination,dirs_exist_ok=True)
+   ```
+
+2. **Moving or Renaming Files or Directories:**
+   ```python
+   # Move a file or directory
+   shutil.move('source.txt', 'destination.txt')
+   
+   # Rename a file or directory
+   shutil.move('old_name.txt', 'new_name.txt')
+   ```
+
+3. **Deleting Files or Directories:**
+   ```python
+   # Delete a single file
+   os.remove('file_to_delete.txt')
+   
+   # Delete an empty directory
+   os.rmdir('empty_directory')
+   
+   # Delete a directory and its contents recursively
+   shutil.rmtree('directory_to_delete')
+
+   # remove all the text file in the current directory
+   for file in Path.glob(Path.cwd(),'*.txt'):
+
+      # for directory use rmdir instead of unlink
+      file.unlink(missing_ok=True)
+   ```
+
+4. **Archiving and Extracting Files:**
+   ```python
+   # Create a zip archive of a directory
+   shutil.make_archive('archive', 'zip', 'directory_to_archive')
+   
+   # Extract the contents of a zip archive
+   shutil.unpack_archive('archive.zip', 'extracted_directory')
+   ```
+
+5. **Copying or Moving Files Based on File Metadata:**
+   ```python
+   # Copy files based on their extension
+   for filename in os.listdir('source_directory'):
+       if filename.endswith('.txt'):
+           shutil.copy(os.path.join('source_directory', filename), 'text_files_directory')
+   ```
+
+These are just a few examples of how you can use the `shutil` module to perform common file operations efficiently and reliably.
+
+
+## **Safe Deletion via `send2trash` Module**
+
+Since Python's built-in `shutil.rmtree` or `os.remove()` function will delete everything permanently Instead you should use Third Party module `send2trash` which moves your deleted files to recycle/trash bin. If something you deleted unintentionally so you could recover it later on.
+
+Install it by running `pip install --user send2trash`
+
+```python
+import send2trash
+
+with open('dummy_file.txt','a') as file:
+   file.write('This file goes to trash bin')
+
+# First comment out the following line to see if file created
+send2trash.send2trash('dummy_file.txt')
+```
+## **Walking through files Using `os.walk()`**
+
+Say you have folders and its subfolders and lots of files in those subfolders that you want to modify or write something to it, for this matter we would use the `os.walk()` function. os.walk() function will return three values:
+
+1. Current folder's name
+2. List of folders in the current folder
+3. List of files names in the current folder
+
+Let's look it in action: 
+First create 3 subfolders in your current folder and also create some text files in those subfolders to start practice on it.
+
+I have created parent folder `item` which contain subfolders `vegetables` & `fruits`. Create your own accordingly.
+
+```python
+import os
+
+for folder, subfolders, files in os.walk('.'):
+   
+   # This is parent directory
+   print('Our current folder: ',folder)   
+   
+   # These are the subfolders in our parent directory
+   for subfolder in subfolders:
+      print('Current folder contain: ',subfolder)
+   for file in files:
+      print('Current folder contain files: ',file)
+   
+```
+
+## **Working with ZIP Files**
+
+Zip files are crucial for compressing multiple folder or files into one single file to ease its transfer over internet or reduce its size on disk. Zip files are like carrying many dresses into a single suitcase which is easy to carry. For this purpose we use `zipfile` module and its operation in the following coding section: 
+
+Here's an example that covers various functionalities of the `zipfile` module:
+
+```python
+import zipfile
+import os
+
+# Creating a zip archive
+with zipfile.ZipFile('example.zip', 'w') as zipf:
+    # Adding files to the zip archive
+    zipf.write('file1.txt')
+    zipf.write('file2.txt')
+
+# Extracting the zip archive
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    # Extracting all files to a directory
+    zipf.extractall('extracted_files')
+
+# Reading the contents of the zip archive
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    # Printing the list of files in the archive
+    print("Files in the zip archive:")
+    for filename in zipf.namelist():
+        print(filename)
+
+# Adding a new file to the existing archive
+with zipfile.ZipFile('example.zip', 'a') as zipf:
+    zipf.write('file3.txt')
+
+# Extracting a specific file from the archive
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    zipf.extract('file1.txt', 'extracted_single_file')
+
+# Adding password protection to the zip archive
+with zipfile.ZipFile('protected.zip', 'w') as zipf:
+    zipf.setpassword(b'secret')
+    zipf.write('file1.txt')
+
+# Extracting from a password-protected zip archive
+with zipfile.ZipFile('protected.zip', 'r') as zipf:
+    zipf.extractall('extracted_protected', pwd=b'secret')
+
+# Removing the zip files
+os.remove('example.zip')
+os.remove('protected.zip')
+```
+
+This example demonstrates:
+
+1. Creating a zip archive (`example.zip`) and adding files to it.
+2. Extracting all files from the zip archive to a directory (`extracted_files`).
+3. Reading the contents of the zip archive and printing the list of files.
+4. Adding a new file (`file3.txt`) to the existing zip archive.
+5. Extracting a specific file (`file1.txt`) from the archive to a directory (`extracted_single_file`).
+6. Adding password protection to a zip archive (`protected.zip`) and extracting from it with the provided password.
+7. Finally, removing the created zip files.
+
+

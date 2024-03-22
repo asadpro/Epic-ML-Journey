@@ -1,0 +1,161 @@
+# `Pandas` module:
+
+Let's break down the `pandas` library in simple terms with analogies.
+
+**Pandas as a Data Organizer:**
+
+Imagine you have a big box of LEGO bricks. Each LEGO brick is like a piece of data. Now, you want to build something cool with these bricks, but managing them in the box can be messy. Here's where `pandas` comes in.
+
+1. **Series - The Single LEGO Stack:**
+   - A Series is like a single stack of LEGO bricks. It's organized and labeled. Each brick (data point) has its place, and you can easily refer to them by their position or label.
+
+   ```python
+   import pandas as pd
+
+   # Creating a Series
+   temperatures = pd.Series([25, 28, 24, 30, 22], name='Temperature')
+   ```
+
+   Just like a stack of LEGO bricks neatly arranged, a Series keeps your data in order.
+
+2. **DataFrame - The LEGO Structure:**
+   - Now, imagine you want to build something more complex, like a spaceship. A DataFrame is like a structured LEGO creation. It consists of multiple stacks (Series), each representing a specific aspect of your project.
+
+   ```python
+   import pandas as pd
+
+   # Creating a DataFrame
+   data = {'Day': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+           'Temperature': [25, 28, 24, 30, 22]}
+   weather_df = pd.DataFrame(data)
+   ```
+
+   In this analogy, your spaceship (DataFrame) has different sections (columns) for the day and temperature, and each section is like a well-organized stack of LEGO bricks (Series).
+
+Let's look another simple example of creating dataframe:
+
+Certainly, Asad_Pro_Beta! Let's break down the provided code step by step:
+
+```python
+import pandas as pd
+
+# Creating a DataFrame
+df = pd.DataFrame([[1000, 'steve', 86],
+                   [1001, 'mathew', 91],
+                   [1002, 'jose', 72],
+                   [1003, 'patty', 69],
+                   [1004, 'vin', 88]],
+                  columns=['Regd.No', 'Name', 'Marks%'],
+                  index=['ID1', 'ID2', 'ID3', 'ID4', 'ID5'])
+
+# Displaying the DataFrame
+print(df)
+```
+
+**Explanation:**
+
+1. **Importing Pandas:**
+   - `import pandas as pd`: This line imports the `pandas` library and gives it the alias `pd`. This alias is commonly used for brevity.
+
+2. **Creating a DataFrame:**
+   - `pd.DataFrame(...)`: This creates a DataFrame. The data is provided as a list of lists, where each inner list represents a row of data.
+
+3. **Data Values:**
+   - The inner lists contain values for 'Regd.No' (Registration Number), 'Name', and 'Marks%' respectively for each student.
+
+4. **Columns:**
+   - `columns=['Regd.No', 'Name', 'Marks%']`: This specifies the column names for the DataFrame.
+
+5. **Index:**
+   - `index=['ID1', 'ID2', 'ID3', 'ID4', 'ID5']`: This sets custom index values for the DataFrame. Each index corresponds to a row.
+
+6. **Displaying the DataFrame:**
+   - `print(df)`: This prints the DataFrame to the console.
+
+**Resulting DataFrame:**
+```bash
+     Regd.No   Name  Marks%
+ID1     1000  steve      86
+ID2     1001  mathew     91
+ID3     1002  jose       72
+ID4     1003  patty      69
+ID5     1004  vin        88
+```
+
+So, the DataFrame `df` is a table with columns 'Regd.No', 'Name', and 'Marks%', and custom row indices 'ID1' through 'ID5', representing information about students, their registration numbers, names, and marks percentage. Each row corresponds to a different student.
+
+**Note: From now on i will be using Jupyter Notebook to do data analysis because Jupyter Notebook is made for that purpose.**
+To install **Jupyter Notebook** go on to this <a href="https://docs.jupyter.org/en/latest/install/notebook-classic.html" target="_blank">Jupyter Notebook</a>
+
+**Creating a DataFrame and adding some data to it.
+```python
+# Giving alias to pandas module and calling it pd instead of pandas as you would give a nickname to a person
+import pandas as pd
+
+df = pd.DataFrame([[1000,'steve',86],
+                       [1001,'mathew',91],
+                       [1002,'jose',72],
+                       [1003,'patty',69],
+                       [1004,'vin',88]], columns = ['Regd.No','Name','Marks%'], index=['ID1','ID2','ID3','ID4','ID5'])
+
+df
+```
+
+**Reading the data from a webpage**
+```python
+import pandas as pd
+
+url = 'https://en.wikipedia.org/wiki/Python_(programming_language)'
+
+d = pd.read_html(url)
+d[1]
+```
+
+**Now we will use the above data to perform various operation on it.**
+
+You have to convert the DataFrame into string for regular expression to work on it.
+
+```python
+content = d[1].to_string()
+content[:1000]
+```
+
+**Scenario 1:** Return Data types that are mutable
+
+```python
+content = d[1].to_string()
+pattern = r'\n\d{1,}\s{1,}(.+?)\s{1,}mutable.+'
+
+result = re.findall(pattern, content)
+result
+```
+
+**Scenario 2:** Return those data types that uses the curly braces format
+```python
+pattern2 = r'\d{1,}\s{1,}(\w+?)\s{1,}.+\{.*\}'
+result = re.findall(pattern2, content)
+result
+```
+
+**Scenario 3:** Extract datatype names who is no longer than 4 characters e.g. int, set, dict, list so on.
+
+```python
+pattern3 = r'\n\d{1,}\s{1,}(\w{3,4})\s{1,}.+'
+result = re.findall(pattern3, content)
+result
+```
+
+**Scenario 3:** return the description of those id who is odd
+
+```python
+pattern4 = r'\n(\d*[13579])\s{1,}.+?\s{1,}\w+\s{1,}(.{,10}).+'
+result = re.findall(pattern4,content)
+result
+
+```
+**Scenario 4:** return all the data type who's syntax part contain at least one decimal part
+```python
+pattern5 = r'\n\d{1,}\s{1,}(\w+).+\s{1,}.+(\d+\.\d+)'
+result = re.findall(pattern5, content)
+result
+```

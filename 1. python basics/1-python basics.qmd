@@ -1,4 +1,3 @@
-
 # Introduction to Python 
 Hello Readers, here’s a quick, simple and *kid-friendly* introduction to Python:
 

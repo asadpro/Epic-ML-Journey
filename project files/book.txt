@@ -1,0 +1,538 @@
+Terry-Thomas;Filling the Gap;1959
+Harpo Marx;Harpo Speaks;1961
+Charlie Chaplin;My Autobiography;1964
+Moe Howard;Moe Howard and the Three Stooges, AKA I Came, I Stooged, I Conquered (released posthumously);1974
+Sid Caesar;Where Have I Been?;1982
+Bill Cosby;Fatherhood;1986
+Mel Blanc;That's NOT All, Folks;1988
+Gilda Radner;It's Always Something;1989
+Richard Pryor;Pryor Convictions;1995
+Damon Wayans;Bootleg;1996
+Stephen Fry;Moab Is My Washpot;1997
+Jenny McCarthy;Jen-X: My Open Book;1997
+Chris Rock;Rock This;1997
+Sandra Bernhard;Confessions of a Pretty Lady;1998
+Danny Bonaduce;Random Acts of Badness;2001
+Fran Drescher;Cancer Schmancer;2002
+Alan Thicke;How Men Have Babies: a New Father's Survival Guide;2003
+Rodney Dangerfield;It's Not Easy Being Me: a Lifetime of No Respect But Plenty of Sex and Drugs;2004
+Tom Green;Hollywood Causes Cancer;2004
+Rik Mayall;Bigger Than Hitler & Better Than Christ;2005
+Tommy Chong;The I Chong: Meditations From the Joint;2006
+Alan Thicke;How to Raise Kids Who Won't Hate You;2006
+Steve Martin;Born Standing Up;2007
+Denis Leary;Why We Suck;2008
+Stephen Fry;Ernie: The Autobiography;2009
+Frankie Boyle;My Shit Life So Far;2009
+Craig Ferguson;American on Purpose;2009
+Todd Bridges;Killing Willis;2010
+Kevin Smith;Tough Sh*t: Life Advice from a Fat, Lazy Slob Who Still Made Good;2012
+Jimmie Walker;Dyn-o-mite!;2012
+Andrew Dice Clay;The Filthy Truth;2014
+John Cleese;So, Anyway...;2014
+Cheech Marin;Cheech Is Not My Real Name...But Don't Call Me Chong!;2017
+Eric Idle;Always Look On the Bright Side Of Life;2018Zion Martinez	(631) 472-4834
+Moriah Velez	(201) 684-8134
+Jenna Peterson	(355) 554-9561
+Ayaan Novak	(812) 883-7304
+Elena Sosa	(504) 478-1208
+Taniyah Lucas	(949) 304-4647
+Maritza Ramos	(295) 931-1193
+Maryjane Velazquez	(409) 441-2612
+Oliver Cooper	(917) 965-9749
+Max Bridges	(665) 245-0683
+Craig Sutton	(783) 281-6115
+Emilie Good	(608) 628-4088
+Alexis Rowe	(357) 540-2991
+Maxwell Rose	(366) 809-5605
+Davin Carroll	(508) 291-1622
+Riya Foster	(461) 532-0795
+Kymani Pena	(366) 683-3252
+Josie Lloyd	(676) 509-5720
+Amy Fowler	(630) 821-5787
+Zion Strickland	(443) 372-0040
+Jermaine Roy	(576) 876-2490
+Sasha Duncan	(379) 596-5662
+Guillermo Pacheco	(922) 634-5795
+Mohammad Tapia	(969) 831-7093
+Samir Mcdonald	(546) 420-0881
+Sidney Mcdaniel	(783) 705-9254
+Cameron Terry	(540) 878-9323
+Kyla Waters	(319) 523-8400
+Paloma Tyler	(709) 788-9820
+Carolyn Peck	(878) 309-5141
+Aliana Murillo	(681) 897-9813
+Harold Stark	(995) 575-6794
+Tomas Acevedo	(526) 889-3684
+Jayla Whitney	(790) 295-4491
+Linda Casey	(596) 279-2188
+Shelby Gutierrez	(266) 441-0506
+Scarlett Pugh	(205) 887-2552
+Tobias Joseph	(894) 486-4422
+Meadow Pennington	(789) 483-7632
+Jeremy Tucker	(768) 454-3347
+Giovani Hill	(859) 512-3285
+Lorelei Chase	(527) 510-6364
+Anabella Wolf	(370) 917-1457
+Dominick Cobb	(831) 874-8695
+Ismael Montoya	(397) 258-5867
+Charles Santiago	(804) 306-7622
+Eva Galvan	(836) 732-4963
+Branden Cantu	(862) 408-5783
+Patricia Dodson	(685) 849-8192
+Marina Chan	(600) 464-2106
+﻿Level Date and Time Source Event ID Task Category
+Critical 1/27/2020 8:19:22 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/26/2020 10:09:54 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/25/2020 10:12:58 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/25/2020 10:03:44 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffff810ec8c31060, 0xfffff80716e687b0, 0xffff810ed30e3c20). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: 7fcfb77c-e4b0-4e3b-b4c7-af9dafdafc7f.
+Error 1/25/2020 10:03:29 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/25/2020 10:03:28 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/24/2020 8:04:10 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/24/2020 8:04:08 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/23/2020 11:53:41 PM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Critical 1/23/2020 7:59:27 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/23/2020 7:59:33 AM EventLog 6008 None The previous system shutdown at 12:10:13 AM on ‎1/‎23/‎2020 was unexpected.
+Error 1/23/2020 7:59:25 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/23/2020 12:19:14 AM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Critical 1/22/2020 7:40:49 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/22/2020 7:40:46 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/22/2020 7:40:55 AM EventLog 6008 None The previous system shutdown at 11:50:39 PM on ‎1/‎21/‎2020 was unexpected.
+Error 1/22/2020 12:03:05 AM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Error 1/21/2020 8:31:51 AM Service Control Manager 7000 None "The Steam Client Service service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion."
+Error 1/21/2020 8:31:51 AM Service Control Manager 7009 None A timeout was reached (30000 milliseconds) while waiting for the Steam Client Service service to connect.
+Error 1/21/2020 8:31:39 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/21/2020 8:30:48 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffb8870de1f060, 0xffffb58e3fa3f7b0, 0xffffb88716aad010). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: d5492e55-b096-4be9-8946-79606b0b7df2.
+Error 1/21/2020 8:30:34 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/21/2020 8:30:30 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/21/2020 8:30:28 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/21/2020 8:30:39 AM EventLog 6008 None The previous system shutdown at 11:55:06 PM on ‎1/‎20/‎2020 was unexpected.
+Error 1/20/2020 10:56:01 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/20/2020 10:56:01 AM Tcpip 4207 None The IPv4 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/20/2020 10:55:24 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/20/2020 10:55:22 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/20/2020 8:41:34 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/19/2020 4:23:56 PM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/19/2020 4:23:38 PM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffff9588ada3f060, 0xfffff80082e687b0, 0xffff9588b8778c30). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: cea4bd76-9e35-4798-9ea7-6c027be9f1ef.
+Error 1/19/2020 4:23:05 PM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/19/2020 4:23:04 PM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/19/2020 4:23:01 PM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/19/2020 4:23:10 PM EventLog 6008 None The previous system shutdown at 5:15:31 PM on ‎1/‎17/‎2020 was unexpected.
+Error 1/17/2020 7:56:41 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/17/2020 7:55:40 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffb40fae2b4060, 0xfffff80641e687b0, 0xffffb40fb601b260). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: e879c596-b5c3-422f-a6ad-3718b06c410e.
+Error 1/17/2020 7:55:26 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/17/2020 7:55:24 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/16/2020 9:34:28 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/16/2020 9:32:59 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffad0ab1852060, 0xffffac070e03f7b0, 0xffffad0ab47819a0). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: 5203e737-299c-40bd-aeb2-13e3c9f010c0.
+Error 1/16/2020 9:32:45 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/16/2020 9:32:44 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/15/2020 3:34:14 PM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Error 1/15/2020 7:17:10 AM VBoxNetLwf 12 None The driver detected an internal driver error on \Device\VBoxNetLwf.
+Critical 1/15/2020 7:17:10 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/14/2020 6:49:47 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.Site	Domain	Alexa top 50 global sites	SimilarWeb top 50 sites	Type	Principal country/territory
+Google	https://google.com	1 (Steady)	1 (Steady)	Internet services and products	United States U.S.
+YouTube	https://youtube.com	2 (Steady)	2 (Increase1)	Video sharing	United States U.S.
+Tmall	https://tmall.com	3 (Steady)	82 (Steady)	Online shopping	China China
+Facebook	https://facebook.com	4 (Increase3)	3 (Decrease1)	Social networking	United States U.S.
+Baidu	https://baidu.com	5 (Decrease1)	4 (Increase11)	Internet-related services and products	China China
+Tencent QQ	https://qq.com	6 (Decrease1)	20 (Increase18)	Portal	China China
+Sohu	https://sohu.com	7 (Decrease1)	79 (Increase125)	Portal	China China
+Tmall	https://login.tmall.com	8 (Increase1)	N/A[note 1]	Online shopping	China China
+Taobao	https://taobao.com	9 (Decrease1)	42 (Increase9)	Online shopping	China China
+Haosou	https://360.cn	10 (Increase2)	219 (Decrease134)	Internet security and web search engine	China China
+Yahoo!	https://yahoo.com	11 (Steady)	9 (Decrease5)	Portal and media	United States U.S.
+Jingdong Mall	https://jd.com	12 (Increase2)	99	E-commerce	China China
+Wikipedia	https://wikipedia.org	13 (Decrease3)	10 (Decrease5)	Encyclopedia	United States U.S.
+Amazon	https://mazon.com	14 (Decrease1)	13 (Increase8)	E-commerce and cloud computing	United States U.S.
+Sina Corp	https://sina.com.cn	15 (Increase1)	157 (Decrease47)	Portal and instant messaging	China China
+Sina Weibo	https://weibo.com	16 (Decrease1)	128 (Decrease32)	Social networking	China China
+Tmall	https://pages.tmall.com	17 (Increase1)	N/A[note 1]	Online shopping	China China
+Windows Live	https://live.com	18 (Decrease1)	15 (Decrease8)	Software plus services	United States U.S.
+Reddit	https://reddit.com	19 (Steady)	17 (Increase14)	Social news and entertainment	United States U.S.
+Netflix	https://netflix.com	20 (Increase1)	19 (Increase5)	Streaming TV and movies	United States U.S.
+Zoom Video Communications	https://zoom.us	21 (N/A)	[data unknown/missing]	Videotelephony	United States U.S.
+Xinhua News Agency	https://xinhuanet.com	22 (Increase9)	4,150	News	China China
+Okezone	https://Okezone.com	23 (Increase4)	3,102	Portal	Indonesia Indonesia
+Blogspot	https://blogspot.com	24 (Increase2)	236,937	Blogging	United States U.S.
+Microsoft Office	https://office.com	25 (Increase5)	35 (Increase5)	Online office suite	United States U.S.
+Microsoft	https://microsoft.com	26 (Increase8)	44 (Increase4)	Software and technology	United States U.S.
+VK	https://vk.com	27 (Decrease7)	12 (Increase2)	Social networking	Russia Russia
+CSDN	https://csdn.net	28 (Decrease4)	209	Technology news and Internet forum	China China
+Instagram	https://instagram.com	29 (Decrease1)	5 (Increase13)	Photo sharing and social media	United States U.S.
+Alipay	https://alipay.com	30 (Decrease7)	262	Payment system	China China
+Yahoo! https://Japan	yahoo.co.jp	31 (Decrease5)	23 (Increase4)	Portal	Japan Japan
+Twitch	https://Twitch.tv	32 (Increase5)	38 (Increase34)	Streaming primarily on video games	United States U.S.
+Bing	https://bing.com	33 (Decrease8)	25 (Increase21)	Web search engine	United States U.S.
+
+(Based on data provided by Wikipedia at en.wikipedia.org/wiki/List_of_most_popular_websites)Name	        AverageVolume	Revenue	    P/E Ratio
+3M              5.03M	        32.14B	    18.74	
+Alphabet C	    2.41M	        161.86B	    26.01
+Amazon.com	    6.01M	        280.52B	    103.18
+Apple	        51.02M	        267.68B	    22.34
+Boeing	        23.63M	        84.82B		20.31
+Caterpillar	    5.46M	        53.80B	    11.18
+Chevron	        14.33M	        140.16B	    58.8
+Cisco	        32.32M	        51.55B	    15.42
+Coca-Cola	    20.82M	        37.27B	    23.24
+Exxon Mobil	    37.47M	        255.58B	    13.57
+Facebook	    23.04M	        70.70B	    29.45
+Goldman Sachs	4.51M	        53.69B	    9.97
+Home Depot	    6.82M	        110.23B	    20.43
+IBM	            7.17M	        77.15B	    11.19
+Intel	        33.07M	        71.97B	    12.77
+J&J	            11.54M	        82.73B	    23.72
+JPMorgan	    22.96M	        67.07B	    10.75
+McDonalds	    5.62M	        21.08B	    23.43
+Merck&Co	    14.11M	        46.84B	    21.64
+Microsoft	    54.66M	        134.25B	    33.04
+Nike	        10.38M	        41.27B	    33.27
+Pfizer	        34.01M	        51.75B	    13.15
+Procter&Gamble	11.36M	        69.59B		11.19
+Raytheon Tech.	10.18M	        77.05B	    10.31
+Tesla	        20.82M	        24.58B		14.41
+UnitedHealth	6.24M	        246.27B	    20.34
+Verizon	        21.91M	        131.87B	    12.56
+Visa A	        13.98M	        23.53B	    32.21
+Walmart	        10.10M	        523.96B	    25.46
+Walt Disney	    20.03M	        75.13B	    17.98
+
+
+Source: https://www.investing.com/equities/
+(slightly modified for educational purposes)Zion Martinez	(631) 472-4834
+Moriah Velez	(201) 684-8134
+Jenna Peterson	(355) 554-9561
+Ayaan Novak	(812) 883-7304
+Elena Sosa	(504) 478-1208
+Taniyah Lucas	(949) 304-4647
+Maritza Ramos	(295) 931-1193
+Maryjane Velazquez	(409) 441-2612
+Oliver Cooper	(917) 965-9749
+Max Bridges	(665) 245-0683
+Craig Sutton	(783) 281-6115
+Emilie Good	(608) 628-4088
+Alexis Rowe	(357) 540-2991
+Maxwell Rose	(366) 809-5605
+Davin Carroll	(508) 291-1622
+Riya Foster	(461) 532-0795
+Kymani Pena	(366) 683-3252
+Josie Lloyd	(676) 509-5720
+Amy Fowler	(630) 821-5787
+Zion Strickland	(443) 372-0040
+Jermaine Roy	(576) 876-2490
+Sasha Duncan	(379) 596-5662
+Guillermo Pacheco	(922) 634-5795
+Mohammad Tapia	(969) 831-7093
+Samir Mcdonald	(546) 420-0881
+Sidney Mcdaniel	(783) 705-9254
+Cameron Terry	(540) 878-9323
+Kyla Waters	(319) 523-8400
+Paloma Tyler	(709) 788-9820
+Carolyn Peck	(878) 309-5141
+Aliana Murillo	(681) 897-9813
+Harold Stark	(995) 575-6794
+Tomas Acevedo	(526) 889-3684
+Jayla Whitney	(790) 295-4491
+Linda Casey	(596) 279-2188
+Shelby Gutierrez	(266) 441-0506
+Scarlett Pugh	(205) 887-2552
+Tobias Joseph	(894) 486-4422
+Meadow Pennington	(789) 483-7632
+Jeremy Tucker	(768) 454-3347
+Giovani Hill	(859) 512-3285
+Lorelei Chase	(527) 510-6364
+Anabella Wolf	(370) 917-1457
+Dominick Cobb	(831) 874-8695
+Ismael Montoya	(397) 258-5867
+Charles Santiago	(804) 306-7622
+Eva Galvan	(836) 732-4963
+Branden Cantu	(862) 408-5783
+Patricia Dodson	(685) 849-8192
+Marina Chan	(600) 464-2106
+﻿Level Date and Time Source Event ID Task Category
+Critical 1/27/2020 8:19:22 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/26/2020 10:09:54 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/25/2020 10:12:58 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/25/2020 10:03:44 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffff810ec8c31060, 0xfffff80716e687b0, 0xffff810ed30e3c20). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: 7fcfb77c-e4b0-4e3b-b4c7-af9dafdafc7f.
+Error 1/25/2020 10:03:29 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/25/2020 10:03:28 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/24/2020 8:04:10 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/24/2020 8:04:08 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/23/2020 11:53:41 PM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Critical 1/23/2020 7:59:27 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/23/2020 7:59:33 AM EventLog 6008 None The previous system shutdown at 12:10:13 AM on ‎1/‎23/‎2020 was unexpected.
+Error 1/23/2020 7:59:25 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/23/2020 12:19:14 AM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Critical 1/22/2020 7:40:49 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/22/2020 7:40:46 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/22/2020 7:40:55 AM EventLog 6008 None The previous system shutdown at 11:50:39 PM on ‎1/‎21/‎2020 was unexpected.
+Error 1/22/2020 12:03:05 AM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Error 1/21/2020 8:31:51 AM Service Control Manager 7000 None "The Steam Client Service service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion."
+Error 1/21/2020 8:31:51 AM Service Control Manager 7009 None A timeout was reached (30000 milliseconds) while waiting for the Steam Client Service service to connect.
+Error 1/21/2020 8:31:39 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/21/2020 8:30:48 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffb8870de1f060, 0xffffb58e3fa3f7b0, 0xffffb88716aad010). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: d5492e55-b096-4be9-8946-79606b0b7df2.
+Error 1/21/2020 8:30:34 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/21/2020 8:30:30 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/21/2020 8:30:28 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/21/2020 8:30:39 AM EventLog 6008 None The previous system shutdown at 11:55:06 PM on ‎1/‎20/‎2020 was unexpected.
+Error 1/20/2020 10:56:01 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/20/2020 10:56:01 AM Tcpip 4207 None The IPv4 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/20/2020 10:55:24 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/20/2020 10:55:22 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/20/2020 8:41:34 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/19/2020 4:23:56 PM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/19/2020 4:23:38 PM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffff9588ada3f060, 0xfffff80082e687b0, 0xffff9588b8778c30). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: cea4bd76-9e35-4798-9ea7-6c027be9f1ef.
+Error 1/19/2020 4:23:05 PM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/19/2020 4:23:04 PM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/19/2020 4:23:01 PM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/19/2020 4:23:10 PM EventLog 6008 None The previous system shutdown at 5:15:31 PM on ‎1/‎17/‎2020 was unexpected.
+Error 1/17/2020 7:56:41 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/17/2020 7:55:40 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffb40fae2b4060, 0xfffff80641e687b0, 0xffffb40fb601b260). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: e879c596-b5c3-422f-a6ad-3718b06c410e.
+Error 1/17/2020 7:55:26 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/17/2020 7:55:24 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/16/2020 9:34:28 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/16/2020 9:32:59 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffad0ab1852060, 0xffffac070e03f7b0, 0xffffad0ab47819a0). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: 5203e737-299c-40bd-aeb2-13e3c9f010c0.
+Error 1/16/2020 9:32:45 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/16/2020 9:32:44 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/15/2020 3:34:14 PM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Error 1/15/2020 7:17:10 AM VBoxNetLwf 12 None The driver detected an internal driver error on \Device\VBoxNetLwf.
+Critical 1/15/2020 7:17:10 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/14/2020 6:49:47 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.Site	Domain	Alexa top 50 global sites	SimilarWeb top 50 sites	Type	Principal country/territory
+Google	https://google.com	1 (Steady)	1 (Steady)	Internet services and products	United States U.S.
+YouTube	https://youtube.com	2 (Steady)	2 (Increase1)	Video sharing	United States U.S.
+Tmall	https://tmall.com	3 (Steady)	82 (Steady)	Online shopping	China China
+Facebook	https://facebook.com	4 (Increase3)	3 (Decrease1)	Social networking	United States U.S.
+Baidu	https://baidu.com	5 (Decrease1)	4 (Increase11)	Internet-related services and products	China China
+Tencent QQ	https://qq.com	6 (Decrease1)	20 (Increase18)	Portal	China China
+Sohu	https://sohu.com	7 (Decrease1)	79 (Increase125)	Portal	China China
+Tmall	https://login.tmall.com	8 (Increase1)	N/A[note 1]	Online shopping	China China
+Taobao	https://taobao.com	9 (Decrease1)	42 (Increase9)	Online shopping	China China
+Haosou	https://360.cn	10 (Increase2)	219 (Decrease134)	Internet security and web search engine	China China
+Yahoo!	https://yahoo.com	11 (Steady)	9 (Decrease5)	Portal and media	United States U.S.
+Jingdong Mall	https://jd.com	12 (Increase2)	99	E-commerce	China China
+Wikipedia	https://wikipedia.org	13 (Decrease3)	10 (Decrease5)	Encyclopedia	United States U.S.
+Amazon	https://mazon.com	14 (Decrease1)	13 (Increase8)	E-commerce and cloud computing	United States U.S.
+Sina Corp	https://sina.com.cn	15 (Increase1)	157 (Decrease47)	Portal and instant messaging	China China
+Sina Weibo	https://weibo.com	16 (Decrease1)	128 (Decrease32)	Social networking	China China
+Tmall	https://pages.tmall.com	17 (Increase1)	N/A[note 1]	Online shopping	China China
+Windows Live	https://live.com	18 (Decrease1)	15 (Decrease8)	Software plus services	United States U.S.
+Reddit	https://reddit.com	19 (Steady)	17 (Increase14)	Social news and entertainment	United States U.S.
+Netflix	https://netflix.com	20 (Increase1)	19 (Increase5)	Streaming TV and movies	United States U.S.
+Zoom Video Communications	https://zoom.us	21 (N/A)	[data unknown/missing]	Videotelephony	United States U.S.
+Xinhua News Agency	https://xinhuanet.com	22 (Increase9)	4,150	News	China China
+Okezone	https://Okezone.com	23 (Increase4)	3,102	Portal	Indonesia Indonesia
+Blogspot	https://blogspot.com	24 (Increase2)	236,937	Blogging	United States U.S.
+Microsoft Office	https://office.com	25 (Increase5)	35 (Increase5)	Online office suite	United States U.S.
+Microsoft	https://microsoft.com	26 (Increase8)	44 (Increase4)	Software and technology	United States U.S.
+VK	https://vk.com	27 (Decrease7)	12 (Increase2)	Social networking	Russia Russia
+CSDN	https://csdn.net	28 (Decrease4)	209	Technology news and Internet forum	China China
+Instagram	https://instagram.com	29 (Decrease1)	5 (Increase13)	Photo sharing and social media	United States U.S.
+Alipay	https://alipay.com	30 (Decrease7)	262	Payment system	China China
+Yahoo! https://Japan	yahoo.co.jp	31 (Decrease5)	23 (Increase4)	Portal	Japan Japan
+Twitch	https://Twitch.tv	32 (Increase5)	38 (Increase34)	Streaming primarily on video games	United States U.S.
+Bing	https://bing.com	33 (Decrease8)	25 (Increase21)	Web search engine	United States U.S.
+
+(Based on data provided by Wikipedia at en.wikipedia.org/wiki/List_of_most_popular_websites)Name	        AverageVolume	Revenue	    P/E Ratio
+3M              5.03M	        32.14B	    18.74	
+Alphabet C	    2.41M	        161.86B	    26.01
+Amazon.com	    6.01M	        280.52B	    103.18
+Apple	        51.02M	        267.68B	    22.34
+Boeing	        23.63M	        84.82B		20.31
+Caterpillar	    5.46M	        53.80B	    11.18
+Chevron	        14.33M	        140.16B	    58.8
+Cisco	        32.32M	        51.55B	    15.42
+Coca-Cola	    20.82M	        37.27B	    23.24
+Exxon Mobil	    37.47M	        255.58B	    13.57
+Facebook	    23.04M	        70.70B	    29.45
+Goldman Sachs	4.51M	        53.69B	    9.97
+Home Depot	    6.82M	        110.23B	    20.43
+IBM	            7.17M	        77.15B	    11.19
+Intel	        33.07M	        71.97B	    12.77
+J&J	            11.54M	        82.73B	    23.72
+JPMorgan	    22.96M	        67.07B	    10.75
+McDonalds	    5.62M	        21.08B	    23.43
+Merck&Co	    14.11M	        46.84B	    21.64
+Microsoft	    54.66M	        134.25B	    33.04
+Nike	        10.38M	        41.27B	    33.27
+Pfizer	        34.01M	        51.75B	    13.15
+Procter&Gamble	11.36M	        69.59B		11.19
+Raytheon Tech.	10.18M	        77.05B	    10.31
+Tesla	        20.82M	        24.58B		14.41
+UnitedHealth	6.24M	        246.27B	    20.34
+Verizon	        21.91M	        131.87B	    12.56
+Visa A	        13.98M	        23.53B	    32.21
+Walmart	        10.10M	        523.96B	    25.46
+Walt Disney	    20.03M	        75.13B	    17.98
+
+
+Source: https://www.investing.com/equities/
+(slightly modified for educational purposes)Zion Martinez	(631) 472-4834
+Moriah Velez	(201) 684-8134
+Jenna Peterson	(355) 554-9561
+Ayaan Novak	(812) 883-7304
+Elena Sosa	(504) 478-1208
+Taniyah Lucas	(949) 304-4647
+Maritza Ramos	(295) 931-1193
+Maryjane Velazquez	(409) 441-2612
+Oliver Cooper	(917) 965-9749
+Max Bridges	(665) 245-0683
+Craig Sutton	(783) 281-6115
+Emilie Good	(608) 628-4088
+Alexis Rowe	(357) 540-2991
+Maxwell Rose	(366) 809-5605
+Davin Carroll	(508) 291-1622
+Riya Foster	(461) 532-0795
+Kymani Pena	(366) 683-3252
+Josie Lloyd	(676) 509-5720
+Amy Fowler	(630) 821-5787
+Zion Strickland	(443) 372-0040
+Jermaine Roy	(576) 876-2490
+Sasha Duncan	(379) 596-5662
+Guillermo Pacheco	(922) 634-5795
+Mohammad Tapia	(969) 831-7093
+Samir Mcdonald	(546) 420-0881
+Sidney Mcdaniel	(783) 705-9254
+Cameron Terry	(540) 878-9323
+Kyla Waters	(319) 523-8400
+Paloma Tyler	(709) 788-9820
+Carolyn Peck	(878) 309-5141
+Aliana Murillo	(681) 897-9813
+Harold Stark	(995) 575-6794
+Tomas Acevedo	(526) 889-3684
+Jayla Whitney	(790) 295-4491
+Linda Casey	(596) 279-2188
+Shelby Gutierrez	(266) 441-0506
+Scarlett Pugh	(205) 887-2552
+Tobias Joseph	(894) 486-4422
+Meadow Pennington	(789) 483-7632
+Jeremy Tucker	(768) 454-3347
+Giovani Hill	(859) 512-3285
+Lorelei Chase	(527) 510-6364
+Anabella Wolf	(370) 917-1457
+Dominick Cobb	(831) 874-8695
+Ismael Montoya	(397) 258-5867
+Charles Santiago	(804) 306-7622
+Eva Galvan	(836) 732-4963
+Branden Cantu	(862) 408-5783
+Patricia Dodson	(685) 849-8192
+Marina Chan	(600) 464-2106
+﻿Level Date and Time Source Event ID Task Category
+Critical 1/27/2020 8:19:22 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/26/2020 10:09:54 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/25/2020 10:12:58 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/25/2020 10:03:44 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffff810ec8c31060, 0xfffff80716e687b0, 0xffff810ed30e3c20). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: 7fcfb77c-e4b0-4e3b-b4c7-af9dafdafc7f.
+Error 1/25/2020 10:03:29 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/25/2020 10:03:28 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/24/2020 8:04:10 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/24/2020 8:04:08 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/23/2020 11:53:41 PM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Critical 1/23/2020 7:59:27 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/23/2020 7:59:33 AM EventLog 6008 None The previous system shutdown at 12:10:13 AM on ‎1/‎23/‎2020 was unexpected.
+Error 1/23/2020 7:59:25 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/23/2020 12:19:14 AM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Critical 1/22/2020 7:40:49 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/22/2020 7:40:46 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/22/2020 7:40:55 AM EventLog 6008 None The previous system shutdown at 11:50:39 PM on ‎1/‎21/‎2020 was unexpected.
+Error 1/22/2020 12:03:05 AM Microsoft-Windows-DistributedCOM 10010 None The server {4AA0A5C4-1B9B-4F2E-99D7-99C6AEC83474} did not register with DCOM within the required timeout.
+Error 1/21/2020 8:31:51 AM Service Control Manager 7000 None "The Steam Client Service service failed to start due to the following error: 
+The service did not respond to the start or control request in a timely fashion."
+Error 1/21/2020 8:31:51 AM Service Control Manager 7009 None A timeout was reached (30000 milliseconds) while waiting for the Steam Client Service service to connect.
+Error 1/21/2020 8:31:39 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/21/2020 8:30:48 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffb8870de1f060, 0xffffb58e3fa3f7b0, 0xffffb88716aad010). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: d5492e55-b096-4be9-8946-79606b0b7df2.
+Error 1/21/2020 8:30:34 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/21/2020 8:30:30 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/21/2020 8:30:28 AM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/21/2020 8:30:39 AM EventLog 6008 None The previous system shutdown at 11:55:06 PM on ‎1/‎20/‎2020 was unexpected.
+Error 1/20/2020 10:56:01 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/20/2020 10:56:01 AM Tcpip 4207 None The IPv4 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/20/2020 10:55:24 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/20/2020 10:55:22 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/20/2020 8:41:34 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/19/2020 4:23:56 PM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/19/2020 4:23:38 PM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffff9588ada3f060, 0xfffff80082e687b0, 0xffff9588b8778c30). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: cea4bd76-9e35-4798-9ea7-6c027be9f1ef.
+Error 1/19/2020 4:23:05 PM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/19/2020 4:23:04 PM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/19/2020 4:23:01 PM Microsoft-Windows-Kernel-Boot 29 None Windows failed fast startup with error status 0xC0000001.
+Error 1/19/2020 4:23:10 PM EventLog 6008 None The previous system shutdown at 5:15:31 PM on ‎1/‎17/‎2020 was unexpected.
+Error 1/17/2020 7:56:41 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/17/2020 7:55:40 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffb40fae2b4060, 0xfffff80641e687b0, 0xffffb40fb601b260). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: e879c596-b5c3-422f-a6ad-3718b06c410e.
+Error 1/17/2020 7:55:26 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/17/2020 7:55:24 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/16/2020 9:34:28 AM Tcpip 4207 None The IPv6 TCP/IP interface with index 13 failed to bind to its provider.
+Error 1/16/2020 9:32:59 AM Microsoft-Windows-WER-SystemErrorReporting 1001 None The computer has rebooted from a bugcheck.  The bugcheck was: 0x0000009f (0x0000000000000003, 0xffffad0ab1852060, 0xffffac070e03f7b0, 0xffffad0ab47819a0). A dump was saved in: C:\WINDOWS\MEMORY.DMP. Report Id: 5203e737-299c-40bd-aeb2-13e3c9f010c0.
+Error 1/16/2020 9:32:45 AM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Critical 1/16/2020 9:32:44 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error 1/15/2020 3:34:14 PM TPM 15 None The device driver for the Trusted Platform Module (TPM) encountered a non-recoverable error in the TPM hardware, which prevents TPM services (such as data encryption) from being used. For further help, please contact the computer manufacturer.
+Error 1/15/2020 7:17:10 AM VBoxNetLwf 12 None The driver detected an internal driver error on \Device\VBoxNetLwf.
+Critical 1/15/2020 7:17:10 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Critical 1/14/2020 6:49:47 AM Microsoft-Windows-Kernel-Power 41 (63) The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.Site	Domain	Alexa top 50 global sites	SimilarWeb top 50 sites	Type	Principal country/territory
+Google	https://google.com	1 (Steady)	1 (Steady)	Internet services and products	United States U.S.
+YouTube	https://youtube.com	2 (Steady)	2 (Increase1)	Video sharing	United States U.S.
+Tmall	https://tmall.com	3 (Steady)	82 (Steady)	Online shopping	China China
+Facebook	https://facebook.com	4 (Increase3)	3 (Decrease1)	Social networking	United States U.S.
+Baidu	https://baidu.com	5 (Decrease1)	4 (Increase11)	Internet-related services and products	China China
+Tencent QQ	https://qq.com	6 (Decrease1)	20 (Increase18)	Portal	China China
+Sohu	https://sohu.com	7 (Decrease1)	79 (Increase125)	Portal	China China
+Tmall	https://login.tmall.com	8 (Increase1)	N/A[note 1]	Online shopping	China China
+Taobao	https://taobao.com	9 (Decrease1)	42 (Increase9)	Online shopping	China China
+Haosou	https://360.cn	10 (Increase2)	219 (Decrease134)	Internet security and web search engine	China China
+Yahoo!	https://yahoo.com	11 (Steady)	9 (Decrease5)	Portal and media	United States U.S.
+Jingdong Mall	https://jd.com	12 (Increase2)	99	E-commerce	China China
+Wikipedia	https://wikipedia.org	13 (Decrease3)	10 (Decrease5)	Encyclopedia	United States U.S.
+Amazon	https://mazon.com	14 (Decrease1)	13 (Increase8)	E-commerce and cloud computing	United States U.S.
+Sina Corp	https://sina.com.cn	15 (Increase1)	157 (Decrease47)	Portal and instant messaging	China China
+Sina Weibo	https://weibo.com	16 (Decrease1)	128 (Decrease32)	Social networking	China China
+Tmall	https://pages.tmall.com	17 (Increase1)	N/A[note 1]	Online shopping	China China
+Windows Live	https://live.com	18 (Decrease1)	15 (Decrease8)	Software plus services	United States U.S.
+Reddit	https://reddit.com	19 (Steady)	17 (Increase14)	Social news and entertainment	United States U.S.
+Netflix	https://netflix.com	20 (Increase1)	19 (Increase5)	Streaming TV and movies	United States U.S.
+Zoom Video Communications	https://zoom.us	21 (N/A)	[data unknown/missing]	Videotelephony	United States U.S.
+Xinhua News Agency	https://xinhuanet.com	22 (Increase9)	4,150	News	China China
+Okezone	https://Okezone.com	23 (Increase4)	3,102	Portal	Indonesia Indonesia
+Blogspot	https://blogspot.com	24 (Increase2)	236,937	Blogging	United States U.S.
+Microsoft Office	https://office.com	25 (Increase5)	35 (Increase5)	Online office suite	United States U.S.
+Microsoft	https://microsoft.com	26 (Increase8)	44 (Increase4)	Software and technology	United States U.S.
+VK	https://vk.com	27 (Decrease7)	12 (Increase2)	Social networking	Russia Russia
+CSDN	https://csdn.net	28 (Decrease4)	209	Technology news and Internet forum	China China
+Instagram	https://instagram.com	29 (Decrease1)	5 (Increase13)	Photo sharing and social media	United States U.S.
+Alipay	https://alipay.com	30 (Decrease7)	262	Payment system	China China
+Yahoo! https://Japan	yahoo.co.jp	31 (Decrease5)	23 (Increase4)	Portal	Japan Japan
+Twitch	https://Twitch.tv	32 (Increase5)	38 (Increase34)	Streaming primarily on video games	United States U.S.
+Bing	https://bing.com	33 (Decrease8)	25 (Increase21)	Web search engine	United States U.S.
+
+(Based on data provided by Wikipedia at en.wikipedia.org/wiki/List_of_most_popular_websites)Name	        AverageVolume	Revenue	    P/E Ratio
+3M              5.03M	        32.14B	    18.74	
+Alphabet C	    2.41M	        161.86B	    26.01
+Amazon.com	    6.01M	        280.52B	    103.18
+Apple	        51.02M	        267.68B	    22.34
+Boeing	        23.63M	        84.82B		20.31
+Caterpillar	    5.46M	        53.80B	    11.18
+Chevron	        14.33M	        140.16B	    58.8
+Cisco	        32.32M	        51.55B	    15.42
+Coca-Cola	    20.82M	        37.27B	    23.24
+Exxon Mobil	    37.47M	        255.58B	    13.57
+Facebook	    23.04M	        70.70B	    29.45
+Goldman Sachs	4.51M	        53.69B	    9.97
+Home Depot	    6.82M	        110.23B	    20.43
+IBM	            7.17M	        77.15B	    11.19
+Intel	        33.07M	        71.97B	    12.77
+J&J	            11.54M	        82.73B	    23.72
+JPMorgan	    22.96M	        67.07B	    10.75
+McDonalds	    5.62M	        21.08B	    23.43
+Merck&Co	    14.11M	        46.84B	    21.64
+Microsoft	    54.66M	        134.25B	    33.04
+Nike	        10.38M	        41.27B	    33.27
+Pfizer	        34.01M	        51.75B	    13.15
+Procter&Gamble	11.36M	        69.59B		11.19
+Raytheon Tech.	10.18M	        77.05B	    10.31
+Tesla	        20.82M	        24.58B		14.41
+UnitedHealth	6.24M	        246.27B	    20.34
+Verizon	        21.91M	        131.87B	    12.56
+Visa A	        13.98M	        23.53B	    32.21
+Walmart	        10.10M	        523.96B	    25.46
+Walt Disney	    20.03M	        75.13B	    17.98
+
+
+Source: https://www.investing.com/equities/
+(slightly modified for educational purposes)
